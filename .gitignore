@@ -1,9 +1,13 @@
 # ---------------------------------------------------------------------------
-# Voice Voyage — FinalPhonemeRecognizer .gitignore
+# Voice Voyage Services — monorepo .gitignore
 # Only files that are PART OF THE FLOW are tracked.  Everything below is
-# regenerable, reference-only, or tooling — safe to delete, never required
-# by the /assess pipeline or the test suite.
+# regenerable, reference-only, or tooling.
 # ---------------------------------------------------------------------------
+
+# ---- Secrets (NEVER commit) ----
+.env
+*.env
+!*.env.example
 
 # ---- Python runtime artifacts ----
 __pycache__/
@@ -22,13 +26,13 @@ __pycache__/
 # ---- Old versions / reference only (do not ship) ----
 archive/
 
-# ---- Dev scripts (not part of the /assess flow) ----
+# ---- Dev scripts (not part of the flow) ----
 scripts/
 
 # ---- Test suite (kept local by request; not shipped) ----
 tests/
 
-# ---- Simulation records & runs (local only, not part of the flow) ----
+# ---- Simulation records & runs (local only) ----
 records/
 
 # ---- Design docs & generated data dumps (regenerable, not runtime) ----
@@ -42,14 +46,10 @@ main.py.tmp
 *.tmp
 
 # ---- Package marker files (untracked by request) ----
-# WARNING: phoneme_processes/__init__.py defines ProcessDetector and
-# util/__init__.py re-exports the util API — a FRESH CLONE will fail to
-# start without them (Docker/HF Spaces).  Re-track with:
-#   git add -f __init__.py  (per package)
+# WARNING: a fresh clone is missing __init__.py by design; all imports are
+# submodule-style so the services still boot (namespace packages).
 __init__.py
 
 # ---- OS noise ----
 Thumbs.db
 .DS_Store
-
-tests/

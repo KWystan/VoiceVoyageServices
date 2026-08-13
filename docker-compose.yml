@@ -1,0 +1,14 @@
+services:
+  phoneme:
+    build: ./phoneme_service
+    ports:
+      - "8001:8001"
+    environment:
+      - PYTHONUTF8=1
+
+  dynamic-modules:
+    build: ./dynamic_modules_service
+    ports:
+      - "8002:8002"
+    env_file:
+      - .env
