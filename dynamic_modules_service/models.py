@@ -1,6 +1,6 @@
-"""Domain model for the dynamic modules service — pure value objects.
+"""Domain data for the dynamic modules service — plain dataclasses.
 
-Zero framework imports: this module must stay testable in isolation.
+Zero framework imports: these stay testable in isolation.
 """
 
 from dataclasses import dataclass, field
@@ -40,7 +40,6 @@ class AssessmentFindings:
     """The child's assessment results — the input to module building."""
     age: int
     processes: tuple[DetectedProcess, ...] = ()
-    pcc: Optional[float] = None
 
 
 @dataclass(frozen=True)
@@ -56,9 +55,10 @@ class PracticeItem:
     """A single practice unit (syllable, word, phrase, or sentence)."""
     text: str
     level: PracticeLevel
-    target_sound: str
+    target_sound: str = ""
     position: str = ""
     phonemes: str = ""  # comma-separated; used to avoid other error sounds
+    theme: str = "general"  # "ocean" | "general" — matches the app's theme
 
 
 @dataclass(frozen=True)
@@ -83,3 +83,30 @@ class LearningModule:
     rationale: str
     generated_by: str  # "llm" | "rule-based"
     warning: Optional[str] = None
+
+
+@dataclass(frozen=True)
+class AshaGroup:
+    """One phoneme/process group from the ASHA word list, by position."""
+    phonemes: str
+    initial: tuple[str, ...] = ()
+    medial: tuple[str, ...] = ()
+    final: tuple[str, ...] = ()
+
+
+@dataclass(frozen=True)
+class AshaErrorPattern:
+    """'If they say X -> display label Y' row from the ASHA lists."""
+    word_group: str
+    words: tuple[str, ...]
+    if_they_say: str
+    display_label: str
+
+
+@dataclass(frozen=True)
+class AshaBracket:
+    """The ASHA word list + process context for one age bracket."""
+    name: str
+    focus: str
+    groups: tuple[AshaGroup, ...] = ()
+    error_patterns: tuple[AshaErrorPattern, ...] = ()

@@ -1,126 +1,133 @@
 {
   "outlines": [
     {
-      "id": "fronting-k-initial",
-      "title": "Fronting: /k/ initial practice",
+      "id": "fronting-k",
+      "title": "Fronting: /k/ practice",
       "focus_process": "Fronting",
-      "target_sounds": ["k"],
+      "target_sounds": [
+        "k"
+      ],
       "levels": {
         "syllable": [
-          {"text": "ka", "target_sound": "k", "position": "Initial", "phonemes": "k,ɑ"},
-          {"text": "ki", "target_sound": "k", "position": "Initial", "phonemes": "k,i"},
-          {"text": "ku", "target_sound": "k", "position": "Initial", "phonemes": "k,u"},
-          {"text": "ko", "target_sound": "k", "position": "Initial", "phonemes": "k,oʊ"},
-          {"text": "kee", "target_sound": "k", "position": "Initial", "phonemes": "k,i"}
+          "ka",
+          "ki",
+          "ku",
+          "ko",
+          "kee"
         ],
         "word": [
-          {"text": "key", "target_sound": "k", "position": "Initial", "phonemes": "k,i"},
-          {"text": "cup", "target_sound": "k", "position": "Initial", "phonemes": "k,ə,p"},
-          {"text": "cookie", "target_sound": "k", "position": "Initial", "phonemes": "k,ʊ,k,i"},
-          {"text": "cat", "target_sound": "k", "position": "Initial", "phonemes": "k,æ,t"},
-          {"text": "car", "target_sound": "k", "position": "Initial", "phonemes": "k,ɑ,r"},
-          {"text": "bike", "target_sound": "k", "position": "Final", "phonemes": "b,aɪ,k"}
+          "key",
+          "cup",
+          "cookie",
+          "cat",
+          "bike"
         ],
         "phrase": [
-          {"text": "a big cup", "target_sound": "k", "position": "Initial", "phonemes": "ə,b,ɪ,ɡ,k,ə,p"},
-          {"text": "my cookie", "target_sound": "k", "position": "Initial", "phonemes": "m,aɪ,k,ʊ,k,i"},
-          {"text": "the key", "target_sound": "k", "position": "Initial", "phonemes": "ð,ə,k,i"},
-          {"text": "a red car", "target_sound": "k", "position": "Initial", "phonemes": "ə,r,ɛ,d,k,ɑ,r"}
+          "a big cup",
+          "my cookie",
+          "the key",
+          "a red car"
         ],
         "sentence": [
-          {"text": "I drink from a cup.", "target_sound": "k", "position": "Initial", "phonemes": "aɪ,d,r,ɪ,ŋ,k,f,r,ə,m,ə,k,ə,p"},
-          {"text": "The cat is on the mat.", "target_sound": "k", "position": "Initial", "phonemes": "ð,ə,k,æ,t,ɪ,z,ɔ,n,ð,ə,m,æ,t"},
-          {"text": "My key opens the door.", "target_sound": "k", "position": "Initial", "phonemes": "m,aɪ,k,i,oʊ,p,ə,n,z,ð,ə,d,ɔ,r"},
-          {"text": "I see a cookie.", "target_sound": "k", "position": "Initial", "phonemes": "aɪ,s,i,ə,k,ʊ,k,i"}
+          "I drink from a cup.",
+          "The cat is on the mat.",
+          "My key opens the door.",
+          "I see a cookie."
         ]
       }
     },
     {
-      "id": "stopping-s-initial",
-      "title": "Stopping: /s/ initial practice",
+      "id": "stopping-s",
+      "title": "Stopping: /s/ practice",
       "focus_process": "Stopping",
-      "target_sounds": ["s"],
+      "target_sounds": [
+        "s"
+      ],
       "levels": {
         "syllable": [
-          {"text": "sa", "target_sound": "s", "position": "Initial", "phonemes": "s,ɑ"},
-          {"text": "see", "target_sound": "s", "position": "Initial", "phonemes": "s,i"},
-          {"text": "so", "target_sound": "s", "position": "Initial", "phonemes": "s,oʊ"},
-          {"text": "si", "target_sound": "s", "position": "Initial", "phonemes": "s,i"}
+          "sa",
+          "see",
+          "so",
+          "si"
         ],
         "word": [
-          {"text": "sun", "target_sound": "s", "position": "Initial", "phonemes": "s,ə,n"},
-          {"text": "bus", "target_sound": "s", "position": "Final", "phonemes": "b,ə,s"},
-          {"text": "sock", "target_sound": "s", "position": "Initial", "phonemes": "s,ɑ,k"},
-          {"text": "sea", "target_sound": "s", "position": "Initial", "phonemes": "s,i"},
-          {"text": "seven", "target_sound": "s", "position": "Initial", "phonemes": "s,ɛ,v,ə,n"}
+          "sun",
+          "bus",
+          "sock",
+          "sea",
+          "seven"
         ],
         "phrase": [
-          {"text": "the sun", "target_sound": "s", "position": "Initial", "phonemes": "ð,ə,s,ə,n"},
-          {"text": "a big sock", "target_sound": "s", "position": "Initial", "phonemes": "ə,b,ɪ,ɡ,s,ɑ,k"},
-          {"text": "see the sea", "target_sound": "s", "position": "Initial", "phonemes": "s,i,ð,ə,s,i"}
+          "the sun",
+          "a big sock",
+          "see the sea"
         ],
         "sentence": [
-          {"text": "The sun is up.", "target_sound": "s", "position": "Initial", "phonemes": "ð,ə,s,ə,n,ɪ,z,ə,p"},
-          {"text": "I see a sock.", "target_sound": "s", "position": "Initial", "phonemes": "aɪ,s,i,ə,s,ɑ,k"},
-          {"text": "We ride the bus.", "target_sound": "s", "position": "Initial", "phonemes": "w,i,r,aɪ,d,ð,ə,b,ə,s"}
+          "The sun is up.",
+          "I see a sock.",
+          "We ride the bus."
         ]
       }
     },
     {
-      "id": "gliding-l-final",
-      "title": "Gliding: /l/ final practice",
+      "id": "gliding-l",
+      "title": "Gliding: /l/ practice",
       "focus_process": "Gliding",
-      "target_sounds": ["l"],
+      "target_sounds": [
+        "l"
+      ],
       "levels": {
         "syllable": [
-          {"text": "al", "target_sound": "l", "position": "Final", "phonemes": "æ,l"},
-          {"text": "el", "target_sound": "l", "position": "Final", "phonemes": "ɛ,l"},
-          {"text": "ol", "target_sound": "l", "position": "Final", "phonemes": "oʊ,l"},
-          {"text": "il", "target_sound": "l", "position": "Final", "phonemes": "ɪ,l"}
+          "al",
+          "el",
+          "ol",
+          "il"
         ],
         "word": [
-          {"text": "ball", "target_sound": "l", "position": "Final", "phonemes": "b,ɔ,l"},
-          {"text": "bell", "target_sound": "l", "position": "Final", "phonemes": "b,ɛ,l"},
-          {"text": "whale", "target_sound": "l", "position": "Final", "phonemes": "w,eɪ,l"},
-          {"text": "tall", "target_sound": "l", "position": "Final", "phonemes": "t,ɔ,l"},
-          {"text": "hill", "target_sound": "l", "position": "Final", "phonemes": "h,ɪ,l"}
+          "ball",
+          "bell",
+          "whale",
+          "tall",
+          "hill"
         ],
         "phrase": [
-          {"text": "a red ball", "target_sound": "l", "position": "Final", "phonemes": "ə,r,ɛ,d,b,ɔ,l"},
-          {"text": "the bell", "target_sound": "l", "position": "Final", "phonemes": "ð,ə,b,ɛ,l"},
-          {"text": "a big whale", "target_sound": "l", "position": "Final", "phonemes": "ə,b,ɪ,ɡ,w,eɪ,l"}
+          "a red ball",
+          "the bell",
+          "a big whale"
         ],
         "sentence": [
-          {"text": "I like the ball.", "target_sound": "l", "position": "Final", "phonemes": "aɪ,l,aɪ,k,ð,ə,b,ɔ,l"},
-          {"text": "The bell rings.", "target_sound": "l", "position": "Final", "phonemes": "ð,ə,b,ɛ,l,r,ɪ,ŋ,z"},
-          {"text": "The whale is big.", "target_sound": "l", "position": "Final", "phonemes": "ð,ə,w,eɪ,l,ɪ,z,b,ɪ,ɡ"}
+          "I like the ball.",
+          "The bell rings.",
+          "The whale is big."
         ]
       }
     },
     {
-      "id": "deaffrication-tj-initial",
-      "title": "Deaffrication: /tʃ/ initial practice",
+      "id": "deaffrication-tj",
+      "title": "Deaffrication: /tʃ/ practice",
       "focus_process": "Deaffrication",
-      "target_sounds": ["tʃ"],
+      "target_sounds": [
+        "tʃ"
+      ],
       "levels": {
         "syllable": [
-          {"text": "cha", "target_sound": "tʃ", "position": "Initial", "phonemes": "tʃ,ɑ"},
-          {"text": "chee", "target_sound": "tʃ", "position": "Initial", "phonemes": "tʃ,i"},
-          {"text": "cho", "target_sound": "tʃ", "position": "Initial", "phonemes": "tʃ,oʊ"}
+          "cha",
+          "chee",
+          "cho"
         ],
         "word": [
-          {"text": "chair", "target_sound": "tʃ", "position": "Initial", "phonemes": "tʃ,ɛ,r"},
-          {"text": "cheese", "target_sound": "tʃ", "position": "Initial", "phonemes": "tʃ,i,z"},
-          {"text": "watch", "target_sound": "tʃ", "position": "Final", "phonemes": "w,ɑ,tʃ"},
-          {"text": "chop", "target_sound": "tʃ", "position": "Initial", "phonemes": "tʃ,ɑ,p"}
+          "chair",
+          "cheese",
+          "watch",
+          "chop"
         ],
         "phrase": [
-          {"text": "a big chair", "target_sound": "tʃ", "position": "Initial", "phonemes": "ə,b,ɪ,ɡ,tʃ,ɛ,r"},
-          {"text": "my watch", "target_sound": "tʃ", "position": "Final", "phonemes": "m,aɪ,w,ɑ,tʃ"}
+          "a big chair",
+          "my watch"
         ],
         "sentence": [
-          {"text": "I sit on the chair.", "target_sound": "tʃ", "position": "Initial", "phonemes": "aɪ,s,ɪ,t,ɔ,n,ð,ə,tʃ,ɛ,r"},
-          {"text": "I like cheese.", "target_sound": "tʃ", "position": "Initial", "phonemes": "aɪ,l,aɪ,k,tʃ,i,z"}
+          "I sit on the chair.",
+          "I like cheese."
         ]
       }
     }

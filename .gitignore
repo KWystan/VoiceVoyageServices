@@ -53,3 +53,6 @@ __init__.py
 # ---- OS noise ----
 Thumbs.db
 .DS_Store
+
+# ---- VS Code Code Runner temp files ----
+tempCodeRunnerFile.py

@@ -1,0 +1,15 @@
+Phoneme/Process,Initial,Medial,Final
+"/s, z/ (Stopping)","Sun, Zebra","Pencil, Lizard","Bus, Cheese"
+"/y, h/","Yarn, Hat",Yoyo,
+/sh/,Shoe,Flashlight,Fish
+S-Clusters,"Spider, Star",,
+L-Clusters,"Blue, Plane",,
+,,,
+Word Group,Word,If they say...,Display Label (The Error)
+Universal (Any Word),Any,"un (Sun), ""oo"" (Zoo), ""ane"" (Plane)",Initial Consonant Deletion
+Universal (Any Word),Any,"bu (Bus), ""fi"" (Fish), ""chee"" (Cheese)",Final Consonant Deletion
+"/s, z/","Sun, Zoo, Pencil, Lizard, Bus, Cheese","Tun (Sun), ""Doo"" (Zoo), ""But"" (Bus)",Stopping
+"/y, h/","Yarn, Yoyo, Hat","Larn (Yarn), ""Lolo"" (Yoyo)",Gliding
+/sh/,"Shoe, Flashlight, Fish","Soe (Shoe), ""Fis"" (Fish)",Palatal Fronting
+S-Clusters,"Spider, Star","Pider (Spider), ""Tar"" (Star)",Cluster Reduction
+L-Clusters,"Blue, Plane","Bue (Blue), ""Pane"" (Plane)",Cluster Reduction

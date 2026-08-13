@@ -1,0 +1,14 @@
+Phoneme/Process,Initial,Medial,Final
+/l/ (Gliding),Lion,Balloon,Bell
+/r/ (Gliding),Rock,Mirror,Star
+/v/,Volcano,Seven,Glove
+"/ch, j/","Chair, Jeep","Kitchen, Orange","Watch, Bridge"
+R-Clusters,"Frog, Truck",,
+,,,
+Word Group,Word,If they say...,Display Label (The Error)
+Universal (Any Word),Any,"ock (Rock), ""eep"" (Jeep), ""an"" (Van)",Initial Consonant Deletion
+Universal (Any Word),Any,"sta (Star), ""glo"" (Glove), ""wat"" (Watch)",Final Consonant Deletion
+"/l, r/","Lion, Balloon, Bell, Rock, Mirror, Star","Wion (Lion), ""Wock"" (Rock), ""Sta-uh"" (Star)",Gliding
+/v/,"Van, Seven, Glove","Ban (Van), ""Se-ben"" (Seven), ""Glob"" (Glove)",Stopping
+"/ch, j/","Chair, Jeep, Kitchen, Orange, Watch, Bridge","Shair (Chair), ""Sheep"" (Jeep), ""Wass"" (Watch)",Deaffrication
+R-Clusters,"Frog, Truck","Fog (Frog), ""Tuck"" (Truck)",Cluster Reduction

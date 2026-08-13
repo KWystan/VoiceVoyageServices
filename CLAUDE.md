@@ -77,34 +77,40 @@ Pass ≥ 80 (PCC, blended with FA average for few-consonant words).
 ## dynamic_modules_service — architecture
 
 ```
-main.py (FastAPI, port 8002)
-  └─ api/           — routes (POST /module), pydantic schemas
-  └─ application/   — ModuleService (use case), RuleBasedModuleBuilder,
-                      LLMModuleBuilder
-  └─ domain/        — models (value objects), ports (Protocols), findings
-                      analyzer, outline selector — zero framework imports
-  └─ infrastructure/— ZenLLMClient (OpenAI-compatible), prompt builder,
-                      LLM response parser, mock data (outlines + word bank)
-  └─ data/          — module_outlines.json (MOCK professional outlines),
-                      word_bank.json (validated practice items)
+main.py (FastAPI, port 8002 — endpoint here, like the phoneme service)
+  └─ service.py   — ModuleService (use case), RuleBasedModuleBuilder,
+                    LLMModuleBuilder, FindingsAnalyzer, OutlineSelector
+  └─ llm.py       — ZenLLMClient (OpenAI-compatible), PromptBuilder,
+                    LLMResponseParser
+  └─ data.py      — MockOutlines, MockWordBank, CsvAshaWordLists
+  └─ models.py    — dataclasses (value objects)
+  └─ data/        — module_outlines.json (MOCK outlines), word_bank.json,
+                    ASHA-Aligned ... CSV word lists (LLM context)
 ```
 
-Dependency rule: `api → application → domain`, `infrastructure → domain`.
-Ports defined in domain; implemented by infrastructure (swap mock data for a
-DB or add providers without touching domain).
+Endpoint: `POST /module` with Form params — `age: int = Form(...)` and
+`processes: str = Form(...)` (JSON array of `{process, position, detail,
+target_sound?}`). Minimal flat layout — no over-engineered layers.
 
 Flow: findings → focus sounds → matching outlines → LLM (or rule-based)
 selects items per level from the bank → validated `LearningModule`
 (syllables → words → phrases → sentences) → JSON. LLM failures fall back to
 rule-based with a `warning`. Items are only ever SELECTED from the bank —
-invented words are rejected.
+invented words are rejected. The prompt is grounded in the child's ASHA
+age-bracket context (`infrastructure/asha_lists.py` parses the
+`ASHA-Aligned ...` CSVs in `data/`): the LLM sees the developmentally
+appropriate word lists + expected error patterns for the child's age and
+is instructed to prefer those words.
 
 Config: `llm_provider: none | zen`, `llm_model: deepseek-v4-flash-free`,
-`api_key_env: ZEN_API_KEY` (from env).
+`api_key_env: ZEN_API_KEY` (from env). The free tier is rate-limited
+(429 `FreeUsageLimitError`) — the client retries briefly (2x, 60s timeout)
+then falls back to rule-based with a `warning`; switch `llm_model` to
+`deepseek-v4-flash` (paid, $0.14/M) to remove the limit.
 
 ## Tests
 
 | Service | Count | Key files |
 |---|---|---|
 | phoneme_service | 241 | test_assessment_service, test_main_endpoint, test_detector_stress, test_hierarchy, test_ipa_normalization, test_forced_aligner, test_pcc, test_syllable, test_audio_*, test_curriculum_map, test_clean_text, test_panphon_module |
-| dynamic_modules_service | 43 | test_module_service (LLM + fallback), test_module_builders (rule-based), test_prompt_and_parser (no-PII, invented-item rejection), test_llm_clients (MockTransport), test_routes (TestClient), test_findings |
+| dynamic_modules_service | 63 | test_module_service (LLM + fallback), test_module_builders (rule-based), test_prompt_and_parser (no-PII, invented/duplicate/over-limit rejection), test_llm_clients (MockTransport), test_routes (Form params), test_findings, test_asha_lists |

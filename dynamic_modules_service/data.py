@@ -1,26 +1,34 @@
-"""Mock data loading — implements the Outlines and WordBank ports.
+"""Data loading — module outlines and the word bank.
 
-Loads the professional module outlines and word bank from JSON files.
-Swap this module for a real database later WITHOUT touching the domain.
+The word bank (data/word_bank.json) is the SINGLE source of item text +
+phonemes for the whole service; module outlines (data/module_outlines.json)
+reference items by text only.  The LLM prompt knowledge lives in
+data/prompt.md (ASHA summary + rules).
 """
 
+import csv
 import json
-from typing import Optional
+from pathlib import Path
 
-from domain.models import (
+from config import config
+from models import (
     FocusSound,
     ModuleOutline,
     PracticeItem,
     PracticeLevel,
 )
-from config import config
 
 
 class MockOutlines:
-    """Outlines port backed by data/module_outlines.json."""
+    """Professional module outlines backed by data/module_outlines.json.
 
-    def __init__(self, path=None):
+    Level pools reference item TEXTS; the actual items (word + phonemes)
+    come from the word bank — a single source of truth.
+    """
+
+    def __init__(self, bank: "MockWordBank", path=None):
         self._path = path or config.outlines_path
+        self._bank = bank
         self._outlines = self._load()
 
     def _load(self) -> list[ModuleOutline]:
@@ -29,17 +37,12 @@ class MockOutlines:
         outlines = []
         for entry in raw["outlines"]:
             levels = {}
-            for level_name, items in entry["levels"].items():
+            for level_name, texts in entry["levels"].items():
                 level = PracticeLevel.from_value(level_name)
                 levels[level] = tuple(
-                    PracticeItem(
-                        text=it["text"],
-                        level=level,
-                        target_sound=it["target_sound"],
-                        position=it.get("position", ""),
-                        phonemes=it.get("phonemes", ""),
-                    )
-                    for it in items
+                    item for item in (
+                        self._bank.get(text, level) for text in texts
+                    ) if item is not None
                 )
             outlines.append(ModuleOutline(
                 id=entry["id"],
@@ -56,12 +59,14 @@ class MockOutlines:
         matches = [o for o in self._outlines if focus & set(o.target_sounds)]
         return sorted(matches, key=lambda o: -len(focus & set(o.target_sounds)))
 
-    def by_id(self, outline_id: str) -> Optional[ModuleOutline]:
-        return next((o for o in self._outlines if o.id == outline_id), None)
-
 
 class MockWordBank:
-    """WordBank port backed by data/word_bank.json."""
+    """Practice items backed by data/word_bank.json — the single source
+    of item text + phonemes for the whole service.
+
+    Items carry an optional ``theme`` tag (``ocean`` | ``general``) so the
+    LLM can prefer themed words that match the app's underwater world.
+    """
 
     def __init__(self, path=None):
         self._path = path or config.word_bank_path
@@ -76,18 +81,18 @@ class MockWordBank:
             item = PracticeItem(
                 text=it["text"],
                 level=level,
-                target_sound=it["target_sound"],
-                position=it.get("position", ""),
+                target_sound="",  # position-agnostic; selection is by level only
                 phonemes=it.get("phonemes", ""),
+                theme=it.get("theme", "general"),
             )
             items[(item.text, item.level)] = item
         return items
 
-    def items_for(self, level: PracticeLevel, target_sound: str) -> list[PracticeItem]:
+    def items_for(self, level: PracticeLevel) -> list[PracticeItem]:
         return [
             it for it in self._items.values()
-            if it.level == level and it.target_sound == target_sound
+            if it.level == level
         ]
 
-    def get(self, text: str, level: PracticeLevel) -> Optional[PracticeItem]:
+    def get(self, text: str, level: PracticeLevel):
         return self._items.get((text, level))
