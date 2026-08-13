@@ -55,8 +55,9 @@ def check_clipping(audio: np.ndarray, sr: int = None) -> dict:
 def check_duration(samples: int, sr: int) -> dict:
     """Verify audio is long enough to contain speech.
 
-    Very short recordings (< ~0.5s) likely mean the recording was cut off
-    or the microphone did not capture the child's attempt.
+    Very short recordings (below ``config.audio.min_duration_sec``) likely
+    mean the recording was cut off or the microphone did not capture the
+    child's attempt.
     """
     min_sec = config.audio.min_duration_sec
     duration_sec = samples / sr

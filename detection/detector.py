@@ -13,19 +13,21 @@ parsing human-readable detail strings.  Multi-phoneme processes (weak
 syllable deletion) inject ``_index`` as a list of indices.
 
 The ``_index`` key is stripped from the final returned list.
+
+Design: substitution detectors are DECLARATIVE — one shared scanner
+(``_scan_substitutions``) driven by the ``_SUBSTITUTION_SPECS`` table of
+(process name, pure predicate).  Adding a new process = one table row +
+one predicate, no copy-pasted loop.  The voicing detector is the one
+exception (panphon features + position-dependent naming), so it stays a
+dedicated function.
 """
 
 import logging
-from typing import Optional
+from dataclasses import dataclass
+from typing import Callable
 
-from phoneme_processes.constants import (
-    STOPS, FRICATIVES, AFFRICATES,
-    NASALS, LIQUIDS, GLIDES, VOWELS,
-    VELARS, PALATALS, ALVEOLARS, LABIALS,
-)
-from phoneme_processes.utils import manner, place, is_consonant, get_position, same_phoneme
-from phoneme_processes.syllable import detect_weak_syllable_deletion
-from modules.panphon_module import lookup_boost
+from detection.utils import manner, place, is_consonant, get_position, same_phoneme
+from detection.syllable import detect_weak_syllable_deletion
 from config import config
 
 logger = logging.getLogger(__name__)
@@ -77,210 +79,163 @@ def _is_substitution(item: dict) -> bool:
     return True
 
 
+def _has_consonant_neighbor(breakdown: list[dict], idx: int) -> tuple[bool, bool]:
+    """Return (left_is_consonant, right_is_consonant) around ``idx``.
+
+    Word-boundary (#) tokens are not consonants, so this is automatically
+    correct across word edges.
+    """
+    left = idx > 0 and is_consonant(breakdown[idx - 1].get("expected", ""))
+    right = idx < len(breakdown) - 1 and is_consonant(breakdown[idx + 1].get("expected", ""))
+    return left, right
+
+
+def _run_safely(detector_fn: Callable, breakdown: list[dict], *args) -> list[dict]:
+    """Run a detector, converting any exception into a logged warning."""
+    try:
+        return detector_fn(breakdown, *args)
+    except Exception as exc:
+        logger.warning(
+            "Process detector %s failed: %s",
+            getattr(detector_fn, "__name__", "?"), exc,
+        )
+        return []
+
+
 # ---------------------------------------------------------------------------
-# Substitution detectors (each injects ``_index`` = phoneme index)
+# Substitution predicates (pure: entry -> bool)
 # ---------------------------------------------------------------------------
 
-def _detect_stopping(breakdown: list[dict]) -> list[dict]:
-    """Detect stopping: fricative replaced by stop.
+def _is_stopping(entry: dict) -> bool:
+    """Fricative → stop.
 
-    Affricate→Stop is intentionally NOT classified as Stopping.
-    ASHA defines deaffrication as an affricate produced as a stop or
-    fricative (e.g. "chip" -> "tip"), so affricate targets belong to
-    Deaffrication alone.  Keeping the two detectors mutually exclusive
-    by target manner prevents the ASHA hierarchy filter from masking
-    Deaffrication whenever Stopping also fires.
+    Affricate→Stop is intentionally NOT Stopping: ASHA defines
+    deaffrication as an affricate produced as a stop or fricative
+    ("chip" → "tip"), so affricate targets belong to Deaffrication
+    alone.  Keeping the two detectors mutually exclusive by target
+    manner prevents the hierarchy filter from masking Deaffrication
+    whenever Stopping also fires.
     """
-    processes = []
-    for i, entry in enumerate(breakdown):
-        if entry.get("expected") == "#":
-            continue
-        if not _is_substitution(entry):
-            continue
-        exp_m = manner(entry["expected"])
-        det_m = manner(entry["predicted"])
-        if exp_m == "Fricative" and det_m == "Stop":
-            processes.append({
-                "process": "Stopping",
-                "position": get_position(i, breakdown),
-                "detail": f"/{entry['expected']}/ -> [{entry['predicted']}]",
-                "_index": i,
-            })
-    return processes
+    return (manner(entry["expected"]) == "Fricative"
+            and manner(entry["predicted"]) == "Stop")
 
 
-def _detect_fronting(breakdown: list[dict]) -> list[dict]:
-    """Detect fronting: velar/palatal → alveolar/labial.
+def _is_frication(entry: dict) -> bool:
+    """Stop/nasal → fricative (reverse of Stopping; atypical, Red Flag)."""
+    return (manner(entry["expected"]) in ("Stop", "Nasal")
+            and manner(entry["predicted"]) == "Fricative")
 
-    NOTE: /ŋ/ is excluded as an expected phoneme — the velar nasal
-    is not subject to fronting per ASHA phonological process norms.
 
-    Glides are also excluded as expected phonemes: a glide produced as
-    a liquid (/j/ → [l]) is Liquidization, and a liquid produced as a
-    glide (/r/ → [w]) is Gliding — neither is a place-change fronting.
-    Without this guard, /j/ → [l] would fire both Fronting and
-    Liquidization, and the ASHA hierarchy would mask Liquidization.
+def _is_deaffrication(entry: dict) -> bool:
+    """Affricate → stop or fricative."""
+    return (manner(entry["expected"]) == "Affricate"
+            and manner(entry["predicted"]) in ("Stop", "Fricative"))
+
+
+def _is_denasalization(entry: dict) -> bool:
+    """Nasal → stop."""
+    return (manner(entry["expected"]) == "Nasal"
+            and manner(entry["predicted"]) == "Stop")
+
+
+def _is_fronting(entry: dict) -> bool:
+    """Velar/palatal → alveolar/labial.
+
+    /ŋ/ is excluded as an expected phoneme (not subject to fronting
+    per ASHA norms).  Glides are excluded as expected phonemes: a glide
+    produced as a liquid (/j/ → [l]) is Liquidization, and a liquid
+    produced as a glide (/r/ → [w]) is Gliding — neither is a
+    place-change fronting.
     """
+    exp, det = entry["expected"], entry["predicted"]
+    exp_m, det_m = manner(exp), manner(det)
+    if exp_m in ("Vowel", "Glide") or det_m == "Vowel":
+        return False
+    if exp == "ŋ":
+        return False
+    exp_p, det_p = place(exp), place(det)
+    return exp_p in ("Velar", "Palatal") and det_p in ("Alveolar", "Labial")
+
+
+def _is_backing(entry: dict) -> bool:
+    """Alveolar/labial → velar/palatal.  /ŋ/ as predicted is excluded."""
+    exp, det = entry["expected"], entry["predicted"]
+    exp_m, det_m = manner(exp), manner(det)
+    if exp_m == "Vowel" or det_m == "Vowel":
+        return False
+    if det == "ŋ":
+        return False
+    exp_p, det_p = place(exp), place(det)
+    return exp_p in ("Alveolar", "Labial") and det_p in ("Velar", "Palatal")
+
+
+def _is_gliding(entry: dict) -> bool:
+    """Liquid → glide."""
+    return (manner(entry["expected"]) == "Liquid"
+            and manner(entry["predicted"]) == "Glide")
+
+
+def _is_liquidization(entry: dict) -> bool:
+    """Glide → liquid (reverse of Gliding)."""
+    return (manner(entry["expected"]) == "Glide"
+            and manner(entry["predicted"]) == "Liquid")
+
+
+def _is_vowelization(entry: dict) -> bool:
+    """Liquid → vowel."""
+    return (manner(entry["expected"]) == "Liquid"
+            and manner(entry["predicted"]) == "Vowel")
+
+
+# ---------------------------------------------------------------------------
+# Substitution registry (declarative table)
+# ---------------------------------------------------------------------------
+
+@dataclass(frozen=True)
+class SubstitutionSpec:
+    """One row of the substitution-detector table."""
+    process: str
+    matches: Callable[[dict], bool]
+
+
+_SUBSTITUTION_SPECS: tuple[SubstitutionSpec, ...] = (
+    SubstitutionSpec("Stopping", _is_stopping),
+    SubstitutionSpec("Frication", _is_frication),
+    SubstitutionSpec("Deaffrication", _is_deaffrication),
+    SubstitutionSpec("Denasalization", _is_denasalization),
+    SubstitutionSpec("Fronting", _is_fronting),
+    SubstitutionSpec("Backing", _is_backing),
+    SubstitutionSpec("Gliding", _is_gliding),
+    SubstitutionSpec("Liquidization", _is_liquidization),
+    SubstitutionSpec("Vowelization", _is_vowelization),
+)
+
+
+def _scan_substitutions(
+    breakdown: list[dict],
+    spec: SubstitutionSpec,
+) -> list[dict]:
+    """Run one substitution spec over the breakdown (shared scanner)."""
     processes = []
     for i, entry in enumerate(breakdown):
         if entry.get("expected") == "#":
             continue
         if not _is_substitution(entry):
             continue
-        exp_m, det_m = manner(entry["expected"]), manner(entry["predicted"])
-        if exp_m in ("Vowel", "Glide") or det_m == "Vowel":
+        if not spec.matches(entry):
             continue
-        if entry["expected"] == "ŋ":
-            continue
-        exp_p, det_p = place(entry["expected"]), place(entry["predicted"])
-        if exp_p in ("Velar", "Palatal") and det_p in ("Alveolar", "Labial"):
-            processes.append({
-                "process": "Fronting",
-                "position": get_position(i, breakdown),
-                "detail": f"/{entry['expected']}/ -> [{entry['predicted']}]",
-                "_index": i,
-            })
+        processes.append({
+            "process": spec.process,
+            "position": get_position(i, breakdown),
+            "detail": f"/{entry['expected']}/ -> [{entry['predicted']}]",
+            "_index": i,
+        })
     return processes
 
 
-def _detect_backing(breakdown: list[dict]) -> list[dict]:
-    """Detect backing: alveolar/labial → velar/palatal.
-
-    NOTE: /ŋ/ as predicted is excluded — backing to a nasal is not
-    a recognized clinical process per ASHA norms.
-    """
-    processes = []
-    for i, entry in enumerate(breakdown):
-        if entry.get("expected") == "#":
-            continue
-        if not _is_substitution(entry):
-            continue
-        exp_m, det_m = manner(entry["expected"]), manner(entry["predicted"])
-        if exp_m == "Vowel" or det_m == "Vowel":
-            continue
-        if entry["predicted"] == "ŋ":
-            continue
-        exp_p, det_p = place(entry["expected"]), place(entry["predicted"])
-        if exp_p in ("Alveolar", "Labial") and det_p in ("Velar", "Palatal"):
-            processes.append({
-                "process": "Backing",
-                "position": get_position(i, breakdown),
-                "detail": f"/{entry['expected']}/ -> [{entry['predicted']}]",
-                "_index": i,
-            })
-    return processes
-
-
-def _detect_gliding(breakdown: list[dict]) -> list[dict]:
-    processes = []
-    for i, entry in enumerate(breakdown):
-        if entry.get("expected") == "#":
-            continue
-        if not _is_substitution(entry):
-            continue
-        if manner(entry["expected"]) == "Liquid" and manner(entry["predicted"]) == "Glide":
-            processes.append({
-                "process": "Gliding",
-                "position": get_position(i, breakdown),
-                "detail": f"/{entry['expected']}/ -> [{entry['predicted']}]",
-                "_index": i,
-            })
-    return processes
-
-
-def _detect_liquidization(breakdown: list[dict]) -> list[dict]:
-    processes = []
-    for i, entry in enumerate(breakdown):
-        if entry.get("expected") == "#":
-            continue
-        if not _is_substitution(entry):
-            continue
-        if manner(entry["expected"]) == "Glide" and manner(entry["predicted"]) == "Liquid":
-            processes.append({
-                "process": "Liquidization",
-                "position": get_position(i, breakdown),
-                "detail": f"/{entry['expected']}/ -> [{entry['predicted']}]",
-                "_index": i,
-            })
-    return processes
-
-
-def _detect_vowelization(breakdown: list[dict]) -> list[dict]:
-    processes = []
-    for i, entry in enumerate(breakdown):
-        if entry.get("expected") == "#":
-            continue
-        if not _is_substitution(entry):
-            continue
-        if manner(entry["expected"]) == "Liquid" and manner(entry["predicted"]) == "Vowel":
-            processes.append({
-                "process": "Vowelization",
-                "position": get_position(i, breakdown),
-                "detail": f"/{entry['expected']}/ -> [{entry['predicted']}]",
-                "_index": i,
-            })
-    return processes
-
-
-def _detect_frication(breakdown: list[dict]) -> list[dict]:
-    """Detect frication: Stop/Nasal → Fricative.
-
-    This is the reverse pattern of Stopping (Fricative→Stop).  A stop
-    or nasal produced as a fricative (/b/ → [v], /n/ → [s], /d/ → [z])
-    is atypical and clinically significant regardless of age.
-    """
-    processes = []
-    for i, entry in enumerate(breakdown):
-        if entry.get("expected") == "#":
-            continue
-        if not _is_substitution(entry):
-            continue
-        exp_m, det_m = manner(entry["expected"]), manner(entry["predicted"])
-        if exp_m in ("Stop", "Nasal") and det_m == "Fricative":
-            processes.append({
-                "process": "Frication",
-                "position": get_position(i, breakdown),
-                "detail": f"/{entry['expected']}/ -> [{entry['predicted']}]",
-                "_index": i,
-            })
-    return processes
-
-
-def _detect_deaffrication(breakdown: list[dict]) -> list[dict]:
-    processes = []
-    for i, entry in enumerate(breakdown):
-        if entry.get("expected") == "#":
-            continue
-        if not _is_substitution(entry):
-            continue
-        exp_m, det_m = manner(entry["expected"]), manner(entry["predicted"])
-        if exp_m == "Affricate" and det_m in ("Stop", "Fricative"):
-            processes.append({
-                "process": "Deaffrication",
-                "position": get_position(i, breakdown),
-                "detail": f"/{entry['expected']}/ -> [{entry['predicted']}]",
-                "_index": i,
-            })
-    return processes
-
-
-def _detect_denasalization(breakdown: list[dict]) -> list[dict]:
-    processes = []
-    for i, entry in enumerate(breakdown):
-        if entry.get("expected") == "#":
-            continue
-        if not _is_substitution(entry):
-            continue
-        exp_m, det_m = manner(entry["expected"]), manner(entry["predicted"])
-        if exp_m == "Nasal" and det_m == "Stop":
-            processes.append({
-                "process": "Denasalization",
-                "position": get_position(i, breakdown),
-                "detail": f"/{entry['expected']}/ -> [{entry['predicted']}]",
-                "_index": i,
-            })
-    return processes
-
+# ---------------------------------------------------------------------------
+# Voicing errors (special: panphon features + position-dependent naming)
+# ---------------------------------------------------------------------------
 
 def _detect_voicing_errors(breakdown: list[dict]) -> list[dict]:
     """Detect prevocalic voicing and devoicing via panphon features.
@@ -365,9 +320,8 @@ def _detect_cluster_reduction(breakdown: list[dict]) -> list[dict]:
         # A deleted vowel is never cluster reduction
         if not is_consonant(entry.get("expected", "")):
             continue
-        left_cons = i > 0 and is_consonant(breakdown[i - 1].get("expected", ""))
-        right_cons = i < len(breakdown) - 1 and is_consonant(breakdown[i + 1].get("expected", ""))
-        if left_cons or right_cons:
+        left, right = _has_consonant_neighbor(breakdown, i)
+        if left or right:
             processes.append({
                 "process": "Cluster Reduction",
                 "position": get_position(i, breakdown),
@@ -406,7 +360,6 @@ def _detect_final_consonant_deletion(breakdown: list[dict]) -> list[dict]:
 def _detect_consonant_deletion(breakdown: list[dict]) -> list[dict]:
     """Detect singleton consonant deletion (not in cluster, not word-final)."""
     processes = []
-    n = len(breakdown)
     for i, entry in enumerate(breakdown):
         if entry.get("expected") == "#":
             continue
@@ -415,17 +368,15 @@ def _detect_consonant_deletion(breakdown: list[dict]) -> list[dict]:
         if not is_consonant(entry.get("expected", "")):
             continue
         # Skip cluster deletions — handled by Cluster Reduction
-        left_cons = i > 0 and is_consonant(breakdown[i - 1].get("expected", ""))
-        right_cons = i < n - 1 and is_consonant(breakdown[i + 1].get("expected", ""))
-        if left_cons or right_cons:
+        left, right = _has_consonant_neighbor(breakdown, i)
+        if left or right:
             continue
         # Skip word-final — handled by Final Consonant Deletion
         if get_position(i, breakdown) == "Final":
             continue
-        pos = get_position(i, breakdown)
         processes.append({
             "process": "Consonant Deletion",
-            "position": pos,
+            "position": get_position(i, breakdown),
             "detail": f"/{entry['expected']}/ deleted (-> Ø) singleton consonant",
             "_index": i,
         })
@@ -534,7 +485,8 @@ def _detect_phoneme_processes(breakdown: list[dict]) -> list[dict]:
     """Run all process detectors in a carefully ordered sequence.
 
     Execution order:
-      1. Substitution detectors            — collect ``_index``-tagged processes
+      1. Substitution detectors (table-driven) — collect ``_index``-tagged
+         processes, including the panphon-based voicing detector
       2. Weak syllable deletion            — capture ``skip_indices``
       3. Micro-level deletion detectors    — results filtered by ``skip_indices``,
                                              so phonemes absorbed by syllable
@@ -548,26 +500,10 @@ def _detect_phoneme_processes(breakdown: list[dict]) -> list[dict]:
 
     all_processes: list[dict] = []
 
-    # ── 1. Substitution detectors ──────────────────────────────────
-    substitution_detectors = [
-        _detect_stopping,
-        _detect_frication,
-        _detect_deaffrication,
-        _detect_denasalization,
-        _detect_fronting,
-        _detect_backing,
-        _detect_gliding,
-        _detect_liquidization,
-        _detect_vowelization,
-        _detect_voicing_errors,
-    ]
-    for detector in substitution_detectors:
-        try:
-            all_processes.extend(detector(breakdown))
-        except Exception as exc:
-            logger.warning(
-                "Process detector %s failed: %s", detector.__name__, exc
-            )
+    # ── 1. Substitution detectors (declarative table + voicing) ──────
+    for spec in _SUBSTITUTION_SPECS:
+        all_processes.extend(_run_safely(_scan_substitutions, breakdown, spec))
+    all_processes.extend(_run_safely(_detect_voicing_errors, breakdown))
 
     # ── 2. Weak syllable deletion (capture skip indices) ──────────
     skip_indices: set[int] = set()
@@ -578,30 +514,24 @@ def _detect_phoneme_processes(breakdown: list[dict]) -> list[dict]:
         logger.warning("Weak syllable detection failed: %s", exc)
 
     # ── 3. Deletion detectors, filtered by skip_indices ───────────
-    deletion_detectors = [
+    deletion_detectors = (
         _detect_cluster_reduction,
         _detect_final_consonant_deletion,
         _detect_consonant_deletion,
-    ]
+    )
     for detector in deletion_detectors:
-        try:
-            results = detector(breakdown)
-            for r in results:
-                idx = r.get("_index")
-                if idx is not None:
-                    if isinstance(idx, list):
-                        # Multi-phoneme: keep only if none of its indices
-                        # overlap with skip_indices
-                        if not any(i in skip_indices for i in idx):
-                            all_processes.append(r)
-                    elif idx not in skip_indices:
+        for r in _run_safely(detector, breakdown):
+            idx = r.get("_index")
+            if idx is not None:
+                if isinstance(idx, list):
+                    # Multi-phoneme: keep only if none of its indices
+                    # overlap with skip_indices
+                    if not any(i in skip_indices for i in idx):
                         all_processes.append(r)
-                else:
+                elif idx not in skip_indices:
                     all_processes.append(r)
-        except Exception as exc:
-            logger.warning(
-                "Process detector %s failed: %s", detector.__name__, exc
-            )
+            else:
+                all_processes.append(r)
 
     # ── 4. Apply ASHA hierarchy filter (strips _index) ────────────
     all_processes = _apply_clinical_hierarchy(all_processes)

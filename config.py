@@ -29,22 +29,14 @@ class ForcedAlignmentConfig:
     """
     blank_token_id: int = 0
     min_phoneme_duration_sec: float = 0.01
-    confidence_threshold: float = 0.4
     duration_penalty_short_threshold_sec: float = 0.03
     duration_penalty_long_threshold_sec: float = 0.50
     duration_penalty_short_amount: float = 20.0
     duration_penalty_long_amount: float = 10.0
     close_pair_boost: float = 20.0
     devoicing_boost: float = 15.0
-    max_topk_candidates: int = 3
     pcc_pass_threshold: float = 80.0  # PCC >= this means "passed"
     min_consonants_for_full_pcc: int = 3  # Below this, blend PCC with FA score
-
-
-@dataclass
-class AlignmentConfig:
-    """Legacy alignment config (retained for archive compatibility)."""
-    gap_penalty: float = 0.8
 
 
 @dataclass
@@ -74,10 +66,9 @@ class ModelConfig:
 
 @dataclass
 class AppConfig:
-    """Top-level application configuration."""
+    """Top-level assessment pipeline configuration."""
     audio: AudioConfig = field(default_factory=AudioConfig)
     forced_alignment: ForcedAlignmentConfig = field(default_factory=ForcedAlignmentConfig)
-    alignment: AlignmentConfig = field(default_factory=AlignmentConfig)
     server: ServerConfig = field(default_factory=ServerConfig)
     model: ModelConfig = field(default_factory=ModelConfig)
 

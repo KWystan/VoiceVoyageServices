@@ -52,10 +52,8 @@ MANNER_MAP: dict[str, set[str]] = {
     "Vowel": VOWELS,
 }
 
-# ── Additional Place Sets (for completeness) ────────────────────────
-# These are NOT used by current detectors but exist for:
-# 1. Documentation of the full phoneme inventory
-# 2. Future detector expansion
-# 3. Debugging (place() can reference these instead of returning None)
+# ── Additional Place Sets ─────────────────────────────────────────────
+# Used by place() in utils.py (DENTALS maps to "Alveolar" per ASHA;
+# GLOTTALS maps to "Glottal").
 DENTALS: set[str] = {'θ', 'ð'}
 GLOTTALS: set[str] = {'h'}

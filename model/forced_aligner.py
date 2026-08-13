@@ -18,9 +18,9 @@ import torch
 import torchaudio.functional as F
 
 from config import config
-from modules.panphon_module import lookup_boost
-from phoneme_recognizer import get_loader
-from util.ipa_normalization import same_phoneme
+from ipa.panphon_module import lookup_boost
+from model.loader import get_loader
+from ipa.normalization import same_phoneme
 
 logger = logging.getLogger(__name__)
 
@@ -243,6 +243,49 @@ class PhonemeForcedAligner:
 
         return round(max(0.0, min(100.0, score)), 2)
 
+    def _build_segment(
+        self,
+        seg: dict,
+        expected: str,
+        target_tid: int,
+        probs_all: torch.Tensor,
+    ) -> dict:
+        """Build one aligned-segment dict from a raw path segment.
+
+        Computes confidence (mean softmax prob of the EXPECTED token over
+        the segment's frames), the model's argmax prediction, duration,
+        and the resulting [0, 100] score.  Used by both the matched and
+        the mismatch branches of ``align()``.
+        """
+        start_f = seg["start_frame"]
+        end_f = seg["end_frame"]
+        duration_f = end_f - start_f + 1
+
+        token_probs = probs_all[0, start_f:end_f + 1, target_tid]
+        confidence = float(token_probs.mean().cpu().item())
+        if math.isnan(confidence):
+            confidence = 0.0
+
+        duration_sec = round(duration_f * self.time_stride, 4)
+        avg_probs = probs_all[0, start_f:end_f + 1, :].mean(dim=0).clone()
+        avg_probs[self.blank_id] = -1.0
+        predicted_ph, _ = self._resolve_predicted(
+            avg_probs, self.processor.tokenizer
+        )
+        seg_score = self._compute_score(
+            expected, predicted_ph, confidence, duration_sec
+        )
+
+        return {
+            "phoneme": expected,
+            "predicted": predicted_ph,
+            "start_sec": float(seg["start_sec"]),
+            "end_sec": float(seg["end_sec"]),
+            "duration_sec": duration_sec,
+            "confidence": round(confidence, 4),
+            "score": seg_score,
+        }
+
     # --- public API ---
 
     def align(
@@ -346,34 +389,9 @@ class PhonemeForcedAligner:
 
                 if seg_tid == target_tid:
                     # This segment belongs to the current target token
-                    start_f = seg["start_frame"]
-                    end_f = seg["end_frame"]
-                    duration_f = end_f - start_f + 1
-
-                    # Confidence = avg softmax prob of the target token over its frames
-                    token_probs = probs_all[0, start_f:end_f + 1, target_tid]
-                    confidence = float(token_probs.mean().cpu().item())
-                    if math.isnan(confidence):
-                        confidence = 0.0
-
-                    duration_sec = round(duration_f * fs, 4)
-                    avg_probs = probs_all[0, start_f:end_f + 1, :].mean(dim=0).clone()
-                    avg_probs[blank] = -1.0
-                    predicted_ph, _ = self._resolve_predicted(
-                        avg_probs, self.processor.tokenizer
-                    )
-                    seg_score = self._compute_score(
-                        target_ipa_tokens[tid_idx], predicted_ph, confidence, duration_sec
-                    )
-                    aligned.append({
-                        "phoneme": target_ipa_tokens[tid_idx],
-                        "predicted": predicted_ph,
-                        "start_sec": float(seg["start_sec"]),
-                        "end_sec": float(seg["end_sec"]),
-                        "duration_sec": duration_sec,
-                        "confidence": round(confidence, 4),
-                        "score": seg_score,
-                    })
+                    aligned.append(self._build_segment(
+                        seg, target_ipa_tokens[tid_idx], target_tid, probs_all
+                    ))
                     tid_idx += 1
                     seg_idx += 1
                 elif seg_tid == blank:
@@ -381,38 +399,15 @@ class PhonemeForcedAligner:
                     seg_idx += 1
                 else:
                     # Mismatch: the path predicted something other than the target
-                    # Log it and advance both
+                    # Log it and advance both (segment is still used as-is)
                     logger.warning(
                         "Alignment mismatch at target idx %d: expected token %s (id=%d), "
                         "path has token id=%d. Using segment anyway.",
                         tid_idx, target_ipa_tokens[tid_idx], target_tid, seg_tid,
                     )
-                    start_f = seg["start_frame"]
-                    end_f = seg["end_frame"]
-                    duration_f = end_f - start_f + 1
-                    token_probs = probs_all[0, start_f:end_f + 1, target_tid]
-                    confidence = float(token_probs.mean().cpu().item())
-                    if math.isnan(confidence):
-                        confidence = 0.0
-
-                    duration_sec = round(duration_f * fs, 4)
-                    avg_probs = probs_all[0, start_f:end_f + 1, :].mean(dim=0).clone()
-                    avg_probs[blank] = -1.0
-                    predicted_ph, _ = self._resolve_predicted(
-                        avg_probs, self.processor.tokenizer
-                    )
-                    seg_score = self._compute_score(
-                        target_ipa_tokens[tid_idx], predicted_ph, confidence, duration_sec
-                    )
-                    aligned.append({
-                        "phoneme": target_ipa_tokens[tid_idx],
-                        "predicted": predicted_ph,
-                        "start_sec": float(seg["start_sec"]),
-                        "end_sec": float(seg["end_sec"]),
-                        "duration_sec": duration_sec,
-                        "confidence": round(confidence, 4),
-                        "score": seg_score,
-                    })
+                    aligned.append(self._build_segment(
+                        seg, target_ipa_tokens[tid_idx], target_tid, probs_all
+                    ))
                     tid_idx += 1
                     seg_idx += 1
 

@@ -6,7 +6,7 @@ Exposes the model, processor, and device for use by the forced aligner.
 
 The old CTC-argmax free-transcription methods (_decode, transcribe_to_ipa)
 have been removed. They are archived in archive/legacy_alignment/.
-Use audio_util.forced_aligner.PhonemeForcedAligner instead.
+Use audio.forced_aligner.PhonemeForcedAligner instead.
 """
 
 import logging

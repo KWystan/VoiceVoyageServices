@@ -82,7 +82,7 @@ class DeepFilterNoiseRemover:
             logger.warning("DeepFilterNet load failed (%s). Using passthrough.", exc)
 
     def clean_audio_from_array(self, audio: np.ndarray, sr: int) -> np.ndarray:
-        """Denoise audio array in-place.
+        """Denoise an audio array, returning a NEW array.
 
         Args:
             audio: float32 numpy array (mono).

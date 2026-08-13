@@ -1,16 +1,15 @@
 """
 Panphon phoneme scoring module.
 
-Provides score_pair() for evaluating phoneme substitution severity
-using panphon feature edit distance, with close-pair detection
-for natural coarticulation.
-
-This module is the SINGLE source of truth for close-pair and devoicing
-boost tables used by the forced-alignment scoring pipeline.
+Provides lookup_boost() — the close-pair/devoicing boost table used by
+the forced-alignment scoring pipeline.  Boost amounts come from
+``config.forced_alignment`` so they stay single-sourced.
 """
 
 import panphon.distance
 from functools import lru_cache
+
+from config import config
 
 # Close phoneme pairs (natural coarticulation variants).
 # Key is the expected phoneme, value is a set of detected variants
@@ -80,38 +79,17 @@ def get_distance() -> panphon.distance.Distance:
     return panphon.distance.Distance()
 
 
-def score_pair(expected: str, detected: str) -> float:
-    """Score a single expected-detected phoneme pair [0, 100].
-
-    Returns 0 for deletions (detected == '-'), 100 for exact matches,
-    and a scaled panphon feature edit distance for substitutions.
-    """
-    if detected == "-":
-        return 0.0
-    if expected == detected:
-        return 100.0
-
-    dst = get_distance()
-    fed = dst.feature_edit_distance(expected, detected)
-    score = max(0.0, (1.0 - fed) * 100.0)
-
-    # Boost close pairs
-    if expected in _CLOSE_PAIRS and detected in _CLOSE_PAIRS[expected]:
-        score = min(100.0, score + 20.0)
-
-    # Boost devoicing pairs (1-feature [voice] changes)
-    if expected in _DEVOICE_PAIRS and detected == _DEVOICE_PAIRS[expected]:
-        score = min(100.0, score + 15.0)
-
-    return round(score, 2)
-
-
 def lookup_boost(expected: str, detected: str) -> float:
-    """Return the boost value (+20, +15, or 0) without computing full score.
-    Used by the forced-alignment scoring pipeline to adjust confidence-derived scores.
+    """Return the boost value (+20, +15, or 0) for a mismatched pair.
+
+    Used by the forced-alignment scoring pipeline to adjust
+    confidence-derived scores.  Boost amounts read from
+    ``config.forced_alignment.close_pair_boost`` /
+    ``devoicing_boost``.
     """
+    cfg = config.forced_alignment
     if expected in _CLOSE_PAIRS and detected in _CLOSE_PAIRS[expected]:
-        return 20.0
+        return cfg.close_pair_boost
     if expected in _DEVOICE_PAIRS and detected == _DEVOICE_PAIRS[expected]:
-        return 15.0
+        return cfg.devoicing_boost
     return 0.0

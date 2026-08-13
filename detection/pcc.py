@@ -27,7 +27,6 @@ Severity cut-offs (Shriberg & Kwiatkowski 1982):
 """
 
 import logging
-from typing import Optional
 
 from .utils import is_consonant, manner, same_phoneme
 
@@ -49,21 +48,18 @@ _PCC_SEVERITY_BANDS: list[tuple[float, float, str, str]] = [
 
 _PCC_R_ALLOWED: dict[str, set[str]] = {
     # Fronting
-    "k": {"t"}, "ɡ": {"d", "k"}, "ŋ": {"n"},
+    "k": {"t", "ɡ"}, "ɡ": {"d", "k"}, "ŋ": {"n"},
     # Stopping
-    "f": {"p"}, "v": {"b"}, "s": {"t"}, "z": {"d"},
-    "ʃ": {"t"}, "ʒ": {"d"}, "θ": {"t"}, "ð": {"d"},
+    "f": {"p", "v"}, "v": {"b", "f"}, "s": {"t", "z"}, "z": {"d", "s"},
+    "ʃ": {"t", "ʒ"}, "ʒ": {"d", "ʃ"}, "θ": {"t", "ð"}, "ð": {"d", "θ"},
     # Gliding
     "l": {"w", "j"}, "r": {"w", "j"},
-    # Cluster reduction — handled at segment level (we mark expected=consonant
-    # with predicted="-" as omitted, which doesn't count for PCC-R).
-    # Devoicing
-    "b": {"p"}, "d": {"t"},
-    "v": {"f"}, "z": {"s"}, "ʒ": {"ʃ"}, "ð": {"θ"},
-    # Voicing
-    "p": {"b"}, "t": {"d"}, "k": {"ɡ"},
-    "f": {"v"}, "s": {"z"}, "ʃ": {"ʒ"}, "θ": {"ð"},
+    # Devoicing / Voicing
+    "b": {"p"}, "d": {"t"}, "p": {"b"}, "t": {"d"},
 }
+# NOTE: keys must NOT overlap with conflicting values — earlier duplicate
+# keys (e.g. "k" under Fronting) were silently overwritten by later entries
+# (e.g. "k" under Voicing), dropping fronting/stopping from the allowed set.
 
 
 # -----------------------------------------------------------------------
@@ -308,3 +304,26 @@ def compute_all(breakdown: list[dict]) -> dict:
         "pcc_r": compute_pcc_r(breakdown),
         "pvc": compute_pvc(breakdown),
     }
+
+
+def compute_overall_score(
+    pcc_score: float,
+    fa_average: float,
+    total_consonants: int,
+    min_consonants: int,
+) -> float:
+    """Combine PCC with the forced-alignment average into the overall score.
+
+    Strategy (mirrors the /assess contract):
+    - zero consonants (vowel-only word)  -> forced-alignment average
+    - fewer than ``min_consonants``      -> blended by consonant ratio,
+      so 1-2 wrong consonants in short words don't produce the
+      "80% PCC wall" (0%/50%/100% extremes)
+    - otherwise                          -> PCC as-is
+    """
+    if total_consonants == 0:
+        return fa_average
+    if total_consonants < min_consonants:
+        pcc_weight = total_consonants / min_consonants
+        return round(pcc_score * pcc_weight + fa_average * (1 - pcc_weight), 2)
+    return pcc_score

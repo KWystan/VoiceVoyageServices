@@ -1,6 +1,6 @@
 import re
 
-from util.ipa_normalization import normalize_ipa  # re-exported for back-compat
+from ipa.normalization import normalize_ipa  # re-exported for back-compat
 
 _VOWELS = {
     'a', 'e', 'i', 'o', 'u', 'ə', 'ɔ', 'æ', 'ɑ', 'ʌ', 'ɛ', 'ɪ', 'ʊ',

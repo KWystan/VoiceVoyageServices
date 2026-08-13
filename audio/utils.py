@@ -1,7 +1,6 @@
 import numpy as np
 import torch
 import librosa
-import soundfile as sf
 from silero_vad import load_silero_vad, get_speech_timestamps
 from functools import lru_cache
 from config import config
@@ -36,8 +35,15 @@ def resample(audio: np.ndarray, orig_sr: int, target_sr: int = None) -> np.ndarr
     return librosa.resample(audio, orig_sr=orig_sr, target_sr=target_sr)
 
 
-def compute_snr(audio: np.ndarray, sr: int = None) -> dict:
-    """Measure SNR. Returns snr_db, ok, needs_denoise."""
+def compute_snr(audio: np.ndarray, sr: int = None,
+                speech_segments: list = None) -> dict:
+    """Measure SNR. Returns snr_db, ok, needs_denoise.
+
+    ``speech_segments`` are the VAD timestamps (list of dicts with
+    ``start``/``end``).  When provided, the VAD model is NOT re-run —
+    the caller should pass the segments it already computed so the model
+    runs once per request.
+    """
     if sr is None:
         sr = config.audio.target_sample_rate
     denoise_threshold = config.audio.snr_denoise_threshold
@@ -45,15 +51,19 @@ def compute_snr(audio: np.ndarray, sr: int = None) -> dict:
     if len(audio) == 0:
         return {"snr_db": 0.0, "ok": False, "needs_denoise": True}
 
-    _model = get_vad_model()
-    audio_pt = torch.from_numpy(audio)
-    speech_segs = get_speech_timestamps(audio_pt, _model, sampling_rate=sr, threshold=config.audio.vad_threshold)
+    if speech_segments is None:
+        _model = get_vad_model()
+        audio_pt = torch.from_numpy(audio)
+        speech_segments = get_speech_timestamps(
+            audio_pt, _model, sampling_rate=sr,
+            threshold=config.audio.vad_threshold,
+        )
 
-    if not speech_segs:
+    if not speech_segments:
         return {"snr_db": 0.0, "ok": False, "needs_denoise": True}
 
     mask = np.zeros(len(audio), dtype=bool)
-    for seg in speech_segs:
+    for seg in speech_segments:
         mask[seg["start"]:seg["end"]] = True
 
     speech, noise = audio[mask], audio[~mask]
@@ -67,33 +77,9 @@ def compute_snr(audio: np.ndarray, sr: int = None) -> dict:
 
     snr_db = 20 * np.log10(speech_rms / noise_rms)
     return {
-        "snr_db": round(snr_db, 1),
-        "ok": snr_db >= denoise_threshold,
-        "needs_denoise": snr_db < denoise_threshold,
+        # cast away numpy types — np.float64/np.bool_ break `is` checks and
+        # are unsafe for JSON serialization
+        "snr_db": float(round(snr_db, 1)),
+        "ok": bool(snr_db >= denoise_threshold),
+        "needs_denoise": bool(snr_db < denoise_threshold),
     }
-
-
-def format_check(audio_path: str) -> dict:
-    """Check if WAV file is 16kHz, mono, 16-bit PCM. Returns status and audio array."""
-    sr_target = config.audio.target_sample_rate
-    info = sf.info(audio_path)
-    issues = []
-
-    if info.samplerate != sr_target:
-        issues.append(f"Sample rate is {info.samplerate}Hz, need {sr_target}Hz")
-    if info.channels != 1:
-        issues.append(f"Channels is {info.channels}, need 1 (mono)")
-    if info.subtype != "PCM_16":
-        issues.append(f"Bit depth is {info.subtype}, need PCM_16")
-
-    audio, sr = sf.read(audio_path, dtype="float32")
-
-    # Fix sample rate
-    if sr != sr_target:
-        audio = librosa.resample(audio, orig_sr=sr, target_sr=sr_target)
-
-    # Fix channels
-    if audio.ndim > 1:
-        audio = audio.mean(axis=1)
-
-    return {"ok": len(issues) == 0, "issues": issues, "audio": audio, "sr": sr_target}

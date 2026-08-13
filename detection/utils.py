@@ -6,7 +6,6 @@ Falls back to panphon.FeatureTable for any phoneme not in the sets.
 This ensures robustness against unexpected IPA symbols from Wav2Vec2
 while maintaining performance for common phonemes.
 """
-import re
 import logging
 from typing import Optional
 
@@ -15,7 +14,7 @@ from .constants import (
     NASALS, VOWELS, VELARS, PALATALS, ALVEOLARS, LABIALS,
     DENTALS, GLOTTALS,
 )
-from util.ipa_normalization import clean, same_phoneme, canonicalize  # noqa: F401 — re-exported for back-compat
+from ipa.normalization import clean, same_phoneme, canonicalize  # noqa: F401 — re-exported for back-compat
 
 logger = logging.getLogger(__name__)
 

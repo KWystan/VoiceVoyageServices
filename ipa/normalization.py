@@ -1,10 +1,11 @@
 """
 IPA normalization module — the alphabet translation layer between the
-eng_to_ipa expected side and the Wav2Vec2 (espeak-ng) predicted side.
+expected (curated) side and the Wav2Vec2 (espeak-ng) predicted side.
 
 The pipeline compares phonemes produced by two different IPA dialects:
 
-* **Expected side** — eng_to_ipa output: ``g``/``r`` allographs, no
+* **Expected side** — the curated word list (``data/curated_words.csv``,
+  originally derived from eng_to_ipa output): ``g``/``r`` allographs, no
   aspiration marks, ``əl`` for syllabic l, ``ɚ`` for rhotic vowels.
 * **Predicted side** — raw Wav2Vec2 vocabulary tokens (espeak-ng, 60
   languages): allophonic diacritics (``tʰ``, ``tʲ``, ``l̩``, ``r̩``),
@@ -25,7 +26,6 @@ detection) compare via ``same_phoneme()``.
 """
 
 import re
-from typing import Optional
 
 # ---------------------------------------------------------------------------
 # clean() — mark stripping
@@ -56,8 +56,8 @@ def clean(phoneme: str) -> str:
 
 _IPA_NORMALIZE: dict[str, str] = {
     # ---- Allograph unification (both directions covered where needed) ----
-    'ɾ': 'r',        # flap -> eng_to_ipa r (also handled in same_phoneme)
-    'ɹ': 'r',        # rhotic -> eng_to_ipa r
+    'ɾ': 'r',        # flap -> canonical r (also handled in same_phoneme)
+    'ɹ': 'r',        # rhotic -> canonical r
     'g': 'ɡ',        # ASCII g -> IPA ɡ (U+0261) — the only ɡ spelling used
     'ɭ': 'l',        # retroflex l -> l
     'ɕ': 'ʃ',        # alveolo-palatal -> ʃ
@@ -74,7 +74,7 @@ _IPA_NORMALIZE: dict[str, str] = {
     # ---- Length-mark stripping (word-final after digraphs handled below) ----
     'ː': '',
     'ˑ': '',
-    # ---- espeak-ng syllabic consonants -> eng_to_ipa spellings ----
+    # ---- espeak-ng syllabic consonants -> canonical spellings ----
     'l̩': 'əl',
     'n̩': 'ən',
     'r̩': 'ɚ',

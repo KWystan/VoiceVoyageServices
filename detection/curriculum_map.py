@@ -4,7 +4,7 @@ parent-friendly display labels, filtered by the child's developmental
 age bracket.
 
 This module is the bridge between the clinical analysis (detectors, PCC,
-SODA, age norms) and the parent-facing mobile interface (Voice Voyage).
+age norms) and the parent-facing mobile interface (Voice Voyage).
 Raw process names like "Fronting" and "Stopping" are mapped to
 developmentally contextualised display labels with clinical status flags.
 
@@ -14,8 +14,9 @@ get_curriculum_summary(processes, age_months)
     Filter processes to age-applicable display labels.
 """
 
+import re
 import logging
-from typing import Optional
+from typing import Callable
 
 from .utils import manner, place
 
@@ -134,8 +135,6 @@ def _parse_detail(detail: str) -> tuple[str, str]:
     tuple[str, str]
         ``(expected, predicted)``.  Empty strings when parsing fails.
     """
-    import re
-
     # Standard substitution: /k/ -> [t]
     match = re.match(r'/(.+?)/\s*->\s*\[(.+?)\]', detail)
     if match:
@@ -156,8 +155,6 @@ def _extract_syllable(detail: str) -> str:
     e.g. ``Syllable 'nana' deleted`` -> ``"nana"``.  Returns ``""`` when
     the detail does not follow the detector's syllable format.
     """
-    import re
-
     match = re.search(r"Syllable '([^']+)' deleted", detail)
     return match.group(1) if match else ""
 
@@ -169,8 +166,10 @@ def _translate_error(
 ) -> dict:
     """Map a raw ASHA process to a parent-friendly display label and status.
 
-    Rules are applied in the order listed below — first match wins.
-    Unrecognised combinations fall through to ``("Needs Review", "Needs Review")``.
+    Lookup is table-driven (``_TRANSLATORS`` keyed by process name);
+    conditional rules (manner/place/position) live in small per-process
+    translator functions.  Unrecognised processes fall through to
+    ``("Needs Review", "Needs Review")``.
 
     Parameters
     ----------
@@ -186,83 +185,110 @@ def _translate_error(
     dict with keys ``display_label`` (str) and ``clinical_status`` (str).
     """
     proc_name = process.get("process", "")
-    exp_m = manner(expected)
-    exp_p = place(expected)
-
-    # ── Fronting ─────────────────────────────────────────────────────
-    if proc_name == "Fronting":
-        # Palatal Fronting: /ʃ/ → [s] — the only palatal with a distinct
-        # parent-facing label.  Check before the general Palatal rule.
-        if expected == 'ʃ':
-            return {"display_label": "Palatal Fronting", "clinical_status": "Expected Error"}
-        if exp_p in ("Velar", "Palatal"):
-            return {"display_label": "Fronting", "clinical_status": "Expected Error"}
-
-    # ── Backing ──────────────────────────────────────────────────────
-    if proc_name == "Backing":
-        if exp_p in ("Alveolar", "Labial"):
-            return {"display_label": "Backing", "clinical_status": "Red Flag"}
-
-    # ── Stopping ─────────────────────────────────────────────────────
-    if proc_name == "Stopping":
-        # Stopping a fricative → developmentally expected
-        if exp_m == "Fricative":
-            return {"display_label": "Stopping", "clinical_status": "Expected Error"}
-        # Stopping a stop or nasal → Frication (reverse pattern)
-        # Note: with the current Stopping detector (expects fricative/affricate)
-        # this branch is unreachable, but included for forward-compatibility.
-        if exp_m in ("Nasal", "Stop"):
-            return {"display_label": "Frication", "clinical_status": "Red Flag"}
-
-    # ── Gliding ──────────────────────────────────────────────────────
-    # ---- Frication --------------------------------------------------------------
-    if proc_name == "Frication":
-        return {"display_label": "Frication", "clinical_status": "Red Flag"}
-
-    # ---- Gliding ----------------------------------------------------------------
-    if proc_name == "Gliding":
-        if exp_m == "Liquid":
-            return {"display_label": "Gliding", "clinical_status": "Expected Error"}
-
-    # ── Liquidization ────────────────────────────────────────────────
-    if proc_name == "Liquidization":
-        if exp_m == "Glide":
-            return {"display_label": "Liquidization", "clinical_status": "Red Flag"}
-
-    # ── Deaffrication ────────────────────────────────────────────────
-    if proc_name == "Deaffrication":
-        if exp_m == "Affricate":
-            return {"display_label": "Deaffrication", "clinical_status": "Expected Error"}
-
-    # ── Denasalization ───────────────────────────────────────────────
-    if proc_name == "Denasalization":
-        return {"display_label": "Denasalization", "clinical_status": "Red Flag"}
-
-    # ── Vowelization ─────────────────────────────────────────────────
-    if proc_name == "Vowelization":
-        return {"display_label": "Vowelization", "clinical_status": "Red Flag"}
-
-    # ── Voicing errors ───────────────────────────────────────────────
-    if proc_name in ("Prevocalic Voicing", "Devoicing", "Final Devoicing"):
-        return {"display_label": proc_name, "clinical_status": "Expected Error"}
-
-    # ── Deletion processes ───────────────────────────────────────────
-    if proc_name == "Cluster Reduction":
-        return {"display_label": "Cluster Reduction", "clinical_status": "Expected Error"}
-    if proc_name == "Weak Syllable Deletion":
-        return {"display_label": "Weak Syllable Deletion", "clinical_status": "Expected Error"}
-    if proc_name == "Final Consonant Deletion":
-        return {"display_label": "Final Consonant Deletion", "clinical_status": "Red Flag"}
-    if proc_name == "Consonant Deletion":
-        position = process.get("position", "")
-        if position == "Medial":
-            return {"display_label": "Medial Consonant Deletion", "clinical_status": "Red Flag"}
-        if position == "Final":
-            return {"display_label": "Final Consonant Deletion", "clinical_status": "Red Flag"}
-        return {"display_label": "Initial Consonant Deletion", "clinical_status": "Red Flag"}
-
-    # ── Fallback ─────────────────────────────────────────────────────
+    translator = _TRANSLATORS.get(proc_name)
+    if translator:
+        return translator(process, expected, predicted)
     return {"display_label": proc_name, "clinical_status": "Needs Review"}
+
+
+# ---------------------------------------------------------------------------
+# Per-process translators (conditional rules keyed by manner/place/position)
+# ---------------------------------------------------------------------------
+
+def _tl_fronting(process: dict, expected: str, predicted: str) -> dict:
+    # Palatal Fronting: /ʃ/ → [s] — the only palatal with a distinct
+    # parent-facing label.  Check before the general Palatal rule.
+    if expected == 'ʃ':
+        return {"display_label": "Palatal Fronting", "clinical_status": "Expected Error"}
+    if place(expected) in ("Velar", "Palatal"):
+        return {"display_label": "Fronting", "clinical_status": "Expected Error"}
+    return {"display_label": "Fronting", "clinical_status": "Needs Review"}
+
+
+def _tl_backing(process: dict, expected: str, predicted: str) -> dict:
+    if place(expected) in ("Alveolar", "Labial"):
+        return {"display_label": "Backing", "clinical_status": "Red Flag"}
+    return {"display_label": "Backing", "clinical_status": "Needs Review"}
+
+
+def _tl_stopping(process: dict, expected: str, predicted: str) -> dict:
+    # Stopping a fricative → developmentally expected
+    if manner(expected) == "Fricative":
+        return {"display_label": "Stopping", "clinical_status": "Expected Error"}
+    # Stopping a stop or nasal → Frication (reverse pattern).
+    # NOTE: with the current Stopping detector (expects fricative targets)
+    # this branch is unreachable, but kept for forward-compatibility.
+    if manner(expected) in ("Nasal", "Stop"):
+        return {"display_label": "Frication", "clinical_status": "Red Flag"}
+    return {"display_label": "Stopping", "clinical_status": "Needs Review"}
+
+
+def _tl_gliding(process: dict, expected: str, predicted: str) -> dict:
+    if manner(expected) == "Liquid":
+        return {"display_label": "Gliding", "clinical_status": "Expected Error"}
+    return {"display_label": "Gliding", "clinical_status": "Needs Review"}
+
+
+def _tl_liquidization(process: dict, expected: str, predicted: str) -> dict:
+    if manner(expected) == "Glide":
+        return {"display_label": "Liquidization", "clinical_status": "Red Flag"}
+    return {"display_label": "Liquidization", "clinical_status": "Needs Review"}
+
+
+def _tl_deaffrication(process: dict, expected: str, predicted: str) -> dict:
+    if manner(expected) == "Affricate":
+        return {"display_label": "Deaffrication", "clinical_status": "Expected Error"}
+    return {"display_label": "Deaffrication", "clinical_status": "Needs Review"}
+
+
+def _tl_voicing(process: dict, expected: str, predicted: str) -> dict:
+    proc_name = process.get("process", "")
+    return {"display_label": proc_name, "clinical_status": "Expected Error"}
+
+
+def _tl_consonant_deletion(process: dict, expected: str, predicted: str) -> dict:
+    position = process.get("position", "")
+    if position == "Medial":
+        return {"display_label": "Medial Consonant Deletion", "clinical_status": "Red Flag"}
+    if position == "Final":
+        return {"display_label": "Final Consonant Deletion", "clinical_status": "Red Flag"}
+    return {"display_label": "Initial Consonant Deletion", "clinical_status": "Red Flag"}
+
+
+_FIXED_LABELS: dict[str, tuple[str, str]] = {
+    "Frication": ("Frication", "Red Flag"),
+    "Denasalization": ("Denasalization", "Red Flag"),
+    "Vowelization": ("Vowelization", "Red Flag"),
+    "Cluster Reduction": ("Cluster Reduction", "Expected Error"),
+    "Weak Syllable Deletion": ("Weak Syllable Deletion", "Expected Error"),
+    "Final Consonant Deletion": ("Final Consonant Deletion", "Red Flag"),
+}
+
+
+def _tl_fixed(process: dict, expected: str, predicted: str) -> dict:
+    """Fixed label+status processes (no conditional logic)."""
+    label, status = _FIXED_LABELS[process.get("process", "")]
+    return {"display_label": label, "clinical_status": status}
+
+
+_TRANSLATORS: dict[str, Callable[[dict, str, str], dict]] = {
+    "Fronting": _tl_fronting,
+    "Backing": _tl_backing,
+    "Stopping": _tl_stopping,
+    "Gliding": _tl_gliding,
+    "Liquidization": _tl_liquidization,
+    "Deaffrication": _tl_deaffrication,
+    "Prevocalic Voicing": _tl_voicing,
+    "Devoicing": _tl_voicing,
+    "Final Devoicing": _tl_voicing,
+    "Consonant Deletion": _tl_consonant_deletion,
+    "Frication": _tl_fixed,
+    "Denasalization": _tl_fixed,
+    "Vowelization": _tl_fixed,
+    "Cluster Reduction": _tl_fixed,
+    "Weak Syllable Deletion": _tl_fixed,
+    "Final Consonant Deletion": _tl_fixed,
+}
 
 
 def get_curriculum_summary(
