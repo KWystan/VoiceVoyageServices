@@ -14,11 +14,13 @@ class ModuleServiceConfig:
 
     # LLM provider: "none" (rule-based only) | "zen" (OpenCode Zen)
     llm_provider: str = "zen"
-    llm_model: str = "deepseek-v4-flash-free"
+    # deepseek-v4-flash-free is currently throttled provider-side; hy3-free
+    # and laguna-s-2.1-free are working free-tier models.
+    llm_model: str = "hy3-free"
     zen_base_url: str = "https://opencode.ai/zen/v1"
     api_key_env: str = "ZEN_API_KEY"
     request_timeout_sec: float = 60.0
-    max_retries: int = 2
+    max_retries: int = 4  # free tier is rate-limited; retry patiently before falling back
 
     # Module building
     items_per_level: int = 4

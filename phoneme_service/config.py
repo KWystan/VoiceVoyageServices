@@ -28,7 +28,12 @@ class ForcedAlignmentConfig:
     Parameters for torchaudio.functional.forced_align and scoring.
     """
     blank_token_id: int = 0
-    min_phoneme_duration_sec: float = 0.01
+    # Minimum duration for a real phoneme production. Segments below this are
+    # deletions, not substitutions: an omitted initial consonant (child says
+    # "ell" for "bell") leaves only a ~20-40ms voiceless onset burst, which
+    # Wav2Vec2 (espeak-ng) maps to its default stop token [t] — a real stop is
+    # never this short. Must not exceed duration_penalty_short_threshold_sec.
+    min_phoneme_duration_sec: float = 0.03
     duration_penalty_short_threshold_sec: float = 0.03
     duration_penalty_long_threshold_sec: float = 0.50
     duration_penalty_short_amount: float = 20.0

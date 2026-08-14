@@ -96,7 +96,7 @@ class LLMResponseParser:
     def parse(self, raw, *, allowed_outline_ids, bank_lookup):
         """Return {"outline_id", "rationale", "levels": {level: [PracticeItem]}}."""
         try:
-            data = json.loads(raw)
+            data = json.loads(self._strip_fences(raw))
         except (json.JSONDecodeError, TypeError) as exc:
             raise InvalidLLMResponse(f"response is not valid JSON: {exc}") from exc
         if not isinstance(data, dict):
@@ -140,3 +140,20 @@ class LLMResponseParser:
         return {"outline_id": outline_id,
                 "rationale": str(data.get("rationale", "") or ""),
                 "levels": levels}
+
+    @staticmethod
+    def _strip_fences(raw: str) -> str:
+        """Remove markdown code fences around the JSON payload.
+
+        Many models wrap their JSON answer in ```json ... ``` blocks —
+        tolerate that instead of rejecting the response.
+        """
+        text = (raw or "").strip()
+        if text.startswith("```"):
+            lines = text.splitlines()
+            if lines and lines[0].lstrip().startswith("```"):
+                lines = lines[1:]
+            if lines and lines[-1].strip() == "```":
+                lines = lines[:-1]
+            return "\n".join(lines).strip()
+        return text

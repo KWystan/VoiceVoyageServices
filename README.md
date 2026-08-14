@@ -34,7 +34,7 @@ docker compose up --build
 ## API
 
 - `POST phoneme_service:8001/assess` — multipart `word`, `age`, `file` → assessment response
-- `POST dynamic_modules_service:8002/module` — JSON `{age, processes, pcc}` → practice module
+- `POST dynamic_modules_service:8002/module` — Form `age` + `processes` (JSON array string of detected processes) → practice module
 - Both expose `GET /health`
 
 See each service's `CLAUDE.md`-adjacent docs and the root `CLAUDE.md` for architecture details.
