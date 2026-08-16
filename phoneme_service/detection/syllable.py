@@ -85,9 +85,14 @@ def detect_weak_syllable_deletion(alignment):
     skip_indices = set()
     syllables = find_syllables(alignment)
 
+    # Weak Syllable Deletion requires a multisyllabic word — a single
+    # syllable cannot be "weak" relative to another.  Guard so e.g. a
+    # fully-deleted "dog" is not reported as Weak Syllable Deletion.
+    if len(syllables) < 2:
+        return processes, skip_indices
+
     for i, indices in enumerate(syllables):
         vowel_deleted = False
-        consonants_deleted = 0
         syllable_parts = []
 
         for idx in indices:
@@ -100,9 +105,6 @@ def detect_weak_syllable_deletion(alignment):
             if manner(entry["expected"]) == "Vowel":
                 if entry.get("duration_sec", 1.0) < config.forced_alignment.min_phoneme_duration_sec or entry.get("predicted") in ("-", None, ""):
                     vowel_deleted = True
-            else:
-                if entry.get("duration_sec", 1.0) < config.forced_alignment.min_phoneme_duration_sec or entry.get("predicted") in ("-", None, ""):
-                    consonants_deleted += 1
 
         # Syllable deleted only if the vowel nucleus is gone
         if vowel_deleted:

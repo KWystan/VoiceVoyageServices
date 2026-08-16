@@ -198,8 +198,9 @@ def compute_pcc_r(breakdown: list[dict]) -> dict:
         exp = entry.get("expected", "")
         pred = entry.get("predicted", "")
 
-        # Exact match → correct
-        if pred == exp:
+        # Exact match (through the alphabet translation — aspirated/syllabic
+        # allophonic spellings of the same phoneme are correct productions)
+        if same_phoneme(pred, exp):
             ok += 1
             continue
 

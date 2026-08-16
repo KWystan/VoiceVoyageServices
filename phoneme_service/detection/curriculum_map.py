@@ -37,7 +37,9 @@ _BRACKET_RANGES: list[tuple[int, int, str]] = [
 # to be resolved by age 8. Weak Syllable Deletion is relabelled
 # "Syllable Reduction" (supplied by the Age 8 bracket map), so the raw
 # label must not linger in the Age 8 applicable set.
-_AGE8_RETIRED_LABELS: set[str] = {"Backing", "Weak Syllable Deletion"}
+# NOTE: Backing is NOT retired — it is a Red Flag at every age, and a
+# backing error at age 8 is more clinically significant, not less.
+_AGE8_RETIRED_LABELS: set[str] = {"Weak Syllable Deletion"}
 
 # Process display_labels applicable per age bracket (cumulative).
 # Values are the "display_label" outputs from _translate_error().

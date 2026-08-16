@@ -1,13 +1,19 @@
+# Both services build from the REPO ROOT so the same Dockerfiles work
+# for local compose AND Azure Container Apps GitHub builds.
 services:
   phoneme:
-    build: ./phoneme_service
+    build:
+      context: .
+      dockerfile: phoneme_service/Dockerfile
     ports:
       - "8001:8001"
     environment:
       - PYTHONUTF8=1
 
   dynamic-modules:
-    build: ./dynamic_modules_service
+    build:
+      context: .
+      dockerfile: dynamic_modules_service/Dockerfile
     ports:
       - "8002:8002"
     env_file:

@@ -93,7 +93,7 @@ async def warmup():
 async def assess_pronunciation(
     word: str = Form(...),
     file: UploadFile = File(...),
-    age: int = Form(...),
+    age: int = Form(..., ge=2, le=12),
 ):
     """Assess pronunciation of a target word from an audio recording.
 
