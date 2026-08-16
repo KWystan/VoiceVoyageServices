@@ -1,29 +1,61 @@
-"""Data loading — module outlines and the word bank.
+"""Data loading — word bank, module outlines, and grade-level documents.
 
 The word bank (data/word_bank.json) is the SINGLE source of item text +
-phonemes for the whole service; module outlines (data/module_outlines.json)
-reference items by text only.  The LLM prompt knowledge lives in
-data/prompt.md (ASHA summary + rules).
+phonemes + metadata for the whole service.  Module outlines
+(data/module_outlines.json) define process templates whose level pools are
+resolved from the bank at load time.  Grade-level gameplay documents
+(data/Grade *.md) are the LLM's curriculum/age context — they replaced the
+old ASHA CSV word lists, which no code loads.
 """
 
-import csv
 import json
 from pathlib import Path
 
 from config import config
 from models import (
-    FocusSound,
     ModuleOutline,
     PracticeItem,
     PracticeLevel,
 )
 
 
+class GradeDocuments:
+    """The grade-level gameplay Markdown documents, keyed by grade.
+
+    These are full LLM context: islands, levels, MATATAG foci, ASHA targets,
+    UI templates and dynamic-content guidance per grade.  Grades follow the
+    app's age brackets: 1 = ages 5-6, 2 = ages 6-7, 3 = age 8.  Age 4
+    children use the Grade 1 document (the Kindergarten document is not
+    shipped with this service).
+    """
+
+    def __init__(self, docs=None):
+        self._docs = dict(docs or config.grade_docs)
+
+    def grade_for_age(self, age: int) -> int:
+        if age <= 5:
+            return 1
+        if age <= 7:
+            return 2
+        return 3
+
+    def document_for_grade(self, grade: int) -> str:
+        path = self._docs.get(grade)
+        if path is None:
+            raise KeyError(f"No grade document for grade {grade}")
+        return Path(path).read_text(encoding="utf-8")
+
+    def document_for_age(self, age: int) -> str:
+        return self.document_for_grade(self.grade_for_age(age))
+
+
 class MockOutlines:
     """Professional module outlines backed by data/module_outlines.json.
 
-    Level pools reference item TEXTS; the actual items (word + phonemes)
-    come from the word bank — a single source of truth.
+    Outlines define the process template (id, title, focus process, target
+    sounds, grades).  Level pools are resolved from the WORD BANK at load
+    time — bank items whose ``processes`` include the outline's focus
+    process — so the pools can never drift from the bank.
     """
 
     def __init__(self, bank: "MockWordBank", path=None):
@@ -36,36 +68,64 @@ class MockOutlines:
             raw = json.load(f)
         outlines = []
         for entry in raw["outlines"]:
-            levels = {}
-            for level_name, texts in entry["levels"].items():
-                level = PracticeLevel.from_value(level_name)
-                levels[level] = tuple(
-                    item for item in (
-                        self._bank.get(text, level) for text in texts
-                    ) if item is not None
+            levels = {
+                level: tuple(
+                    self._bank.items_for_outline(level, entry["focus_process"])
                 )
+                for level in PracticeLevel
+            }
             outlines.append(ModuleOutline(
                 id=entry["id"],
                 title=entry["title"],
                 focus_process=entry["focus_process"],
                 target_sounds=tuple(entry["target_sounds"]),
+                grades=tuple(entry.get("grades", [1, 2, 3])),
+                gameplay_level=entry.get("gameplay_level", ""),
                 levels=levels,
             ))
         return outlines
 
-    def outlines_for(self, focus_sounds: list[FocusSound]) -> list[ModuleOutline]:
-        """Outlines sharing at least one target sound, best match first."""
+    def all(self) -> list[ModuleOutline]:
+        return list(self._outlines)
+
+    def outlines_for(self, focus_sounds: list) -> list[ModuleOutline]:
+        """Outlines matching the focus sounds, best match first.
+
+        An outline matches when it shares a target sound with the findings;
+        outlines whose focus process also matches the findings are ranked
+        above sound-only matches (e.g. Gliding /l/ must not pick the
+        Cluster-Reduction L-blend outline just because both involve /l/).
+        """
         focus = {s.sound for s in focus_sounds}
-        matches = [o for o in self._outlines if focus & set(o.target_sounds)]
-        return sorted(matches, key=lambda o: -len(focus & set(o.target_sounds)))
+        processes = {s.source_process for s in focus_sounds}
+        scored = []
+        for o in self._outlines:
+            overlap = focus & set(o.target_sounds)
+            if not overlap:
+                continue
+            process_match = o.focus_process in processes
+            scored.append(((2 if process_match else 0) + len(overlap), o))
+        scored.sort(key=lambda pair: -pair[0])
+        return [o for _, o in scored]
+
+    def outlines_for_processes(self, process_names: list[str]) -> list[ModuleOutline]:
+        """Outlines whose focus process is among the detected processes.
+
+        Used when the findings carry no usable target sound (e.g. Weak
+        Syllable Deletion, whose detail has no phoneme) so the module
+        builder can still match a plan.
+        """
+        wanted = set(process_names)
+        return [o for o in self._outlines if o.focus_process in wanted]
 
 
 class MockWordBank:
     """Practice items backed by data/word_bank.json — the single source
-    of item text + phonemes for the whole service.
+    of item text + phonemes + metadata for the whole service.
 
-    Items carry an optional ``theme`` tag (``ocean`` | ``general``) so the
-    LLM can prefer themed words that match the app's underwater world.
+    Items are TEXT-ONLY (no image/audio assets).  Each carries the metadata
+    the LLM needs: syllable complexity, target sound + position, related
+    processes, grades, and gameplay level.
     """
 
     def __init__(self, path=None):
@@ -81,18 +141,26 @@ class MockWordBank:
             item = PracticeItem(
                 text=it["text"],
                 level=level,
-                target_sound="",  # position-agnostic; selection is by level only
+                target_sound=it.get("target_sound", ""),
+                position=it.get("position", ""),
                 phonemes=it.get("phonemes", ""),
-                theme=it.get("theme", "general"),
+                syllable_complexity=it.get("syllable_complexity", ""),
+                processes=tuple(it.get("processes", [])),
+                grades=tuple(it.get("grades", [1])),
+                gameplay_level=it.get("gameplay_level", ""),
             )
             items[(item.text, item.level)] = item
         return items
 
     def items_for(self, level: PracticeLevel) -> list[PracticeItem]:
-        return [
-            it for it in self._items.values()
-            if it.level == level
-        ]
+        return [it for it in self._items.values() if it.level == level]
+
+    def items_for_outline(self, level: PracticeLevel,
+                          process: str) -> list[PracticeItem]:
+        """Bank items usable by an outline: level matches and the item's
+        related processes include the outline's focus process."""
+        return [it for it in self._items.values()
+                if it.level == level and process in it.processes]
 
     def get(self, text: str, level: PracticeLevel):
         return self._items.get((text, level))

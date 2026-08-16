@@ -43,9 +43,13 @@ app.add_middleware(
 
 
 def make_service() -> ModuleService:
-    from data import MockOutlines, MockWordBank
+    from data import GradeDocuments, MockOutlines, MockWordBank
     bank = MockWordBank()
-    return ModuleService(outlines=MockOutlines(bank), bank=bank)
+    return ModuleService(
+        outlines=MockOutlines(bank),
+        bank=bank,
+        grade_documents=GradeDocuments(),
+    )
 
 
 # ---------------------------------------------------------------------------

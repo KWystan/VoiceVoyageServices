@@ -52,23 +52,51 @@ class FocusSound:
 
 @dataclass(frozen=True)
 class PracticeItem:
-    """A single practice unit (syllable, word, phrase, or sentence)."""
+    """A single practice unit (syllable, word, phrase, or sentence).
+
+    Text-only by design: the Flutter client has no per-word image/audio
+    assets yet, so items carry their display text plus the phoneme-level
+    metadata the LLM needs to make age- and finding-appropriate choices.
+    """
+
     text: str
     level: PracticeLevel
+    # Primary sound(s) this item practices (e.g. "s", "st", "θ") and where
+    # it occurs (initial | medial | final | na).
     target_sound: str = ""
     position: str = ""
-    phonemes: str = ""  # comma-separated; used to avoid other error sounds
-    theme: str = "general"  # "ocean" | "general" — matches the app's theme
+    # Comma-separated IPA (Wav2Vec2-validated spelling); used to avoid
+    # items containing OTHER error sounds.
+    phonemes: str = ""
+    # Structural complexity: CV pattern / syllable count for words,
+    # word count for phrases and sentences (e.g. "CVC", "2 syllables").
+    syllable_complexity: str = ""
+    # Related phonological processes this item targets (phoneme-service
+    # process names, e.g. "Gliding", "Cluster Reduction").
+    processes: tuple[str, ...] = ()
+    # Grade levels the item suits (1 = ages 5-6, 2 = ages 6-7, 3 = age 8).
+    grades: tuple[int, ...] = (1,)
+    # Gameplay island/level reference from the grade-level docs.
+    gameplay_level: str = ""
 
 
 @dataclass(frozen=True)
 class ModuleOutline:
-    """A professional-authored practice template with planned material."""
+    """A professional-authored practice template with planned material.
+
+    ``levels`` pools are resolved from the word bank at load time; the
+    rule-based builder further filters them by the child's grade and by
+    other error sounds.
+    """
+
     id: str
     title: str
     focus_process: str
     target_sounds: tuple[str, ...]
-    levels: dict[PracticeLevel, tuple[PracticeItem, ...]]
+    grades: tuple[int, ...] = (1, 2, 3)
+    gameplay_level: str = ""
+    levels: dict[PracticeLevel, tuple[PracticeItem, ...]] = field(
+        default_factory=dict)
 
 
 @dataclass
@@ -83,30 +111,3 @@ class LearningModule:
     rationale: str
     generated_by: str  # "llm" | "rule-based"
     warning: Optional[str] = None
-
-
-@dataclass(frozen=True)
-class AshaGroup:
-    """One phoneme/process group from the ASHA word list, by position."""
-    phonemes: str
-    initial: tuple[str, ...] = ()
-    medial: tuple[str, ...] = ()
-    final: tuple[str, ...] = ()
-
-
-@dataclass(frozen=True)
-class AshaErrorPattern:
-    """'If they say X -> display label Y' row from the ASHA lists."""
-    word_group: str
-    words: tuple[str, ...]
-    if_they_say: str
-    display_label: str
-
-
-@dataclass(frozen=True)
-class AshaBracket:
-    """The ASHA word list + process context for one age bracket."""
-    name: str
-    focus: str
-    groups: tuple[AshaGroup, ...] = ()
-    error_patterns: tuple[AshaErrorPattern, ...] = ()

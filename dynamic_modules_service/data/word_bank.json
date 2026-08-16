@@ -1,448 +1,4714 @@
 {
   "items": [
     {
-      "text": "a big chair",
-      "level": "phrase",
-      "phonemes": "ə,b,ɪ,ɡ,tʃ,ɛ,r",
-      "theme": "general"
-    },
-    {
-      "text": "a big cup",
-      "level": "phrase",
-      "phonemes": "ə,b,ɪ,ɡ,k,ə,p",
-      "theme": "general"
-    },
-    {
-      "text": "a big sock",
-      "level": "phrase",
-      "phonemes": "ə,b,ɪ,ɡ,s,ɑ,k",
-      "theme": "general"
-    },
-    {
-      "text": "a big whale",
-      "level": "phrase",
-      "phonemes": "ə,b,ɪ,ɡ,w,eɪ,l",
-      "theme": "general"
-    },
-    {
-      "text": "a red ball",
-      "level": "phrase",
-      "phonemes": "ə,r,ɛ,d,b,ɔ,l",
-      "theme": "general"
-    },
-    {
-      "text": "a red car",
-      "level": "phrase",
-      "phonemes": "ə,r,ɛ,d,k,ɑ,r",
-      "theme": "general"
-    },
-    {
-      "text": "my cookie",
-      "level": "phrase",
-      "phonemes": "m,aɪ,k,ʊ,k,i",
-      "theme": "general"
-    },
-    {
-      "text": "my watch",
-      "level": "phrase",
-      "phonemes": "m,aɪ,w,ɑ,tʃ",
-      "theme": "general"
-    },
-    {
-      "text": "see the sea",
-      "level": "phrase",
-      "phonemes": "s,i,ð,ə,s,i",
-      "theme": "ocean"
-    },
-    {
-      "text": "the bell",
-      "level": "phrase",
-      "phonemes": "ð,ə,b,ɛ,l",
-      "theme": "general"
-    },
-    {
-      "text": "the key",
-      "level": "phrase",
-      "phonemes": "ð,ə,k,i",
-      "theme": "general"
-    },
-    {
-      "text": "the sun",
-      "level": "phrase",
-      "phonemes": "ð,ə,s,ə,n",
-      "theme": "general"
-    },
-    {
-      "text": "I drink from a cup.",
-      "level": "sentence",
-      "phonemes": "aɪ,d,r,ɪ,ŋ,k,f,r,ə,m,ə,k,ə,p",
-      "theme": "general"
-    },
-    {
-      "text": "I like cheese.",
-      "level": "sentence",
-      "phonemes": "aɪ,l,aɪ,k,tʃ,i,z",
-      "theme": "general"
-    },
-    {
-      "text": "I like the ball.",
-      "level": "sentence",
-      "phonemes": "aɪ,l,aɪ,k,ð,ə,b,ɔ,l",
-      "theme": "general"
-    },
-    {
-      "text": "I see a cookie.",
-      "level": "sentence",
-      "phonemes": "aɪ,s,i,ə,k,ʊ,k,i",
-      "theme": "general"
-    },
-    {
-      "text": "I see a sock.",
-      "level": "sentence",
-      "phonemes": "aɪ,s,i,ə,s,ɑ,k",
-      "theme": "general"
-    },
-    {
-      "text": "I sit on the chair.",
-      "level": "sentence",
-      "phonemes": "aɪ,s,ɪ,t,ɔ,n,ð,ə,tʃ,ɛ,r",
-      "theme": "general"
-    },
-    {
-      "text": "My key opens the door.",
-      "level": "sentence",
-      "phonemes": "m,aɪ,k,i,oʊ,p,ə,n,z,ð,ə,d,ɔ,r",
-      "theme": "general"
-    },
-    {
-      "text": "The bell rings.",
-      "level": "sentence",
-      "phonemes": "ð,ə,b,ɛ,l,r,ɪ,ŋ,z",
-      "theme": "general"
-    },
-    {
-      "text": "The cat is on the mat.",
-      "level": "sentence",
-      "phonemes": "ð,ə,k,æ,t,ɪ,z,ɔ,n,ð,ə,m,æ,t",
-      "theme": "general"
-    },
-    {
-      "text": "The sun is up.",
-      "level": "sentence",
-      "phonemes": "ð,ə,s,ə,n,ɪ,z,ə,p",
-      "theme": "general"
-    },
-    {
-      "text": "The whale is big.",
-      "level": "sentence",
-      "phonemes": "ð,ə,w,eɪ,l,ɪ,z,b,ɪ,ɡ",
-      "theme": "ocean"
-    },
-    {
-      "text": "We ride the bus.",
-      "level": "sentence",
-      "phonemes": "w,i,r,aɪ,d,ð,ə,b,ə,s",
-      "theme": "general"
-    },
-    {
-      "text": "al",
+      "text": "bla",
       "level": "syllable",
-      "phonemes": "æ,l",
-      "theme": "general"
+      "phonemes": "b,l,ɑ",
+      "target_sound": "l",
+      "position": "initial",
+      "processes": [
+        "Cluster Reduction"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 2.2 (Story Line Jumper)",
+      "syllable_complexity": "CCV"
+    },
+    {
+      "text": "blu",
+      "level": "syllable",
+      "phonemes": "b,l,u",
+      "target_sound": "l",
+      "position": "initial",
+      "processes": [
+        "Cluster Reduction"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 2.2 (Story Line Jumper)",
+      "syllable_complexity": "CCV"
     },
     {
       "text": "cha",
       "level": "syllable",
       "phonemes": "tʃ,ɑ",
-      "theme": "general"
+      "target_sound": "tʃ",
+      "position": "initial",
+      "processes": [
+        "Deaffrication"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 1.2 (Family Sorting Basket)",
+      "syllable_complexity": "CV"
     },
     {
       "text": "chee",
       "level": "syllable",
       "phonemes": "tʃ,i",
-      "theme": "general"
+      "target_sound": "tʃ",
+      "position": "initial",
+      "processes": [
+        "Deaffrication"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 1.2 (Family Sorting Basket)",
+      "syllable_complexity": "CV"
     },
     {
       "text": "cho",
       "level": "syllable",
       "phonemes": "tʃ,oʊ",
-      "theme": "general"
+      "target_sound": "tʃ",
+      "position": "initial",
+      "processes": [
+        "Deaffrication"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 1.2 (Family Sorting Basket)",
+      "syllable_complexity": "CV"
+    },
+    {
+      "text": "chu",
+      "level": "syllable",
+      "phonemes": "tʃ,u",
+      "target_sound": "tʃ",
+      "position": "initial",
+      "processes": [
+        "Deaffrication"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 1.2 (Family Sorting Basket)",
+      "syllable_complexity": "CV"
+    },
+    {
+      "text": "da",
+      "level": "syllable",
+      "phonemes": "d,ɑ",
+      "target_sound": "d",
+      "position": "initial",
+      "processes": [
+        "Backing",
+        "Denasalization",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)",
+      "syllable_complexity": "CV"
+    },
+    {
+      "text": "dee",
+      "level": "syllable",
+      "phonemes": "d,i",
+      "target_sound": "d",
+      "position": "initial",
+      "processes": [
+        "Backing",
+        "Denasalization",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)",
+      "syllable_complexity": "CV"
+    },
+    {
+      "text": "dra",
+      "level": "syllable",
+      "phonemes": "d,r,æ",
+      "target_sound": "r",
+      "position": "initial",
+      "processes": [
+        "Cluster Reduction"
+      ],
+      "grades": [
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Grade 1 Island 3.2 (Helper's Task Trail)",
+      "syllable_complexity": "CCV"
+    },
+    {
+      "text": "dri",
+      "level": "syllable",
+      "phonemes": "d,r,i",
+      "target_sound": "r",
+      "position": "initial",
+      "processes": [
+        "Cluster Reduction"
+      ],
+      "grades": [
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Grade 1 Island 3.2 (Helper's Task Trail)",
+      "syllable_complexity": "CCV"
     },
     {
       "text": "el",
       "level": "syllable",
       "phonemes": "ɛ,l",
-      "theme": "general"
+      "target_sound": "l",
+      "position": "final",
+      "processes": [
+        "Gliding",
+        "Final Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 1.3 (Rhyme Time Porch)",
+      "syllable_complexity": "VC"
     },
     {
-      "text": "il",
+      "text": "fa",
       "level": "syllable",
-      "phonemes": "ɪ,l",
-      "theme": "general"
+      "phonemes": "f,ɑ",
+      "target_sound": "f",
+      "position": "initial",
+      "processes": [
+        "Stopping"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 3.3 (Problem-Solver Market)",
+      "syllable_complexity": "CV"
+    },
+    {
+      "text": "fee",
+      "level": "syllable",
+      "phonemes": "f,i",
+      "target_sound": "f",
+      "position": "initial",
+      "processes": [
+        "Stopping"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 3.3 (Problem-Solver Market)",
+      "syllable_complexity": "CV"
+    },
+    {
+      "text": "fla",
+      "level": "syllable",
+      "phonemes": "f,l,æ",
+      "target_sound": "l",
+      "position": "initial",
+      "processes": [
+        "Cluster Reduction"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 2.2 (Story Line Jumper)",
+      "syllable_complexity": "CCV"
+    },
+    {
+      "text": "flu",
+      "level": "syllable",
+      "phonemes": "f,l,u",
+      "target_sound": "l",
+      "position": "initial",
+      "processes": [
+        "Cluster Reduction"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 2.2 (Story Line Jumper)",
+      "syllable_complexity": "CCV"
+    },
+    {
+      "text": "ga",
+      "level": "syllable",
+      "phonemes": "ɡ,ɑ",
+      "target_sound": "ɡ",
+      "position": "initial",
+      "processes": [
+        "Fronting",
+        "Backing"
+      ],
+      "grades": [
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)",
+      "syllable_complexity": "CV"
+    },
+    {
+      "text": "gee",
+      "level": "syllable",
+      "phonemes": "ɡ,i",
+      "target_sound": "ɡ",
+      "position": "initial",
+      "processes": [
+        "Fronting",
+        "Backing"
+      ],
+      "grades": [
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)",
+      "syllable_complexity": "CV"
+    },
+    {
+      "text": "glu",
+      "level": "syllable",
+      "phonemes": "ɡ,l,u",
+      "target_sound": "l",
+      "position": "initial",
+      "processes": [
+        "Cluster Reduction"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 2.2 (Story Line Jumper)",
+      "syllable_complexity": "CCV"
+    },
+    {
+      "text": "gra",
+      "level": "syllable",
+      "phonemes": "ɡ,r,æ",
+      "target_sound": "r",
+      "position": "initial",
+      "processes": [
+        "Cluster Reduction"
+      ],
+      "grades": [
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Grade 1 Island 3.2 (Helper's Task Trail)",
+      "syllable_complexity": "CCV"
+    },
+    {
+      "text": "gro",
+      "level": "syllable",
+      "phonemes": "ɡ,r,oʊ",
+      "target_sound": "r",
+      "position": "initial",
+      "processes": [
+        "Cluster Reduction"
+      ],
+      "grades": [
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Grade 1 Island 3.2 (Helper's Task Trail)",
+      "syllable_complexity": "CCV"
+    },
+    {
+      "text": "ja",
+      "level": "syllable",
+      "phonemes": "dʒ,ɑ",
+      "target_sound": "dʒ",
+      "position": "initial",
+      "processes": [
+        "Deaffrication"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 3.1 (Community Map Navigator)",
+      "syllable_complexity": "CV"
+    },
+    {
+      "text": "jee",
+      "level": "syllable",
+      "phonemes": "dʒ,i",
+      "target_sound": "dʒ",
+      "position": "initial",
+      "processes": [
+        "Deaffrication"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 3.1 (Community Map Navigator)",
+      "syllable_complexity": "CV"
+    },
+    {
+      "text": "jo",
+      "level": "syllable",
+      "phonemes": "dʒ,oʊ",
+      "target_sound": "dʒ",
+      "position": "initial",
+      "processes": [
+        "Deaffrication"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 3.1 (Community Map Navigator)",
+      "syllable_complexity": "CV"
+    },
+    {
+      "text": "ju",
+      "level": "syllable",
+      "phonemes": "dʒ,u",
+      "target_sound": "dʒ",
+      "position": "initial",
+      "processes": [
+        "Deaffrication"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 3.1 (Community Map Navigator)",
+      "syllable_complexity": "CV"
     },
     {
       "text": "ka",
       "level": "syllable",
       "phonemes": "k,ɑ",
-      "theme": "general"
+      "target_sound": "k",
+      "position": "initial",
+      "processes": [
+        "Fronting",
+        "Backing"
+      ],
+      "grades": [
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)",
+      "syllable_complexity": "CV"
     },
     {
       "text": "kee",
       "level": "syllable",
       "phonemes": "k,i",
-      "theme": "general"
+      "target_sound": "k",
+      "position": "initial",
+      "processes": [
+        "Fronting",
+        "Backing"
+      ],
+      "grades": [
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)",
+      "syllable_complexity": "CV"
     },
     {
       "text": "ki",
       "level": "syllable",
       "phonemes": "k,i",
-      "theme": "general"
+      "target_sound": "k",
+      "position": "initial",
+      "processes": [
+        "Fronting",
+        "Backing"
+      ],
+      "grades": [
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)",
+      "syllable_complexity": "CV"
     },
     {
       "text": "ko",
       "level": "syllable",
       "phonemes": "k,oʊ",
-      "theme": "general"
+      "target_sound": "k",
+      "position": "initial",
+      "processes": [
+        "Fronting",
+        "Backing"
+      ],
+      "grades": [
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)",
+      "syllable_complexity": "CV"
+    },
+    {
+      "text": "kra",
+      "level": "syllable",
+      "phonemes": "k,r,æ",
+      "target_sound": "r",
+      "position": "initial",
+      "processes": [
+        "Cluster Reduction"
+      ],
+      "grades": [
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Grade 1 Island 3.2 (Helper's Task Trail)",
+      "syllable_complexity": "CCV"
+    },
+    {
+      "text": "kri",
+      "level": "syllable",
+      "phonemes": "k,r,i",
+      "target_sound": "r",
+      "position": "initial",
+      "processes": [
+        "Cluster Reduction"
+      ],
+      "grades": [
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Grade 1 Island 3.2 (Helper's Task Trail)",
+      "syllable_complexity": "CCV"
     },
     {
       "text": "ku",
       "level": "syllable",
       "phonemes": "k,u",
-      "theme": "general"
+      "target_sound": "k",
+      "position": "initial",
+      "processes": [
+        "Fronting",
+        "Backing"
+      ],
+      "grades": [
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)",
+      "syllable_complexity": "CV"
+    },
+    {
+      "text": "la",
+      "level": "syllable",
+      "phonemes": "l,ɑ",
+      "target_sound": "l",
+      "position": "initial",
+      "processes": [
+        "Gliding"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)",
+      "syllable_complexity": "CV"
+    },
+    {
+      "text": "lee",
+      "level": "syllable",
+      "phonemes": "l,i",
+      "target_sound": "l",
+      "position": "initial",
+      "processes": [
+        "Gliding"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)",
+      "syllable_complexity": "CV"
+    },
+    {
+      "text": "li",
+      "level": "syllable",
+      "phonemes": "l,i",
+      "target_sound": "l",
+      "position": "initial",
+      "processes": [
+        "Gliding"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)",
+      "syllable_complexity": "CV"
+    },
+    {
+      "text": "lo",
+      "level": "syllable",
+      "phonemes": "l,oʊ",
+      "target_sound": "l",
+      "position": "initial",
+      "processes": [
+        "Gliding"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)",
+      "syllable_complexity": "CV"
+    },
+    {
+      "text": "lu",
+      "level": "syllable",
+      "phonemes": "l,u",
+      "target_sound": "l",
+      "position": "initial",
+      "processes": [
+        "Gliding"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)",
+      "syllable_complexity": "CV"
     },
     {
       "text": "ol",
       "level": "syllable",
       "phonemes": "oʊ,l",
-      "theme": "general"
+      "target_sound": "l",
+      "position": "final",
+      "processes": [
+        "Gliding",
+        "Final Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 1.3 (Rhyme Time Porch)",
+      "syllable_complexity": "VC"
+    },
+    {
+      "text": "pla",
+      "level": "syllable",
+      "phonemes": "p,l,ɑ",
+      "target_sound": "l",
+      "position": "initial",
+      "processes": [
+        "Cluster Reduction"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 2.2 (Story Line Jumper)",
+      "syllable_complexity": "CCV"
+    },
+    {
+      "text": "ra",
+      "level": "syllable",
+      "phonemes": "r,ɑ",
+      "target_sound": "r",
+      "position": "initial",
+      "processes": [
+        "Gliding"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 2.1 (Classroom Item Catcher)",
+      "syllable_complexity": "CV"
+    },
+    {
+      "text": "ree",
+      "level": "syllable",
+      "phonemes": "r,i",
+      "target_sound": "r",
+      "position": "initial",
+      "processes": [
+        "Gliding"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 2.1 (Classroom Item Catcher)",
+      "syllable_complexity": "CV"
+    },
+    {
+      "text": "ri",
+      "level": "syllable",
+      "phonemes": "r,i",
+      "target_sound": "r",
+      "position": "initial",
+      "processes": [
+        "Gliding"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 2.1 (Classroom Item Catcher)",
+      "syllable_complexity": "CV"
+    },
+    {
+      "text": "ro",
+      "level": "syllable",
+      "phonemes": "r,oʊ",
+      "target_sound": "r",
+      "position": "initial",
+      "processes": [
+        "Gliding"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 2.1 (Classroom Item Catcher)",
+      "syllable_complexity": "CV"
+    },
+    {
+      "text": "ru",
+      "level": "syllable",
+      "phonemes": "r,u",
+      "target_sound": "r",
+      "position": "initial",
+      "processes": [
+        "Gliding"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 2.1 (Classroom Item Catcher)",
+      "syllable_complexity": "CV"
     },
     {
       "text": "sa",
       "level": "syllable",
       "phonemes": "s,ɑ",
-      "theme": "general"
+      "target_sound": "s",
+      "position": "initial",
+      "processes": [
+        "Stopping",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Grade 1 Island 3.3 (Problem-Solver Market)",
+      "syllable_complexity": "CV"
     },
     {
       "text": "see",
       "level": "syllable",
       "phonemes": "s,i",
-      "theme": "general"
+      "target_sound": "s",
+      "position": "initial",
+      "processes": [
+        "Stopping",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Grade 1 Island 3.3 (Problem-Solver Market)",
+      "syllable_complexity": "CV"
+    },
+    {
+      "text": "sha",
+      "level": "syllable",
+      "phonemes": "ʃ,ɑ",
+      "target_sound": "ʃ",
+      "position": "initial",
+      "processes": [
+        "Palatal Fronting",
+        "Stopping"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 3.3 (Problem-Solver Market)",
+      "syllable_complexity": "CV"
+    },
+    {
+      "text": "shee",
+      "level": "syllable",
+      "phonemes": "ʃ,i",
+      "target_sound": "ʃ",
+      "position": "initial",
+      "processes": [
+        "Palatal Fronting",
+        "Stopping"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 3.3 (Problem-Solver Market)",
+      "syllable_complexity": "CV"
     },
     {
       "text": "si",
       "level": "syllable",
       "phonemes": "s,i",
-      "theme": "general"
+      "target_sound": "s",
+      "position": "initial",
+      "processes": [
+        "Stopping",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Grade 1 Island 3.3 (Problem-Solver Market)",
+      "syllable_complexity": "CV"
+    },
+    {
+      "text": "ski",
+      "level": "syllable",
+      "phonemes": "s,k,i",
+      "target_sound": "s",
+      "position": "initial",
+      "processes": [
+        "Cluster Reduction"
+      ],
+      "grades": [
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Grade 1 Island 4.3 (Earth Defender Match)",
+      "syllable_complexity": "CCV"
+    },
+    {
+      "text": "sku",
+      "level": "syllable",
+      "phonemes": "s,k,u",
+      "target_sound": "s",
+      "position": "initial",
+      "processes": [
+        "Cluster Reduction"
+      ],
+      "grades": [
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Grade 1 Island 4.3 (Earth Defender Match)",
+      "syllable_complexity": "CCV"
     },
     {
       "text": "so",
       "level": "syllable",
       "phonemes": "s,oʊ",
-      "theme": "general"
+      "target_sound": "s",
+      "position": "initial",
+      "processes": [
+        "Stopping",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Grade 1 Island 3.3 (Problem-Solver Market)",
+      "syllable_complexity": "CV"
+    },
+    {
+      "text": "spa",
+      "level": "syllable",
+      "phonemes": "s,p,ɑ",
+      "target_sound": "s",
+      "position": "initial",
+      "processes": [
+        "Cluster Reduction"
+      ],
+      "grades": [
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Grade 1 Island 4.3 (Earth Defender Match)",
+      "syllable_complexity": "CCV"
+    },
+    {
+      "text": "spo",
+      "level": "syllable",
+      "phonemes": "s,p,oʊ",
+      "target_sound": "s",
+      "position": "initial",
+      "processes": [
+        "Cluster Reduction"
+      ],
+      "grades": [
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Grade 1 Island 4.3 (Earth Defender Match)",
+      "syllable_complexity": "CCV"
+    },
+    {
+      "text": "sta",
+      "level": "syllable",
+      "phonemes": "s,t,ɑ",
+      "target_sound": "s",
+      "position": "initial",
+      "processes": [
+        "Cluster Reduction"
+      ],
+      "grades": [
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Grade 1 Island 4.3 (Earth Defender Match)",
+      "syllable_complexity": "CCV"
+    },
+    {
+      "text": "sti",
+      "level": "syllable",
+      "phonemes": "s,t,i",
+      "target_sound": "s",
+      "position": "initial",
+      "processes": [
+        "Cluster Reduction"
+      ],
+      "grades": [
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Grade 1 Island 4.3 (Earth Defender Match)",
+      "syllable_complexity": "CCV"
+    },
+    {
+      "text": "sto",
+      "level": "syllable",
+      "phonemes": "s,t,oʊ",
+      "target_sound": "s",
+      "position": "initial",
+      "processes": [
+        "Cluster Reduction"
+      ],
+      "grades": [
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Grade 1 Island 4.3 (Earth Defender Match)",
+      "syllable_complexity": "CCV"
+    },
+    {
+      "text": "ta",
+      "level": "syllable",
+      "phonemes": "t,ɑ",
+      "target_sound": "t",
+      "position": "initial",
+      "processes": [
+        "Backing",
+        "Denasalization",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)",
+      "syllable_complexity": "CV"
+    },
+    {
+      "text": "tee",
+      "level": "syllable",
+      "phonemes": "t,i",
+      "target_sound": "t",
+      "position": "initial",
+      "processes": [
+        "Backing",
+        "Denasalization",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)",
+      "syllable_complexity": "CV"
+    },
+    {
+      "text": "tha",
+      "level": "syllable",
+      "phonemes": "θ,ɑ",
+      "target_sound": "θ",
+      "position": "initial",
+      "processes": [
+        "Stopping",
+        "Final Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        3
+      ],
+      "gameplay_level": "Grade 1 Island 4.1 (Nature Trail Cleaner)",
+      "syllable_complexity": "CV"
+    },
+    {
+      "text": "the",
+      "level": "syllable",
+      "phonemes": "ð,ə",
+      "target_sound": "ð",
+      "position": "initial",
+      "processes": [
+        "Stopping"
+      ],
+      "grades": [
+        1,
+        3
+      ],
+      "gameplay_level": "Grade 1 Island 4.2 (Ecosystem Sequence Jump)",
+      "syllable_complexity": "CV"
+    },
+    {
+      "text": "thee",
+      "level": "syllable",
+      "phonemes": "θ,i",
+      "target_sound": "θ",
+      "position": "initial",
+      "processes": [
+        "Stopping",
+        "Final Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        3
+      ],
+      "gameplay_level": "Grade 1 Island 4.1 (Nature Trail Cleaner)",
+      "syllable_complexity": "CV"
+    },
+    {
+      "text": "they-syl",
+      "level": "syllable",
+      "phonemes": "ð,eɪ",
+      "target_sound": "ð",
+      "position": "initial",
+      "processes": [
+        "Stopping"
+      ],
+      "grades": [
+        1,
+        3
+      ],
+      "gameplay_level": "Grade 1 Island 4.2 (Ecosystem Sequence Jump)",
+      "syllable_complexity": "CV"
+    },
+    {
+      "text": "tho",
+      "level": "syllable",
+      "phonemes": "θ,oʊ",
+      "target_sound": "θ",
+      "position": "initial",
+      "processes": [
+        "Stopping",
+        "Final Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        3
+      ],
+      "gameplay_level": "Grade 1 Island 4.1 (Nature Trail Cleaner)",
+      "syllable_complexity": "CV"
+    },
+    {
+      "text": "tra",
+      "level": "syllable",
+      "phonemes": "t,r,æ",
+      "target_sound": "r",
+      "position": "initial",
+      "processes": [
+        "Cluster Reduction"
+      ],
+      "grades": [
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Grade 1 Island 3.2 (Helper's Task Trail)",
+      "syllable_complexity": "CCV"
+    },
+    {
+      "text": "tri",
+      "level": "syllable",
+      "phonemes": "t,r,i",
+      "target_sound": "r",
+      "position": "initial",
+      "processes": [
+        "Cluster Reduction"
+      ],
+      "grades": [
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Grade 1 Island 3.2 (Helper's Task Trail)",
+      "syllable_complexity": "CCV"
+    },
+    {
+      "text": "tro",
+      "level": "syllable",
+      "phonemes": "t,r,oʊ",
+      "target_sound": "r",
+      "position": "initial",
+      "processes": [
+        "Cluster Reduction"
+      ],
+      "grades": [
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Grade 1 Island 3.2 (Helper's Task Trail)",
+      "syllable_complexity": "CCV"
+    },
+    {
+      "text": "va",
+      "level": "syllable",
+      "phonemes": "v,ɑ",
+      "target_sound": "v",
+      "position": "initial",
+      "processes": [
+        "Stopping"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 2.3 (Cause & Effect Lab)",
+      "syllable_complexity": "CV"
+    },
+    {
+      "text": "vee",
+      "level": "syllable",
+      "phonemes": "v,i",
+      "target_sound": "v",
+      "position": "initial",
+      "processes": [
+        "Stopping"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 2.3 (Cause & Effect Lab)",
+      "syllable_complexity": "CV"
+    },
+    {
+      "text": "za",
+      "level": "syllable",
+      "phonemes": "z,ɑ",
+      "target_sound": "z",
+      "position": "initial",
+      "processes": [
+        "Stopping",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Grade 1 Island 3.3 (Problem-Solver Market)",
+      "syllable_complexity": "CV"
+    },
+    {
+      "text": "zee",
+      "level": "syllable",
+      "phonemes": "z,i",
+      "target_sound": "z",
+      "position": "initial",
+      "processes": [
+        "Stopping",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Grade 1 Island 3.3 (Problem-Solver Market)",
+      "syllable_complexity": "CV"
+    },
+    {
+      "text": "alligator",
+      "level": "word",
+      "phonemes": "æ,l,ɪ,ɡ,eɪ,t,ə,r",
+      "target_sound": "l",
+      "position": "initial",
+      "processes": [
+        "Gliding",
+        "Weak Syllable Deletion",
+        "Syllable Reduction"
+      ],
+      "grades": [
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Grade 3 Island 1.3 (Multisyllable Mountain)",
+      "syllable_complexity": "4 syllables"
+    },
+    {
+      "text": "apple",
+      "level": "word",
+      "phonemes": "æ,p,əl",
+      "target_sound": "l",
+      "position": "final",
+      "processes": [
+        "Weak Syllable Deletion",
+        "Syllable Reduction"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)",
+      "syllable_complexity": "2 syllables"
+    },
+    {
+      "text": "baby",
+      "level": "word",
+      "phonemes": "b,eɪ,b,i",
+      "target_sound": "b",
+      "position": "initial",
+      "processes": [
+        "Final Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 2 Island 1.1 (Family Portrait Gallery)",
+      "syllable_complexity": "2 syllables"
+    },
+    {
+      "text": "bag",
+      "level": "word",
+      "phonemes": "b,æ,ɡ",
+      "target_sound": "b",
+      "position": "initial",
+      "processes": [
+        "Final Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 2.1 (Classroom Item Catcher)",
+      "syllable_complexity": "CVC"
     },
     {
       "text": "ball",
       "level": "word",
       "phonemes": "b,ɔ,l",
-      "theme": "general"
+      "target_sound": "l",
+      "position": "final",
+      "processes": [
+        "Gliding",
+        "Final Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 1.3 (Rhyme Time Porch)",
+      "syllable_complexity": "CVCC"
+    },
+    {
+      "text": "balloon",
+      "level": "word",
+      "phonemes": "b,ə,l,u,n",
+      "target_sound": "l",
+      "position": "medial",
+      "processes": [
+        "Gliding",
+        "Weak Syllable Deletion",
+        "Syllable Reduction"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 1.3 (Rhyme Time Porch)",
+      "syllable_complexity": "2 syllables"
+    },
+    {
+      "text": "banana",
+      "level": "word",
+      "phonemes": "b,ə,n,æ,n,ə",
+      "target_sound": "n",
+      "position": "medial",
+      "processes": [
+        "Weak Syllable Deletion",
+        "Syllable Reduction"
+      ],
+      "grades": [
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Grade 3 Island 1.3 (Multisyllable Mountain)",
+      "syllable_complexity": "3 syllables"
+    },
+    {
+      "text": "bath",
+      "level": "word",
+      "phonemes": "b,æ,θ",
+      "target_sound": "θ",
+      "position": "final",
+      "processes": [
+        "Stopping",
+        "Final Consonant Deletion"
+      ],
+      "grades": [
+        3
+      ],
+      "gameplay_level": "Grade 3 Island 1.1 (Regional Word Explorer)",
+      "syllable_complexity": "CVC"
+    },
+    {
+      "text": "bed",
+      "level": "word",
+      "phonemes": "b,ɛ,d",
+      "target_sound": "d",
+      "position": "final",
+      "processes": [
+        "Final Devoicing",
+        "Final Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)",
+      "syllable_complexity": "CVC"
     },
     {
       "text": "bell",
       "level": "word",
       "phonemes": "b,ɛ,l",
-      "theme": "general"
+      "target_sound": "l",
+      "position": "final",
+      "processes": [
+        "Gliding",
+        "Final Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 1.3 (Rhyme Time Porch)",
+      "syllable_complexity": "CVCC"
     },
     {
       "text": "bike",
       "level": "word",
       "phonemes": "b,aɪ,k",
-      "theme": "general"
+      "target_sound": "k",
+      "position": "final",
+      "processes": [
+        "Fronting",
+        "Final Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)",
+      "syllable_complexity": "CVCe"
     },
     {
-      "text": "bus",
+      "text": "blue",
       "level": "word",
-      "phonemes": "b,ə,s",
-      "theme": "general"
-    },
-    {
-      "text": "cat",
-      "level": "word",
-      "phonemes": "k,æ,t",
-      "theme": "general"
-    },
-    {
-      "text": "chair",
-      "level": "word",
-      "phonemes": "tʃ,ɛ,r",
-      "theme": "general"
-    },
-    {
-      "text": "cheese",
-      "level": "word",
-      "phonemes": "tʃ,i,z",
-      "theme": "general"
-    },
-    {
-      "text": "chop",
-      "level": "word",
-      "phonemes": "tʃ,ɑ,p",
-      "theme": "general"
-    },
-    {
-      "text": "cookie",
-      "level": "word",
-      "phonemes": "k,ʊ,k,i",
-      "theme": "general"
-    },
-    {
-      "text": "cup",
-      "level": "word",
-      "phonemes": "k,ə,p",
-      "theme": "general"
-    },
-    {
-      "text": "hill",
-      "level": "word",
-      "phonemes": "h,ɪ,l",
-      "theme": "general"
-    },
-    {
-      "text": "key",
-      "level": "word",
-      "phonemes": "k,i",
-      "theme": "general"
-    },
-    {
-      "text": "sea",
-      "level": "word",
-      "phonemes": "s,i",
-      "theme": "ocean"
-    },
-    {
-      "text": "seven",
-      "level": "word",
-      "phonemes": "s,ɛ,v,ə,n",
-      "theme": "general"
-    },
-    {
-      "text": "sock",
-      "level": "word",
-      "phonemes": "s,ɑ,k",
-      "theme": "general"
-    },
-    {
-      "text": "sun",
-      "level": "word",
-      "phonemes": "s,ə,n",
-      "theme": "general"
-    },
-    {
-      "text": "tall",
-      "level": "word",
-      "phonemes": "t,ɔ,l",
-      "theme": "general"
-    },
-    {
-      "text": "watch",
-      "level": "word",
-      "phonemes": "w,ɑ,tʃ",
-      "theme": "general"
-    },
-    {
-      "text": "whale",
-      "level": "word",
-      "phonemes": "w,eɪ,l",
-      "theme": "ocean"
-    },
-    {
-      "text": "bubble",
-      "level": "word",
-      "phonemes": "b,ə,b,əl",
-      "theme": "ocean"
-    },
-    {
-      "text": "fish",
-      "level": "word",
-      "phonemes": "f,ɪ,ʃ",
-      "theme": "ocean"
+      "phonemes": "b,l,u",
+      "target_sound": "l",
+      "position": "initial",
+      "processes": [
+        "Cluster Reduction"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 2.2 (Story Line Jumper)",
+      "syllable_complexity": "CCV"
     },
     {
       "text": "boat",
       "level": "word",
       "phonemes": "b,oʊ,t",
-      "theme": "ocean"
+      "target_sound": "t",
+      "position": "final",
+      "processes": [
+        "Final Devoicing",
+        "Final Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)",
+      "syllable_complexity": "CVVC"
     },
     {
-      "text": "shell",
+      "text": "book",
       "level": "word",
-      "phonemes": "ʃ,ɛ,l",
-      "theme": "ocean"
+      "phonemes": "b,ʊ,k",
+      "target_sound": "b",
+      "position": "initial",
+      "processes": [
+        "Final Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 2.1 (Classroom Item Catcher)",
+      "syllable_complexity": "CVC"
     },
     {
-      "text": "starfish",
+      "text": "bridge",
       "level": "word",
-      "phonemes": "s,t,ɑ,r,f,ɪ,ʃ",
-      "theme": "ocean"
+      "phonemes": "b,r,ɪ,dʒ",
+      "target_sound": "dʒ",
+      "position": "final",
+      "processes": [
+        "Deaffrication",
+        "Final Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 3.1 (Community Map Navigator)",
+      "syllable_complexity": "CCVC"
     },
     {
-      "text": "octopus",
+      "text": "brother",
       "level": "word",
-      "phonemes": "ɑ,k,t,ə,p,ʊ,s",
-      "theme": "ocean"
+      "phonemes": "b,r,ə,ð,ə,r",
+      "target_sound": "r",
+      "position": "initial",
+      "processes": [
+        "Cluster Reduction",
+        "Stopping",
+        "Weak Syllable Deletion",
+        "Syllable Reduction"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 2 Island 1.1 (Family Portrait Gallery)",
+      "syllable_complexity": "2 syllables"
     },
     {
-      "text": "ship",
+      "text": "bubble",
       "level": "word",
-      "phonemes": "ʃ,ɪ,p",
-      "theme": "ocean"
+      "phonemes": "b,ə,b,əl",
+      "target_sound": "l",
+      "position": "medial",
+      "processes": [
+        "Gliding",
+        "Weak Syllable Deletion",
+        "Syllable Reduction"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 1.3 (Rhyme Time Porch)",
+      "syllable_complexity": "2 syllables"
     },
     {
-      "text": "crab",
+      "text": "bus",
       "level": "word",
-      "phonemes": "k,r,æ,b",
-      "theme": "ocean"
+      "phonemes": "b,ə,s",
+      "target_sound": "s",
+      "position": "final",
+      "processes": [
+        "Stopping",
+        "Final Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 3.3 (Problem-Solver Market)",
+      "syllable_complexity": "CVC"
     },
     {
-      "text": "pearl",
+      "text": "butterfly",
       "level": "word",
-      "phonemes": "p,ə,r,l",
-      "theme": "ocean"
+      "phonemes": "b,ə,t,ə,r,f,l,aɪ",
+      "target_sound": "l",
+      "position": "medial",
+      "processes": [
+        "Cluster Reduction",
+        "Weak Syllable Deletion",
+        "Syllable Reduction"
+      ],
+      "grades": [
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Grade 3 Island 1.3 (Multisyllable Mountain)",
+      "syllable_complexity": "3 syllables"
     },
     {
-      "text": "wave",
+      "text": "carrot",
       "level": "word",
-      "phonemes": "w,eɪ,v",
-      "theme": "ocean"
+      "phonemes": "k,æ,r,ə,t",
+      "target_sound": "r",
+      "position": "medial",
+      "processes": [
+        "Gliding",
+        "Weak Syllable Deletion",
+        "Syllable Reduction"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 3 Island 1.3 (Multisyllable Mountain)",
+      "syllable_complexity": "2 syllables"
     },
     {
-      "text": "sand",
+      "text": "cat",
       "level": "word",
-      "phonemes": "s,æ,n,d",
-      "theme": "ocean"
+      "phonemes": "k,æ,t",
+      "target_sound": "k",
+      "position": "initial",
+      "processes": [
+        "Fronting",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)",
+      "syllable_complexity": "CVC"
     },
     {
-      "text": "swim",
+      "text": "chair",
       "level": "word",
-      "phonemes": "s,w,ɪ,m",
-      "theme": "ocean"
+      "phonemes": "tʃ,ɛ,r",
+      "target_sound": "tʃ",
+      "position": "initial",
+      "processes": [
+        "Deaffrication",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 1.2 (Family Sorting Basket)",
+      "syllable_complexity": "CVC"
     },
     {
-      "text": "shark",
+      "text": "cheese",
       "level": "word",
-      "phonemes": "ʃ,ɑ,r,k",
-      "theme": "ocean"
+      "phonemes": "tʃ,i,z",
+      "target_sound": "tʃ",
+      "position": "initial",
+      "processes": [
+        "Deaffrication",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 1.2 (Family Sorting Basket)",
+      "syllable_complexity": "CVVC"
     },
     {
-      "text": "dolphin",
+      "text": "chop",
       "level": "word",
-      "phonemes": "d,ɑ,l,f,ə,n",
-      "theme": "ocean"
+      "phonemes": "tʃ,ɑ,p",
+      "target_sound": "tʃ",
+      "position": "initial",
+      "processes": [
+        "Deaffrication",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 1.2 (Family Sorting Basket)",
+      "syllable_complexity": "CVC"
+    },
+    {
+      "text": "cookie",
+      "level": "word",
+      "phonemes": "k,ʊ,k,i",
+      "target_sound": "k",
+      "position": "initial",
+      "processes": [
+        "Fronting",
+        "Weak Syllable Deletion",
+        "Syllable Reduction"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)",
+      "syllable_complexity": "2 syllables"
     },
     {
       "text": "coral",
       "level": "word",
       "phonemes": "k,ɔ,r,əl",
-      "theme": "ocean"
+      "target_sound": "r",
+      "position": "medial",
+      "processes": [
+        "Gliding",
+        "Weak Syllable Deletion",
+        "Syllable Reduction"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 4.4 (Explorer's Echo Cave)",
+      "syllable_complexity": "2 syllables"
+    },
+    {
+      "text": "crab",
+      "level": "word",
+      "phonemes": "k,r,æ,b",
+      "target_sound": "r",
+      "position": "initial",
+      "processes": [
+        "Cluster Reduction"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 3.2 (Helper's Task Trail)",
+      "syllable_complexity": "CCVC"
+    },
+    {
+      "text": "cup",
+      "level": "word",
+      "phonemes": "k,ə,p",
+      "target_sound": "k",
+      "position": "initial",
+      "processes": [
+        "Fronting",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)",
+      "syllable_complexity": "CVC"
+    },
+    {
+      "text": "desk",
+      "level": "word",
+      "phonemes": "d,ɛ,s,k",
+      "target_sound": "d",
+      "position": "initial",
+      "processes": [
+        "Cluster Reduction",
+        "Final Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 2.1 (Classroom Item Catcher)",
+      "syllable_complexity": "CVCC"
+    },
+    {
+      "text": "dinosaur",
+      "level": "word",
+      "phonemes": "d,aɪ,n,ə,s,ɔ,r",
+      "target_sound": "s",
+      "position": "medial",
+      "processes": [
+        "Weak Syllable Deletion",
+        "Syllable Reduction"
+      ],
+      "grades": [
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Grade 3 Island 1.3 (Multisyllable Mountain)",
+      "syllable_complexity": "3 syllables"
+    },
+    {
+      "text": "doctor",
+      "level": "word",
+      "phonemes": "d,ɑ,k,t,ə,r",
+      "target_sound": "t",
+      "position": "medial",
+      "processes": [
+        "Final Consonant Deletion",
+        "Weak Syllable Deletion",
+        "Syllable Reduction"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 3.3 (Problem-Solver Market)",
+      "syllable_complexity": "2 syllables"
+    },
+    {
+      "text": "dog",
+      "level": "word",
+      "phonemes": "d,ɔ,ɡ",
+      "target_sound": "ɡ",
+      "position": "final",
+      "processes": [
+        "Final Devoicing",
+        "Final Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)",
+      "syllable_complexity": "CVC"
+    },
+    {
+      "text": "dolphin",
+      "level": "word",
+      "phonemes": "d,ɑ,l,f,ə,n",
+      "target_sound": "l",
+      "position": "medial",
+      "processes": [
+        "Gliding",
+        "Weak Syllable Deletion",
+        "Syllable Reduction"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 4.4 (Explorer's Echo Cave)",
+      "syllable_complexity": "2 syllables"
+    },
+    {
+      "text": "drive",
+      "level": "word",
+      "phonemes": "d,r,aɪ,v",
+      "target_sound": "r",
+      "position": "initial",
+      "processes": [
+        "Cluster Reduction"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 3.2 (Helper's Task Trail)",
+      "syllable_complexity": "CCVCe"
+    },
+    {
+      "text": "earth",
+      "level": "word",
+      "phonemes": "ɜ,θ",
+      "target_sound": "θ",
+      "position": "final",
+      "processes": [
+        "Stopping",
+        "Final Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        3
+      ],
+      "gameplay_level": "Grade 1 Island 4.1 (Nature Trail Cleaner)",
+      "syllable_complexity": "CVC"
+    },
+    {
+      "text": "elephant",
+      "level": "word",
+      "phonemes": "ɛ,l,ə,f,ə,n,t",
+      "target_sound": "l",
+      "position": "medial",
+      "processes": [
+        "Weak Syllable Deletion",
+        "Syllable Reduction"
+      ],
+      "grades": [
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Grade 3 Island 1.3 (Multisyllable Mountain)",
+      "syllable_complexity": "3 syllables"
+    },
+    {
+      "text": "father",
+      "level": "word",
+      "phonemes": "f,ɑ,ð,ə,r",
+      "target_sound": "ð",
+      "position": "medial",
+      "processes": [
+        "Stopping",
+        "Weak Syllable Deletion",
+        "Syllable Reduction"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 2 Island 1.1 (Family Portrait Gallery)",
+      "syllable_complexity": "2 syllables"
+    },
+    {
+      "text": "feather",
+      "level": "word",
+      "phonemes": "f,ɛ,ð,ə,r",
+      "target_sound": "ð",
+      "position": "medial",
+      "processes": [
+        "Stopping",
+        "Weak Syllable Deletion",
+        "Syllable Reduction"
+      ],
+      "grades": [
+        1,
+        3
+      ],
+      "gameplay_level": "Grade 1 Island 4.2 (Ecosystem Sequence Jump)",
+      "syllable_complexity": "2 syllables"
+    },
+    {
+      "text": "fish",
+      "level": "word",
+      "phonemes": "f,ɪ,ʃ",
+      "target_sound": "ʃ",
+      "position": "final",
+      "processes": [
+        "Palatal Fronting",
+        "Final Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 3.3 (Problem-Solver Market)",
+      "syllable_complexity": "CVC"
+    },
+    {
+      "text": "flag",
+      "level": "word",
+      "phonemes": "f,l,æ,ɡ",
+      "target_sound": "l",
+      "position": "initial",
+      "processes": [
+        "Cluster Reduction"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 2.2 (Story Line Jumper)",
+      "syllable_complexity": "CCVC"
+    },
+    {
+      "text": "frog",
+      "level": "word",
+      "phonemes": "f,r,ɑ,ɡ",
+      "target_sound": "r",
+      "position": "initial",
+      "processes": [
+        "Cluster Reduction"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 3.2 (Helper's Task Trail)",
+      "syllable_complexity": "CCVC"
+    },
+    {
+      "text": "give",
+      "level": "word",
+      "phonemes": "ɡ,ɪ,v",
+      "target_sound": "v",
+      "position": "final",
+      "processes": [
+        "Stopping",
+        "Final Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 3.3 (Problem-Solver Market)",
+      "syllable_complexity": "CVC"
+    },
+    {
+      "text": "glass",
+      "level": "word",
+      "phonemes": "ɡ,l,æ,s",
+      "target_sound": "l",
+      "position": "initial",
+      "processes": [
+        "Cluster Reduction"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 2.2 (Story Line Jumper)",
+      "syllable_complexity": "CCVC"
+    },
+    {
+      "text": "glove",
+      "level": "word",
+      "phonemes": "ɡ,l,ə,v",
+      "target_sound": "v",
+      "position": "final",
+      "processes": [
+        "Stopping",
+        "Final Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 3.3 (Problem-Solver Market)",
+      "syllable_complexity": "CCVC"
+    },
+    {
+      "text": "goat",
+      "level": "word",
+      "phonemes": "ɡ,oʊ,t",
+      "target_sound": "ɡ",
+      "position": "initial",
+      "processes": [
+        "Fronting",
+        "Devoicing",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)",
+      "syllable_complexity": "CVVC"
+    },
+    {
+      "text": "green",
+      "level": "word",
+      "phonemes": "ɡ,r,i,n",
+      "target_sound": "r",
+      "position": "initial",
+      "processes": [
+        "Cluster Reduction"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 3.2 (Helper's Task Trail)",
+      "syllable_complexity": "CCVC"
+    },
+    {
+      "text": "guard",
+      "level": "word",
+      "phonemes": "ɡ,ɑ,r,d",
+      "target_sound": "dʒ",
+      "position": "initial",
+      "processes": [
+        "Deaffrication",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 3.1 (Community Map Navigator)",
+      "syllable_complexity": "CVCC"
+    },
+    {
+      "text": "hat",
+      "level": "word",
+      "phonemes": "h,æ,t",
+      "target_sound": "t",
+      "position": "final",
+      "processes": [
+        "Final Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)",
+      "syllable_complexity": "CVC"
+    },
+    {
+      "text": "helicopter",
+      "level": "word",
+      "phonemes": "h,ɛ,l,ɪ,k,ɑ,p,t,ə,r",
+      "target_sound": "l",
+      "position": "medial",
+      "processes": [
+        "Weak Syllable Deletion",
+        "Syllable Reduction"
+      ],
+      "grades": [
+        3
+      ],
+      "gameplay_level": "Grade 3 Island 1.3 (Multisyllable Mountain)",
+      "syllable_complexity": "4 syllables"
+    },
+    {
+      "text": "hill",
+      "level": "word",
+      "phonemes": "h,ɪ,l",
+      "target_sound": "l",
+      "position": "final",
+      "processes": [
+        "Gliding",
+        "Final Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 1.3 (Rhyme Time Porch)",
+      "syllable_complexity": "CVCC"
+    },
+    {
+      "text": "jam",
+      "level": "word",
+      "phonemes": "dʒ,æ,m",
+      "target_sound": "dʒ",
+      "position": "initial",
+      "processes": [
+        "Deaffrication",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 3.1 (Community Map Navigator)",
+      "syllable_complexity": "CVC"
+    },
+    {
+      "text": "jeep",
+      "level": "word",
+      "phonemes": "dʒ,i,p",
+      "target_sound": "dʒ",
+      "position": "initial",
+      "processes": [
+        "Deaffrication",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 3.1 (Community Map Navigator)",
+      "syllable_complexity": "CVVC"
+    },
+    {
+      "text": "job",
+      "level": "word",
+      "phonemes": "dʒ,ɑ,b",
+      "target_sound": "dʒ",
+      "position": "initial",
+      "processes": [
+        "Deaffrication",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 3.1 (Community Map Navigator)",
+      "syllable_complexity": "CVC"
+    },
+    {
+      "text": "judge",
+      "level": "word",
+      "phonemes": "dʒ,ə,dʒ",
+      "target_sound": "dʒ",
+      "position": "initial",
+      "processes": [
+        "Deaffrication",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 3.1 (Community Map Navigator)",
+      "syllable_complexity": "CVC"
+    },
+    {
+      "text": "jump",
+      "level": "word",
+      "phonemes": "dʒ,ə,m,p",
+      "target_sound": "dʒ",
+      "position": "initial",
+      "processes": [
+        "Deaffrication",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 3.1 (Community Map Navigator)",
+      "syllable_complexity": "CVCC"
+    },
+    {
+      "text": "kangaroo",
+      "level": "word",
+      "phonemes": "k,æ,ŋ,ɡ,ə,r,u",
+      "target_sound": "k",
+      "position": "initial",
+      "processes": [
+        "Weak Syllable Deletion",
+        "Syllable Reduction"
+      ],
+      "grades": [
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Grade 3 Island 1.3 (Multisyllable Mountain)",
+      "syllable_complexity": "3 syllables"
+    },
+    {
+      "text": "key",
+      "level": "word",
+      "phonemes": "k,i",
+      "target_sound": "k",
+      "position": "initial",
+      "processes": [
+        "Fronting",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)",
+      "syllable_complexity": "CV"
+    },
+    {
+      "text": "kitchen",
+      "level": "word",
+      "phonemes": "k,ɪ,tʃ,ə,n",
+      "target_sound": "tʃ",
+      "position": "medial",
+      "processes": [
+        "Deaffrication",
+        "Weak Syllable Deletion",
+        "Syllable Reduction"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 1.2 (Family Sorting Basket)",
+      "syllable_complexity": "2 syllables"
+    },
+    {
+      "text": "leaf",
+      "level": "word",
+      "phonemes": "l,i,f",
+      "target_sound": "l",
+      "position": "initial",
+      "processes": [
+        "Gliding",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)",
+      "syllable_complexity": "CVVC"
+    },
+    {
+      "text": "like",
+      "level": "word",
+      "phonemes": "l,aɪ,k",
+      "target_sound": "l",
+      "position": "initial",
+      "processes": [
+        "Gliding",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)",
+      "syllable_complexity": "CVC"
+    },
+    {
+      "text": "line",
+      "level": "word",
+      "phonemes": "l,aɪ,n",
+      "target_sound": "l",
+      "position": "initial",
+      "processes": [
+        "Gliding",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)",
+      "syllable_complexity": "CVC"
+    },
+    {
+      "text": "lion",
+      "level": "word",
+      "phonemes": "l,aɪ,ə,n",
+      "target_sound": "l",
+      "position": "initial",
+      "processes": [
+        "Gliding",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 2 Island 1.1 (Family Portrait Gallery)",
+      "syllable_complexity": "2 syllables"
+    },
+    {
+      "text": "love",
+      "level": "word",
+      "phonemes": "l,ʌ,v",
+      "target_sound": "l",
+      "position": "initial",
+      "processes": [
+        "Gliding",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)",
+      "syllable_complexity": "CVC"
+    },
+    {
+      "text": "math",
+      "level": "word",
+      "phonemes": "m,æ,θ",
+      "target_sound": "θ",
+      "position": "final",
+      "processes": [
+        "Stopping",
+        "Final Consonant Deletion"
+      ],
+      "grades": [
+        3
+      ],
+      "gameplay_level": "Grade 3 Island 1.1 (Regional Word Explorer)",
+      "syllable_complexity": "CVC"
+    },
+    {
+      "text": "measure",
+      "level": "word",
+      "phonemes": "m,ɛ,ʒ,ə,r",
+      "target_sound": "ʒ",
+      "position": "medial",
+      "processes": [
+        "Stopping",
+        "Weak Syllable Deletion",
+        "Syllable Reduction"
+      ],
+      "grades": [
+        3
+      ],
+      "gameplay_level": "Grade 3 Island 1.1 (Regional Word Explorer)",
+      "syllable_complexity": "2 syllables"
+    },
+    {
+      "text": "mirror",
+      "level": "word",
+      "phonemes": "m,ɪ,r,ə,r",
+      "target_sound": "r",
+      "position": "medial",
+      "processes": [
+        "Gliding",
+        "Weak Syllable Deletion",
+        "Syllable Reduction"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 2.1 (Classroom Item Catcher)",
+      "syllable_complexity": "2 syllables"
+    },
+    {
+      "text": "monkey",
+      "level": "word",
+      "phonemes": "m,ʌ,ŋ,k,i",
+      "target_sound": "k",
+      "position": "medial",
+      "processes": [
+        "Fronting",
+        "Weak Syllable Deletion",
+        "Syllable Reduction"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 3 Island 1.3 (Multisyllable Mountain)",
+      "syllable_complexity": "2 syllables"
+    },
+    {
+      "text": "mother",
+      "level": "word",
+      "phonemes": "m,ə,ð,ə,r",
+      "target_sound": "ð",
+      "position": "medial",
+      "processes": [
+        "Stopping",
+        "Weak Syllable Deletion",
+        "Syllable Reduction"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 2 Island 1.1 (Family Portrait Gallery)",
+      "syllable_complexity": "2 syllables"
+    },
+    {
+      "text": "mouth",
+      "level": "word",
+      "phonemes": "m,aʊ,θ",
+      "target_sound": "θ",
+      "position": "final",
+      "processes": [
+        "Stopping",
+        "Final Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        3
+      ],
+      "gameplay_level": "Grade 1 Island 4.1 (Nature Trail Cleaner)",
+      "syllable_complexity": "CVC"
+    },
+    {
+      "text": "nose",
+      "level": "word",
+      "phonemes": "n,oʊ,z",
+      "target_sound": "z",
+      "position": "final",
+      "processes": [
+        "Stopping",
+        "Final Devoicing",
+        "Final Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 3.3 (Problem-Solver Market)",
+      "syllable_complexity": "CVCe"
+    },
+    {
+      "text": "octopus",
+      "level": "word",
+      "phonemes": "ɑ,k,t,ə,p,ʊ,s",
+      "target_sound": "p",
+      "position": "medial",
+      "processes": [
+        "Weak Syllable Deletion",
+        "Syllable Reduction"
+      ],
+      "grades": [
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Grade 3 Island 1.3 (Multisyllable Mountain)",
+      "syllable_complexity": "3 syllables"
+    },
+    {
+      "text": "orange",
+      "level": "word",
+      "phonemes": "ɔ,r,ɪ,n,dʒ",
+      "target_sound": "dʒ",
+      "position": "medial",
+      "processes": [
+        "Deaffrication",
+        "Weak Syllable Deletion",
+        "Syllable Reduction"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 3.1 (Community Map Navigator)",
+      "syllable_complexity": "2 syllables"
+    },
+    {
+      "text": "paper",
+      "level": "word",
+      "phonemes": "p,eɪ,p,ə,r",
+      "target_sound": "p",
+      "position": "initial",
+      "processes": [
+        "Final Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 2.1 (Classroom Item Catcher)",
+      "syllable_complexity": "2 syllables"
+    },
+    {
+      "text": "path",
+      "level": "word",
+      "phonemes": "p,æ,θ",
+      "target_sound": "θ",
+      "position": "final",
+      "processes": [
+        "Stopping",
+        "Final Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        3
+      ],
+      "gameplay_level": "Grade 1 Island 4.1 (Nature Trail Cleaner)",
+      "syllable_complexity": "CVC"
+    },
+    {
+      "text": "pearl",
+      "level": "word",
+      "phonemes": "p,ə,r,l",
+      "target_sound": "l",
+      "position": "final",
+      "processes": [
+        "Gliding",
+        "Final Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 4.4 (Explorer's Echo Cave)",
+      "syllable_complexity": "CVCC"
+    },
+    {
+      "text": "pencil",
+      "level": "word",
+      "phonemes": "p,ɛ,n,s,əl",
+      "target_sound": "s",
+      "position": "medial",
+      "processes": [
+        "Stopping",
+        "Final Consonant Deletion",
+        "Weak Syllable Deletion",
+        "Syllable Reduction"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 2.1 (Classroom Item Catcher)",
+      "syllable_complexity": "2 syllables"
+    },
+    {
+      "text": "pig",
+      "level": "word",
+      "phonemes": "p,ɪ,ɡ",
+      "target_sound": "p",
+      "position": "initial",
+      "processes": [
+        "Devoicing",
+        "Final Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)",
+      "syllable_complexity": "CVC"
+    },
+    {
+      "text": "plane",
+      "level": "word",
+      "phonemes": "p,l,eɪ,n",
+      "target_sound": "l",
+      "position": "initial",
+      "processes": [
+        "Cluster Reduction"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 2.2 (Story Line Jumper)",
+      "syllable_complexity": "CCVCe"
+    },
+    {
+      "text": "rabbit",
+      "level": "word",
+      "phonemes": "r,æ,b,ɪ,t",
+      "target_sound": "r",
+      "position": "initial",
+      "processes": [
+        "Gliding",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 3 Island 1.3 (Multisyllable Mountain)",
+      "syllable_complexity": "2 syllables"
+    },
+    {
+      "text": "rain",
+      "level": "word",
+      "phonemes": "r,eɪ,n",
+      "target_sound": "r",
+      "position": "initial",
+      "processes": [
+        "Gliding",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 2.3 (Cause & Effect Lab)",
+      "syllable_complexity": "CVVC"
+    },
+    {
+      "text": "read",
+      "level": "word",
+      "phonemes": "r,i,d",
+      "target_sound": "r",
+      "position": "initial",
+      "processes": [
+        "Gliding",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 2.3 (Cause & Effect Lab)",
+      "syllable_complexity": "CVVC"
+    },
+    {
+      "text": "red",
+      "level": "word",
+      "phonemes": "r,ɛ,d",
+      "target_sound": "r",
+      "position": "initial",
+      "processes": [
+        "Gliding",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 2.1 (Classroom Item Catcher)",
+      "syllable_complexity": "CVC"
+    },
+    {
+      "text": "ring",
+      "level": "word",
+      "phonemes": "r,ɪ,ŋ",
+      "target_sound": "r",
+      "position": "initial",
+      "processes": [
+        "Gliding",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 2.1 (Classroom Item Catcher)",
+      "syllable_complexity": "CVC"
+    },
+    {
+      "text": "rock",
+      "level": "word",
+      "phonemes": "r,ɑ,k",
+      "target_sound": "r",
+      "position": "initial",
+      "processes": [
+        "Gliding",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 2.1 (Classroom Item Catcher)",
+      "syllable_complexity": "CVCC"
+    },
+    {
+      "text": "rose",
+      "level": "word",
+      "phonemes": "r,oʊ,z",
+      "target_sound": "z",
+      "position": "final",
+      "processes": [
+        "Stopping",
+        "Final Devoicing",
+        "Final Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 3.3 (Problem-Solver Market)",
+      "syllable_complexity": "CVCe"
+    },
+    {
+      "text": "ruler",
+      "level": "word",
+      "phonemes": "r,u,l,ə,r",
+      "target_sound": "r",
+      "position": "initial",
+      "processes": [
+        "Gliding",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 2.1 (Classroom Item Catcher)",
+      "syllable_complexity": "2 syllables"
+    },
+    {
+      "text": "sand",
+      "level": "word",
+      "phonemes": "s,æ,n,d",
+      "target_sound": "s",
+      "position": "initial",
+      "processes": [
+        "Cluster Reduction",
+        "Stopping",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 4.3 (Earth Defender Match)",
+      "syllable_complexity": "CVCC"
+    },
+    {
+      "text": "sea",
+      "level": "word",
+      "phonemes": "s,i",
+      "target_sound": "s",
+      "position": "initial",
+      "processes": [
+        "Stopping",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 4.3 (Earth Defender Match)",
+      "syllable_complexity": "CV"
+    },
+    {
+      "text": "seven",
+      "level": "word",
+      "phonemes": "s,ɛ,v,ə,n",
+      "target_sound": "v",
+      "position": "medial",
+      "processes": [
+        "Stopping",
+        "Weak Syllable Deletion",
+        "Syllable Reduction"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 3.3 (Problem-Solver Market)",
+      "syllable_complexity": "2 syllables"
+    },
+    {
+      "text": "shark",
+      "level": "word",
+      "phonemes": "ʃ,ɑ,r,k",
+      "target_sound": "r",
+      "position": "medial",
+      "processes": [
+        "Palatal Fronting",
+        "Gliding",
+        "Cluster Reduction"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 4.4 (Explorer's Echo Cave)",
+      "syllable_complexity": "CVCC"
+    },
+    {
+      "text": "shell",
+      "level": "word",
+      "phonemes": "ʃ,ɛ,l",
+      "target_sound": "ʃ",
+      "position": "initial",
+      "processes": [
+        "Palatal Fronting",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 3.3 (Problem-Solver Market)",
+      "syllable_complexity": "CVCC"
+    },
+    {
+      "text": "ship",
+      "level": "word",
+      "phonemes": "ʃ,ɪ,p",
+      "target_sound": "ʃ",
+      "position": "initial",
+      "processes": [
+        "Palatal Fronting",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 3.3 (Problem-Solver Market)",
+      "syllable_complexity": "CVC"
+    },
+    {
+      "text": "shoe",
+      "level": "word",
+      "phonemes": "ʃ,u",
+      "target_sound": "ʃ",
+      "position": "initial",
+      "processes": [
+        "Palatal Fronting",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 3.3 (Problem-Solver Market)",
+      "syllable_complexity": "CV"
+    },
+    {
+      "text": "sister",
+      "level": "word",
+      "phonemes": "s,ɪ,s,t,ə,r",
+      "target_sound": "s",
+      "position": "initial",
+      "processes": [
+        "Stopping",
+        "Cluster Reduction",
+        "Weak Syllable Deletion",
+        "Syllable Reduction"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 2 Island 1.1 (Family Portrait Gallery)",
+      "syllable_complexity": "2 syllables"
+    },
+    {
+      "text": "sky",
+      "level": "word",
+      "phonemes": "s,k,aɪ",
+      "target_sound": "s",
+      "position": "initial",
+      "processes": [
+        "Cluster Reduction"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 4.3 (Earth Defender Match)",
+      "syllable_complexity": "CCV"
+    },
+    {
+      "text": "smooth",
+      "level": "word",
+      "phonemes": "s,m,u,ð",
+      "target_sound": "ð",
+      "position": "final",
+      "processes": [
+        "Stopping",
+        "Final Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        3
+      ],
+      "gameplay_level": "Grade 1 Island 4.2 (Ecosystem Sequence Jump)",
+      "syllable_complexity": "CCVC"
+    },
+    {
+      "text": "soap",
+      "level": "word",
+      "phonemes": "s,oʊ,p",
+      "target_sound": "s",
+      "position": "initial",
+      "processes": [
+        "Stopping",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 3.3 (Problem-Solver Market)",
+      "syllable_complexity": "CVVC"
+    },
+    {
+      "text": "soup",
+      "level": "word",
+      "phonemes": "s,u,p",
+      "target_sound": "s",
+      "position": "initial",
+      "processes": [
+        "Stopping",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 3.3 (Problem-Solver Market)",
+      "syllable_complexity": "CVVC"
+    },
+    {
+      "text": "spaghetti",
+      "level": "word",
+      "phonemes": "s,p,ə,ɡ,ɛ,t,i",
+      "target_sound": "s",
+      "position": "initial",
+      "processes": [
+        "Stopping",
+        "Weak Syllable Deletion",
+        "Syllable Reduction"
+      ],
+      "grades": [
+        3
+      ],
+      "gameplay_level": "Grade 3 Island 1.3 (Multisyllable Mountain)",
+      "syllable_complexity": "3 syllables"
+    },
+    {
+      "text": "spider",
+      "level": "word",
+      "phonemes": "s,p,aɪ,d,ə,r",
+      "target_sound": "s",
+      "position": "initial",
+      "processes": [
+        "Cluster Reduction",
+        "Weak Syllable Deletion",
+        "Syllable Reduction"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 4.3 (Earth Defender Match)",
+      "syllable_complexity": "2 syllables"
+    },
+    {
+      "text": "spoon",
+      "level": "word",
+      "phonemes": "s,p,u,n",
+      "target_sound": "s",
+      "position": "initial",
+      "processes": [
+        "Cluster Reduction"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 4.3 (Earth Defender Match)",
+      "syllable_complexity": "CCVC"
+    },
+    {
+      "text": "star",
+      "level": "word",
+      "phonemes": "s,t,ɑ,r",
+      "target_sound": "s",
+      "position": "initial",
+      "processes": [
+        "Cluster Reduction",
+        "Gliding"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 4.3 (Earth Defender Match)",
+      "syllable_complexity": "CCVC"
+    },
+    {
+      "text": "starfish",
+      "level": "word",
+      "phonemes": "s,t,ɑ,r,f,ɪ,ʃ",
+      "target_sound": "s",
+      "position": "initial",
+      "processes": [
+        "Cluster Reduction",
+        "Weak Syllable Deletion",
+        "Syllable Reduction"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 4.3 (Earth Defender Match)",
+      "syllable_complexity": "2 syllables"
+    },
+    {
+      "text": "stone",
+      "level": "word",
+      "phonemes": "s,t,oʊ,n",
+      "target_sound": "s",
+      "position": "initial",
+      "processes": [
+        "Cluster Reduction"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 4.3 (Earth Defender Match)",
+      "syllable_complexity": "CCVCe"
+    },
+    {
+      "text": "strawberry",
+      "level": "word",
+      "phonemes": "s,t,r,ɔ,b,ɛ,r,i",
+      "target_sound": "r",
+      "position": "initial",
+      "processes": [
+        "Cluster Reduction",
+        "Weak Syllable Deletion",
+        "Syllable Reduction"
+      ],
+      "grades": [
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Grade 3 Island 1.3 (Multisyllable Mountain)",
+      "syllable_complexity": "3 syllables"
+    },
+    {
+      "text": "sun",
+      "level": "word",
+      "phonemes": "s,ə,n",
+      "target_sound": "s",
+      "position": "initial",
+      "processes": [
+        "Stopping",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 4.3 (Earth Defender Match)",
+      "syllable_complexity": "CVC"
+    },
+    {
+      "text": "swim",
+      "level": "word",
+      "phonemes": "s,w,ɪ,m",
+      "target_sound": "s",
+      "position": "initial",
+      "processes": [
+        "Cluster Reduction",
+        "Stopping",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 4.3 (Earth Defender Match)",
+      "syllable_complexity": "CCVC"
+    },
+    {
+      "text": "tall",
+      "level": "word",
+      "phonemes": "t,ɔ,l",
+      "target_sound": "l",
+      "position": "final",
+      "processes": [
+        "Gliding",
+        "Final Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 1.3 (Rhyme Time Porch)",
+      "syllable_complexity": "CVCC"
+    },
+    {
+      "text": "teacher",
+      "level": "word",
+      "phonemes": "t,i,tʃ,ə,r",
+      "target_sound": "tʃ",
+      "position": "medial",
+      "processes": [
+        "Deaffrication",
+        "Weak Syllable Deletion",
+        "Syllable Reduction"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 2.1 (Classroom Item Catcher)",
+      "syllable_complexity": "2 syllables"
+    },
+    {
+      "text": "teeth",
+      "level": "word",
+      "phonemes": "t,i,θ",
+      "target_sound": "θ",
+      "position": "final",
+      "processes": [
+        "Stopping",
+        "Final Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        3
+      ],
+      "gameplay_level": "Grade 1 Island 4.1 (Nature Trail Cleaner)",
+      "syllable_complexity": "CVVC"
+    },
+    {
+      "text": "television",
+      "level": "word",
+      "phonemes": "t,ɛ,l,ə,v,ɪ,ʒ,ə,n",
+      "target_sound": "ʒ",
+      "position": "medial",
+      "processes": [
+        "Stopping",
+        "Weak Syllable Deletion",
+        "Syllable Reduction"
+      ],
+      "grades": [
+        3
+      ],
+      "gameplay_level": "Grade 3 Island 1.1 (Regional Word Explorer)",
+      "syllable_complexity": "4 syllables"
+    },
+    {
+      "text": "ten",
+      "level": "word",
+      "phonemes": "t,ɛ,n",
+      "target_sound": "t",
+      "position": "initial",
+      "processes": [
+        "Backing",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)",
+      "syllable_complexity": "CVC"
+    },
+    {
+      "text": "that",
+      "level": "word",
+      "phonemes": "ð,æ,t",
+      "target_sound": "ð",
+      "position": "initial",
+      "processes": [
+        "Stopping",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        3
+      ],
+      "gameplay_level": "Grade 1 Island 4.2 (Ecosystem Sequence Jump)",
+      "syllable_complexity": "CVC"
+    },
+    {
+      "text": "they",
+      "level": "word",
+      "phonemes": "ð,eɪ",
+      "target_sound": "ð",
+      "position": "initial",
+      "processes": [
+        "Stopping",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        3
+      ],
+      "gameplay_level": "Grade 1 Island 4.2 (Ecosystem Sequence Jump)",
+      "syllable_complexity": "CV"
+    },
+    {
+      "text": "think",
+      "level": "word",
+      "phonemes": "θ,ɪ,ŋ,k",
+      "target_sound": "θ",
+      "position": "initial",
+      "processes": [
+        "Stopping",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        3
+      ],
+      "gameplay_level": "Grade 1 Island 4.1 (Nature Trail Cleaner)",
+      "syllable_complexity": "CVCC"
+    },
+    {
+      "text": "this",
+      "level": "word",
+      "phonemes": "ð,ɪ,s",
+      "target_sound": "ð",
+      "position": "initial",
+      "processes": [
+        "Stopping",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        3
+      ],
+      "gameplay_level": "Grade 1 Island 4.2 (Ecosystem Sequence Jump)",
+      "syllable_complexity": "CVC"
+    },
+    {
+      "text": "three",
+      "level": "word",
+      "phonemes": "θ,r,i",
+      "target_sound": "θ",
+      "position": "initial",
+      "processes": [
+        "Stopping",
+        "Cluster Reduction",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        3
+      ],
+      "gameplay_level": "Grade 3 Island 1.1 (Regional Word Explorer)",
+      "syllable_complexity": "CCV"
+    },
+    {
+      "text": "thumb",
+      "level": "word",
+      "phonemes": "θ,ə,m",
+      "target_sound": "θ",
+      "position": "initial",
+      "processes": [
+        "Stopping",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        3
+      ],
+      "gameplay_level": "Grade 1 Island 4.1 (Nature Trail Cleaner)",
+      "syllable_complexity": "CVC"
+    },
+    {
+      "text": "toothbrush",
+      "level": "word",
+      "phonemes": "t,u,θ,b,r,ə,ʃ",
+      "target_sound": "θ",
+      "position": "medial",
+      "processes": [
+        "Stopping",
+        "Weak Syllable Deletion",
+        "Syllable Reduction"
+      ],
+      "grades": [
+        3
+      ],
+      "gameplay_level": "Grade 3 Island 1.1 (Regional Word Explorer)",
+      "syllable_complexity": "2 syllables"
+    },
+    {
+      "text": "train",
+      "level": "word",
+      "phonemes": "t,r,eɪ,n",
+      "target_sound": "r",
+      "position": "initial",
+      "processes": [
+        "Cluster Reduction"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 3.2 (Helper's Task Trail)",
+      "syllable_complexity": "CCVC"
+    },
+    {
+      "text": "treasure",
+      "level": "word",
+      "phonemes": "t,r,ɛ,ʒ,ə,r",
+      "target_sound": "ʒ",
+      "position": "medial",
+      "processes": [
+        "Stopping",
+        "Weak Syllable Deletion",
+        "Syllable Reduction"
+      ],
+      "grades": [
+        3
+      ],
+      "gameplay_level": "Grade 3 Island 1.1 (Regional Word Explorer)",
+      "syllable_complexity": "2 syllables"
+    },
+    {
+      "text": "truck",
+      "level": "word",
+      "phonemes": "t,r,ə,k",
+      "target_sound": "r",
+      "position": "initial",
+      "processes": [
+        "Cluster Reduction"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 3.2 (Helper's Task Trail)",
+      "syllable_complexity": "CCVC"
+    },
+    {
+      "text": "van",
+      "level": "word",
+      "phonemes": "v,æ,n",
+      "target_sound": "v",
+      "position": "initial",
+      "processes": [
+        "Stopping",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 3.3 (Problem-Solver Market)",
+      "syllable_complexity": "CVC"
+    },
+    {
+      "text": "vegetable",
+      "level": "word",
+      "phonemes": "v,ɛ,dʒ,t,ə,b,əl",
+      "target_sound": "dʒ",
+      "position": "medial",
+      "processes": [
+        "Deaffrication",
+        "Weak Syllable Deletion",
+        "Syllable Reduction"
+      ],
+      "grades": [
+        3
+      ],
+      "gameplay_level": "Grade 3 Island 1.3 (Multisyllable Mountain)",
+      "syllable_complexity": "4 syllables"
+    },
+    {
+      "text": "very",
+      "level": "word",
+      "phonemes": "v,ɛ,r,i",
+      "target_sound": "v",
+      "position": "initial",
+      "processes": [
+        "Stopping",
+        "Gliding",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 3.3 (Problem-Solver Market)",
+      "syllable_complexity": "2 syllables"
+    },
+    {
+      "text": "vest",
+      "level": "word",
+      "phonemes": "v,ɛ,s,t",
+      "target_sound": "v",
+      "position": "initial",
+      "processes": [
+        "Stopping",
+        "Cluster Reduction",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 3.3 (Problem-Solver Market)",
+      "syllable_complexity": "CVCC"
+    },
+    {
+      "text": "vision",
+      "level": "word",
+      "phonemes": "v,ɪ,ʒ,ə,n",
+      "target_sound": "ʒ",
+      "position": "medial",
+      "processes": [
+        "Stopping",
+        "Weak Syllable Deletion",
+        "Syllable Reduction"
+      ],
+      "grades": [
+        3
+      ],
+      "gameplay_level": "Grade 3 Island 1.1 (Regional Word Explorer)",
+      "syllable_complexity": "2 syllables"
+    },
+    {
+      "text": "volcano",
+      "level": "word",
+      "phonemes": "v,ɑ,l,k,eɪ,n,oʊ",
+      "target_sound": "v",
+      "position": "initial",
+      "processes": [
+        "Stopping",
+        "Weak Syllable Deletion",
+        "Syllable Reduction"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 2 Island 1.3 (Family Word Hunt)",
+      "syllable_complexity": "3 syllables"
+    },
+    {
+      "text": "watch",
+      "level": "word",
+      "phonemes": "w,ɔ,tʃ",
+      "target_sound": "tʃ",
+      "position": "final",
+      "processes": [
+        "Deaffrication",
+        "Final Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 1.2 (Family Sorting Basket)",
+      "syllable_complexity": "CVCC"
+    },
+    {
+      "text": "wave",
+      "level": "word",
+      "phonemes": "w,eɪ,v",
+      "target_sound": "v",
+      "position": "final",
+      "processes": [
+        "Stopping",
+        "Final Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 3.3 (Problem-Solver Market)",
+      "syllable_complexity": "CVCe"
+    },
+    {
+      "text": "whale",
+      "level": "word",
+      "phonemes": "w,eɪ,l",
+      "target_sound": "l",
+      "position": "final",
+      "processes": [
+        "Gliding",
+        "Final Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 1.3 (Rhyme Time Porch)",
+      "syllable_complexity": "CVCe"
+    },
+    {
+      "text": "write",
+      "level": "word",
+      "phonemes": "r,aɪ,t",
+      "target_sound": "r",
+      "position": "initial",
+      "processes": [
+        "Gliding",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 2.3 (Cause & Effect Lab)",
+      "syllable_complexity": "CVCe"
+    },
+    {
+      "text": "yarn",
+      "level": "word",
+      "phonemes": "j,ɑ,r,n",
+      "target_sound": "j",
+      "position": "initial",
+      "processes": [
+        "Gliding",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)",
+      "syllable_complexity": "CVCC"
+    },
+    {
+      "text": "yellow",
+      "level": "word",
+      "phonemes": "j,ɛ,l,oʊ",
+      "target_sound": "l",
+      "position": "medial",
+      "processes": [
+        "Gliding",
+        "Weak Syllable Deletion",
+        "Syllable Reduction"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 2 Island 1.1 (Family Portrait Gallery)",
+      "syllable_complexity": "2 syllables"
+    },
+    {
+      "text": "yoyo",
+      "level": "word",
+      "phonemes": "j,oʊ,j,oʊ",
+      "target_sound": "j",
+      "position": "initial",
+      "processes": [
+        "Gliding",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)",
+      "syllable_complexity": "2 syllables"
+    },
+    {
+      "text": "zoo",
+      "level": "word",
+      "phonemes": "z,u",
+      "target_sound": "z",
+      "position": "initial",
+      "processes": [
+        "Stopping",
+        "Devoicing",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 3.3 (Problem-Solver Market)",
+      "syllable_complexity": "CV"
+    },
+    {
+      "text": "a big chair",
+      "level": "phrase",
+      "phonemes": "ə,b,ɪ,ɡ,tʃ,ɛ,r",
+      "target_sound": "tʃ",
+      "position": "initial",
+      "processes": [
+        "Deaffrication",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 1.2 (Family Sorting Basket)",
+      "syllable_complexity": "3 words"
+    },
+    {
+      "text": "a big cup",
+      "level": "phrase",
+      "phonemes": "ə,b,ɪ,ɡ,k,ə,p",
+      "target_sound": "k",
+      "position": "initial",
+      "processes": [
+        "Fronting",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)",
+      "syllable_complexity": "3 words"
+    },
+    {
+      "text": "a big sock",
+      "level": "phrase",
+      "phonemes": "ə,b,ɪ,ɡ,s,ɑ,k",
+      "target_sound": "s",
+      "position": "initial",
+      "processes": [
+        "Stopping",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 4.3 (Earth Defender Match)",
+      "syllable_complexity": "3 words"
+    },
+    {
+      "text": "a big whale",
+      "level": "phrase",
+      "phonemes": "ə,b,ɪ,ɡ,w,eɪ,l",
+      "target_sound": "l",
+      "position": "final",
+      "processes": [
+        "Gliding",
+        "Final Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 1.3 (Rhyme Time Porch)",
+      "syllable_complexity": "3 words"
+    },
+    {
+      "text": "a red ball",
+      "level": "phrase",
+      "phonemes": "ə,r,ɛ,d,b,ɔ,l",
+      "target_sound": "l",
+      "position": "final",
+      "processes": [
+        "Gliding",
+        "Final Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 1.3 (Rhyme Time Porch)",
+      "syllable_complexity": "3 words"
+    },
+    {
+      "text": "a red car",
+      "level": "phrase",
+      "phonemes": "ə,r,ɛ,d,k,ɑ,r",
+      "target_sound": "r",
+      "position": "initial",
+      "processes": [
+        "Gliding",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 2.1 (Classroom Item Catcher)",
+      "syllable_complexity": "3 words"
+    },
+    {
+      "text": "a treasure map",
+      "level": "phrase",
+      "phonemes": "ə,t,r,ɛ,ʒ,ə,r,m,æ,p",
+      "target_sound": "ʒ",
+      "position": "medial",
+      "processes": [
+        "Stopping",
+        "Cluster Reduction",
+        "Weak Syllable Deletion",
+        "Syllable Reduction"
+      ],
+      "grades": [
+        3
+      ],
+      "gameplay_level": "Grade 3 Island 1.1 (Regional Word Explorer)",
+      "syllable_complexity": "3 words"
+    },
+    {
+      "text": "drive the truck",
+      "level": "phrase",
+      "phonemes": "d,r,aɪ,v,ð,ə,t,r,ə,k",
+      "target_sound": "r",
+      "position": "initial",
+      "processes": [
+        "Cluster Reduction"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 3.2 (Helper's Task Trail)",
+      "syllable_complexity": "3 words"
+    },
+    {
+      "text": "my cookie",
+      "level": "phrase",
+      "phonemes": "m,aɪ,k,ʊ,k,i",
+      "target_sound": "k",
+      "position": "initial",
+      "processes": [
+        "Fronting",
+        "Weak Syllable Deletion",
+        "Syllable Reduction"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)",
+      "syllable_complexity": "2 words"
+    },
+    {
+      "text": "my father",
+      "level": "phrase",
+      "phonemes": "m,aɪ,f,ɑ,ð,ə,r",
+      "target_sound": "ð",
+      "position": "medial",
+      "processes": [
+        "Stopping",
+        "Weak Syllable Deletion",
+        "Syllable Reduction"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 2 Island 1.1 (Family Portrait Gallery)",
+      "syllable_complexity": "2 words"
+    },
+    {
+      "text": "my mother",
+      "level": "phrase",
+      "phonemes": "m,aɪ,m,ə,ð,ə,r",
+      "target_sound": "ð",
+      "position": "medial",
+      "processes": [
+        "Stopping",
+        "Weak Syllable Deletion",
+        "Syllable Reduction"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 2 Island 1.1 (Family Portrait Gallery)",
+      "syllable_complexity": "2 words"
+    },
+    {
+      "text": "my red ruler",
+      "level": "phrase",
+      "phonemes": "m,aɪ,r,ɛ,d,r,u,l,ə,r",
+      "target_sound": "r",
+      "position": "initial",
+      "processes": [
+        "Gliding",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 2.1 (Classroom Item Catcher)",
+      "syllable_complexity": "3 words"
+    },
+    {
+      "text": "my watch",
+      "level": "phrase",
+      "phonemes": "m,aɪ,w,ɑ,tʃ",
+      "target_sound": "tʃ",
+      "position": "final",
+      "processes": [
+        "Deaffrication",
+        "Final Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 1.2 (Family Sorting Basket)",
+      "syllable_complexity": "2 words"
+    },
+    {
+      "text": "my yellow book",
+      "level": "phrase",
+      "phonemes": "m,aɪ,j,ɛ,l,oʊ,b,ʊ,k",
+      "target_sound": "l",
+      "position": "medial",
+      "processes": [
+        "Gliding",
+        "Weak Syllable Deletion",
+        "Syllable Reduction"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 2 Island 1.1 (Family Portrait Gallery)",
+      "syllable_complexity": "3 words"
+    },
+    {
+      "text": "see the sea",
+      "level": "phrase",
+      "phonemes": "s,i,ð,ə,s,i",
+      "target_sound": "s",
+      "position": "initial",
+      "processes": [
+        "Stopping",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 4.3 (Earth Defender Match)",
+      "syllable_complexity": "3 words"
+    },
+    {
+      "text": "the bell",
+      "level": "phrase",
+      "phonemes": "ð,ə,b,ɛ,l",
+      "target_sound": "l",
+      "position": "final",
+      "processes": [
+        "Gliding",
+        "Final Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 1.3 (Rhyme Time Porch)",
+      "syllable_complexity": "2 words"
+    },
+    {
+      "text": "the big star",
+      "level": "phrase",
+      "phonemes": "ð,ə,b,ɪ,ɡ,s,t,ɑ,r",
+      "target_sound": "s",
+      "position": "initial",
+      "processes": [
+        "Cluster Reduction"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 4.3 (Earth Defender Match)",
+      "syllable_complexity": "3 words"
+    },
+    {
+      "text": "the blue flag",
+      "level": "phrase",
+      "phonemes": "ð,ə,b,l,u,f,l,æ,ɡ",
+      "target_sound": "l",
+      "position": "initial",
+      "processes": [
+        "Cluster Reduction"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 2.2 (Story Line Jumper)",
+      "syllable_complexity": "3 words"
+    },
+    {
+      "text": "the green truck",
+      "level": "phrase",
+      "phonemes": "ð,ə,ɡ,r,i,n,t,r,ə,k",
+      "target_sound": "r",
+      "position": "initial",
+      "processes": [
+        "Cluster Reduction"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 3.2 (Helper's Task Trail)",
+      "syllable_complexity": "3 words"
+    },
+    {
+      "text": "the key",
+      "level": "phrase",
+      "phonemes": "ð,ə,k,i",
+      "target_sound": "k",
+      "position": "initial",
+      "processes": [
+        "Fronting",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)",
+      "syllable_complexity": "2 words"
+    },
+    {
+      "text": "the red bridge",
+      "level": "phrase",
+      "phonemes": "ð,ə,r,ɛ,d,b,r,ɪ,dʒ",
+      "target_sound": "dʒ",
+      "position": "final",
+      "processes": [
+        "Deaffrication",
+        "Cluster Reduction",
+        "Final Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 3.1 (Community Map Navigator)",
+      "syllable_complexity": "3 words"
+    },
+    {
+      "text": "the smooth feather",
+      "level": "phrase",
+      "phonemes": "ð,ə,s,m,u,ð,f,ɛ,ð,ə,r",
+      "target_sound": "ð",
+      "position": "medial",
+      "processes": [
+        "Stopping",
+        "Weak Syllable Deletion",
+        "Syllable Reduction"
+      ],
+      "grades": [
+        3
+      ],
+      "gameplay_level": "Grade 3 Island 1.1 (Regional Word Explorer)",
+      "syllable_complexity": "3 words"
+    },
+    {
+      "text": "the sun",
+      "level": "phrase",
+      "phonemes": "ð,ə,s,ə,n",
+      "target_sound": "s",
+      "position": "initial",
+      "processes": [
+        "Stopping",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 4.3 (Earth Defender Match)",
+      "syllable_complexity": "2 words"
+    },
+    {
+      "text": "this is that",
+      "level": "phrase",
+      "phonemes": "ð,ɪ,s,ɪ,z,ð,æ,t",
+      "target_sound": "ð",
+      "position": "initial",
+      "processes": [
+        "Stopping",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        3
+      ],
+      "gameplay_level": "Grade 1 Island 4.2 (Ecosystem Sequence Jump)",
+      "syllable_complexity": "3 words"
+    },
+    {
+      "text": "visit the clinic",
+      "level": "phrase",
+      "phonemes": "v,ɪ,z,ɪ,t,ð,ə,k,l,ɪ,n,ɪ,k",
+      "target_sound": "v",
+      "position": "initial",
+      "processes": [
+        "Stopping",
+        "Cluster Reduction",
+        "Weak Syllable Deletion",
+        "Syllable Reduction"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 3.3 (Problem-Solver Market)",
+      "syllable_complexity": "3 words"
+    },
+    {
+      "text": "Drive the truck.",
+      "level": "sentence",
+      "phonemes": "d,r,aɪ,v,ð,ə,t,r,ə,k",
+      "target_sound": "r",
+      "position": "initial",
+      "processes": [
+        "Cluster Reduction"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 3.4 (Radio Station Echo)",
+      "syllable_complexity": "3 words"
+    },
+    {
+      "text": "I brush my teeth.",
+      "level": "sentence",
+      "phonemes": "aɪ,b,r,ə,ʃ,m,aɪ,t,i,θ",
+      "target_sound": "θ",
+      "position": "final",
+      "processes": [
+        "Stopping",
+        "Cluster Reduction",
+        "Final Consonant Deletion"
+      ],
+      "grades": [
+        3
+      ],
+      "gameplay_level": "Grade 3 Island 1.4 (Regional Story Quest)",
+      "syllable_complexity": "4 words"
+    },
+    {
+      "text": "I drink from a cup.",
+      "level": "sentence",
+      "phonemes": "aɪ,d,r,ɪ,ŋ,k,f,r,ə,m,ə,k,ə,p",
+      "target_sound": "k",
+      "position": "initial",
+      "processes": [
+        "Fronting",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 1.4 (Echo Family Studio)",
+      "syllable_complexity": "5 words"
+    },
+    {
+      "text": "I go to school.",
+      "level": "sentence",
+      "phonemes": "aɪ,ɡ,oʊ,t,ə,s,k,u,l",
+      "target_sound": "s",
+      "position": "initial",
+      "processes": [
+        "Cluster Reduction",
+        "Stopping",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 2 Island 2.3 (Speak & Build)",
+      "syllable_complexity": "4 words"
+    },
+    {
+      "text": "I have a new book.",
+      "level": "sentence",
+      "phonemes": "aɪ,h,æ,v,ə,n,u,b,ʊ,k",
+      "target_sound": "v",
+      "position": "initial",
+      "processes": [
+        "Stopping",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 2 Island 2.3 (Speak & Build)",
+      "syllable_complexity": "5 words"
+    },
+    {
+      "text": "I like cheese.",
+      "level": "sentence",
+      "phonemes": "aɪ,l,aɪ,k,tʃ,i,z",
+      "target_sound": "tʃ",
+      "position": "initial",
+      "processes": [
+        "Deaffrication",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 1.4 (Echo Family Studio)",
+      "syllable_complexity": "3 words"
+    },
+    {
+      "text": "I like my home.",
+      "level": "sentence",
+      "phonemes": "aɪ,l,aɪ,k,m,aɪ,h,oʊ,m",
+      "target_sound": "l",
+      "position": "initial",
+      "processes": [
+        "Gliding",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 1.4 (Echo Family Studio)",
+      "syllable_complexity": "4 words"
+    },
+    {
+      "text": "I like the ball.",
+      "level": "sentence",
+      "phonemes": "aɪ,l,aɪ,k,ð,ə,b,ɔ,l",
+      "target_sound": "l",
+      "position": "final",
+      "processes": [
+        "Gliding",
+        "Final Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 1.4 (Echo Family Studio)",
+      "syllable_complexity": "4 words"
+    },
+    {
+      "text": "I love my family.",
+      "level": "sentence",
+      "phonemes": "aɪ,l,ʌ,v,m,aɪ,f,æ,m,ə,l,i",
+      "target_sound": "l",
+      "position": "initial",
+      "processes": [
+        "Gliding",
+        "Stopping",
+        "Initial Consonant Deletion",
+        "Weak Syllable Deletion",
+        "Syllable Reduction"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 1.4 (Echo Family Studio)",
+      "syllable_complexity": "4 words"
+    },
+    {
+      "text": "I protect the earth.",
+      "level": "sentence",
+      "phonemes": "aɪ,p,r,ə,t,ɛ,k,t,ð,ə,ɜ,θ",
+      "target_sound": "θ",
+      "position": "final",
+      "processes": [
+        "Stopping",
+        "Cluster Reduction",
+        "Final Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        3
+      ],
+      "gameplay_level": "Grade 1 Island 4.4 (Explorer's Echo Cave)",
+      "syllable_complexity": "4 words"
+    },
+    {
+      "text": "I read books.",
+      "level": "sentence",
+      "phonemes": "aɪ,r,i,d,b,ʊ,k,s",
+      "target_sound": "r",
+      "position": "initial",
+      "processes": [
+        "Gliding",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 2.4 (Echo Classroom Express)",
+      "syllable_complexity": "3 words"
+    },
+    {
+      "text": "I ride my bicycle.",
+      "level": "sentence",
+      "phonemes": "aɪ,r,aɪ,d,m,aɪ,b,aɪ,s,ɪ,k,əl",
+      "target_sound": "r",
+      "position": "initial",
+      "processes": [
+        "Gliding",
+        "Stopping",
+        "Weak Syllable Deletion",
+        "Syllable Reduction"
+      ],
+      "grades": [
+        2,
+        3
+      ],
+      "gameplay_level": "Grade 2 Island 2.4 (School Story Challenge)",
+      "syllable_complexity": "4 words"
+    },
+    {
+      "text": "I see a cookie.",
+      "level": "sentence",
+      "phonemes": "aɪ,s,i,ə,k,ʊ,k,i",
+      "target_sound": "k",
+      "position": "initial",
+      "processes": [
+        "Fronting",
+        "Weak Syllable Deletion",
+        "Syllable Reduction"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 1.4 (Echo Family Studio)",
+      "syllable_complexity": "4 words"
+    },
+    {
+      "text": "I see a sock.",
+      "level": "sentence",
+      "phonemes": "aɪ,s,i,ə,s,ɑ,k",
+      "target_sound": "s",
+      "position": "initial",
+      "processes": [
+        "Stopping",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 1.4 (Echo Family Studio)",
+      "syllable_complexity": "4 words"
+    },
+    {
+      "text": "I sit on the chair.",
+      "level": "sentence",
+      "phonemes": "aɪ,s,ɪ,t,ɔ,n,ð,ə,tʃ,ɛ,r",
+      "target_sound": "tʃ",
+      "position": "initial",
+      "processes": [
+        "Deaffrication",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 1.4 (Echo Family Studio)",
+      "syllable_complexity": "5 words"
+    },
+    {
+      "text": "My brother drives the truck.",
+      "level": "sentence",
+      "phonemes": "m,aɪ,b,r,ə,ð,ə,r,d,r,aɪ,v,z,ð,ə,t,r,ə,k",
+      "target_sound": "r",
+      "position": "initial",
+      "processes": [
+        "Cluster Reduction",
+        "Stopping",
+        "Weak Syllable Deletion",
+        "Syllable Reduction"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 2 Island 4.4 (Grand Explorer Challenge)",
+      "syllable_complexity": "5 words"
+    },
+    {
+      "text": "My key opens the door.",
+      "level": "sentence",
+      "phonemes": "m,aɪ,k,i,oʊ,p,ə,n,z,ð,ə,d,ɔ,r",
+      "target_sound": "k",
+      "position": "initial",
+      "processes": [
+        "Fronting",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 1.4 (Echo Family Studio)",
+      "syllable_complexity": "5 words"
+    },
+    {
+      "text": "My red ruler is here.",
+      "level": "sentence",
+      "phonemes": "m,aɪ,r,ɛ,d,r,u,l,ə,r,ɪ,z,h,ɪ,r",
+      "target_sound": "r",
+      "position": "initial",
+      "processes": [
+        "Gliding",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 2.4 (Echo Classroom Express)",
+      "syllable_complexity": "5 words"
+    },
+    {
+      "text": "My sister and brother play.",
+      "level": "sentence",
+      "phonemes": "m,aɪ,s,ɪ,s,t,ə,r,æ,n,d,b,r,ə,ð,ə,r,p,l,eɪ",
+      "target_sound": "r",
+      "position": "initial",
+      "processes": [
+        "Cluster Reduction",
+        "Stopping",
+        "Weak Syllable Deletion",
+        "Syllable Reduction"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 2 Island 1.4 (Family Story Path)",
+      "syllable_complexity": "5 words"
+    },
+    {
+      "text": "The baby is sleeping.",
+      "level": "sentence",
+      "phonemes": "ð,ə,b,eɪ,b,i,ɪ,z,s,l,i,p,ɪ,ŋ",
+      "target_sound": "b",
+      "position": "initial",
+      "processes": [
+        "Final Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 2 Island 1.4 (Family Story Path)",
+      "syllable_complexity": "4 words"
+    },
+    {
+      "text": "The bell rings.",
+      "level": "sentence",
+      "phonemes": "ð,ə,b,ɛ,l,r,ɪ,ŋ,z",
+      "target_sound": "l",
+      "position": "final",
+      "processes": [
+        "Gliding",
+        "Final Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 1.4 (Echo Family Studio)",
+      "syllable_complexity": "3 words"
+    },
+    {
+      "text": "The blue ribbon is red.",
+      "level": "sentence",
+      "phonemes": "ð,ə,b,l,u,r,ɪ,b,ə,n,ɪ,z,r,ɛ,d",
+      "target_sound": "r",
+      "position": "initial",
+      "processes": [
+        "Gliding",
+        "Cluster Reduction",
+        "Weak Syllable Deletion",
+        "Syllable Reduction"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 2.4 (Echo Classroom Express)",
+      "syllable_complexity": "5 words"
+    },
+    {
+      "text": "The cat is on the mat.",
+      "level": "sentence",
+      "phonemes": "ð,ə,k,æ,t,ɪ,z,ɔ,n,ð,ə,m,æ,t",
+      "target_sound": "k",
+      "position": "initial",
+      "processes": [
+        "Fronting",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 1.4 (Echo Family Studio)",
+      "syllable_complexity": "6 words"
+    },
+    {
+      "text": "The feather is smooth.",
+      "level": "sentence",
+      "phonemes": "ð,ə,f,ɛ,ð,ə,r,ɪ,z,s,m,u,ð",
+      "target_sound": "ð",
+      "position": "medial",
+      "processes": [
+        "Stopping",
+        "Weak Syllable Deletion",
+        "Syllable Reduction"
+      ],
+      "grades": [
+        3
+      ],
+      "gameplay_level": "Grade 3 Island 1.4 (Regional Story Quest)",
+      "syllable_complexity": "4 words"
+    },
+    {
+      "text": "The frog is green.",
+      "level": "sentence",
+      "phonemes": "ð,ə,f,r,ɑ,ɡ,ɪ,z,ɡ,r,i,n",
+      "target_sound": "r",
+      "position": "initial",
+      "processes": [
+        "Cluster Reduction"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 3.4 (Radio Station Echo)",
+      "syllable_complexity": "4 words"
+    },
+    {
+      "text": "The frog is near the tree.",
+      "level": "sentence",
+      "phonemes": "ð,ə,f,r,ɑ,ɡ,ɪ,z,n,ɪ,r,ð,ə,t,r,i",
+      "target_sound": "r",
+      "position": "initial",
+      "processes": [
+        "Cluster Reduction",
+        "Gliding"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 2 Island 4.3 (Environment Builder)",
+      "syllable_complexity": "6 words"
+    },
+    {
+      "text": "The helicopter flies over the mountain.",
+      "level": "sentence",
+      "phonemes": "ð,ə,h,ɛ,l,ɪ,k,ɑ,p,t,ə,r,f,l,aɪ,z,oʊ,v,ə,r,ð,ə,m,aʊ,n,t,ə,n",
+      "target_sound": "l",
+      "position": "medial",
+      "processes": [
+        "Weak Syllable Deletion",
+        "Syllable Reduction",
+        "Cluster Reduction"
+      ],
+      "grades": [
+        3
+      ],
+      "gameplay_level": "Grade 3 Island 3.4 (National Story Studio)",
+      "syllable_complexity": "6 words"
+    },
+    {
+      "text": "The judge has a job.",
+      "level": "sentence",
+      "phonemes": "ð,ə,dʒ,ə,dʒ,h,æ,z,ə,dʒ,ɑ,b",
+      "target_sound": "dʒ",
+      "position": "initial",
+      "processes": [
+        "Deaffrication",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 3.4 (Radio Station Echo)",
+      "syllable_complexity": "5 words"
+    },
+    {
+      "text": "The monkey eats a banana.",
+      "level": "sentence",
+      "phonemes": "ð,ə,m,ʌ,ŋ,k,i,i,t,s,ə,b,ə,n,æ,n,ə",
+      "target_sound": "k",
+      "position": "medial",
+      "processes": [
+        "Fronting",
+        "Weak Syllable Deletion",
+        "Syllable Reduction"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 3 Island 1.3 (Multisyllable Mountain)",
+      "syllable_complexity": "5 words"
+    },
+    {
+      "text": "The orange is in the kitchen.",
+      "level": "sentence",
+      "phonemes": "ð,ə,ɔ,r,ɪ,n,dʒ,ɪ,z,ɪ,n,ð,ə,k,ɪ,tʃ,ə,n",
+      "target_sound": "dʒ",
+      "position": "medial",
+      "processes": [
+        "Deaffrication",
+        "Weak Syllable Deletion",
+        "Syllable Reduction"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 2 Island 3.4 (Community Story Road)",
+      "syllable_complexity": "6 words"
+    },
+    {
+      "text": "The starfish is on the sand.",
+      "level": "sentence",
+      "phonemes": "ð,ə,s,t,ɑ,r,f,ɪ,ʃ,ɪ,z,ɔ,n,ð,ə,s,æ,n,d",
+      "target_sound": "s",
+      "position": "initial",
+      "processes": [
+        "Cluster Reduction",
+        "Weak Syllable Deletion",
+        "Syllable Reduction"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 4.4 (Explorer's Echo Cave)",
+      "syllable_complexity": "6 words"
+    },
+    {
+      "text": "The sun is bright.",
+      "level": "sentence",
+      "phonemes": "ð,ə,s,ə,n,ɪ,z,b,r,aɪ,t",
+      "target_sound": "s",
+      "position": "initial",
+      "processes": [
+        "Stopping",
+        "Cluster Reduction",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Grade 1 Island 4.4 (Explorer's Echo Cave)",
+      "syllable_complexity": "4 words"
+    },
+    {
+      "text": "The sun is up.",
+      "level": "sentence",
+      "phonemes": "ð,ə,s,ə,n,ɪ,z,ə,p",
+      "target_sound": "s",
+      "position": "initial",
+      "processes": [
+        "Stopping",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 1.4 (Echo Family Studio)",
+      "syllable_complexity": "4 words"
+    },
+    {
+      "text": "The teacher reads a book.",
+      "level": "sentence",
+      "phonemes": "ð,ə,t,i,tʃ,ə,r,r,i,d,z,ə,b,ʊ,k",
+      "target_sound": "tʃ",
+      "position": "medial",
+      "processes": [
+        "Deaffrication",
+        "Gliding",
+        "Weak Syllable Deletion",
+        "Syllable Reduction"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 2 Island 2.4 (School Story Challenge)",
+      "syllable_complexity": "5 words"
+    },
+    {
+      "text": "The treasure is in the cave.",
+      "level": "sentence",
+      "phonemes": "ð,ə,t,r,ɛ,ʒ,ə,r,ɪ,z,ɪ,n,ð,ə,k,eɪ,v",
+      "target_sound": "ʒ",
+      "position": "medial",
+      "processes": [
+        "Stopping",
+        "Cluster Reduction",
+        "Weak Syllable Deletion",
+        "Syllable Reduction"
+      ],
+      "grades": [
+        3
+      ],
+      "gameplay_level": "Grade 3 Island 2.4 (Compound Sentence Bridge)",
+      "syllable_complexity": "6 words"
+    },
+    {
+      "text": "The truck drives fast.",
+      "level": "sentence",
+      "phonemes": "ð,ə,t,r,ə,k,d,r,aɪ,v,z,f,æ,s,t",
+      "target_sound": "r",
+      "position": "initial",
+      "processes": [
+        "Cluster Reduction"
+      ],
+      "grades": [
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Grade 2 Island 2.4 (School Story Challenge)",
+      "syllable_complexity": "4 words"
+    },
+    {
+      "text": "The whale is big.",
+      "level": "sentence",
+      "phonemes": "ð,ə,w,eɪ,l,ɪ,z,b,ɪ,ɡ",
+      "target_sound": "l",
+      "position": "final",
+      "processes": [
+        "Gliding",
+        "Final Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 1.4 (Echo Family Studio)",
+      "syllable_complexity": "4 words"
+    },
+    {
+      "text": "We clean the glass.",
+      "level": "sentence",
+      "phonemes": "w,i,k,l,i,n,ð,ə,ɡ,l,æ,s",
+      "target_sound": "l",
+      "position": "initial",
+      "processes": [
+        "Cluster Reduction"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 2 Island 2.4 (School Story Challenge)",
+      "syllable_complexity": "4 words"
+    },
+    {
+      "text": "We eat spaghetti and vegetables.",
+      "level": "sentence",
+      "phonemes": "w,i,i,t,s,p,ə,ɡ,ɛ,t,i,æ,n,d,v,ɛ,dʒ,t,ə,b,əl,z",
+      "target_sound": "s",
+      "position": "initial",
+      "processes": [
+        "Stopping",
+        "Deaffrication",
+        "Weak Syllable Deletion",
+        "Syllable Reduction"
+      ],
+      "grades": [
+        3
+      ],
+      "gameplay_level": "Grade 3 Island 3.4 (National Story Studio)",
+      "syllable_complexity": "4 words"
+    },
+    {
+      "text": "We plant green trees.",
+      "level": "sentence",
+      "phonemes": "w,i,p,l,æ,n,t,ɡ,r,i,n,t,r,i,z",
+      "target_sound": "l",
+      "position": "initial",
+      "processes": [
+        "Cluster Reduction"
+      ],
+      "grades": [
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Grade 1 Island 4.4 (Explorer's Echo Cave)",
+      "syllable_complexity": "4 words"
+    },
+    {
+      "text": "We ride the bus.",
+      "level": "sentence",
+      "phonemes": "w,i,r,aɪ,d,ð,ə,b,ə,s",
+      "target_sound": "s",
+      "position": "final",
+      "processes": [
+        "Stopping",
+        "Final Consonant Deletion"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 1.4 (Echo Family Studio)",
+      "syllable_complexity": "4 words"
+    },
+    {
+      "text": "We visit the clinic.",
+      "level": "sentence",
+      "phonemes": "w,i,v,ɪ,z,ɪ,t,ð,ə,k,l,ɪ,n,ɪ,k",
+      "target_sound": "v",
+      "position": "initial",
+      "processes": [
+        "Stopping",
+        "Cluster Reduction",
+        "Weak Syllable Deletion",
+        "Syllable Reduction"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "gameplay_level": "Grade 1 Island 3.4 (Radio Station Echo)",
+      "syllable_complexity": "4 words"
+    },
+    {
+      "text": "We watch television.",
+      "level": "sentence",
+      "phonemes": "w,i,w,ɑ,tʃ,t,ɛ,l,ə,v,ɪ,ʒ,ə,n",
+      "target_sound": "ʒ",
+      "position": "medial",
+      "processes": [
+        "Deaffrication",
+        "Stopping",
+        "Weak Syllable Deletion",
+        "Syllable Reduction"
+      ],
+      "grades": [
+        3
+      ],
+      "gameplay_level": "Grade 3 Island 1.4 (Regional Story Quest)",
+      "syllable_complexity": "3 words"
     }
-  ]
+  ],
+  "metadata": {
+    "description": "Practice content for Voice Voyage dynamic modules. Text-only (no image/audio assets). Phonemes use the Wav2Vec2 tokenizer spelling from the phoneme service curated list and are validated against wav2vec2-vocab.md.",
+    "fields": {
+      "text": "display text (no assets required)",
+      "level": "syllable | word | phrase | sentence",
+      "syllable_complexity": "CV pattern / syllable count / word count",
+      "phonemes": "comma-separated IPA, Wav2Vec2-validated",
+      "target_sound": "phoneme(s) the item practices",
+      "position": "initial | medial | final | na",
+      "processes": "related phonological processes",
+      "grades": "grade levels (1=ages 5-6, 2=ages 6-7, 3=age 8)",
+      "gameplay_level": "grade-level island/level from the gameplay docs"
+    }
+  }
 }

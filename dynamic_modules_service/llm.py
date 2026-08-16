@@ -52,8 +52,10 @@ class ZenLLMClient:
 
 class PromptBuilder:
     """Builds the LLM prompt: static system prompt from data/prompt.md
-    plus the per-request user payload (age, detected processes, candidate
-    outlines and the full word bank).  No PII ever enters the prompt."""
+    plus the per-request user payload (age, detected processes, the full
+    grade-level gameplay document for the child's age bracket, candidate
+    outlines and the metadata-rich word bank).  No PII ever enters the
+    prompt."""
 
     def __init__(self, config=config):
         self._config = config
@@ -63,16 +65,19 @@ class PromptBuilder:
         with open(self._config.prompt_path, encoding="utf-8") as f:
             return f.read()
 
-    def build(self, *, findings, outlines, bank_items, asha=None):
+    def build(self, *, findings, outlines, bank_items, grade_document=None):
         user_payload = {
             "child": {"age": findings.age},
             "detected_processes": [
                 {"process": p.process, "position": p.position, "detail": p.detail}
                 for p in findings.processes
             ],
+            "grade_document": grade_document or "",
             "candidate_outlines": [
                 {"id": o.id, "title": o.title, "focus_process": o.focus_process,
-                 "target_sounds": list(o.target_sounds)}
+                 "target_sounds": list(o.target_sounds),
+                 "grades": list(o.grades),
+                 "gameplay_level": o.gameplay_level}
                 for o in outlines
             ],
             "word_bank": {

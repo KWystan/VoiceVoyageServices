@@ -32,9 +32,17 @@ class ModuleServiceConfig:
     word_bank_path: Path = field(
         default_factory=lambda: _SERVICE_ROOT / "data" / "word_bank.json")
 
-    # The static prompt (ASHA summary + rules) fed to the LLM
+    # The static prompt (rules) fed to the LLM
     prompt_path: Path = field(
         default_factory=lambda: _SERVICE_ROOT / "data" / "prompt.md")
+
+    # Grade-level gameplay documents (LLM context, replacing the old CSVs).
+    # Each is the full Markdown of the grade's islands/levels/gameplay.
+    grade_docs: dict = field(default_factory=lambda: {
+        1: _SERVICE_ROOT / "data" / "Grade 1 Game Levels and Gameplay Mechanics.md",
+        2: _SERVICE_ROOT / "data" / "Grade_2_Age_6-7_Levels_and_Gameplay.md",
+        3: _SERVICE_ROOT / "data" / "Grade_3_Age_8_Levels_and_Gameplay.md",
+    })
 
 
 # Singleton

@@ -4,132 +4,225 @@
       "id": "fronting-k",
       "title": "Fronting: /k/ practice",
       "focus_process": "Fronting",
-      "target_sounds": [
-        "k"
-      ],
-      "levels": {
-        "syllable": [
-          "ka",
-          "ki",
-          "ku",
-          "ko",
-          "kee"
-        ],
-        "word": [
-          "key",
-          "cup",
-          "cookie",
-          "cat",
-          "bike"
-        ],
-        "phrase": [
-          "a big cup",
-          "my cookie",
-          "the key",
-          "a red car"
-        ],
-        "sentence": [
-          "I drink from a cup.",
-          "The cat is on the mat.",
-          "My key opens the door.",
-          "I see a cookie."
-        ]
-      }
+      "target_sounds": ["k"],
+      "grades": [1, 2, 3],
+      "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)"
+    },
+    {
+      "id": "fronting-g",
+      "title": "Fronting: /ɡ/ practice",
+      "focus_process": "Fronting",
+      "target_sounds": ["ɡ"],
+      "grades": [1, 2, 3],
+      "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)"
+    },
+    {
+      "id": "backing-t",
+      "title": "Backing: /t/ practice",
+      "focus_process": "Backing",
+      "target_sounds": ["t"],
+      "grades": [1, 2],
+      "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)"
+    },
+    {
+      "id": "backing-d",
+      "title": "Backing: /d/ practice",
+      "focus_process": "Backing",
+      "target_sounds": ["d"],
+      "grades": [1, 2],
+      "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)"
     },
     {
       "id": "stopping-s",
       "title": "Stopping: /s/ practice",
       "focus_process": "Stopping",
-      "target_sounds": [
-        "s"
-      ],
-      "levels": {
-        "syllable": [
-          "sa",
-          "see",
-          "so",
-          "si"
-        ],
-        "word": [
-          "sun",
-          "bus",
-          "sock",
-          "sea",
-          "seven"
-        ],
-        "phrase": [
-          "the sun",
-          "a big sock",
-          "see the sea"
-        ],
-        "sentence": [
-          "The sun is up.",
-          "I see a sock.",
-          "We ride the bus."
-        ]
-      }
+      "target_sounds": ["s"],
+      "grades": [1, 2, 3],
+      "gameplay_level": "Grade 1 Island 4.3 (Earth Defender Match)"
+    },
+    {
+      "id": "stopping-z",
+      "title": "Stopping: /z/ practice",
+      "focus_process": "Stopping",
+      "target_sounds": ["z"],
+      "grades": [1, 2, 3],
+      "gameplay_level": "Grade 1 Island 3.3 (Problem-Solver Market)"
+    },
+    {
+      "id": "stopping-f",
+      "title": "Stopping: /f/ practice",
+      "focus_process": "Stopping",
+      "target_sounds": ["f"],
+      "grades": [1, 2],
+      "gameplay_level": "Grade 1 Island 3.3 (Problem-Solver Market)"
+    },
+    {
+      "id": "stopping-v",
+      "title": "Stopping: /v/ practice",
+      "focus_process": "Stopping",
+      "target_sounds": ["v"],
+      "grades": [1, 2],
+      "gameplay_level": "Grade 1 Island 3.3 (Problem-Solver Market)"
+    },
+    {
+      "id": "stopping-sh",
+      "title": "Stopping: /sh/ practice",
+      "focus_process": "Stopping",
+      "target_sounds": ["ʃ"],
+      "grades": [1, 2],
+      "gameplay_level": "Grade 1 Island 3.3 (Problem-Solver Market)"
+    },
+    {
+      "id": "stopping-zh",
+      "title": "Stopping: /zh/ practice",
+      "focus_process": "Stopping",
+      "target_sounds": ["ʒ"],
+      "grades": [3],
+      "gameplay_level": "Grade 3 Island 1.1 (Regional Word Explorer)"
+    },
+    {
+      "id": "stopping-th",
+      "title": "Stopping: /th/ practice",
+      "focus_process": "Stopping",
+      "target_sounds": ["θ", "ð"],
+      "grades": [1, 3],
+      "gameplay_level": "Grade 1 Island 4.1 (Nature Trail Cleaner)"
     },
     {
       "id": "gliding-l",
       "title": "Gliding: /l/ practice",
       "focus_process": "Gliding",
-      "target_sounds": [
-        "l"
-      ],
-      "levels": {
-        "syllable": [
-          "al",
-          "el",
-          "ol",
-          "il"
-        ],
-        "word": [
-          "ball",
-          "bell",
-          "whale",
-          "tall",
-          "hill"
-        ],
-        "phrase": [
-          "a red ball",
-          "the bell",
-          "a big whale"
-        ],
-        "sentence": [
-          "I like the ball.",
-          "The bell rings.",
-          "The whale is big."
-        ]
-      }
+      "target_sounds": ["l"],
+      "grades": [1, 2],
+      "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)"
     },
     {
-      "id": "deaffrication-tj",
-      "title": "Deaffrication: /tʃ/ practice",
+      "id": "gliding-r",
+      "title": "Gliding: /r/ practice",
+      "focus_process": "Gliding",
+      "target_sounds": ["r"],
+      "grades": [1, 2],
+      "gameplay_level": "Grade 1 Island 2.1 (Classroom Item Catcher)"
+    },
+    {
+      "id": "deaffrication-ch",
+      "title": "Deaffrication: /ch/ practice",
       "focus_process": "Deaffrication",
-      "target_sounds": [
-        "tʃ"
-      ],
-      "levels": {
-        "syllable": [
-          "cha",
-          "chee",
-          "cho"
-        ],
-        "word": [
-          "chair",
-          "cheese",
-          "watch",
-          "chop"
-        ],
-        "phrase": [
-          "a big chair",
-          "my watch"
-        ],
-        "sentence": [
-          "I sit on the chair.",
-          "I like cheese."
-        ]
-      }
+      "target_sounds": ["tʃ"],
+      "grades": [1, 2],
+      "gameplay_level": "Grade 1 Island 1.2 (Family Sorting Basket)"
+    },
+    {
+      "id": "deaffrication-j",
+      "title": "Deaffrication: /j/ practice",
+      "focus_process": "Deaffrication",
+      "target_sounds": ["dʒ"],
+      "grades": [1, 2],
+      "gameplay_level": "Grade 1 Island 3.1 (Community Map Navigator)"
+    },
+    {
+      "id": "palatal-fronting-sh",
+      "title": "Palatal Fronting: /sh/ practice",
+      "focus_process": "Palatal Fronting",
+      "target_sounds": ["ʃ"],
+      "grades": [1, 2],
+      "gameplay_level": "Grade 1 Island 3.3 (Problem-Solver Market)"
+    },
+    {
+      "id": "cluster-reduction-s",
+      "title": "Cluster Reduction: S-Clusters practice",
+      "focus_process": "Cluster Reduction",
+      "target_sounds": ["st", "sp", "sk", "s"],
+      "grades": [1, 2, 3],
+      "gameplay_level": "Grade 1 Island 4.3 (Earth Defender Match)"
+    },
+    {
+      "id": "cluster-reduction-l",
+      "title": "Cluster Reduction: L-Clusters practice",
+      "focus_process": "Cluster Reduction",
+      "target_sounds": ["bl", "fl", "gl", "pl", "l"],
+      "grades": [1, 2],
+      "gameplay_level": "Grade 1 Island 2.2 (Story Line Jumper)"
+    },
+    {
+      "id": "cluster-reduction-r",
+      "title": "Cluster Reduction: R-Clusters practice",
+      "focus_process": "Cluster Reduction",
+      "target_sounds": ["tr", "dr", "kr", "gr", "br", "pr", "fr", "r"],
+      "grades": [1, 2, 3],
+      "gameplay_level": "Grade 1 Island 3.2 (Helper's Task Trail)"
+    },
+    {
+      "id": "initial-consonant-deletion",
+      "title": "Initial Consonant Deletion practice",
+      "focus_process": "Initial Consonant Deletion",
+      "target_sounds": ["p", "b", "t", "d", "k", "ɡ", "m", "n", "f", "v", "s", "z", "ʃ", "tʃ", "dʒ", "θ", "ð", "l", "r", "j", "w", "h"],
+      "grades": [1, 2, 3],
+      "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)"
+    },
+    {
+      "id": "final-consonant-deletion",
+      "title": "Final Consonant Deletion practice",
+      "focus_process": "Final Consonant Deletion",
+      "target_sounds": ["p", "b", "t", "d", "k", "g", "m", "n", "f", "v", "s", "z", "ʃ", "tʃ", "dʒ", "θ", "ð", "l", "r"],
+      "grades": [1, 2, 3],
+      "gameplay_level": "Grade 1 Island 1.3 (Rhyme Time Porch)"
+    },
+    {
+      "id": "weak-syllable-deletion",
+      "title": "Weak Syllable Deletion: multisyllabic words",
+      "focus_process": "Weak Syllable Deletion",
+      "target_sounds": [],
+      "grades": [1, 2, 3],
+      "gameplay_level": "Grade 3 Island 1.3 (Multisyllable Mountain)"
+    },
+    {
+      "id": "syllable-reduction",
+      "title": "Syllable Reduction: multisyllabic words",
+      "focus_process": "Syllable Reduction",
+      "target_sounds": [],
+      "grades": [1, 2, 3],
+      "gameplay_level": "Grade 3 Island 1.3 (Multisyllable Mountain)"
+    },
+    {
+      "id": "devoicing",
+      "title": "Devoicing: voiced sounds practice",
+      "focus_process": "Devoicing",
+      "target_sounds": ["b", "d", "ɡ", "v", "z", "dʒ"],
+      "grades": [1, 2],
+      "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)"
+    },
+    {
+      "id": "final-devoicing",
+      "title": "Final Devoicing: word-end sounds practice",
+      "focus_process": "Final Devoicing",
+      "target_sounds": ["b", "d", "ɡ", "v", "z"],
+      "grades": [1, 2],
+      "gameplay_level": "Grade 1 Island 1.3 (Rhyme Time Porch)"
+    },
+    {
+      "id": "prevocalic-voicing",
+      "title": "Prevocalic Voicing: word-start sounds practice",
+      "focus_process": "Prevocalic Voicing",
+      "target_sounds": ["p", "t", "k", "f", "s", "ʃ"],
+      "grades": [1, 2],
+      "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)"
+    },
+    {
+      "id": "denasalization",
+      "title": "Denasalization: nasal sounds practice",
+      "focus_process": "Denasalization",
+      "target_sounds": ["m", "n"],
+      "grades": [1, 2],
+      "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)"
+    },
+    {
+      "id": "vowelization",
+      "title": "Vowelization: /l/ and /r/ practice",
+      "focus_process": "Vowelization",
+      "target_sounds": ["l", "r"],
+      "grades": [1, 2],
+      "gameplay_level": "Grade 1 Island 1.3 (Rhyme Time Porch)"
     }
   ]
 }
