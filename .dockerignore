@@ -1,0 +1,18 @@
+# Build context hygiene — keep secrets and dev-only files out of images.
+.git
+.env
+*.env
+!*.env.example
+__pycache__/
+*.py[cod]
+.pytest_cache/
+tests/
+records/
+scripts/
+docs/
+models/
+archive/
+.agents/
+.vscode/
+.idea/
+*.tmp

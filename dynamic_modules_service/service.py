@@ -217,6 +217,7 @@ class ModuleService:
         self._config = config
         self._grade_documents = grade_documents or GradeDocuments()
         self._fallback_builder = fallback_builder or RuleBasedModuleBuilder(config)
+        self._llm_fallback_reason: Optional[str] = None
         self._primary_builder = primary_builder if primary_builder is not None \
             else self._make_primary_builder()
 
@@ -236,8 +237,10 @@ class ModuleService:
                     parser=LLMResponseParser(config=self._config),
                     config=self._config,
                 )
-            except Exception:
-                # Missing API key or provider error -> rule-based fallback
+            except Exception as exc:
+                # Missing API key or provider error -> rule-based fallback,
+                # but remember WHY so the response can surface a warning.
+                self._llm_fallback_reason = f"{exc.__class__.__name__}: {exc}"
                 return self._fallback_builder
         return self._fallback_builder
 
@@ -266,7 +269,7 @@ class ModuleService:
         grade_document = self._grade_documents.document_for_age(findings.age)
 
         try:
-            return self._primary_builder.build(
+            module = self._primary_builder.build(
                 findings=findings, outlines=matched, bank=self._bank,
                 grade_document=grade_document)
         except Exception as exc:
@@ -277,3 +280,10 @@ class ModuleService:
                 f"generated with the rule-based builder instead."
             )
             return module
+
+        if self._llm_fallback_reason and not module.warning:
+            module.warning = (
+                f"LLM builder unavailable ({self._llm_fallback_reason}); "
+                f"generated with the rule-based builder instead."
+            )
+        return module

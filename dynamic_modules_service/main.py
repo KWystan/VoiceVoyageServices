@@ -26,6 +26,36 @@ _PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 if _PROJECT_ROOT not in sys.path:
     sys.path.insert(0, _PROJECT_ROOT)
 
+
+def _load_dotenv(path=None) -> None:
+    """Minimal .env loader — mirrors docker-compose ``env_file`` behavior
+    so local runs see ZEN_API_KEY exactly like the container does.
+
+    Checks the service directory first, then the repo root (where
+    docker-compose reads ``env_file: .env`` from)."""
+    service_root = os.path.dirname(os.path.abspath(__file__))
+    candidates = [path, os.path.join(service_root, ".env"),
+                  os.path.join(os.path.dirname(service_root), ".env")]
+    for candidate in candidates:
+        if candidate and os.path.exists(candidate):
+            path = candidate
+            break
+    else:
+        return
+    with open(path, encoding="utf-8") as f:
+        for line in f:
+            line = line.strip()
+            if not line or line.startswith("#") or "=" not in line:
+                continue
+            key, _, value = line.partition("=")
+            key = key.strip()
+            value = value.strip().strip('"').strip("'")
+            if key and not os.environ.get(key):
+                os.environ[key] = value
+
+
+_load_dotenv()
+
 from config import config
 from models import AssessmentFindings, DetectedProcess
 from service import ModuleService, NoFindingsError, NoOutlineError
