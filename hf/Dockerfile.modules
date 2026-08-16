@@ -1,0 +1,23 @@
+# Hugging Face Spaces deploy kit — one Space per service.
+# Each Space repo gets THIS file as its root `Dockerfile`, plus the service
+# directory.  HF Spaces injects PORT=7860; the service binds it automatically.
+#
+# Dynamic modules service Space:  hf/Dockerfile.modules  ->  root `Dockerfile`
+FROM python:3.10-slim
+
+WORKDIR /app
+
+COPY dynamic_modules_service/requirements.txt /app/requirements.txt
+
+RUN pip install --upgrade pip
+
+RUN pip install --no-cache-dir -r /app/requirements.txt
+
+COPY dynamic_modules_service/ /app/
+
+ENV PYTHONUTF8=1
+
+# HF Spaces sets PORT (7860); fallback 8002 for local dev.
+# ZEN_API_KEY is injected at runtime via Space secrets (Settings -> Variables
+# and secrets) — never baked into the image.
+CMD python -X utf8 -m uvicorn main:app --host 0.0.0.0 --port ${PORT:-8002}
