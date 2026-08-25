@@ -18,7 +18,7 @@ import torch
 import torchaudio.functional as F
 
 from config import config
-from ipa.panphon_module import lookup_boost
+from ipa.panphon_module import get_phonetic_similarity
 from model.loader import get_loader
 from ipa.normalization import same_phoneme
 
@@ -226,20 +226,26 @@ class PhonemeForcedAligner:
         # that normalize_ipa/clean map back to the expected phoneme.
         if same_phoneme(predicted, expected):
             return 100.0
-        if predicted in ("-", None):
+        if predicted in ("-", None, ""):
             return 0.0
 
         cfg = config.forced_alignment
 
-        score = confidence * 100.0
+        # Continuous Panphon feature similarity [0, 100]
+        sim = get_phonetic_similarity(expected, predicted)
 
+        # Blend feature similarity (85%) with acoustic confidence (15%)
+        score = sim * 0.85 + (confidence * 100.0) * 0.15
+
+        # Short duration adjustment:
+        # If the sound is phonetically close (sim >= 50.0), short duration
+        # in running speech is preserved and does not wipe out similarity.
+        # If the sound is an unrelated gross error (sim < 50.0), apply short penalty.
         if duration_sec < cfg.duration_penalty_short_threshold_sec:
-            score -= cfg.duration_penalty_short_amount
+            if sim < 50.0:
+                score = max(0.0, score - cfg.duration_penalty_short_amount)
         elif duration_sec > cfg.duration_penalty_long_threshold_sec:
-            score -= cfg.duration_penalty_long_amount
-
-        boost = lookup_boost(expected, predicted)
-        score += boost
+            score = max(0.0, score - cfg.duration_penalty_long_amount)
 
         return round(max(0.0, min(100.0, score)), 2)
 

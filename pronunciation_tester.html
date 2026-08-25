@@ -637,7 +637,7 @@ function switchTab(t) {
   document.getElementById('panelUpload').style.display = t === 'upload' ? 'block' : 'none';
 }
 
-let mediaRecorder = null, audioChunks = [], recordedBlob = null, recInterval = null, recSeconds = 0;
+let mediaRecorder = null, audioChunks = [], recordedBlob = null, recInterval = null, recSeconds = 0, cachedStream = null;
 
 function getMime() {
   for (const t of ['audio/webm;codecs=opus', 'audio/webm', 'audio/ogg;codecs=opus', 'audio/mp4']) {
@@ -648,7 +648,10 @@ function getMime() {
 
 async function startRecording() {
   try {
-    const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+    if (!cachedStream) {
+      cachedStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+    }
+    const stream = cachedStream;
     audioChunks = [];
     const mime = getMime();
     mediaRecorder = new MediaRecorder(stream, mime ? { mimeType: mime } : {});
@@ -660,7 +663,6 @@ async function startRecording() {
       updateSubmitState();
       setRecStatus('Ready to assess');
       document.getElementById('recDot').classList.remove('active');
-      stream.getTracks().forEach(t => t.stop());
     };
     mediaRecorder.start();
     recSeconds = 0;
