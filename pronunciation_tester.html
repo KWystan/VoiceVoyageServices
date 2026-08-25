@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Voice Voyage | Clinical Assessment & Phonics Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ─── Design Tokens ─────────────────────────────────────────────── */
+:root {
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  --space-xs: 0.25rem; --space-sm: 0.5rem; --space-md: 1rem; --space-lg: 1.5rem; --space-xl: 2rem;
+  --radius-sm: 6px; --radius-md: 12px; --radius-lg: 16px; --radius-full: 9999px;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast: 150ms; --duration-normal: 250ms;
+}
+
+[data-theme="dark"] {
+  --bg-app: #090D16; --bg-surface: #111726; --bg-elevated: #182033; --bg-hover: #222C42;
+  --border-subtle: rgba(255,255,255,0.07); --border-default: rgba(255,255,255,0.14);
+  --text-primary: #F8FAFC; --text-secondary: #94A3B8; --text-muted: #64748B;
+  --accent-primary: #6366F1; --accent-light: #818CF8; --accent-glow: rgba(99,102,241,0.25);
+  --success: #10B981; --warning: #F59E0B; --danger: #EF4444; --info: #0EA5E9; --purple: #A855F7;
+  --shadow-card: 0 10px 25px -5px rgba(0,0,0,0.5), 0 8px 10px -6px rgba(0,0,0,0.4);
+  --shadow-modal: 0 25px 50px -12px rgba(0,0,0,0.7);
+}
+
+[data-theme="light"] {
+  --bg-app: #F4F6FB; --bg-surface: #FFFFFF; --bg-elevated: #F1F4F9; --bg-hover: #E2E8F0;
+  --border-subtle: rgba(0,0,0,0.05); --border-default: rgba(0,0,0,0.1);
+  --text-primary: #0F172A; --text-secondary: #475569; --text-muted: #94A3B8;
+  --accent-primary: #4F46E5; --accent-light: #6366F1; --accent-glow: rgba(79,70,229,0.15);
+  --success: #059669; --warning: #D97706; --danger: #DC2626; --info: #0284C7; --purple: #9333EA;
+  --shadow-card: 0 4px 12px rgba(0,0,0,0.06), 0 1px 3px rgba(0,0,0,0.04);
+  --shadow-modal: 0 20px 30px -5px rgba(0,0,0,0.15);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 15px; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body { 
+  font-family: var(--font-sans); background: var(--bg-app); color: var(--text-primary); 
+  min-height: 100vh; transition: background var(--duration-normal) var(--ease-out), color var(--duration-normal);
+  line-height: 1.5;
+}
+
+.app-container { max-width: 1120px; margin: 0 auto; padding: var(--space-lg); }
+
+header { 
+  display: flex; align-items: center; justify-content: space-between; 
+  padding-bottom: var(--space-lg); margin-bottom: var(--space-lg); 
+  border-bottom: 1px solid var(--border-subtle); flex-wrap: wrap; gap: var(--space-md);
+}
+.brand { display: flex; align-items: center; gap: 0.75rem; }
+.brand-icon { 
+  width: 42px; height: 42px; background: linear-gradient(135deg, var(--accent-primary), #A855F7); 
+  border-radius: var(--radius-md); display: grid; place-items: center; font-size: 1.3rem; color: white;
+  box-shadow: 0 4px 14px var(--accent-glow);
+}
+.brand h1 { font-size: 1.35rem; font-weight: 800; letter-spacing: -0.02em; }
+.brand span { color: var(--text-muted); font-weight: 500; font-size: 0.85rem; display: block; }
+
+.header-actions { display: flex; align-items: center; gap: var(--space-sm); flex-wrap: wrap; }
+.service-pill {
+  display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: var(--radius-full);
+  background: var(--bg-elevated); border: 1px solid var(--border-default); font-size: 0.75rem; font-family: var(--font-mono);
+}
+.status-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--text-muted); }
+.status-dot.online { background: var(--success); box-shadow: 0 0 6px var(--success); }
+.status-dot.offline { background: var(--danger); }
+
+.theme-btn { 
+  background: var(--bg-elevated); border: 1px solid var(--border-default); border-radius: var(--radius-full); 
+  padding: 0.45rem 0.9rem; cursor: pointer; font-size: 0.8rem; color: var(--text-secondary); 
+  display: flex; align-items: center; gap: 0.4rem; transition: all var(--duration-fast); font-family: var(--font-sans);
+}
+.theme-btn:hover { border-color: var(--accent-primary); color: var(--text-primary); background: var(--bg-hover); }
+
+.card { 
+  background: var(--bg-surface); border: 1px solid var(--border-subtle); 
+  border-radius: var(--radius-lg); padding: var(--space-lg); margin-bottom: var(--space-lg); 
+  box-shadow: var(--shadow-card); transition: border-color var(--duration-fast);
+}
+.card:hover { border-color: var(--border-default); }
+.card-header { display: flex; align-items: center; gap: var(--space-sm); margin-bottom: var(--space-md); }
+.card-title { font-size: 1.05rem; font-weight: 700; color: var(--text-primary); }
+.card-icon { font-size: 1.2rem; }
+.card-badge { margin-left: auto; font-size: 0.75rem; font-family: var(--font-mono); padding: 2px 8px; border-radius: var(--radius-full); background: var(--bg-elevated); color: var(--text-muted); border: 1px solid var(--border-subtle); }
+
+.form-grid { display: grid; gap: var(--space-md); }
+@media (min-width: 768px) { .form-grid { grid-template-columns: 2fr 1fr 1fr; align-items: end; } }
+
+label { display: flex; justify-content: space-between; font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: var(--space-xs); }
+label .hint { font-weight: 400; text-transform: none; color: var(--text-muted); }
+
+select, input[type="text"], input[type="number"] { 
+  width: 100%; padding: 0.75rem 0.95rem; border-radius: var(--radius-md); 
+  border: 1px solid var(--border-default); background: var(--bg-elevated); color: var(--text-primary); 
+  font-size: 0.95rem; font-family: var(--font-sans); transition: all var(--duration-fast); outline: none;
+}
+select:focus, input:focus { border-color: var(--accent-primary); box-shadow: 0 0 0 3px var(--accent-glow); }
+
+.filter-bar { display: flex; gap: var(--space-xs); margin-bottom: var(--space-sm); overflow-x: auto; padding-bottom: 4px; }
+.filter-chip {
+  background: var(--bg-elevated); border: 1px solid var(--border-subtle); border-radius: var(--radius-full);
+  padding: 3px 10px; font-size: 0.72rem; font-weight: 600; cursor: pointer; color: var(--text-secondary); white-space: nowrap;
+}
+.filter-chip:hover, .filter-chip.active { background: var(--accent-glow); border-color: var(--accent-primary); color: var(--accent-light); }
+
+.input-tabs { display: flex; gap: var(--space-xs); background: var(--bg-elevated); padding: 3px; border-radius: var(--radius-md); width: fit-content; margin-bottom: var(--space-md); border: 1px solid var(--border-subtle); }
+.tab-btn { background: none; border: none; padding: 6px 14px; border-radius: var(--radius-sm); font-size: 0.8rem; font-weight: 600; cursor: pointer; color: var(--text-secondary); font-family: var(--font-sans); transition: all 0.15s; }
+.tab-btn.active { background: var(--bg-surface); color: var(--text-primary); box-shadow: 0 2px 4px rgba(0,0,0,0.2); }
+
+.record-panel { background: var(--bg-elevated); border-radius: var(--radius-md); padding: var(--space-md); border: 1px solid var(--border-subtle); }
+.record-controls { display: flex; flex-wrap: wrap; gap: var(--space-sm); align-items: center; }
+.btn-rec { 
+  border: none; border-radius: var(--radius-full); padding: 0.65rem 1.3rem; font-size: 0.85rem; font-weight: 600; 
+  cursor: pointer; display: inline-flex; align-items: center; gap: 0.4rem; transition: all var(--duration-fast); font-family: var(--font-sans);
+}
+.btn-rec:disabled { opacity: 0.4; cursor: not-allowed; transform: none !important; }
+.btn-rec:not(:disabled):active { transform: scale(0.96); }
+
+.btn-record { background: var(--danger); color: white; }
+.btn-record:hover:not(:disabled) { filter: brightness(1.1); box-shadow: 0 0 14px rgba(239,68,68,0.4); }
+.btn-stop { background: var(--bg-surface); color: var(--text-primary); border: 1px solid var(--border-default); }
+.btn-preview { background: var(--bg-surface); color: var(--accent-light); border: 1px solid var(--border-default); }
+.btn-preview:hover:not(:disabled) { background: var(--accent-glow); border-color: var(--accent-primary); }
+
+.rec-indicator { display: flex; align-items: center; gap: var(--space-sm); margin-left: auto; }
+.rec-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--text-muted); transition: background 0.3s; }
+.rec-dot.active { background: var(--danger); animation: pulse 1.5s infinite; }
+@keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(1.2); } }
+.rec-timer { font-family: var(--font-mono); font-size: 0.9rem; color: var(--text-secondary); min-width: 3rem; font-weight: 600; }
+
+.file-dropzone {
+  border: 2px dashed var(--border-default); border-radius: var(--radius-md); padding: var(--space-lg);
+  text-align: center; cursor: pointer; transition: all 0.2s; background: var(--bg-elevated);
+}
+.file-dropzone:hover, .file-dropzone.dragover { border-color: var(--accent-primary); background: var(--accent-glow); }
+.audio-player { width: 100%; height: 38px; margin-top: var(--space-sm); border-radius: var(--radius-md); }
+
+.action-row { display: flex; gap: var(--space-sm); margin-top: var(--space-lg); flex-wrap: wrap; }
+.btn-primary { 
+  background: linear-gradient(135deg, var(--accent-primary), #7C3AED); color: white; border: none; border-radius: var(--radius-md); 
+  padding: 0.8rem 1.8rem; font-size: 0.95rem; font-weight: 700; cursor: pointer; flex: 2; min-width: 180px;
+  transition: all var(--duration-fast); font-family: var(--font-sans); position: relative; overflow: hidden;
+  display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+}
+.btn-primary:hover:not(:disabled) { filter: brightness(1.1); box-shadow: 0 4px 16px var(--accent-glow); transform: translateY(-1px); }
+.btn-primary:disabled { opacity: 0.5; cursor: not-allowed; transform: none; filter: none; box-shadow: none; }
+.btn-primary.loading { color: transparent; pointer-events: none; }
+.btn-primary.loading::after { 
+  content: ''; position: absolute; top: 50%; left: 50%; width: 22px; height: 22px; margin: -11px 0 0 -11px; 
+  border: 2.5px solid rgba(255,255,255,0.3); border-top-color: white; border-radius: 50%; animation: spin 0.6s linear infinite; 
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.btn-secondary { 
+  background: var(--bg-elevated); color: var(--text-secondary); border: 1px solid var(--border-default); 
+  border-radius: var(--radius-md); padding: 0.8rem 1.3rem; font-size: 0.9rem; font-weight: 600; cursor: pointer; 
+  transition: all var(--duration-fast); font-family: var(--font-sans); display: flex; align-items: center; gap: 0.4rem;
+}
+.btn-secondary:hover { border-color: var(--accent-primary); color: var(--text-primary); background: var(--bg-hover); }
+
+.results-empty { text-align: center; padding: var(--space-xl); color: var(--text-muted); font-size: 0.95rem; }
+
+.metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: var(--space-md); margin-bottom: var(--space-lg); }
+.metric-card { 
+  background: var(--bg-elevated); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); 
+  padding: var(--space-md); text-align: center; transition: all var(--duration-fast);
+}
+.metric-card:hover { border-color: var(--border-default); transform: translateY(-2px); }
+.metric-value { font-size: 1.85rem; font-weight: 800; font-family: var(--font-mono); line-height: 1.2; }
+.metric-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); margin-top: var(--space-xs); font-weight: 700; }
+.metric-sub { font-size: 0.78rem; font-weight: 600; margin-top: 3px; }
+
+.val-success { color: var(--success); } .val-warning { color: var(--warning); } .val-danger { color: var(--danger); } .val-info { color: var(--info); }
+
+.ipa-strip { 
+  display: flex; flex-direction: column; gap: var(--space-xs); padding: var(--space-md); 
+  background: var(--bg-elevated); border-radius: var(--radius-md); margin-bottom: var(--space-lg); border: 1px solid var(--border-subtle);
+}
+.ipa-row { display: flex; align-items: baseline; gap: var(--space-sm); font-family: var(--font-mono); font-size: 1.2rem; }
+.ipa-label { font-size: 0.68rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); min-width: 5rem; font-family: var(--font-sans); }
+.ipa-chars { display: flex; flex-wrap: wrap; gap: 3px; align-items: center; }
+.ipa-chip { padding: 2px 7px; border-radius: 4px; font-weight: 600; font-size: 1.05rem; }
+.ipa-chip.match { background: rgba(16,185,129,0.12); color: var(--success); border: 1px solid rgba(16,185,129,0.25); }
+.ipa-chip.mismatch { background: rgba(239,68,68,0.12); color: var(--danger); border: 1px solid rgba(239,68,68,0.25); }
+.ipa-chip.deletion { background: rgba(245,158,11,0.12); color: var(--warning); border: 1px solid rgba(245,158,11,0.25); }
+.ipa-delim { color: var(--text-muted); opacity: 0.3; user-select: none; }
+
+.table-wrap { overflow-x: auto; border-radius: var(--radius-md); border: 1px solid var(--border-subtle); margin-bottom: var(--space-lg); }
+table.phonemes { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+table.phonemes th { 
+  text-align: left; padding: 0.75rem 0.85rem; color: var(--text-muted); font-weight: 700; font-size: 0.7rem; 
+  text-transform: uppercase; letter-spacing: 0.06em; background: var(--bg-elevated); border-bottom: 1px solid var(--border-default);
+  position: sticky; top: 0; z-index: 1;
+}
+table.phonemes td { padding: 0.65rem 0.85rem; border-bottom: 1px solid var(--border-subtle); white-space: nowrap; vertical-align: middle; }
+table.phonemes tr:last-child td { border-bottom: none; }
+table.phonemes tr:hover td { background: var(--bg-elevated); }
+.score-pill { 
+  display: inline-block; padding: 2px 8px; border-radius: var(--radius-full); font-family: var(--font-mono); 
+  font-weight: 700; font-size: 0.8rem; min-width: 50px; text-align: center;
+}
+.pill-high { background: rgba(16,185,129,0.15); color: var(--success); border: 1px solid rgba(16,185,129,0.25); }
+.pill-med { background: rgba(245,158,11,0.15); color: var(--warning); border: 1px solid rgba(245,158,11,0.25); }
+.pill-low { background: rgba(239,68,68,0.15); color: var(--danger); border: 1px solid rgba(239,68,68,0.25); }
+
+.proc-section-title { font-size: 0.9rem; font-weight: 700; margin: var(--space-md) 0 var(--space-sm); display: flex; align-items: center; gap: var(--space-xs); }
+.proc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: var(--space-sm); margin-bottom: var(--space-md); }
+.proc-tag { 
+  background: var(--bg-elevated); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); 
+  padding: 0.75rem 0.95rem; display: flex; flex-direction: column; gap: 4px; transition: all var(--duration-fast);
+}
+.proc-tag:hover { border-color: var(--border-default); background: var(--bg-hover); transform: translateY(-1px); }
+.proc-name { font-size: 0.9rem; font-weight: 700; color: var(--text-primary); display: flex; justify-content: space-between; align-items: center; }
+.proc-detail { font-size: 0.78rem; color: var(--text-secondary); font-family: var(--font-mono); margin-top: 2px; }
+.proc-pos { font-size: 0.72rem; color: var(--text-muted); font-weight: 500; }
+
+.proc-badge { 
+  display: inline-flex; align-items: center; gap: 4px; font-size: 0.68rem; font-weight: 800; 
+  text-transform: uppercase; letter-spacing: 0.04em; padding: 3px 8px; border-radius: 4px; margin-top: 4px; width: fit-content;
+}
+.badge-expected { background: rgba(16,185,129,0.15); color: var(--success); border: 1px solid rgba(16,185,129,0.3); }
+.badge-delayed { background: rgba(245,158,11,0.15); color: var(--warning); border: 1px solid rgba(245,158,11,0.35); }
+.badge-redflag { background: rgba(239,68,68,0.15); color: var(--danger); border: 1px solid rgba(239,68,68,0.35); }
+.badge-review { background: rgba(148,163,184,0.15); color: var(--text-secondary); border: 1px solid rgba(148,163,184,0.3); }
+
+.level-step {
+  background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-md);
+  padding: var(--space-md); margin-bottom: var(--space-sm);
+}
+.level-step-header { display: flex; justify-content: space-between; align-items: center; font-weight: 700; font-size: 0.85rem; margin-bottom: var(--space-xs); }
+.level-step-items { display: flex; flex-wrap: wrap; gap: 6px; }
+.step-item-pill {
+  background: var(--bg-elevated); border: 1px solid var(--border-default); border-radius: var(--radius-sm);
+  padding: 3px 10px; font-size: 0.82rem; font-family: var(--font-mono);
+}
+
+.collapsible-toggle { 
+  background: none; border: none; color: var(--accent-light); font-size: 0.82rem; font-weight: 600; cursor: pointer; 
+  font-family: var(--font-sans); padding: var(--space-xs) 0; display: flex; align-items: center; gap: 5px; margin-top: var(--space-sm);
+}
+.collapsible-toggle:hover { text-decoration: underline; }
+.collapsible-content { display: none; margin-top: var(--space-sm); }
+.collapsible-content.open { display: block; animation: fadeIn 0.2s ease-out; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
+
+.json-panel { background: var(--bg-elevated); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); overflow: hidden; }
+.json-toolbar { display: flex; align-items: center; gap: var(--space-sm); padding: var(--space-sm) var(--space-md); border-bottom: 1px solid var(--border-subtle); flex-wrap: wrap; }
+.json-meta { font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); background: var(--bg-surface); padding: 2px 8px; border-radius: 4px; border: 1px solid var(--border-subtle); }
+.json-meta .jv { color: var(--accent-light); font-weight: 600; }
+.json-pre-wrap { max-height: 400px; overflow: auto; }
+.json-pre { font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-secondary); white-space: pre; word-break: break-all; margin: 0; padding: var(--space-md); line-height: 1.6; tab-size: 2; }
+
+.log-wrap { overflow-x: auto; max-height: 420px; overflow-y: auto; border-radius: var(--radius-md); border: 1px solid var(--border-subtle); }
+table.log { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+table.log th { 
+  position: sticky; top: 0; background: var(--bg-elevated); text-align: left; padding: 0.65rem 0.85rem; 
+  color: var(--text-muted); font-weight: 700; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.06em; 
+  border-bottom: 1px solid var(--border-default); z-index: 2;
+}
+table.log td { padding: 0.6rem 0.85rem; border-bottom: 1px solid var(--border-subtle); white-space: nowrap; vertical-align: middle; }
+table.log tr:hover td { background: var(--bg-elevated); }
+table.log tr:last-child td { border-bottom: none; }
+.log-status { font-weight: 700; font-size: 0.75rem; padding: 2px 6px; border-radius: 4px; display: inline-block; }
+.log-ok { background: rgba(16,185,129,0.15); color: var(--success); } 
+.log-err { background: rgba(239,68,68,0.15); color: var(--danger); }
+
+.modal-overlay { 
+  display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); backdrop-filter: blur(5px); 
+  z-index: 1000; justify-content: center; align-items: center; padding: var(--space-md);
+}
+.modal-overlay.show { display: flex; animation: fadeIn 0.15s ease-out; }
+.modal { 
+  background: var(--bg-surface); border: 1px solid var(--border-default); border-radius: var(--radius-lg); 
+  max-width: 720px; width: 100%; max-height: 88vh; overflow-y: auto; padding: var(--space-lg); box-shadow: var(--shadow-modal);
+}
+.modal-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-md); padding-bottom: var(--space-md); border-bottom: 1px solid var(--border-subtle); }
+.modal-head h3 { font-size: 1.1rem; font-weight: 700; }
+.modal-close { background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--text-muted); padding: 4px 8px; border-radius: var(--radius-sm); transition: all var(--duration-fast); line-height: 1; }
+.modal-close:hover { background: var(--bg-hover); color: var(--text-primary); }
+
+@media (max-width: 640px) {
+  .app-container { padding: var(--space-sm); }
+  .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+  .action-row { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+<div class="app-container">
+
+<header>
+  <div class="brand">
+    <div class="brand-icon">🗣️</div>
+    <div>
+      <h1>Voice Voyage <span>Phonological Assessment & Curriculum Engine</span></h1>
+    </div>
+  </div>
+  <div class="header-actions">
+    <div class="service-pill" id="phonemeStatus" title="Phoneme Service (port 8001)">
+      <span class="status-dot" id="dotPhoneme"></span> 8001 (Assess)
+    </div>
+    <div class="service-pill" id="moduleStatus" title="Dynamic Modules Service (port 8002)">
+      <span class="status-dot" id="dotModule"></span> 8002 (Modules)
+    </div>
+    <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+      <span id="themeIcon">🌙</span> <span id="themeLabel">Dark</span>
+    </button>
+  </div>
+</header>
+
+<div class="card">
+  <div class="card-header">
+    <span class="card-icon">🎯</span>
+    <span class="card-title">Assessment Target & Child Profile</span>
+    <span class="card-badge" id="wordBankStats">Loading bank…</span>
+  </div>
+
+  <label>Filter Target Categories</label>
+  <div class="filter-bar" id="filterBar">
+    <span class="filter-chip active" onclick="filterCategory('ALL')">All Categories</span>
+    <span class="filter-chip" onclick="filterCategory('⭐ Curated App Words (All 138)')">⭐ Curated Words</span>
+    <span class="filter-chip" onclick="filterCategory('🔴 Atypical / Red Flag Targets')">🔴 Red Flags</span>
+    <span class="filter-chip" onclick="filterCategory('🟢 Velar & Palatal Fronting')">Fronting</span>
+    <span class="filter-chip" onclick="filterCategory('🟢 Stopping of Fricatives')">Stopping</span>
+    <span class="filter-chip" onclick="filterCategory('🟢 Gliding & Vowelization')">Gliding</span>
+    <span class="filter-chip" onclick="filterCategory('🟢 Deaffrication')">Deaffrication</span>
+    <span class="filter-chip" onclick="filterCategory('🟢 Consonant Clusters & Blends')">Clusters</span>
+    <span class="filter-chip" onclick="filterCategory('🟢 Reduplication & Harmony')">Harmony & Redup</span>
+    <span class="filter-chip" onclick="filterCategory('🏝️ Grade 1 (Age 5) Island Words')">Grade 1</span>
+    <span class="filter-chip" onclick="filterCategory('🏝️ Grade 2 (Age 6-7) Island Words')">Grade 2</span>
+    <span class="filter-chip" onclick="filterCategory('🏝️ Grade 3 (Age 8) Multisyllabic')">Grade 3</span>
+    <span class="filter-chip" onclick="filterCategory('💬 Phrases & Sentences')">Phrases</span>
+  </div>
+
+  <div class="form-grid">
+    <div>
+      <label for="wordSelect">Target Word or Phrase <span class="hint" id="wordCountHint"></span></label>
+      <select id="wordSelect"></select>
+    </div>
+    <div>
+      <label for="customWord">Custom Word / Search</label>
+      <input type="text" id="customWord" placeholder="Type custom word (e.g. umbrella)">
+    </div>
+    <div>
+      <label for="ageInput">Child's Age <span class="hint" id="gradeLabel">Kindergarten</span></label>
+      <div style="display:flex;align-items:center;gap:0.5rem">
+        <input type="number" id="ageInput" min="2" max="12" value="4" onchange="updateAgeLabel()">
+        <span style="font-size:0.85rem;color:var(--text-muted)">years old</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top:var(--space-lg)">
+    <div class="input-tabs">
+      <button class="tab-btn active" id="tabMic" onclick="switchTab('mic')">🎙️ Record Microphone</button>
+      <button class="tab-btn" id="tabUpload" onclick="switchTab('upload')">📁 Upload Audio File</button>
+    </div>
+
+    <div class="record-panel" id="panelMic">
+      <div class="record-controls">
+        <button class="btn-rec btn-record" id="btnRecord" onclick="startRecording()">● Record Mic</button>
+        <button class="btn-rec btn-stop" id="btnStop" onclick="stopRecording()" disabled>■ Stop</button>
+        <button class="btn-rec btn-preview" id="btnPreview" onclick="previewAudio()" disabled>▶ Play</button>
+        <div class="rec-indicator">
+          <div class="rec-dot" id="recDot"></div>
+          <span class="rec-timer" id="recTimer">0:00</span>
+          <span style="font-size:0.85rem;color:var(--text-secondary)" id="recStatus">Ready</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="record-panel" id="panelUpload" style="display:none">
+      <div class="file-dropzone" id="dropZone" onclick="document.getElementById('fileInput').click()">
+        <span style="font-size:1.8rem;display:block;margin-bottom:4px">📂</span>
+        <strong style="color:var(--text-primary)">Click to select or drag audio file here</strong>
+        <p style="font-size:0.78rem;color:var(--text-muted);margin-top:2px">Supports WAV, MP3, OGG, M4A, WebM (Auto-resampled to 16kHz Mono WAV)</p>
+        <input type="file" id="fileInput" accept="audio/*" style="display:none" onchange="handleFileSelect(event)">
+      </div>
+    </div>
+
+    <audio id="audioPreview" class="audio-player" controls style="margin-top:var(--space-sm)"></audio>
+  </div>
+
+  <div class="action-row">
+    <button class="btn-primary" id="btnSubmit" onclick="submitTest()" disabled>
+      <span>⚡ Run Assessment (/assess)</span>
+    </button>
+    <button class="btn-secondary" onclick="clearResult()">Clear</button>
+  </div>
+</div>
+
+<div class="card" id="resultsCard" style="display:none">
+  <div class="card-header">
+    <span class="card-icon">📊</span>
+    <span class="card-title">Clinical Assessment Findings</span>
+    <span class="card-badge" id="resPassBadge"></span>
+  </div>
+  <div id="resultsContent"></div>
+</div>
+
+<div class="card" id="moduleCard" style="display:none">
+  <div class="card-header">
+    <span class="card-icon">✨</span>
+    <span class="card-title">Personalized Practice Module (Port 8002)</span>
+    <span class="card-badge" id="moduleGenBy"></span>
+  </div>
+  <div id="moduleContent"></div>
+</div>
+
+<div class="card" id="rawCard" style="display:none">
+  <div class="card-header">
+    <span class="card-icon">🔍</span>
+    <span class="card-title">Raw API Payload & Quality Telemetry</span>
+    <span style="flex:1"></span>
+    <button class="btn-secondary" style="padding:0.3rem 0.7rem;font-size:0.75rem" onclick="copyRawJson(this)">📋 Copy JSON</button>
+    <button class="btn-secondary" style="padding:0.3rem 0.7rem;font-size:0.75rem" onclick="clearRaw()">Close</button>
+  </div>
+  <div class="json-panel">
+    <div class="json-toolbar">
+      <span class="json-meta" id="rawWord"></span>
+      <span class="json-meta" id="rawScore"></span>
+      <span class="json-meta" id="rawQuality"></span>
+    </div>
+    <div class="json-pre-wrap">
+      <pre id="rawJson" class="json-pre"></pre>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <span class="card-icon">📋</span>
+    <span class="card-title">Session Evaluation Log</span>
+    <span style="flex:1"></span>
+    <button class="btn-secondary" style="padding:0.35rem 0.8rem;font-size:0.75rem" onclick="exportLogCsv()">📥 Export CSV</button>
+    <button class="btn-secondary" style="padding:0.35rem 0.8rem;font-size:0.75rem" onclick="clearLog()">Clear Log</button>
+  </div>
+  <div class="log-wrap">
+    <table class="log">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Time</th>
+          <th>Word</th>
+          <th>Age</th>
+          <th>PCC</th>
+          <th>PCC-R</th>
+          <th>Score</th>
+          <th>Detected Errors</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="logBody"></tbody>
+    </table>
+  </div>
+  <div class="log-footer" id="logCount" style="margin-top:var(--space-sm);font-size:0.78rem;color:var(--text-muted)">No tests recorded this session</div>
+</div>
+
+</div>
+
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+  <div class="modal" onclick="event.stopPropagation()">
+    <div class="modal-head">
+      <h3 id="modalTitle">Assessment Record</h3>
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+    </div>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<script>
+const WORDS = {
+  '⭐ Curated App Words (All 138)': [
+    'pig','ball','apple','bunny','cup','sun','ten','dog','water','ladder','boat','bed','key','goat','cookie',
+    'tiger','bike','fish','whale','elephant','leaf','zebra','pencil','lizard','bus','cheese','yarn','hat','yoyo',
+    'shoe','flashlight','spider','star','blue','plane','lion','balloon','bell','rock','mirror','volcano','seven',
+    'glove','chair','jeep','kitchen','orange','watch','bridge','frog','truck','thumb','toothbrush','mouth','they',
+    'feather','smooth','treasure','helicopter','vegetable','spaghetti','pa','ba','ta','ka','a big chair','a big cup',
+    'a big sock','a big whale','a red ball','a red car','al','cat','cha','chee','cho','chop','el','hill',
+    'i drink from a cup','i like cheese','i like the ball','i see a cookie','i see a sock','i sit on the chair',
+    'il','kee','ki','ko','ku','my cookie','my key opens the door','my watch','ol','sa','sea','see','see the sea',
+    'si','so','sock','tall','the bell','the bell rings','the cat is on the mat','the key','the sun','the sun is up',
+    'the whale is big','we ride the bus','bubble','shell','starfish','octopus','ship','crab','pearl','wave','sand',
+    'swim','shark','dolphin','coral','butterfly','start','bite','muffin','wig','banana','potato','umbrella','flower',
+    'back','zoo','time','path','toy'
+  ],
+  '🔴 Atypical / Red Flag Targets': [
+    'toad','tape','dime','door','duck','dig','time','tiger','date','table',
+    'boat','bed','bike','bell','ball','dog','pig','sun','puppy','ladder',
+    'cookie','baby','spider','muffin','yoyo','yarn','whale','water','window',
+    'wagon','yard','mommy','man','moon','nut','net','nail','no','me'
+  ],
+  '🟢 Velar & Palatal Fronting': [
+    'key','cup','cookie','cat','goat','duck','cake','gate','kite','kid','gum',
+    'back','sock','pack','tick','pick','tag','bag','dog','big','pig','rug',
+    'hug','leg','dig','wig','kangaroo','shoe','shell','shark','ship','flashlight',
+    'starfish','brush','wish','fish','sheet','shadow','shine','shoulder','shovel'
+  ],
+  '🟢 Stopping of Fricatives': [
+    'fish','leaf','muffin','feather','sofa','van','seven','glove','wave','cave',
+    'volcano','flower','fork','five','vase','sun','bus','pencil','sock','star',
+    'spider','zebra','lizard','cheese','zoo','seven','sister','glass','grass',
+    'thumb','toothbrush','mouth','tooth','path','math','they','mother','smooth',
+    'treasure','measure','television'
+  ],
+  '🟢 Gliding & Vowelization': [
+    'leaf','lion','ladder','balloon','bell','ball','apple','pencil','doll','wall',
+    'hill','tall','coral','shell','yellow','light','lemon','red','rock','rabbit',
+    'ring','run','rope','rain','mirror','carrot','robot','parrot','car','star',
+    'door','bear','chair','truck','frog','crab','water','dinner','tiger'
+  ],
+  '🟢 Deaffrication': [
+    'chair','cheese','chop','chip','church','check','chin','chicken','kitchen',
+    'watch','catch','match','beach','teacher','picture','jeep','jam','jump','jar',
+    'judge','jacket','orange','bridge','vegetable','giant','badge','page','magic'
+  ],
+  '🟢 Consonant Clusters & Blends': [
+    'star','spider','spaghetti','spoon','smile','snake','stop','swim','snail',
+    'space','slide','starfish','scale','blue','plane','glove','clock','flag',
+    'plate','flower','block','blanket','glass','clamp','crab','frog','truck',
+    'train','bridge','tree','drum','grape','bread','brush','crown','green',
+    'hand','sand','lamp','camp','tent','plant','pink','milk','nest','fast','desk'
+  ],
+  '🟢 Reduplication & Harmony': [
+    'water','blanket','bottle','doggy','mommy','daddy','baby','puppy','kitty',
+    'birdie','cookie','yellow','duck','take','tub','dog','coat','cat','boat',
+    'cape','bite','gate','candy','bunny'
+  ],
+  '🏝️ Grade 1 (Age 5) Island Words': [
+    'pa','ba','ta','ka','dog','cat','sun','pig','cup','bed','ten','hat','bus','key',
+    'cha','chee','cho','chop','chair','cheese','watch','catch','kitchen','jeep',
+    'ball','balloon','bell','hill','tall','lion','ladder','leaf','doll','apple',
+    'bla','blu','blue','plane','glove','flag','clock','slide','flower','block',
+    'fa','fee','fish','leaf','sofa','seven','wave','glove','muffin','feather',
+    'dra','dri','frog','truck','bridge','crab','tree','drum','grape','bread'
+  ],
+  '🏝️ Grade 2 (Age 6-7) Island Words': [
+    'star','spider','spaghetti','spoon','smile','snake','stop','swim','snail','space',
+    'ship','shoe','shell','shark','flashlight','starfish','toothbrush','thumb','mouth','path',
+    'orange','bridge','judge','vegetable','treasure','measure','mirror','carrot','rabbit'
+  ],
+  '🏝️ Grade 3 (Age 8) Multisyllabic': [
+    'helicopter','butterfly','elephant','caterpillar','dinosaur','watermelon',
+    'refrigerator','conversation','opportunity','understanding','congratulations',
+    'unfortunately','environment','imagination','experiment','certificate'
+  ],
+  '💬 Phrases & Sentences': [
+    'a big chair','a big cup','a big sock','a big whale','a red ball','a red car',
+    'the sun is up','the bell rings','i like cheese','i like the ball','i see a cookie',
+    'i see a sock','my cookie','my watch','my key opens the door','we ride the bus',
+    'the cat is on the mat','the whale is big','see the sea','i drink from a cup','i sit on the chair'
+  ]
+};
+
+const sel = document.getElementById('wordSelect');
+let currentCategory = 'ALL';
+
+function populateWords(catFilter = 'ALL') {
+  sel.innerHTML = '';
+  let count = 0;
+  for (const [cat, words] of Object.entries(WORDS)) {
+    if (catFilter !== 'ALL' && cat !== catFilter) continue;
+    const og = document.createElement('optgroup');
+    og.label = cat;
+    words.forEach(w => {
+      const o = document.createElement('option');
+      o.value = w;
+      o.textContent = w;
+      og.appendChild(o);
+      count++;
+    });
+    sel.appendChild(og);
+  }
+  document.getElementById('wordBankStats').textContent = `${count} target items`;
+  document.getElementById('wordCountHint').textContent = `(${count} available)`;
+}
+
+populateWords();
+
+function filterCategory(cat) {
+  currentCategory = cat;
+  document.querySelectorAll('.filter-chip').forEach(el => {
+    el.classList.toggle('active', el.getAttribute('onclick').includes(cat));
+  });
+  populateWords(cat);
+  updateSubmitState();
+}
+
+const customInput = document.getElementById('customWord');
+sel.addEventListener('change', () => { customInput.value = ''; updateSubmitState(); });
+customInput.addEventListener('input', updateSubmitState);
+
+function getActiveWord() {
+  return customInput.value.trim().toLowerCase() || sel.value;
+}
+
+function updateAgeLabel() {
+  const age = parseInt(document.getElementById('ageInput').value, 10) || 4;
+  const gl = document.getElementById('gradeLabel');
+  if (age <= 4) gl.textContent = 'Kindergarten';
+  else if (age === 5) gl.textContent = 'Grade 1 (MATATAG)';
+  else if (age <= 7) gl.textContent = 'Grade 2 (MATATAG)';
+  else gl.textContent = 'Grade 3 (MATATAG)';
+}
+updateAgeLabel();
+
+async function checkHealth() {
+  try {
+    const r1 = await fetch('http://localhost:8001/health', { method: 'GET', cache: 'no-cache' });
+    document.getElementById('dotPhoneme').className = r1.ok ? 'status-dot online' : 'status-dot offline';
+  } catch {
+    document.getElementById('dotPhoneme').className = 'status-dot offline';
+  }
+  try {
+    const r2 = await fetch('http://localhost:8002/health', { method: 'GET', cache: 'no-cache' });
+    document.getElementById('dotModule').className = r2.ok ? 'status-dot online' : 'status-dot offline';
+  } catch {
+    document.getElementById('dotModule').className = 'status-dot offline';
+  }
+}
+checkHealth();
+setInterval(checkHealth, 10000);
+
+let activeTab = 'mic';
+function switchTab(t) {
+  activeTab = t;
+  document.getElementById('tabMic').classList.toggle('active', t === 'mic');
+  document.getElementById('tabUpload').classList.toggle('active', t === 'upload');
+  document.getElementById('panelMic').style.display = t === 'mic' ? 'block' : 'none';
+  document.getElementById('panelUpload').style.display = t === 'upload' ? 'block' : 'none';
+}
+
+let mediaRecorder = null, audioChunks = [], recordedBlob = null, recInterval = null, recSeconds = 0;
+
+function getMime() {
+  for (const t of ['audio/webm;codecs=opus', 'audio/webm', 'audio/ogg;codecs=opus', 'audio/mp4']) {
+    if (MediaRecorder.isTypeSupported(t)) return t;
+  }
+  return '';
+}
+
+async function startRecording() {
+  try {
+    const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+    audioChunks = [];
+    const mime = getMime();
+    mediaRecorder = new MediaRecorder(stream, mime ? { mimeType: mime } : {});
+    mediaRecorder.ondataavailable = e => { if (e.data.size > 0) audioChunks.push(e.data); };
+    mediaRecorder.onstop = () => {
+      recordedBlob = new Blob(audioChunks, { type: mime || 'audio/webm' });
+      document.getElementById('audioPreview').src = URL.createObjectURL(recordedBlob);
+      document.getElementById('btnPreview').disabled = false;
+      updateSubmitState();
+      setRecStatus('Ready to assess');
+      document.getElementById('recDot').classList.remove('active');
+      stream.getTracks().forEach(t => t.stop());
+    };
+    mediaRecorder.start();
+    recSeconds = 0;
+    recInterval = setInterval(() => {
+      recSeconds++;
+      document.getElementById('recTimer').textContent = fmt(recSeconds);
+    }, 1000);
+    document.getElementById('btnRecord').disabled = true;
+    document.getElementById('btnStop').disabled = false;
+    document.getElementById('btnPreview').disabled = true;
+    document.getElementById('recDot').classList.add('active');
+    setRecStatus('Recording…');
+  } catch (e) {
+    setRecStatus('⚠ Mic access denied: ' + e.message);
+  }
+}
+
+function stopRecording() {
+  if (mediaRecorder && mediaRecorder.state !== 'inactive') mediaRecorder.stop();
+  clearInterval(recInterval);
+  document.getElementById('btnRecord').disabled = false;
+  document.getElementById('btnStop').disabled = true;
+}
+
+function previewAudio() {
+  const a = document.getElementById('audioPreview');
+  a.currentTime = 0;
+  a.play();
+}
+
+function handleFileSelect(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+  recordedBlob = file;
+  document.getElementById('audioPreview').src = URL.createObjectURL(file);
+  document.getElementById('btnPreview').disabled = false;
+  setRecStatus(`Loaded: ${file.name}`);
+  updateSubmitState();
+}
+
+const dropZone = document.getElementById('dropZone');
+dropZone.addEventListener('dragover', (e) => { e.preventDefault(); dropZone.classList.add('dragover'); });
+dropZone.addEventListener('dragleave', () => dropZone.classList.remove('dragover'));
+dropZone.addEventListener('drop', (e) => {
+  e.preventDefault();
+  dropZone.classList.remove('dragover');
+  if (e.dataTransfer.files.length) {
+    recordedBlob = e.dataTransfer.files[0];
+    document.getElementById('audioPreview').src = URL.createObjectURL(recordedBlob);
+    document.getElementById('btnPreview').disabled = false;
+    setRecStatus(`Loaded: ${recordedBlob.name}`);
+    updateSubmitState();
+  }
+});
+
+function fmt(s) { return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0'); }
+function setRecStatus(m) { document.getElementById('recStatus').textContent = m; }
+function updateSubmitState() { document.getElementById('btnSubmit').disabled = !(recordedBlob && getActiveWord()); }
+
+async function toWav(blob) {
+  if (!blob || blob.size === 0) throw new Error('Empty audio blob');
+  const ctx = new (window.AudioContext || window.webkitAudioContext)();
+  try {
+    const ab = await blob.arrayBuffer();
+    const dec = await ctx.decodeAudioData(ab);
+    const sr = 16000;
+    const dur = dec.duration;
+    if (!dur || dur <= 0) throw new Error('Audio duration is zero');
+    const sampleCount = Math.max(1, Math.ceil(dur * sr));
+    const OfflineCtx = window.OfflineAudioContext || window.webkitOfflineAudioContext;
+    const off = new OfflineCtx(1, sampleCount, sr);
+    const src = off.createBufferSource();
+    src.buffer = dec;
+    src.connect(off.destination);
+    src.start();
+    const ren = await off.startRendering();
+    const s = ren.getChannelData(0);
+    const buf = new ArrayBuffer(44 + s.length * 2);
+    const v = new DataView(buf);
+    const w = (o, str) => { for (let i = 0; i < str.length; i++) v.setUint8(o + i, str.charCodeAt(i)); };
+    w(0, 'RIFF'); v.setUint32(4, 36 + s.length * 2, true); w(8, 'WAVE'); w(12, 'fmt ');
+    v.setUint32(16, 16, true); v.setUint16(20, 1, true); v.setUint16(22, 1, true);
+    v.setUint32(24, sr, true); v.setUint32(28, sr * 2, true); v.setUint16(32, 2, true);
+    v.setUint16(34, 16, true); w(36, 'data'); v.setUint32(40, s.length * 2, true);
+    let o = 44;
+    for (let i = 0; i < s.length; i++, o += 2) {
+      let x = Math.max(-1, Math.min(1, s[i]));
+      v.setInt16(o, x < 0 ? x * 0x8000 : x * 0x7FFF, true);
+    }
+    return new Blob([buf], { type: 'audio/wav' });
+  } finally {
+    ctx.close();
+  }
+}
+
+const API_ASSESS = 'http://localhost:8001/assess';
+let lastAssessmentData = null;
+
+async function submitTest() {
+  const word = getActiveWord();
+  const age = parseInt(document.getElementById('ageInput').value, 10) || 4;
+  if (!word || !recordedBlob) return;
+
+  if (age < 2 || age > 12) {
+    renderError('Age must be between 2 and 12.');
+    return;
+  }
+
+  const btn = document.getElementById('btnSubmit');
+  btn.disabled = true;
+  btn.classList.add('loading');
+  setRecStatus('Converting audio…');
+
+  try {
+    let wav;
+    try {
+      wav = await toWav(recordedBlob);
+    } catch (convErr) {
+      console.error('toWav conversion failed, using raw blob:', convErr);
+      wav = recordedBlob;
+    }
+
+    if (!wav || wav.size === 0) {
+      throw new Error('Audio conversion produced an empty file. Please re-record.');
+    }
+
+    console.log(`Sending: word="${word}", age=${age}, file=${wav.size} bytes, type=${wav.type}`);
+
+    const fd = new FormData();
+    fd.append('word', word);
+    fd.append('file', wav, `${word}.wav`);
+    fd.append('age', String(age));
+
+    setRecStatus('Running forced alignment…');
+
+    const r = await fetch(API_ASSESS, { method: 'POST', body: fd });
+    if (!r.ok) {
+      let d = '';
+      try {
+        const e = await r.json();
+        if (typeof e.detail === 'string') d = e.detail;
+        else if (Array.isArray(e.detail)) d = e.detail.map(x => (x.loc ? `[${x.loc.join('.')}] ` : '') + (x.msg || JSON.stringify(x))).join('; ');
+        else if (e.detail && typeof e.detail === 'object') d = JSON.stringify(e.detail);
+        else d = e.error || e.message || '';
+      } catch {}
+      console.error(`Assessment failed: HTTP ${r.status}`, d);
+      throw new Error(`HTTP ${r.status}${d ? ': ' + d : ''}`);
+    }
+    const data = await r.json();
+    lastAssessmentData = data;
+    renderResults(data, word, age);
+    addLog(word, age, data, null);
+    setRecStatus('✅ Assessment Complete');
+  } catch (e) {
+    console.error('Assessment error:', e);
+    renderError(e.message);
+    addLog(word, age, null, e.message);
+    setRecStatus('❌ ' + e.message);
+  } finally {
+    btn.disabled = false;
+    btn.classList.remove('loading');
+  }
+}
+
+function renderResults(data, word, age) {
+  const card = document.getElementById('resultsCard');
+  const el = document.getElementById('resultsContent');
+  card.style.display = 'block';
+
+  const passed = data.passed ?? (data.overall_score >= 80);
+  const passBadge = document.getElementById('resPassBadge');
+  passBadge.textContent = passed ? '✅ PASSED (PCC ≥ 80%)' : '⚠️ INTERVENTION RECOMMENDED';
+  passBadge.className = 'card-badge ' + (passed ? 'val-success' : 'val-warning');
+
+  const pcc = data.pcc ?? null;
+  const pcc_r = data.pcc_r ?? null;
+  const pvc = data.pvc ?? null;
+  const overall = data.overall_score ?? 0;
+  const sev = data.pcc_severity || (pcc != null ? (pcc >= 85 ? 'Mild' : pcc >= 65 ? 'Mild-Moderate' : pcc >= 50 ? 'Moderate-Severe' : 'Severe') : 'N/A');
+  const sevCls = pcc != null ? (pcc >= 85 ? 'val-success' : pcc >= 65 ? 'val-warning' : 'val-danger') : '';
+
+  const bd = Array.isArray(data.assessment?.phoneme_breakdown) ? data.assessment.phoneme_breakdown : (Array.isArray(data.phoneme_breakdown) ? data.phoneme_breakdown : []);
+  const raw = Array.isArray(data.assessment?.detected_processes) ? data.assessment.detected_processes : (Array.isArray(data.detected_processes) ? data.detected_processes : []);
+  const ageP = Array.isArray(data.age_applicable_processes) ? data.age_applicable_processes : [];
+  const exp = data.expected_ipa || data.phoneme_header?.expected_sequence || '';
+  const det = data.detected_ipa || data.phoneme_header?.detected_sequence || '';
+
+  let h = '';
+
+  h += `<div class="metrics-grid">
+    <div class="metric-card">
+      <div class="metric-value ${sevCls}">${pcc != null ? pcc.toFixed(1) + '%' : '—'}</div>
+      <div class="metric-label">PCC Score</div>
+      <div class="metric-sub ${sevCls}">${esc(sev)}</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-value val-info">${overall.toFixed(1)}%</div>
+      <div class="metric-label">Overall Alignment</div>
+      <div class="metric-sub">FA + PCC Blend</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-value" style="color:var(--text-primary)">${pcc_r != null ? pcc_r.toFixed(1) + '%' : '—'}</div>
+      <div class="metric-label">PCC-R (Consonants)</div>
+      <div class="metric-sub">PVC: ${pvc != null ? pvc.toFixed(1) + '%' : '—'}</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-value val-info">${age}y</div>
+      <div class="metric-label">Child Age</div>
+      <div class="metric-sub">${age <= 4 ? 'Kindergarten' : age === 5 ? 'Grade 1' : age <= 7 ? 'Grade 2' : 'Grade 3'}</div>
+    </div>
+  </div>`;
+
+  if (exp && det) {
+    const expArr = exp.split(',');
+    const detArr = det.split(',');
+    h += `<div class="ipa-strip">
+      <div class="ipa-row"><span class="ipa-label">Target IPA</span><div class="ipa-chars">${renderIpaChips(expArr, detArr, 'expected')}</div></div>
+      <div class="ipa-row"><span class="ipa-label">Detected IPA</span><div class="ipa-chars">${renderIpaChips(expArr, detArr, 'detected')}</div></div>
+    </div>`;
+  }
+
+  if (bd.length) {
+    h += `<div class="proc-section-title">🔤 Phoneme Forced Alignment Breakdown</div>
+    <div class="table-wrap"><table class="phonemes">
+      <thead><tr><th>#</th><th>Target Phoneme</th><th>Model Prediction</th><th>Alignment Score</th><th>Confidence</th><th>Duration</th></tr></thead>
+      <tbody>`;
+    bd.forEach((p, i) => {
+      const sc = p.score;
+      const cf = p.confidence;
+      const dur = p.duration_sec;
+      const pill = sc != null ? (sc >= 95 ? 'pill-high' : sc >= 60 ? 'pill-med' : 'pill-low') : '';
+      h += `<tr>
+        <td>${i + 1}</td>
+        <td style="font-family:var(--font-mono);font-weight:700;color:var(--accent-light)">/${esc(p.expected || '—')}/</td>
+        <td style="font-family:var(--font-mono);font-weight:700">[${esc(p.predicted || '—')}]</td>
+        <td>${sc != null ? `<span class="score-pill ${pill}">${sc.toFixed(1)}</span>` : '—'}</td>
+        <td style="font-family:var(--font-mono);color:var(--text-secondary)">${cf != null ? cf.toFixed(3) : '—'}</td>
+        <td style="font-family:var(--font-mono);color:var(--text-secondary)">${dur != null ? dur.toFixed(3) + 's' : '—'}</td>
+      </tr>`;
+    });
+    h += `</tbody></table></div>`;
+  }
+
+  h += `<div class="proc-section-title">🎯 Age-Applicable Clinical Process Findings</div>`;
+  if (ageP.length) {
+    h += `<div class="proc-grid">`;
+    ageP.forEach(p => {
+      const st = p.clinical_status || '';
+      const bc = st === 'Expected Error' ? 'badge-expected' : (st.includes('Delayed') ? 'badge-delayed' : (st.includes('Red Flag') ? 'badge-redflag' : 'badge-review'));
+      h += `<div class="proc-tag">
+        <div class="proc-name">
+          <span>${esc(p.display_label || '')}</span>
+          <span class="proc-pos">${esc(p.position || '')}</span>
+        </div>
+        <div class="proc-detail">${esc(p.target_sound || '')} → ${esc(p.child_produced || '')}</div>
+        <span class="proc-badge ${bc}">${esc(st)}</span>
+      </div>`;
+    });
+    h += `</div>`;
+  } else {
+    h += `<div style="background:var(--bg-elevated);padding:var(--space-md);border-radius:var(--radius-md);border:1px solid var(--border-subtle);color:var(--success);font-weight:600;font-size:0.85rem;margin-bottom:var(--space-md)">
+      ✨ No clinically significant phonological errors detected for Age ${age} (All productions within developmental norms).
+    </div>`;
+  }
+
+  if (raw.length) {
+    h += `<div style="margin-top:var(--space-md)">
+      <button class="btn-primary" style="width:100%" onclick="generatePracticeModule()">
+        <span>✨ Generate Personalized Practice Module (Port 8002)</span>
+      </button>
+    </div>`;
+  }
+
+  if (raw.length) {
+    h += `<button class="collapsible-toggle" onclick="toggleColl(this)">▶ View All Unfiltered ASHA Detections (${raw.length})</button>
+    <div class="collapsible-content">
+      <div style="display:flex;flex-wrap:wrap;gap:6px">`;
+    raw.forEach(p => {
+      h += `<span class="step-item-pill" style="color:var(--text-secondary)">
+        <strong>${esc(p.process)}</strong>: ${esc(p.detail || '')} (${esc(p.position || '')})
+      </span>`;
+    });
+    h += `</div></div>`;
+  }
+
+  el.innerHTML = h;
+  card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  showRaw(data, word);
+}
+
+function renderIpaChips(expArr, detArr, side) {
+  const maxLen = Math.max(expArr.length, detArr.length);
+  let out = '';
+  for (let i = 0; i < maxLen; i++) {
+    const e = expArr[i] || '';
+    const d = detArr[i] || '';
+    const char = side === 'expected' ? e : d;
+    if (!char) continue;
+    let cls = 'match';
+    if (d === '-' || e === '-') cls = 'deletion';
+    else if (e !== d) cls = 'mismatch';
+    out += `<span class="ipa-chip ${cls}">${esc(char)}</span>`;
+    if (i < maxLen - 1 && (expArr[i+1] || detArr[i+1])) out += `<span class="ipa-delim">,</span>`;
+  }
+  return out;
+}
+
+const API_MODULE = 'http://localhost:8002/module';
+
+async function generatePracticeModule() {
+  if (!lastAssessmentData) return;
+  const age = lastAssessmentData.age || parseInt(document.getElementById('ageInput').value, 10) || 4;
+  const rawProcesses = lastAssessmentData.assessment?.detected_processes || lastAssessmentData.detected_processes || [];
+  
+  const mCard = document.getElementById('moduleCard');
+  const mContent = document.getElementById('moduleContent');
+  mCard.style.display = 'block';
+  mContent.innerHTML = `<div style="text-align:center;padding:var(--space-lg);color:var(--accent-light)">
+    <div style="display:inline-block;width:24px;height:24px;border:3px solid var(--accent-glow);border-top-color:var(--accent-primary);border-radius:50%;animation:spin 0.6s linear infinite"></div>
+    <div style="margin-top:var(--space-sm);font-weight:600">Generating hierarchical practice module from DeepSeek LLM / Rule Engine…</div>
+  </div>`;
+  mCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+  try {
+    const fd = new FormData();
+    fd.append('age', String(age));
+    fd.append('processes', JSON.stringify(rawProcesses));
+
+    const r = await fetch(API_MODULE, { method: 'POST', body: fd });
+    if (!r.ok) {
+      const err = await r.json();
+      throw new Error(err.detail || `HTTP ${r.status}`);
+    }
+    const data = await r.json();
+    renderPracticeModule(data);
+  } catch (e) {
+    mContent.innerHTML = `<div class="results-empty" style="color:var(--danger)">
+      ⚠️ Failed to generate practice module: ${esc(e.message)}<br>
+      <small style="color:var(--text-muted)">Ensure dynamic_modules_service is running on port 8002 (<code>py -3.10 -X utf8 -m uvicorn main:app --port 8002</code>)</small>
+    </div>`;
+  }
+}
+
+function renderPracticeModule(data) {
+  const mBadge = document.getElementById('moduleGenBy');
+  mBadge.textContent = data.generated_by === 'llm' ? '🤖 DeepSeek V4 LLM' : '⚙️ Rule-Based Fallback';
+  mBadge.className = 'card-badge ' + (data.generated_by === 'llm' ? 'val-info' : 'val-warning');
+
+  const mContent = document.getElementById('moduleContent');
+  let h = `
+    <div style="display:flex;gap:var(--space-md);flex-wrap:wrap;margin-bottom:var(--space-md)">
+      <div style="background:var(--bg-elevated);padding:var(--space-sm) var(--space-md);border-radius:var(--radius-md);border:1px solid var(--border-subtle)">
+        <span style="font-size:0.7rem;text-transform:uppercase;color:var(--text-muted);font-weight:700;display:block">Curriculum Outline</span>
+        <strong style="color:var(--accent-light)">${esc(data.outline_title || data.outline_id || 'Practice Drill')}</strong>
+      </div>
+      <div style="background:var(--bg-elevated);padding:var(--space-sm) var(--space-md);border-radius:var(--radius-md);border:1px solid var(--border-subtle)">
+        <span style="font-size:0.7rem;text-transform:uppercase;color:var(--text-muted);font-weight:700;display:block">Target Sounds</span>
+        <strong style="font-family:var(--font-mono)">${(data.focus_sounds || []).map(s => `/${esc(s)}/`).join(', ')}</strong>
+      </div>
+      <div style="background:var(--bg-elevated);padding:var(--space-sm) var(--space-md);border-radius:var(--radius-md);border:1px solid var(--border-subtle)">
+        <span style="font-size:0.7rem;text-transform:uppercase;color:var(--text-muted);font-weight:700;display:block">Target Processes</span>
+        <strong>${(data.focus_processes || []).join(', ')}</strong>
+      </div>
+    </div>
+  `;
+
+  if (data.rationale) {
+    h += `<div style="background:rgba(99,102,241,0.06);border:1px solid var(--accent-glow);padding:var(--space-md);border-radius:var(--radius-md);margin-bottom:var(--space-lg);font-size:0.85rem;color:var(--text-secondary)">
+      <strong style="color:var(--accent-light)">Clinical Rationale:</strong> ${esc(data.rationale)}
+    </div>`;
+  }
+
+  const levels = data.levels || {};
+  const stepIcons = { syllables: '🔤 Step 1: Syllable Isolation', words: '📖 Step 2: Target Words', phrases: '💬 Step 3: Carrier Phrases', sentences: '📜 Step 4: Sentence Drills' };
+
+  for (const [lvl, label] of Object.entries(stepIcons)) {
+    const items = levels[lvl] || [];
+    h += `<div class="level-step">
+      <div class="level-step-header">
+        <span>${label}</span>
+        <span style="font-size:0.75rem;color:var(--text-muted)">${items.length} item${items.length !== 1 ? 's' : ''}</span>
+      </div>
+      <div class="level-step-items">`;
+    if (items.length) {
+      items.forEach(it => {
+        const txt = typeof it === 'string' ? it : (it.text || it.word || it.phrase || it.sentence || JSON.stringify(it));
+        h += `<span class="step-item-pill">${esc(txt)}</span>`;
+      });
+    } else {
+      h += `<span style="font-size:0.8rem;color:var(--text-muted)">None generated for this step</span>`;
+    }
+    h += `</div></div>`;
+  }
+
+  mContent.innerHTML = h;
+}
+
+function toggleTheme() {
+  const h = document.documentElement;
+  const dark = h.getAttribute('data-theme') === 'dark';
+  h.setAttribute('data-theme', dark ? 'light' : 'dark');
+  document.getElementById('themeIcon').textContent = dark ? '☀️' : '🌙';
+  document.getElementById('themeLabel').textContent = dark ? 'Light' : 'Dark';
+  localStorage.setItem('vv-theme', dark ? 'light' : 'dark');
+}
+(function() {
+  const t = localStorage.getItem('vv-theme');
+  if (t) {
+    document.documentElement.setAttribute('data-theme', t);
+    document.getElementById('themeIcon').textContent = t === 'dark' ? '🌙' : '☀️';
+    document.getElementById('themeLabel').textContent = t === 'dark' ? 'Dark' : 'Light';
+  }
+})();
+
+function showRaw(data, word) {
+  document.getElementById('rawCard').style.display = 'block';
+  document.getElementById('rawWord').innerHTML = `<strong>Target:</strong> <span class="jv">${esc(word)}</span>`;
+  document.getElementById('rawScore').innerHTML = `<strong>Overall:</strong> <span class="jv">${data.overall_score?.toFixed(1) || 0}%</span>`;
+  document.getElementById('rawQuality').innerHTML = `<strong>Quality RMS:</strong> <span class="jv">${data.quality?.rms_value?.toFixed(4) || 'N/A'}</span>`;
+  document.getElementById('rawJson').textContent = JSON.stringify(data, null, 2);
+}
+
+function clearRaw() {
+  document.getElementById('rawCard').style.display = 'none';
+  document.getElementById('rawJson').textContent = '';
+}
+
+function copyRawJson(btn) {
+  const t = document.getElementById('rawJson').textContent;
+  if (!t) return;
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(t).then(() => {
+      if (btn) {
+        const o = btn.textContent;
+        btn.textContent = '✅ Copied!';
+        setTimeout(() => btn.textContent = o, 1500);
+      }
+    }).catch(e => console.error("Clipboard error", e));
+  }
+}
+
+function renderError(m) {
+  const c = document.getElementById('resultsCard');
+  const e = document.getElementById('resultsContent');
+  c.style.display = 'block';
+  e.innerHTML = `<div class="results-empty" style="color:var(--danger)">⚠️ Assessment Error: ${esc(m)}</div>`;
+}
+
+function clearResult() {
+  document.getElementById('resultsCard').style.display = 'none';
+  document.getElementById('resultsContent').innerHTML = '';
+  document.getElementById('moduleCard').style.display = 'none';
+  clearRaw();
+}
+
+function toggleColl(btn) {
+  const c = btn.nextElementSibling;
+  c.classList.toggle('open');
+  btn.textContent = (c.classList.contains('open') ? '▼' : '▶') + btn.textContent.slice(1);
+}
+
+function esc(s) {
+  if (s == null) return '';
+  const d = document.createElement('div');
+  d.textContent = String(s);
+  return d.innerHTML;
+}
+
+let logs = [], logId = 0;
+
+function addLog(word, age, data, err) {
+  const pcc = data?.pcc ?? null;
+  const pcc_r = data?.pcc_r ?? null;
+  const score = data?.overall_score ?? null;
+  const procs = (data?.age_applicable_processes || []).map(p => p.display_label).join(', ') || (data?.assessment?.detected_processes || []).map(p => p.process).join(', ') || (err ? 'Error' : 'None');
+  
+  logs.unshift({
+    id: ++logId,
+    time: new Date().toLocaleTimeString(),
+    word,
+    age,
+    pcc: pcc != null ? pcc.toFixed(1) + '%' : '—',
+    pcc_r: pcc_r != null ? pcc_r.toFixed(1) + '%' : '—',
+    score: score != null ? score.toFixed(1) + '%' : '—',
+    processes: procs,
+    error: err,
+    data
+  });
+  renderLog();
+}
+
+function renderLog() {
+  const tb = document.getElementById('logBody');
+  const ct = document.getElementById('logCount');
+  if (!logs.length) {
+    tb.innerHTML = '';
+    ct.textContent = 'No tests recorded this session';
+    return;
+  }
+  tb.innerHTML = logs.map(e => {
+    const ok = !e.error;
+    return `<tr>
+      <td>${e.id}</td>
+      <td>${e.time}</td>
+      <td><strong>${esc(e.word)}</strong></td>
+      <td>${e.age}y</td>
+      <td style="font-family:var(--font-mono)">${esc(e.pcc)}</td>
+      <td style="font-family:var(--font-mono)">${esc(e.pcc_r)}</td>
+      <td style="font-family:var(--font-mono)">${esc(e.score)}</td>
+      <td style="font-size:0.78rem">${esc(e.processes)}</td>
+      <td><span class="log-status ${ok ? 'log-ok' : 'log-err'}">${ok ? 'PASSED' : 'ERR'}</span></td>
+      <td><button class="btn-secondary" style="padding:2px 8px;font-size:0.72rem" onclick="showDetail(${e.id})">Inspect</button></td>
+    </tr>`;
+  }).join('');
+  ct.textContent = `${logs.length} test record${logs.length !== 1 ? 's' : ''} saved in memory`;
+}
+
+function showDetail(id) {
+  const e = logs.find(x => x.id === id);
+  if (!e) return;
+  document.getElementById('modalTitle').textContent = `Assessment #${e.id} — "${e.word}" (${e.age}y)`;
+  document.getElementById('modalBody').innerHTML = e.error
+    ? `<div style="color:var(--danger);padding:var(--space-md)">Error: ${esc(e.error)}</div>`
+    : `<pre style="font-family:var(--font-mono);font-size:0.8rem;white-space:pre-wrap;word-break:break-all;color:var(--text-secondary);line-height:1.6">${esc(JSON.stringify(e.data, null, 2))}</pre>`;
+  document.getElementById('modalOverlay').classList.add('show');
+}
+
+function closeModal(e) {
+  if (!e || e.target === document.getElementById('modalOverlay')) {
+    document.getElementById('modalOverlay').classList.remove('show');
+  }
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+function clearLog() { logs = []; logId = 0; renderLog(); }
+
+function exportLogCsv() {
+  if (!logs.length) { alert('No test logs to export.'); return; }
+  let csv = 'ID,Time,Word,Age,PCC,PCC_R,Overall_Score,Detected_Processes,Status\n';
+  logs.forEach(l => {
+    csv += `"${l.id}","${l.time}","${l.word}","${l.age}","${l.pcc}","${l.pcc_r}","${l.score}","${l.processes}","${l.error ? 'ERROR' : 'OK'}"\n`;
+  });
+  const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `voice_voyage_assessment_log_${new Date().toISOString().slice(0,10)}.csv`;
+  a.click();
+}
+
+updateSubmitState();
+</script>
+</body>
+</html>

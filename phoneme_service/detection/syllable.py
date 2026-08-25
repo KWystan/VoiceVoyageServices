@@ -1,5 +1,4 @@
-from .utils import clean, manner
-from config import config
+from .utils import clean, manner, canonicalize, same_phoneme, get_position
 
 
 def _fix_coda_onsets(syllables, alignment):
@@ -103,7 +102,10 @@ def detect_weak_syllable_deletion(alignment):
             syllable_parts.append(ph)
 
             if manner(entry["expected"]) == "Vowel":
-                if entry.get("duration_sec", 1.0) < config.forced_alignment.min_phoneme_duration_sec or entry.get("predicted") in ("-", None, ""):
+                # Deleted nucleus = the model heard silence there.  A short
+                # segment with a resolved token is a real (fast) production,
+                # not a swallowed syllable.
+                if entry.get("predicted") in ("-", None, ""):
                     vowel_deleted = True
 
         # Syllable deleted only if the vowel nucleus is gone
@@ -119,3 +121,83 @@ def detect_weak_syllable_deletion(alignment):
                 skip_indices.add(idx)
 
     return processes, skip_indices
+
+
+def _split_words(alignment):
+    """Split alignment index lists on '#' boundary tokens."""
+    words, current = [], []
+    for i, entry in enumerate(alignment):
+        if entry.get("expected") == "#":
+            if current:
+                words.append(current)
+                current = []
+            continue
+        current.append(i)
+    if current:
+        words.append(current)
+    return words
+
+
+def detect_reduplication(alignment):
+    """Detect total reduplication (syllable-level copying).
+
+    Fires when a multisyllabic target is produced as two or more
+    IDENTICAL syllables that are NOT already identical in the target,
+    with at least one target slot simplified, substituted, or deleted:
+
+        water  /w ɔ t ə r/   -> [w ɑ w ɑ]
+        blanket /b l æ ŋ k ɪ t/ -> [b æ b æ]
+        cookie /k ʊ k i/     -> [k u k u]
+
+    Suppression age is ~3;0, so any detection at screening ages is
+    persistent by definition; the curriculum layer labels it
+    "Clinically Significant (Delayed)".
+
+    Returns a list of process dicts whose ``_index`` is the list of
+    changed target slots.
+    """
+    processes = []
+    for idxs in _split_words(alignment):
+        if len(idxs) < 2:
+            continue
+
+        # 1. target must be multisyllabic
+        tsylls = find_syllables([{"expected": alignment[i]["expected"]} for i in idxs])
+        if len(tsylls) < 2:
+            continue
+
+        # predicted production, blanks dropped
+        pred = [alignment[i].get("predicted") for i in idxs]
+        pred_toks = [p for p in pred if p not in ("-", None, "")]
+        if len(pred_toks) < 2:
+            continue
+
+        # 2. predicted production = identical repeated syllables
+        psylls = find_syllables([{"expected": p} for p in pred_toks])
+        if len(psylls) < 2:
+            continue
+        sigs = {tuple(canonicalize(pred_toks[j]) for j in s) for s in psylls}
+        if len(sigs) != 1:
+            continue
+
+        # 3. repetition must NOT already be present in the target
+        esigs = {tuple(canonicalize(alignment[idxs[j]]["expected"]) for j in s)
+                 for s in tsylls}
+        if len(esigs) == 1:
+            continue
+
+        # 4. at least one slot simplified / substituted / deleted
+        changed = [i for k, i in enumerate(idxs)
+                   if pred[k] in ("-", None, "")
+                   or not same_phoneme(pred[k], alignment[i]["expected"])]
+        if not changed:
+            continue
+
+        syl_text = "".join(pred_toks[j] for s in psylls for j in s)
+        processes.append({
+            "process": "Reduplication",
+            "position": get_position(changed[0], alignment),
+            "detail": f"Syllables '{syl_text}' reduplicated",
+            "_index": changed,
+        })
+    return processes

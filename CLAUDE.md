@@ -65,8 +65,9 @@ main.py (thin HTTP adapter)
   └─ assessment/   — AssessmentService (DI orchestrator), errors, ResponseBuilder
   └─ ipa/          — curated_words (runtime source of truth), normalization,
                      clean_text, panphon_module
-  └─ detection/    — detector (declarative _SUBSTITUTION_SPECS), pcc, syllable,
-                     curriculum_map, utils, constants
+  └─ detection/    — detector (orchestrator facade) + detectors/ package
+                     (gates, substitution table, deletion, voicing, hierarchy),
+                     pcc, syllable, curriculum_map, utils, constants
   └─ audio/        — AudioPreparer: load → single VAD pass → SNR → quality → denoise
   └─ model/        — Wav2Vec2 loader, forced_aligner
 ```
@@ -85,14 +86,16 @@ correctness checks. Scoring: match → 100; mismatch → conf*100 ± duration
 penalties + boosts; deletion → 0. No confidence gate on substitutions.
 Pass ≥ 80 (PCC, blended with FA average for few-consonant words).
 
-Detector design (`detection/detector.py`): substitution detectors are
-declarative — one shared scanner (`_scan_substitutions`) driven by the
-`_SUBSTITUTION_SPECS` table of (process name, pure predicate); adding a
+Detector design: `detection/detector.py` is the orchestrator facade;
+implementations live in `detection/detectors/` (gates, substitution,
+deletion, voicing, hierarchy). Substitution detectors are declarative —
+one shared scanner (`scan_substitutions`) driven by the
+`SUBSTITUTION_SPECS` table of (process name, pure predicate); adding a
 process is one table row + one predicate. The voicing detector is the sole
 exception (panphon features + position-dependent naming: Prevocalic Voicing /
 Devoicing / Final Devoicing). Deletion detectors only fire on phonemes not
 covered by Weak Syllable Deletion's `skip_indices`. Every process carries an
-internal `_index`; `_apply_clinical_hierarchy` groups by `_index` and keeps
+internal `_index`; `apply_clinical_hierarchy` groups by `_index` and keeps
 the highest-priority process per index (ASHA order: manner changes > place >
 sonority > voicing > deletions), then strips `_index` from the response.
 

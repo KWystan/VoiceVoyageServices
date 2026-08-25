@@ -1,8 +1,14 @@
 """
-Phoneme classification utilities with panphon fallback.
+Phoneme classification utilities with model-vocabulary and panphon fallback.
 
-Uses hardcoded sets from constants.py as the fast path (O(1)).
-Falls back to panphon.FeatureTable for any phoneme not in the sets.
+Layer 1: hardcoded curated sets from constants.py (fast path, O(1)) — the
+clinical English inventory.
+Layer 2: full model-vocabulary labels loaded once at import time by
+constants.py from data/wav2vec2_manners.csv / data/wav2vec2_places.csv —
+deterministic labels for every token the ASR model can emit (regenerate via
+scripts/build_vocab_label_csvs.py; place columns arrive pre-folded to
+ASHA-coarse labels via constants.PLACE_COLUMN_TO_COARSE).
+Layer 3: panphon.FeatureTable for anything still unknown.
 This ensures robustness against unexpected IPA symbols from Wav2Vec2
 while maintaining performance for common phonemes.
 """
@@ -13,6 +19,7 @@ from .constants import (
     STOPS, FRICATIVES, AFFRICATES, LIQUIDS, GLIDES,
     NASALS, VOWELS, VELARS, PALATALS, ALVEOLARS, LABIALS,
     DENTALS, GLOTTALS,
+    VOCAB_MANNERS, VOCAB_PLACES, PLACE_COLUMN_TO_COARSE,
 )
 from ipa.normalization import clean, same_phoneme, canonicalize  # noqa: F401 — re-exported for back-compat
 
@@ -43,11 +50,35 @@ def _get_panphon_ft():
     return _panphon_ft
 
 
+# ── Layer 2: full model-vocabulary labels ───────────────────────────
+# Loaded once at import time by constants.py from data/wav2vec2_*.csv
+# (fail-fast on bad data). VOCAB_PLACES values arrive pre-folded to the
+# ASHA-coarse labels below via PLACE_COLUMN_TO_COARSE.
+_VALID_MANNERS = frozenset(
+    {"Stop", "Fricative", "Affricate", "Nasal", "Liquid", "Glide", "Vowel"}
+)
+_VALID_PLACES = frozenset({"Velar", "Palatal", "Alveolar", "Labial", "Glottal"})
+
+# Back-compat alias — the mapping now lives in constants.py (single source).
+_FINE_TO_COARSE_PLACE = PLACE_COLUMN_TO_COARSE
+
+_vocab_labels: tuple[dict, dict] = (VOCAB_MANNERS, VOCAB_PLACES)
+
+
+def _get_vocab_labels() -> tuple[dict, dict]:
+    """Return the model-vocabulary label maps: (manners, places).
+
+    Both are ASHA-coarse, loaded at import time by constants.py from the
+    wav2vec2 CSVs. Kept as a function for call-site compatibility.
+    """
+    return _vocab_labels
+
+
 def manner(phoneme: str) -> Optional[str]:
     """Get manner of articulation for a phoneme.
 
-    Uses hardcoded sets first (fast), falls back to panphon features
-    if the phoneme is not in any set.
+    Uses hardcoded sets first (fast), then the full model-vocabulary
+    label CSVs, then panphon features as a final fallback.
 
     The ``"#"`` word-boundary token returns ``"Boundary"``, which
     causes ``is_consonant("#")`` to return ``False`` — this
@@ -69,6 +100,11 @@ def manner(phoneme: str) -> Optional[str]:
     if p in LIQUIDS: return "Liquid"
     if p in GLIDES: return "Glide"
     if p in VOWELS: return "Vowel"
+
+    # ── Layer 2: full model-vocabulary labels ──
+    vocab_manner = _get_vocab_labels()[0].get(p)
+    if vocab_manner in _VALID_MANNERS:
+        return vocab_manner
 
     # ── Slow path: panphon feature lookup ──
     ft = _get_panphon_ft()
@@ -105,7 +141,8 @@ def manner(phoneme: str) -> Optional[str]:
 def place(phoneme: str) -> Optional[str]:
     """Get place of articulation for a phoneme.
 
-    Uses hardcoded sets first, falls back to panphon features.
+    Uses hardcoded sets first, then the full model-vocabulary label CSVs,
+    then panphon features.
 
     Returns: "Velar", "Palatal", "Alveolar", "Labial", "Dental",
              "Glottal", or None.
@@ -123,6 +160,11 @@ def place(phoneme: str) -> Optional[str]:
     # ── Vowels don't have a place of articulation ──
     if p in VOWELS:
         return None
+
+    # ── Layer 2: full model-vocabulary labels (pre-folded to coarse) ──
+    vocab_place = _get_vocab_labels()[1].get(p)
+    if vocab_place in _VALID_PLACES:
+        return vocab_place
 
     # ── Slow path: panphon feature lookup ──
     ft = _get_panphon_ft()
@@ -163,6 +205,12 @@ def get_position(idx: int, breakdown: list[dict]) -> str:
     utterance indices.  For single-word inputs (no ``"#"`` tokens),
     behaves identically to the old signature.
 
+    Cluster-aware: a consonant belonging to a contiguous consonant run
+    inherits the position of the whole run — the second member of a
+    word-initial cluster ("plane" -> p l eɪ n) reports "Initial", and
+    a final-cluster member ("milk" -> ... l k) reports "Final".
+    Vowels are never part of a run and keep pure index semantics.
+
     Parameters
     ----------
     idx : int
@@ -189,8 +237,20 @@ def get_position(idx: int, breakdown: list[dict]) -> str:
             word_end = j - 1
             break
 
-    if idx == word_start:
+    # Expand over adjacent consonants within the same word so every
+    # member of a cluster shares the cluster's position ("#"-bounded,
+    # since is_consonant("#") is False anyway)
+    anchor_start, anchor_end = idx, idx
+    if is_consonant(breakdown[idx].get("expected", "")):
+        while (anchor_start - 1 >= word_start
+               and is_consonant(breakdown[anchor_start - 1].get("expected", ""))):
+            anchor_start -= 1
+        while (anchor_end + 1 <= word_end
+               and is_consonant(breakdown[anchor_end + 1].get("expected", ""))):
+            anchor_end += 1
+
+    if anchor_start == word_start:
         return "Initial"
-    if idx == word_end:
+    if anchor_end == word_end:
         return "Final"
     return "Medial"

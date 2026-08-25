@@ -18,7 +18,7 @@ This module is the SINGLE source of truth for translating between them:
 * ``normalize_ipa()``  — map allographs + foreign spellings to canonical
                          English IPA (longest-match single-pass, so ``a``
                          inside ``aɪ`` is never corrupted)
-* ``canonicalize()``   — clean() + normalize_ipa() (the full translation)
+* ``canonicalize()``   — normalize_ipa() + clean() (the full translation)
 * ``same_phoneme()``   — identity comparison through the translation
 
 All correctness checks (``_compute_score``, PCC, SODA, substitution
@@ -90,11 +90,17 @@ _IPA_NORMALIZE: dict[str, str] = {
     'e': 'ɛ',
     'o': 'ɔ',
     # ---- Length-marked long vowels -> their short/diphthong bases ----
-    'eː': 'e',
+    # NOTE: espeak-ng spells English FACE and GOAT with monophthong
+    # length marks ("eː", "oː") in many of its language entries, so
+    # those two map directly onto the canonical curated DIPHTHONGS.
+    # Mapping them to bare "e"/"o" instead would let them fall through
+    # the single-char foreign-spelling rules (e -> ɛ, o -> ɔ) and
+    # misread every correct FACE/GOAT production as DRESS/LOT.
+    'eː': 'eɪ',
     'iː': 'i',
-    'oː': 'o',
+    'oː': 'oʊ',
     'uː': 'u',
-    'aː': 'a',
+    'aː': 'ɑ',
     'ɑː': 'ɑ',
     'ɔː': 'ɔ',
     'ɛː': 'ɛ',
@@ -149,8 +155,16 @@ def normalize_ipa(ipa_string: str) -> str:
 
 
 def canonicalize(phoneme: str) -> str:
-    """Full alphabet translation for one phoneme: clean() + normalize_ipa()."""
-    return normalize_ipa(clean(phoneme))
+    """Full alphabet translation for one phoneme: normalize_ipa() + clean().
+
+    Order matters: the table runs on the RAW spelling first so its
+    multi-character keys containing strippable marks (``eː``, ``oː``,
+    ``l̩``, ``aɪ̂``…) resolve as intended; only then are residual
+    stress/length/aspiration marks stripped.  Cleaning first would eat
+    the length mark before the table ever sees it and turn every
+    ``Xː`` entry into dead code.
+    """
+    return clean(normalize_ipa(phoneme))
 
 
 def same_phoneme(a: str, b: str) -> bool:
@@ -168,7 +182,7 @@ def same_phoneme(a: str, b: str) -> bool:
     """
     if not a or not b:
         return a == b
-    ca, cb = clean(a), clean(b)
-    if {ca, cb} in ({"t", "ɾ"}, {"d", "ɾ"}):
+    ra, rb = clean(a), clean(b)
+    if {ra, rb} in ({"t", "ɾ"}, {"d", "ɾ"}):
         return True
-    return normalize_ipa(ca) == normalize_ipa(cb)
+    return canonicalize(a) == canonicalize(b)

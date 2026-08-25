@@ -43,26 +43,43 @@ _AGE8_RETIRED_LABELS: set[str] = {"Weak Syllable Deletion"}
 
 # Process display_labels applicable per age bracket (cumulative).
 # Values are the "display_label" outputs from _translate_error().
+#
+# Bracket placement rule: a process lives in the FIRST bracket whose age
+# range overlaps its typical-production window, i.e. it becomes visible
+# to parents as soon as the pattern is developmentally NORMAL (not when
+# it should be gone). Elimination sources: Grunwell (1987) via Bowen
+# 2015 p.73 (speech-language-therapy.com Table 2.4); Shriberg (1993)
+# synthesis via Bilinguistics SLP guide; ASHA Practice Portal norms.
 _AGE_PROCESS_MAP: dict[str, set[str]] = {
     "Age 4": {
         "Initial Consonant Deletion",
         "Medial Consonant Deletion",
-        "Final Consonant Deletion",
+        "Final Consonant Deletion",      # elim 3;3 (Grunwell)
         "Frication",
         "Backing",
-        "Fronting",
-        "Stopping",
+        "Fronting",                      # velar fronting elim 3;6 (Grunwell)
+        "Stopping",                      # 3;0-5;0 by target sound (Grunwell)
         "Liquidization",
-        "Weak Syllable Deletion",
+        "Weak Syllable Deletion",        # elim 4;0 (Grunwell/Shriberg)
+        "Cluster Reduction",             # elim 4;0 (Grunwell/Shriberg)
+        "Reduplication",                 # elim ~2;6-3;0 (McLeod & Crowe)
+        "Consonant Harmony",             # assimilation elim ~3;0-3;6 (ASHA/Grunwell)
+        "Denasalization",                # earliest-suppressed process (~2;6)
+        "Prevocalic Voicing",            # context-sensitive voicing, elim 3;0 (Grunwell)
+        "Voicing",                       # non-prevocalic voiceless->voiced (BUG-006)
+        "Devoicing",                     # word-final devoicing elim 3;0 (Grunwell)
+        "Final Devoicing",               # word-final devoicing elim 3;0 (Grunwell)
+        "Vowelization",                  # vocalization, elim ~6;0 but typical
+                                         # throughout preschool (ASHA/Bleile norms)
+        "Deaffrication",                 # elim ~4;0 (ASHA norms) -> normal DURING
+                                         # the 2-4 window, so tracked from Age 4
     },
     "Age 5": {
-        "Gliding",
-        "Palatal Fronting",
-        "Cluster Reduction",
+        "Gliding",                       # elim 5;0 (Grunwell) / ~7 (Shriberg synth.)
+        "Palatal Fronting",              # elim 3;9 (Grunwell) — retained here pending
+                                         # product decision (see buglog BUG-012 notes)
     },
-    "Age 6-7": {
-        "Deaffrication",
-    },
+    "Age 6-7": set(),
     "Age 8": {
         "Syllable Reduction",
     },
@@ -144,6 +161,11 @@ def _parse_detail(detail: str) -> tuple[str, str]:
 
     # Deletion: /l/ deleted (-> Ø) in cluster
     match = re.match(r'/(.+?)/\s*deleted', detail)
+    if match:
+        return match.group(1), "-"
+
+    # Reduplication: Syllables 'wɑwɑ' reduplicated
+    match = re.match(r"Syllables '(.+?)' reduplicated", detail)
     if match:
         return match.group(1), "-"
 
@@ -248,22 +270,19 @@ def _tl_voicing(process: dict, expected: str, predicted: str) -> dict:
     return {"display_label": proc_name, "clinical_status": "Expected Error"}
 
 
-def _tl_consonant_deletion(process: dict, expected: str, predicted: str) -> dict:
-    position = process.get("position", "")
-    if position == "Medial":
-        return {"display_label": "Medial Consonant Deletion", "clinical_status": "Red Flag"}
-    if position == "Final":
-        return {"display_label": "Final Consonant Deletion", "clinical_status": "Red Flag"}
-    return {"display_label": "Initial Consonant Deletion", "clinical_status": "Red Flag"}
-
-
 _FIXED_LABELS: dict[str, tuple[str, str]] = {
     "Frication": ("Frication", "Red Flag"),
     "Denasalization": ("Denasalization", "Red Flag"),
-    "Vowelization": ("Vowelization", "Red Flag"),
+    "Vowelization": ("Vowelization", "Expected Error"),
     "Cluster Reduction": ("Cluster Reduction", "Expected Error"),
     "Weak Syllable Deletion": ("Weak Syllable Deletion", "Expected Error"),
+    "Consonant Harmony": ("Consonant Harmony", "Expected Error"),
+    # Suppression ~3;0 precedes every screening bracket, so any
+    # detection is persistent by definition (see buglog/feature notes).
+    "Reduplication": ("Reduplication", "Clinically Significant (Delayed)"),
     "Final Consonant Deletion": ("Final Consonant Deletion", "Red Flag"),
+    "Initial Consonant Deletion": ("Initial Consonant Deletion", "Red Flag"),
+    "Medial Consonant Deletion": ("Medial Consonant Deletion", "Red Flag"),
 }
 
 
@@ -281,16 +300,124 @@ _TRANSLATORS: dict[str, Callable[[dict, str, str], dict]] = {
     "Liquidization": _tl_liquidization,
     "Deaffrication": _tl_deaffrication,
     "Prevocalic Voicing": _tl_voicing,
+    "Voicing": _tl_voicing,
     "Devoicing": _tl_voicing,
     "Final Devoicing": _tl_voicing,
-    "Consonant Deletion": _tl_consonant_deletion,
+    "Initial Consonant Deletion": _tl_fixed,
+    "Medial Consonant Deletion": _tl_fixed,
     "Frication": _tl_fixed,
     "Denasalization": _tl_fixed,
     "Vowelization": _tl_fixed,
     "Cluster Reduction": _tl_fixed,
+    "Reduplication": _tl_fixed,
+    "Consonant Harmony": _tl_fixed,
     "Weak Syllable Deletion": _tl_fixed,
     "Final Consonant Deletion": _tl_fixed,
 }
+
+
+def _resolve_clinical_status(
+    display_label: str,
+    base_status: str,
+    expected_ph: str,
+    bracket: str,
+) -> str:
+    """Escalate developmental 'Expected Error' to 'Clinically Significant (Delayed)'
+    when the child's age bracket exceeds the process/sound elimination age.
+
+    Atypical 'Red Flag' and 'Needs Review' statuses are preserved across all ages.
+    Normative basis: McLeod & Crowe (2018), Crowe & McLeod (2020), Grunwell (1987),
+    and ASHA Practice Portal elimination benchmarks.
+    """
+    if base_status != "Expected Error":
+        return base_status
+
+    # Reduplication is always Delayed at screening ages (elim ~2;6-3;0)
+    if display_label == "Reduplication":
+        return "Clinically Significant (Delayed)"
+
+    # Velar Fronting: elim ~3;6-4;0 -> Delayed from Age 5+
+    if display_label == "Fronting":
+        if bracket in ("Age 5", "Age 6-7", "Age 8"):
+            return "Clinically Significant (Delayed)"
+        return "Expected Error"
+
+    # Palatal Fronting (/ʃ/ -> [s]): elim ~4;6-5;0 -> Delayed from Age 6-7+
+    if display_label == "Palatal Fronting":
+        if bracket in ("Age 6-7", "Age 8"):
+            return "Clinically Significant (Delayed)"
+        return "Expected Error"
+
+    # Deaffrication: elim ~4;6 -> Delayed from Age 6-7+
+    if display_label == "Deaffrication":
+        if bracket in ("Age 6-7", "Age 8"):
+            return "Clinically Significant (Delayed)"
+        return "Expected Error"
+
+    # Weak Syllable Deletion: elim ~4;0 -> Delayed from Age 5+
+    if display_label in ("Weak Syllable Deletion", "Syllable Reduction"):
+        if bracket in ("Age 5", "Age 6-7", "Age 8"):
+            return "Clinically Significant (Delayed)"
+        return "Expected Error"
+
+    # Cluster Reduction: 2-element elim ~4;0, 3-element elim ~5;0 -> Delayed from Age 6-7+
+    if display_label == "Cluster Reduction":
+        if bracket in ("Age 6-7", "Age 8"):
+            return "Clinically Significant (Delayed)"
+        return "Expected Error"
+
+    # Consonant Harmony: elim ~3;0-3;6 -> Delayed from Age 5+
+    if display_label == "Consonant Harmony":
+        if bracket in ("Age 5", "Age 6-7", "Age 8"):
+            return "Clinically Significant (Delayed)"
+        return "Expected Error"
+
+    # Voicing / Prevocalic Voicing / Devoicing / Final Devoicing: elim ~3;0-3;6 -> Delayed from Age 5+
+    if display_label in ("Prevocalic Voicing", "Voicing", "Devoicing", "Final Devoicing"):
+        if bracket in ("Age 5", "Age 6-7", "Age 8"):
+            return "Clinically Significant (Delayed)"
+        return "Expected Error"
+
+    # Vowelization: elim ~5;0-6;0 -> Delayed at Age 8
+    if display_label == "Vowelization":
+        if bracket == "Age 8":
+            return "Clinically Significant (Delayed)"
+        return "Expected Error"
+
+    # Gliding: /l/ elim ~5;0 (Delayed at Age 6-7+); /r, ɹ/ elim ~6;0 (Delayed at Age 8)
+    if display_label == "Gliding":
+        if expected_ph == "l":
+            if bracket in ("Age 6-7", "Age 8"):
+                return "Clinically Significant (Delayed)"
+        elif expected_ph in ("r", "ɹ"):
+            if bracket == "Age 8":
+                return "Clinically Significant (Delayed)"
+        elif bracket in ("Age 6-7", "Age 8"):
+            return "Clinically Significant (Delayed)"
+        return "Expected Error"
+
+    # Stopping: sound-specific elimination ages
+    if display_label == "Stopping":
+        # /f/ elim ~3;6 -> Delayed from Age 5+
+        if expected_ph in ("f", "p"):
+            if bracket in ("Age 5", "Age 6-7", "Age 8"):
+                return "Clinically Significant (Delayed)"
+        # /s, z, ʃ/ elim ~4;6-5;0 -> Delayed from Age 6-7+
+        elif expected_ph in ("s", "z", "ʃ"):
+            if bracket in ("Age 6-7", "Age 8"):
+                return "Clinically Significant (Delayed)"
+        # /v/ elim ~5;6 -> Delayed at Age 8
+        elif expected_ph in ("v", "b"):
+            if bracket == "Age 8":
+                return "Clinically Significant (Delayed)"
+        # /θ, ð, ʒ/ elim ~6;0-7;0 -> Expected Error throughout preschool/primary
+        elif expected_ph in ("θ", "ð", "ʒ"):
+            return "Expected Error"
+        elif bracket in ("Age 6-7", "Age 8"):
+            return "Clinically Significant (Delayed)"
+        return "Expected Error"
+
+    return base_status
 
 
 def get_curriculum_summary(
@@ -323,7 +450,7 @@ def get_curriculum_summary(
 
         translated = _translate_error(proc, expected_ph, predicted_ph)
         display_label = translated["display_label"]
-        clinical_status = translated["clinical_status"]
+        base_status = translated["clinical_status"]
 
         if display_label == "Weak Syllable Deletion" and bracket == "Age 8":
             display_label = "Syllable Reduction"
@@ -334,6 +461,10 @@ def get_curriculum_summary(
                 proc.get("process"), display_label, bracket,
             )
             continue
+
+        clinical_status = _resolve_clinical_status(
+            display_label, base_status, expected_ph, bracket
+        )
 
         applicable_errors.append({
             "target_sound": f"/{expected_ph}/",
