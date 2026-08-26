@@ -1,7 +1,7 @@
 """Voice Voyage — Unified Services Gateway (FastAPI).
 
-Combines both Phoneme Assessment and Dynamic Module Generation into a single
-application suitable for unified deployment on Railway, Docker, Render, or local run.
+Combines both Phoneme Assessment and Dynamic Module Generation into a single,
+lightweight, and direct application suitable for Railway, Docker, or local execution.
 
 Endpoints:
     POST /assess  — Pronunciation assessment (word, age, audio file)
@@ -14,6 +14,7 @@ import sys
 import os
 import json
 import logging
+import asyncio
 
 _REPO_ROOT = os.path.dirname(os.path.abspath(__file__))
 _PHONEME_DIR = os.path.join(_REPO_ROOT, "phoneme_service")
@@ -24,32 +25,41 @@ for p in (_REPO_ROOT, _PHONEME_DIR, _DYNAMIC_DIR):
         sys.path.insert(0, p)
 
 # Load .env if present
-def _load_dotenv(path=None):
-    candidates = [
-        path,
-        os.path.join(_REPO_ROOT, ".env"),
-        os.path.join(_DYNAMIC_DIR, ".env"),
-    ]
-    for candidate in candidates:
-        if candidate and os.path.exists(candidate):
+def _load_dotenv():
+    for candidate in [os.path.join(_REPO_ROOT, ".env"), os.path.join(_DYNAMIC_DIR, ".env")]:
+        if os.path.exists(candidate):
             with open(candidate, encoding="utf-8") as f:
                 for line in f:
                     line = line.strip()
-                    if not line or line.startswith("#") or "=" not in line:
-                        continue
-                    key, _, value = line.partition("=")
-                    key = key.strip()
-                    value = value.strip().strip('"').strip("'")
-                    if key and not os.environ.get(key):
-                        os.environ[key] = value
+                    if line and not line.startswith("#") and "=" in line:
+                        k, _, v = line.partition("=")
+                        k = k.strip()
+                        v = v.strip().strip('"').strip("'")
+                        if k and not os.environ.get(k):
+                            os.environ[k] = v
             break
 
 _load_dotenv()
 
 import uvicorn
+import torch
+from contextlib import asynccontextmanager
 from fastapi import FastAPI, UploadFile, File, Form, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
+
+# Optimize PyTorch memory & execution for cloud container
+torch.set_grad_enabled(False)
+try:
+    torch.set_num_threads(2)
+except Exception:
+    pass
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
+)
+logger = logging.getLogger("voicevoyage.unified")
 
 # --- Service Imports ---
 from assessment.service import AssessmentService
@@ -66,63 +76,9 @@ from dynamic_modules_service.service import ModuleService, NoFindingsError, NoOu
 from dynamic_modules_service.data import GradeDocuments, MockOutlines, MockWordBank
 from dynamic_modules_service.config import config as dynamic_config
 
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
-)
-logger = logging.getLogger("voicevoyage.unified")
-
-import torch
-# Optimize PyTorch memory & execution for cloud container
-torch.set_grad_enabled(False)
-try:
-    torch.set_num_threads(2)
-except Exception:
-    pass
-
-from contextlib import asynccontextmanager
-
-# --- Warmup Lifespan Handler ---
-@asynccontextmanager
-async def lifespan(app: FastAPI):
-    # 1. Warmup DeepFilterNet denoiser
-    try:
-        from audio.processor import get_denoiser
-        denoiser = get_denoiser()
-        denoiser._lazy_load()
-        logger.info("[STARTUP] DeepFilterNet denoiser pre-loaded.")
-    except Exception as exc:
-        logger.warning("[STARTUP] DeepFilterNet warmup skipped: %s", exc)
-
-    # 2. Warmup Wav2Vec2 Forced Aligner & initialize PyTorch execution kernels
-    try:
-        from model.forced_aligner import get_aligner
-        aligner = get_aligner()
-        aligner._lazy_load()
-        dummy_audio = torch.zeros(16000, dtype=torch.float32)
-        aligner.model_loader.get_logits(dummy_audio)
-        logger.info("[STARTUP] Wav2Vec2 model pre-loaded and execution graph warmed up.")
-    except Exception as exc:
-        logger.warning("[STARTUP] Wav2Vec2 warmup error: %s", exc)
-
-    logger.info("[STARTUP] Voice Voyage Unified Backend is 100% ready for API requests.")
-    yield
-
-# --- FastAPI Initialization ---
-app = FastAPI(
-    title="Voice Voyage Unified Services",
-    description="Unified backend providing Phoneme Assessment (Wav2Vec2) and Dynamic Practice Modules (LLM) in a single service.",
-    version="2.0.0",
-    lifespan=lifespan,
-)
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+# State flags
+_model_ready_event = asyncio.Event()
+_model_loading_status = "initializing"
 
 # Instantiate services
 assessment_service = AssessmentService()
@@ -138,6 +94,60 @@ def make_dynamic_service() -> ModuleService:
 dynamic_service = make_dynamic_service()
 
 
+async def _background_model_loader():
+    """Load models in the background without blocking server startup / health checks."""
+    global _model_loading_status
+    logger.info("[STARTUP] Background model loader started...")
+    
+    # 1. Warmup DeepFilterNet
+    try:
+        from audio.processor import get_denoiser
+        denoiser = get_denoiser()
+        denoiser._lazy_load()
+        logger.info("[STARTUP] ✓ DeepFilterNet denoiser pre-loaded.")
+    except Exception as exc:
+        logger.warning("[STARTUP] DeepFilterNet warmup skipped: %s", exc)
+
+    # 2. Warmup Wav2Vec2 Forced Aligner
+    try:
+        from model.forced_aligner import get_aligner
+        aligner = get_aligner()
+        aligner._lazy_load()
+        dummy_audio = torch.zeros(16000, dtype=torch.float32)
+        aligner.model_loader.get_logits(dummy_audio)
+        logger.info("[STARTUP] ✓ Wav2Vec2 model pre-loaded & quantized.")
+    except Exception as exc:
+        logger.warning("[STARTUP] Wav2Vec2 warmup error: %s", exc)
+
+    _model_loading_status = "ready"
+    _model_ready_event.set()
+    logger.info("[STARTUP] ✓ Voice Voyage Unified Backend is 100% ready.")
+
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # Non-blocking startup: Server binds port immediately in <0.5s
+    asyncio.create_task(_background_model_loader())
+    yield
+
+
+# --- FastAPI Initialization ---
+app = FastAPI(
+    title="Voice Voyage Unified Services",
+    description="Unified backend providing Pronunciation Assessment and Dynamic Practice Modules.",
+    version="2.0.0",
+    lifespan=lifespan,
+)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+
 # --- Root Overview ---
 @app.get("/")
 async def root():
@@ -145,6 +155,7 @@ async def root():
         "service": "Voice Voyage Unified API",
         "version": "2.0.0",
         "status": "online",
+        "model_status": _model_loading_status,
         "endpoints": {
             "assess": "POST /assess (form: word, age, file)",
             "module": "POST /module (form: age, processes)",
@@ -159,6 +170,7 @@ async def root():
 async def health():
     return {
         "status": "ok",
+        "model_ready": _model_ready_event.is_set(),
         "phoneme_service": {
             "status": "ok",
             "model": "facebook/wav2vec2-lv-60-espeak-cv-ft",
@@ -179,6 +191,13 @@ async def assess_pronunciation(
     age: int = Form(..., ge=2, le=12),
 ):
     """Assess pronunciation of a target word or phrase from an audio recording."""
+    # Ensure model has finished loading before assessing
+    if not _model_ready_event.is_set():
+        try:
+            await asyncio.wait_for(_model_ready_event.wait(), timeout=45.0)
+        except asyncio.TimeoutError:
+            raise HTTPException(status_code=503, detail="Model is still initializing. Please retry in 10 seconds.")
+
     try:
         raw_audio = await file.read()
         result = assessment_service.assess(word=word, age=age, audio_bytes=raw_audio)
