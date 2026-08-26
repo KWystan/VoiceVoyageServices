@@ -626,7 +626,7 @@ async function checkHealth() {
   }
 }
 checkHealth();
-setInterval(checkHealth, 10000);
+// Health check runs on page load and on user actions (polling removed to avoid spamming console logs)
 
 let activeTab = 'mic';
 function switchTab(t) {

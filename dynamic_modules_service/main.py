@@ -56,7 +56,10 @@ def _load_dotenv(path=None) -> None:
 
 _load_dotenv()
 
-from config import config
+try:
+    from dynamic_modules_service.config import config
+except ImportError:
+    from config import config
 from models import AssessmentFindings, DetectedProcess
 from service import ModuleService, NoFindingsError, NoOutlineError
 

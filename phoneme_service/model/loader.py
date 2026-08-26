@@ -18,7 +18,10 @@ from transformers import (
     Wav2Vec2Processor,
 )
 from functools import lru_cache
-from config import config
+try:
+    from phoneme_service.config import config
+except ImportError:
+    from config import config
 
 
 class Wav2Vec2ModelLoader:

@@ -3,7 +3,10 @@ import torch
 import librosa
 from silero_vad import load_silero_vad, get_speech_timestamps
 from functools import lru_cache
-from config import config
+try:
+    from phoneme_service.config import config
+except ImportError:
+    from config import config
 
 
 @lru_cache(maxsize=1)

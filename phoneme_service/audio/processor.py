@@ -6,7 +6,10 @@ from functools import lru_cache
 from .utils import resample, compute_snr
 from .quality import check_all as check_audio_quality
 from .noise_remover import DeepFilterNoiseRemover
-from config import config
+try:
+    from phoneme_service.config import config
+except ImportError:
+    from config import config
 
 
 @lru_cache(maxsize=1)

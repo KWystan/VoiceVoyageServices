@@ -11,7 +11,10 @@ old ASHA CSV word lists, which no code loads.
 import json
 from pathlib import Path
 
-from config import config
+try:
+    from dynamic_modules_service.config import config
+except ImportError:
+    from config import config
 from models import (
     ModuleOutline,
     PracticeItem,

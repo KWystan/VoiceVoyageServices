@@ -12,7 +12,10 @@ from typing import NamedTuple
 
 import numpy as np
 
-from config import config
+try:
+    from phoneme_service.config import config
+except ImportError:
+    from config import config
 
 logger = logging.getLogger(__name__)
 

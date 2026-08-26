@@ -6,7 +6,10 @@ returning to the Flutter app so the user knows what to fix.
 """
 
 import numpy as np
-from config import config
+try:
+    from phoneme_service.config import config
+except ImportError:
+    from config import config
 
 
 def check_rms_level(audio: np.ndarray, sr: int = None) -> dict:

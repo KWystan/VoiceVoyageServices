@@ -12,7 +12,10 @@ responses by the API adapter (``main.py``).
 import numpy as np
 import torch
 
-from config import config as default_config
+try:
+    from phoneme_service.config import config as default_config
+except ImportError:
+    from config import config as default_config
 from ipa.clean_text import _clean_word, clean_ipa, tokenize_ipa
 from ipa.curated_words import curated_ipa as default_word_to_ipa
 from audio.processor import AudioPreparer

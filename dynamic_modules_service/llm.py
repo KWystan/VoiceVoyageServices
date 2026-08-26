@@ -11,7 +11,10 @@ import json
 import os
 from typing import Optional
 
-from config import config
+try:
+    from dynamic_modules_service.config import config
+except ImportError:
+    from config import config
 from models import AssessmentFindings, ModuleOutline, PracticeLevel
 
 

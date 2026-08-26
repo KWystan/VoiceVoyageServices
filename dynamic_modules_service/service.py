@@ -14,7 +14,10 @@ import re
 import uuid
 from typing import Optional
 
-from config import config as default_config
+try:
+    from dynamic_modules_service.config import config as default_config
+except ImportError:
+    from config import config as default_config
 from data import GradeDocuments
 from models import (
     AssessmentFindings,

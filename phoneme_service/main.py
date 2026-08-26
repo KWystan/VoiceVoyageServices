@@ -33,7 +33,10 @@ _PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 if _PROJECT_ROOT not in sys.path:
     sys.path.insert(0, _PROJECT_ROOT)
 
-from config import config
+try:
+    from phoneme_service.config import config
+except ImportError:
+    from config import config
 from assessment.service import AssessmentService
 from assessment.errors import (
     AlignmentError,

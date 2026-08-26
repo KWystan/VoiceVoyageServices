@@ -10,6 +10,7 @@
 !*.env.example
 
 # ---- Python runtime artifacts ----
+.cache/
 __pycache__/
 *.py[cod]
 .pytest_cache/

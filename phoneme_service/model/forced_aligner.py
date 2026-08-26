@@ -17,7 +17,10 @@ from typing import Optional
 import torch
 import torchaudio.functional as F
 
-from config import config
+try:
+    from phoneme_service.config import config
+except ImportError:
+    from config import config
 from ipa.panphon_module import get_phonetic_similarity
 from model.loader import get_loader
 from ipa.normalization import same_phoneme
