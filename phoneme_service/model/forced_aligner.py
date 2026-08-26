@@ -37,71 +37,58 @@ class ForcedAlignmentError(RuntimeError):
 # Helpers
 # ---------------------------------------------------------------------------
 
-def _path_to_segments(
+def _extract_target_spans(
     path: torch.Tensor,
-    blank_id: int,
+    token_ids: list[int],
     time_stride: float,
-) -> list[dict[str, int | float]]:
-    """Convert a forced-alignment path (token IDs per frame) into phoneme
-    segments with frame-based timing.
+) -> list[dict]:
+    """Extract frame spans for each target token from the CTC alignment path.
 
-    Parameters
-    ----------
-    path : Tensor
-        Shape (T,) — token ID at each frame (blank_id = silence/transition).
-    blank_id : int
-        Token ID representing blank / silence.
-    time_stride : float
-        Seconds per frame (e.g., 0.02 for 20 ms).
-
-    Returns
-    -------
-    list[dict]
-        Each dict has keys: phoneme, start_frame, end_frame, start_sec, end_sec.
-        Consecutive duplicate tokens are merged into one segment.
+    In a CTC path (T frames), targets appear in strictly monotonic order
+    interspersed with blank frames (0). This function deterministically
+    tracks the contiguous frame interval for each target token index.
     """
-    segments: list[dict[str, int | float]] = []
-    prev_id: int | None = None
-    seg_start: int | None = None
+    spans: list[dict] = []
+    T = len(path)
+    L = len(token_ids)
 
-    for t, tok_id in enumerate(path.tolist()):
-        tok_id_int = int(tok_id)
-        if tok_id_int == blank_id:
-            # End any active segment
-            if prev_id is not None and prev_id != blank_id and seg_start is not None:
-                segments.append({
-                    "token": prev_id,
-                    "start_frame": seg_start,
-                    "end_frame": t - 1,
-                    "start_sec": round(seg_start * time_stride, 4),
-                    "end_sec": round((t - 1) * time_stride, 4),
-                })
-                seg_start = None
+    curr_target_idx = 0
+    t = 0
+    while t < T and curr_target_idx < L:
+        target_tid = token_ids[curr_target_idx]
+        if path[t] == target_tid:
+            start_f = t
+            while t < T and path[t] == target_tid:
+                t += 1
+            end_f = t - 1
+            duration_f = end_f - start_f + 1
+            spans.append({
+                "target_idx": curr_target_idx,
+                "token": target_tid,
+                "start_frame": start_f,
+                "end_frame": end_f,
+                "start_sec": round(start_f * time_stride, 4),
+                "end_sec": round((end_f + 1) * time_stride, 4),
+                "duration_sec": round(duration_f * time_stride, 4),
+            })
+            curr_target_idx += 1
         else:
-            if tok_id_int != prev_id:
-                # End previous segment if any
-                if prev_id is not None and prev_id != blank_id and seg_start is not None:
-                    segments.append({
-                        "token": prev_id,
-                        "start_frame": seg_start,
-                        "end_frame": t - 1,
-                        "start_sec": round(seg_start * time_stride, 4),
-                        "end_sec": round((t - 1) * time_stride, 4),
-                    })
-                seg_start = t
-        prev_id = tok_id_int
+            t += 1
 
-    # Flush last segment
-    if prev_id is not None and prev_id != blank_id and seg_start is not None:
-        segments.append({
-            "token": prev_id,
-            "start_frame": seg_start,
-            "end_frame": len(path) - 1,
-            "start_sec": round(seg_start * time_stride, 4),
-            "end_sec": round((len(path) - 1) * time_stride, 4),
+    # Any omitted / unassigned target tokens
+    while curr_target_idx < L:
+        spans.append({
+            "target_idx": curr_target_idx,
+            "token": token_ids[curr_target_idx],
+            "start_frame": 0,
+            "end_frame": 0,
+            "start_sec": 0.0,
+            "end_sec": 0.0,
+            "duration_sec": 0.0,
         })
+        curr_target_idx += 1
 
-    return segments
+    return spans
 
 
 def _resolve_token_ids(
@@ -110,20 +97,15 @@ def _resolve_token_ids(
 ) -> list[int]:
     """Map IPA phoneme strings to tokenizer vocabulary IDs.
 
-    The ``"#"`` boundary token maps to the CTC blank ID (silence frame),
-    so the forced aligner naturally aligns it to inter-word pauses.
-
-    Raises ForcedAlignmentError if any other token is out-of-vocabulary.
+    Word-boundary '#' markers are ignored (not sent to CTC targets).
+    Raises ForcedAlignmentError if any token is out-of-vocabulary.
     """
     ids: list[int] = []
-    blank_id = config.forced_alignment.blank_token_id
     for ph in tokens:
         if ph == "#":
-            ids.append(blank_id)
             continue
         tid = tokenizer.convert_tokens_to_ids(ph)
         if tid is None or tid == tokenizer.unk_token_id:
-            # Try removing stress / length marks
             stripped = ph.strip("ˈˌːˑ")
             tid = tokenizer.convert_tokens_to_ids(stripped)
         if tid is None or tid == tokenizer.unk_token_id:
@@ -260,9 +242,19 @@ class PhonemeForcedAligner:
 
         Computes confidence (mean softmax prob of the EXPECTED token over
         the segment's frames), the model's argmax prediction, duration,
-        and the resulting [0, 100] score.  Used by both the matched and
-        the mismatch branches of ``align()``.
+        and the resulting [0, 100] score.
         """
+        if seg.get("duration_sec", 0.0) <= 0:
+            return {
+                "phoneme": expected,
+                "predicted": "-",
+                "start_sec": 0.0,
+                "end_sec": 0.0,
+                "duration_sec": 0.0,
+                "confidence": 0.0,
+                "score": 0.0,
+            }
+
         start_f = seg["start_frame"]
         end_f = seg["end_frame"]
         duration_f = end_f - start_f + 1
@@ -292,6 +284,233 @@ class PhonemeForcedAligner:
             "score": seg_score,
         }
 
+    def _align_single_word(
+        self,
+        audio_tensor: torch.Tensor,
+        target_ipa_tokens: list[str],
+        sample_rate: int,
+    ) -> dict:
+        """Run forced alignment for a single word / syllable (no '#' boundaries)."""
+        fs = self.time_stride
+
+        # 1. Get logits from the model
+        logits: torch.Tensor = self._loader.get_logits(audio_tensor)  # (1, T, V)
+
+        # 2. Convert to log-probabilities
+        log_probs = torch.nn.functional.log_softmax(logits, dim=-1)  # (1, T, V)
+
+        T = log_probs.size(1)
+        if T < 2:
+            raise ForcedAlignmentError(
+                f"Audio too short: only {T} frames after feature extraction."
+            )
+
+        clean_targets = [ph for ph in target_ipa_tokens if ph != "#"]
+        if not clean_targets:
+            raise ForcedAlignmentError("Target IPA token list is empty.")
+
+        clean_token_ids = _resolve_token_ids(
+            clean_targets, self.processor.tokenizer
+        )
+        L = len(clean_token_ids)
+        if L == 0:
+            raise ForcedAlignmentError("Resolved target token list is empty.")
+
+        targets = torch.tensor([clean_token_ids], device=self.device, dtype=torch.int32)
+        input_lengths = torch.tensor([T], dtype=torch.int32)
+        target_lengths = torch.tensor([L], dtype=torch.int32)
+
+        # 3. Run forced alignment on clean targets
+        blank = self.blank_id
+        forced_out = F.forced_align(
+            log_probs,
+            targets,
+            input_lengths,
+            target_lengths,
+            blank=blank,
+        )
+
+        if isinstance(forced_out, tuple):
+            path: torch.Tensor = forced_out[0]  # (1, T)
+            neg_log_lik: torch.Tensor | None = forced_out[1]
+            nll_val: float | None = (
+                float(neg_log_lik.sum().cpu().item()) if neg_log_lik is not None else None
+            )
+        else:
+            path = forced_out  # (1, T)
+            nll_val = None
+
+        path = path.squeeze(0)  # (T,)
+
+        # 4. Extract deterministic spans
+        spans = _extract_target_spans(path, clean_token_ids, fs)
+
+        # 5. Build per-phoneme output
+        aligned: list[dict] = []
+        probs_all = torch.softmax(logits, dim=-1)  # (1, T, V)
+
+        for i, ph in enumerate(clean_targets):
+            span = spans[i]
+            target_tid = clean_token_ids[i]
+            aligned.append(self._build_segment(
+                span, ph, target_tid, probs_all
+            ))
+
+        avg_conf = round(
+            float(torch.tensor([s["confidence"] for s in aligned]).mean().item()), 4
+        ) if aligned else 0.0
+
+        overall_score = round(
+            float(torch.tensor([s["score"] for s in aligned]).mean().item()), 2
+        ) if aligned else 0.0
+
+        return {
+            "ok": True,
+            "segments": aligned,
+            "overall_confidence": avg_conf,
+            "overall_score": overall_score,
+            "neg_log_likelihood": nll_val,
+        }
+
+    def _align_phrase_word_by_word(
+        self,
+        audio_tensor: torch.Tensor,
+        target_ipa_tokens: list[str],
+        sample_rate: int,
+    ) -> dict:
+        """Align a multi-word phrase by segmenting and evaluating each word independently."""
+        fs = self.time_stride
+
+        # 1. Split tokens by '#' into per-word groups
+        word_groups: list[list[str]] = []
+        current_group: list[str] = []
+        for ph in target_ipa_tokens:
+            if ph == "#":
+                if current_group:
+                    word_groups.append(current_group)
+                    current_group = []
+            else:
+                current_group.append(ph)
+        if current_group:
+            word_groups.append(current_group)
+
+        if not word_groups:
+            raise ForcedAlignmentError("No word groups found in target tokens.")
+
+        # 2. Run a global forward pass on the full audio to find word time windows
+        logits: torch.Tensor = self._loader.get_logits(audio_tensor)  # (1, T, V)
+        log_probs = torch.nn.functional.log_softmax(logits, dim=-1)
+        T = log_probs.size(1)
+
+        all_clean_tokens = [ph for ph in target_ipa_tokens if ph != "#"]
+        all_clean_tids = _resolve_token_ids(all_clean_tokens, self.processor.tokenizer)
+
+        targets = torch.tensor([all_clean_tids], device=self.device, dtype=torch.int32)
+        input_lengths = torch.tensor([T], dtype=torch.int32)
+        target_lengths = torch.tensor([len(all_clean_tids)], dtype=torch.int32)
+
+        forced_out = F.forced_align(
+            log_probs, targets, input_lengths, target_lengths, blank=self.blank_id
+        )
+        global_path: torch.Tensor = (
+            forced_out[0].squeeze(0).cpu()
+            if isinstance(forced_out, tuple)
+            else forced_out.squeeze(0).cpu()
+        )
+
+        # 3. Locate time windows for each word and align each word independently
+        token_offset = 0
+        merged_segments: list[dict] = []
+        num_samples = audio_tensor.size(0)
+
+        for word_idx, w_tokens in enumerate(word_groups):
+            w_tids = all_clean_tids[token_offset : token_offset + len(w_tokens)]
+            token_offset += len(w_tokens)
+
+            # Find frame indices where this word's token IDs occurred in the global path
+            word_frames: list[int] = []
+            for tid in w_tids:
+                matching_t = (global_path == tid).nonzero(as_tuple=True)[0]
+                if len(matching_t) > 0:
+                    word_frames.extend(matching_t.tolist())
+
+            if word_frames:
+                start_f = max(0, min(word_frames) - 2)
+                end_f = min(T - 1, max(word_frames) + 2)
+            else:
+                start_f = int(T * (word_idx / len(word_groups)))
+                end_f = int(T * ((word_idx + 1) / len(word_groups))) - 1
+
+            start_samp = int(start_f * fs * sample_rate)
+            end_samp = min(num_samples, int((end_f + 1) * fs * sample_rate))
+            word_audio_slice = audio_tensor[start_samp:end_samp]
+
+            time_offset = round(start_f * fs, 4)
+
+            # Evaluate word slice independently using single-word aligner
+            if word_audio_slice.size(0) >= int(0.04 * sample_rate):
+                try:
+                    word_res = self._align_single_word(
+                        word_audio_slice, w_tokens, sample_rate
+                    )
+                    w_segs = word_res["segments"]
+                except Exception as exc:
+                    logger.warning("Word %d (%s) slice alignment fallback: %s", word_idx, w_tokens, exc)
+                    w_segs = [{
+                        "phoneme": ph,
+                        "predicted": "-",
+                        "start_sec": 0.0,
+                        "end_sec": 0.0,
+                        "duration_sec": 0.0,
+                        "confidence": 0.0,
+                        "score": 0.0,
+                    } for ph in w_tokens]
+            else:
+                w_segs = [{
+                    "phoneme": ph,
+                    "predicted": "-",
+                    "start_sec": 0.0,
+                    "end_sec": 0.0,
+                    "duration_sec": 0.0,
+                    "confidence": 0.0,
+                    "score": 0.0,
+                } for ph in w_tokens]
+
+            for s in w_segs:
+                if s["duration_sec"] > 0:
+                    s["start_sec"] = round(s["start_sec"] + time_offset, 4)
+                    s["end_sec"] = round(s["end_sec"] + time_offset, 4)
+                merged_segments.append(s)
+
+            if word_idx < len(word_groups) - 1:
+                boundary_time = round((end_f + 1) * fs, 4)
+                merged_segments.append({
+                    "phoneme": "#",
+                    "predicted": "#",
+                    "start_sec": boundary_time,
+                    "end_sec": boundary_time,
+                    "duration_sec": 0.0,
+                    "confidence": 1.0,
+                    "score": 100.0,
+                })
+
+        non_boundary = [s for s in merged_segments if s["phoneme"] != "#"]
+        avg_conf = round(
+            float(torch.tensor([s["confidence"] for s in non_boundary]).mean().item()), 4
+        ) if non_boundary else 0.0
+
+        overall_score = round(
+            float(torch.tensor([s["score"] for s in non_boundary]).mean().item()), 2
+        ) if non_boundary else 0.0
+
+        return {
+            "ok": True,
+            "segments": merged_segments,
+            "overall_confidence": avg_conf,
+            "overall_score": overall_score,
+            "neg_log_likelihood": None,
+        }
+
     # --- public API ---
 
     def align(
@@ -307,7 +526,7 @@ class PhonemeForcedAligner:
         audio_tensor : torch.Tensor
             Shape (N,) — mono audio waveform (float32).
         target_ipa_tokens : list[str]
-            List of IPA phoneme strings, e.g. ["b", "ʌ", "t"].
+            List of IPA phoneme strings, e.g. ["b", "ʌ", "t"] or with "#" boundaries.
         sample_rate : int, optional
             Audio sample rate.  Defaults to `config.audio.target_sample_rate`.
 
@@ -316,9 +535,8 @@ class PhonemeForcedAligner:
         dict with keys:
             - "ok": bool
             - "segments": list[dict]  (present only if ok=True)
-                Each dict: {"phoneme", "start_sec", "end_sec",
-                            "duration_sec", "confidence"}
             - "overall_confidence": float
+            - "overall_score": float
             - "error": str  (present only if ok=False)
             - "neg_log_likelihood": float or None
         """
@@ -326,132 +544,16 @@ class PhonemeForcedAligner:
             sample_rate = config.audio.target_sample_rate
 
         self._lazy_load()
-        fs = self.time_stride
 
         try:
-            # 1. Get logits from the model
-            logits: torch.Tensor = self._loader.get_logits(audio_tensor)  # (1, T, V)
-
-            # 2. Convert to log-probabilities
-            log_probs = torch.nn.functional.log_softmax(logits, dim=-1)  # (1, T, V)
-
-            T = log_probs.size(1)
-            if T < 2:
-                raise ForcedAlignmentError(
-                    f"Audio too short: only {T} frames after feature extraction."
-                )
-
-            # 3. Map target tokens to token IDs
-            token_ids = _resolve_token_ids(
-                target_ipa_tokens, self.processor.tokenizer
-            )
-            L = len(token_ids)
-            if L == 0:
-                raise ForcedAlignmentError("Target IPA token list is empty.")
-
-            targets = torch.tensor([token_ids], device=self.device, dtype=torch.int32)
-            input_lengths = torch.tensor([T], dtype=torch.int32)
-            target_lengths = torch.tensor([L], dtype=torch.int32)
-
-            # 4. Run forced alignment
-            blank = self.blank_id
-            forced_out = F.forced_align(
-                log_probs,
-                targets,
-                input_lengths,
-                target_lengths,
-                blank=blank,
-            )
-
-            # forced_out may be (path, neg_log_likelihood) or just path
-            if isinstance(forced_out, tuple):
-                path: torch.Tensor = forced_out[0]  # (1, T)
-                neg_log_lik: torch.Tensor | None = forced_out[1]  # (1, T) per-frame or (1,) scalar
-                nll_val: float | None = (
-                    float(neg_log_lik.sum().cpu().item()) if neg_log_lik is not None else None
+            if "#" in target_ipa_tokens:
+                return self._align_phrase_word_by_word(
+                    audio_tensor, target_ipa_tokens, sample_rate
                 )
             else:
-                path = forced_out  # (1, T)
-                nll_val = None
-
-            path = path.squeeze(0)  # (T,)
-
-            # 5. Convert path to phoneme segments
-            raw_segments = _path_to_segments(path, blank, fs)
-
-            # 6. Build per-phoneme output aligned to the target tokens
-            #    (merge consecutive same-token segments)
-            aligned: list[dict] = []
-            probs_all = torch.softmax(logits, dim=-1)  # (1, T, V)
-
-            # Assign each target token to its matching path segments
-            # We iterate in parallel over target tokens and path segments
-            tid_idx = 0
-            seg_idx = 0
-            while tid_idx < L and seg_idx < len(raw_segments):
-                target_tid = token_ids[tid_idx]
-                seg = raw_segments[seg_idx]
-                seg_tid = seg["token"]
-
-                if seg_tid == target_tid:
-                    # This segment belongs to the current target token
-                    aligned.append(self._build_segment(
-                        seg, target_ipa_tokens[tid_idx], target_tid, probs_all
-                    ))
-                    tid_idx += 1
-                    seg_idx += 1
-                elif seg_tid == blank:
-                    # Skip blank segments
-                    seg_idx += 1
-                else:
-                    # Mismatch: the path predicted something other than the target
-                    # Log it and advance both (segment is still used as-is)
-                    logger.warning(
-                        "Alignment mismatch at target idx %d: expected token %s (id=%d), "
-                        "path has token id=%d. Using segment anyway.",
-                        tid_idx, target_ipa_tokens[tid_idx], target_tid, seg_tid,
-                    )
-                    aligned.append(self._build_segment(
-                        seg, target_ipa_tokens[tid_idx], target_tid, probs_all
-                    ))
-                    tid_idx += 1
-                    seg_idx += 1
-
-            # If we didn't process all target tokens, fill remaining with zero-confidence
-            while tid_idx < L:
-                logger.warning(
-                    "No alignment frames for target token '%s' at index %d — setting zero confidence.",
-                    target_ipa_tokens[tid_idx], tid_idx,
+                return self._align_single_word(
+                    audio_tensor, target_ipa_tokens, sample_rate
                 )
-                aligned.append({
-                    "phoneme": target_ipa_tokens[tid_idx],
-                    "predicted": "-",
-                    "start_sec": 0.0,
-                    "end_sec": 0.0,
-                    "duration_sec": 0.0,
-                    "confidence": 0.0,
-                    "score": 0.0,
-                })
-                tid_idx += 1
-
-            if not aligned:
-                return {"ok": False, "error": "Forced alignment produced zero phoneme segments."}
-
-            avg_conf = round(
-                float(torch.tensor([s["confidence"] for s in aligned]).mean().item()), 4
-            )
-
-            overall_score = round(
-                float(torch.tensor([s["score"] for s in aligned]).mean().item()), 2
-            ) if aligned else 0.0
-
-            return {
-                "ok": True,
-                "segments": aligned,
-                "overall_confidence": avg_conf,
-                "overall_score": overall_score,
-                "neg_log_likelihood": nll_val,
-            }
 
         except ForcedAlignmentError:
             raise

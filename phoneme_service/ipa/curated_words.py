@@ -32,30 +32,67 @@ def _load_curated() -> dict[str, list[str]]:
 
 
 def curated_ipa(word: str) -> str:
-    """Return the curated IPA string for ``word`` (e.g. "dɔɡ").
+    """Return the curated IPA string for ``word`` (e.g. "dɔɡ" or "ðə kæt").
 
     Raises
     ------
     ValueError
-        If the word is not in ``data/curated_words.csv``.
+        If any word in the phrase is not in ``data/curated_words.csv``.
     """
     key = _clean_word(word).lower()
-    phonemes = _load_curated().get(key)
-    if phonemes is None:
-        raise ValueError(
-            f"Word '{word}' is not in the curated word list "
-            f"({_CURATED_CSV.name}). "
-            f"Add it to data/curated_words.csv or use scripts/word_to_ipa.py "
-            f"to draft its phonemes."
-        )
-    return "".join(phonemes)
+    curated_map = _load_curated()
+    phonemes = curated_map.get(key)
+    if phonemes is not None:
+        return "".join(phonemes)
+
+    # Try resolving phrase word-by-word
+    sub_words = key.split()
+    if len(sub_words) > 1:
+        ipa_parts = []
+        for sw in sub_words:
+            sw_ph = curated_map.get(sw)
+            if sw_ph is None:
+                raise ValueError(
+                    f"Word '{sw}' in phrase '{word}' is not in the curated word list "
+                    f"({_CURATED_CSV.name})."
+                )
+            ipa_parts.append("".join(sw_ph))
+        return " ".join(ipa_parts)
+
+    raise ValueError(
+        f"Word '{word}' is not in the curated word list "
+        f"({_CURATED_CSV.name}). "
+        f"Add it to data/curated_words.csv or use scripts/word_to_ipa.py "
+        f"to draft its phonemes."
+    )
 
 
 def curated_phonemes(word: str) -> list[str]:
-    """Return the curated phoneme tokens for ``word`` (e.g. ["d", "ɔ", "ɡ"])."""
-    return _load_curated()[_clean_word(word).lower()]
+    """Return the curated phoneme tokens for ``word`` (e.g. ["d", "ɔ", "ɡ"] or with "#")."""
+    key = _clean_word(word).lower()
+    curated_map = _load_curated()
+    if key in curated_map:
+        return list(curated_map[key])
+
+    sub_words = key.split()
+    if len(sub_words) > 1:
+        tokens = []
+        for i, sw in enumerate(sub_words):
+            if i > 0:
+                tokens.append("#")
+            sw_ph = curated_map.get(sw)
+            if sw_ph is None:
+                raise ValueError(
+                    f"Word '{sw}' in phrase '{word}' is not in the curated word list "
+                    f"({_CURATED_CSV.name})."
+                )
+            tokens.extend(sw_ph)
+        return tokens
+
+    return list(curated_map[key])
 
 
 def curated_words() -> list[str]:
     """All words in the curated list (sorted)."""
     return sorted(_load_curated())
+
