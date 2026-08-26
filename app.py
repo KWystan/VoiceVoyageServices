@@ -70,6 +70,8 @@ logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
 )
+logger = logging.getLogger("voicevoyage.unified")
+
 import torch
 # Optimize PyTorch memory & execution for cloud container
 torch.set_grad_enabled(False)
