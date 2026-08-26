@@ -72,11 +72,26 @@ logging.basicConfig(
 )
 logger = logging.getLogger("voicevoyage.unified")
 
+from contextlib import asynccontextmanager
+
+# --- Warmup Lifespan Handler ---
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    try:
+        from audio.processor import get_denoiser
+        denoiser = get_denoiser()
+        denoiser._lazy_load()
+        logger.info("DeepFilterNet denoiser pre-loaded on startup.")
+    except Exception as exc:
+        logger.warning("DeepFilterNet startup warmup skipped: %s", exc)
+    yield
+
 # --- FastAPI Initialization ---
 app = FastAPI(
     title="Voice Voyage Unified Services",
     description="Unified backend providing Phoneme Assessment (Wav2Vec2) and Dynamic Practice Modules (LLM) in a single service.",
     version="2.0.0",
+    lifespan=lifespan,
 )
 
 app.add_middleware(
@@ -99,17 +114,6 @@ def make_dynamic_service() -> ModuleService:
     )
 
 dynamic_service = make_dynamic_service()
-
-# --- Warmup on Startup ---
-@app.on_event("startup")
-async def warmup():
-    try:
-        from audio.processor import get_denoiser
-        denoiser = get_denoiser()
-        denoiser._lazy_load()
-        logger.info("DeepFilterNet denoiser pre-loaded on startup.")
-    except Exception as exc:
-        logger.warning("DeepFilterNet startup warmup skipped: %s", exc)
 
 
 # --- Root Overview ---
