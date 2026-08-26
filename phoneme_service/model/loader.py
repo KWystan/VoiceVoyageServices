@@ -35,26 +35,31 @@ class Wav2Vec2ModelLoader:
 
     def __init__(self) -> None:
         model_id = config.model.wav2vec_model_id
-        self.device: str = config.model.resolve_device()
+        import os
+        hf_token = os.environ.get("HF_TOKEN") or None
 
         # Try loading from local cache first to avoid Hub chatter.
         # Fall back to regular download if not cached.
         try:
             feature_extractor = Wav2Vec2FeatureExtractor.from_pretrained(
-                model_id, local_files_only=True
+                model_id, local_files_only=True, token=hf_token
             )
             tokenizer = Wav2Vec2PhonemeCTCTokenizer.from_pretrained(
-                model_id, local_files_only=True, do_phonemize=False
+                model_id, local_files_only=True, do_phonemize=False, token=hf_token
             )
             self.model = Wav2Vec2ForCTC.from_pretrained(
-                model_id, local_files_only=True
+                model_id, local_files_only=True, token=hf_token
             ).to(self.device)
         except EnvironmentError:
-            feature_extractor = Wav2Vec2FeatureExtractor.from_pretrained(model_id)
-            tokenizer = Wav2Vec2PhonemeCTCTokenizer.from_pretrained(
-                model_id, do_phonemize=False
+            feature_extractor = Wav2Vec2FeatureExtractor.from_pretrained(
+                model_id, token=hf_token
             )
-            self.model = Wav2Vec2ForCTC.from_pretrained(model_id).to(self.device)
+            tokenizer = Wav2Vec2PhonemeCTCTokenizer.from_pretrained(
+                model_id, do_phonemize=False, token=hf_token
+            )
+            self.model = Wav2Vec2ForCTC.from_pretrained(
+                model_id, token=hf_token
+            ).to(self.device)
 
         self.processor: Wav2Vec2Processor = Wav2Vec2Processor(
             feature_extractor=feature_extractor, tokenizer=tokenizer
