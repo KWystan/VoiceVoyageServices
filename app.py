@@ -77,6 +77,7 @@ from contextlib import asynccontextmanager
 # --- Warmup Lifespan Handler ---
 @asynccontextmanager
 async def lifespan(app: FastAPI):
+    # 1. Warmup DeepFilterNet denoiser
     try:
         from audio.processor import get_denoiser
         denoiser = get_denoiser()
@@ -84,6 +85,16 @@ async def lifespan(app: FastAPI):
         logger.info("DeepFilterNet denoiser pre-loaded on startup.")
     except Exception as exc:
         logger.warning("DeepFilterNet startup warmup skipped: %s", exc)
+
+    # 2. Warmup Wav2Vec2 Forced Aligner model (so first /assess is instant!)
+    try:
+        from model.forced_aligner import get_aligner
+        aligner = get_aligner()
+        aligner._lazy_load()
+        logger.info("Wav2Vec2 forced aligner pre-loaded on startup.")
+    except Exception as exc:
+        logger.warning("Wav2Vec2 startup warmup skipped: %s", exc)
+
     yield
 
 # --- FastAPI Initialization ---
