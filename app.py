@@ -243,5 +243,10 @@ def create_module(
 
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 8000))
-    uvicorn.run(app, host="0.0.0.0", port=port)
+    port_env = os.environ.get("PORT", "8000")
+    try:
+        port = int(port_env)
+    except ValueError:
+        port = 8000
+    print(f"Starting Voice Voyage Unified API on port {port}...")
+    uvicorn.run("app:app", host="0.0.0.0", port=port)
