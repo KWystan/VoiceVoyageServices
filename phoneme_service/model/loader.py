@@ -36,10 +36,11 @@ class Wav2Vec2ModelLoader:
     def __init__(self) -> None:
         model_id = config.model.wav2vec_model_id
         import os
+        import time
         hf_token = os.environ.get("HF_TOKEN") or None
 
         # Try loading from local cache first to avoid Hub chatter.
-        # Fall back to regular download if not cached.
+        # Fall back to regular download if not cached with 3-attempt retry.
         try:
             feature_extractor = Wav2Vec2FeatureExtractor.from_pretrained(
                 model_id, local_files_only=True, token=hf_token
@@ -51,15 +52,26 @@ class Wav2Vec2ModelLoader:
                 model_id, local_files_only=True, token=hf_token
             ).to(self.device)
         except EnvironmentError:
-            feature_extractor = Wav2Vec2FeatureExtractor.from_pretrained(
-                model_id, token=hf_token
-            )
-            tokenizer = Wav2Vec2PhonemeCTCTokenizer.from_pretrained(
-                model_id, do_phonemize=False, token=hf_token
-            )
-            self.model = Wav2Vec2ForCTC.from_pretrained(
-                model_id, token=hf_token
-            ).to(self.device)
+            last_err = None
+            for attempt in range(1, 4):
+                try:
+                    feature_extractor = Wav2Vec2FeatureExtractor.from_pretrained(
+                        model_id, token=hf_token
+                    )
+                    tokenizer = Wav2Vec2PhonemeCTCTokenizer.from_pretrained(
+                        model_id, do_phonemize=False, token=hf_token
+                    )
+                    self.model = Wav2Vec2ForCTC.from_pretrained(
+                        model_id, token=hf_token
+                    ).to(self.device)
+                    last_err = None
+                    break
+                except Exception as err:
+                    last_err = err
+                    if attempt < 3:
+                        time.sleep(2 * attempt)
+            if last_err:
+                raise last_err
 
         self.processor: Wav2Vec2Processor = Wav2Vec2Processor(
             feature_extractor=feature_extractor, tokenizer=tokenizer

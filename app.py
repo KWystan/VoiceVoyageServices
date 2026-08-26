@@ -70,7 +70,13 @@ logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
 )
-logger = logging.getLogger("voicevoyage.unified")
+import torch
+# Optimize PyTorch memory & execution for cloud container
+torch.set_grad_enabled(False)
+try:
+    torch.set_num_threads(2)
+except Exception:
+    pass
 
 from contextlib import asynccontextmanager
 
@@ -82,19 +88,22 @@ async def lifespan(app: FastAPI):
         from audio.processor import get_denoiser
         denoiser = get_denoiser()
         denoiser._lazy_load()
-        logger.info("DeepFilterNet denoiser pre-loaded on startup.")
+        logger.info("[STARTUP] DeepFilterNet denoiser pre-loaded.")
     except Exception as exc:
-        logger.warning("DeepFilterNet startup warmup skipped: %s", exc)
+        logger.warning("[STARTUP] DeepFilterNet warmup skipped: %s", exc)
 
-    # 2. Warmup Wav2Vec2 Forced Aligner model (so first /assess is instant!)
+    # 2. Warmup Wav2Vec2 Forced Aligner & initialize PyTorch execution kernels
     try:
         from model.forced_aligner import get_aligner
         aligner = get_aligner()
         aligner._lazy_load()
-        logger.info("Wav2Vec2 forced aligner pre-loaded on startup.")
+        dummy_audio = torch.zeros(16000, dtype=torch.float32)
+        aligner.model_loader.get_logits(dummy_audio)
+        logger.info("[STARTUP] Wav2Vec2 model pre-loaded and execution graph warmed up.")
     except Exception as exc:
-        logger.warning("Wav2Vec2 startup warmup skipped: %s", exc)
+        logger.warning("[STARTUP] Wav2Vec2 warmup error: %s", exc)
 
+    logger.info("[STARTUP] Voice Voyage Unified Backend is 100% ready for API requests.")
     yield
 
 # --- FastAPI Initialization ---
