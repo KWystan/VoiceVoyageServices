@@ -1,0 +1,25 @@
+# dynamic_modules_service .dockerignore — keep image ~300 MB, no secrets
+.git
+.gitignore
+.cache
+__pycache__
+*.pyc
+*.pyo
+.pytest_cache
+.mypy_cache
+.venv
+venv
+.env
+*.env
+!.env.example
+.vscode
+.idea
+.agents
+docs
+records
+tests
+models
+*.tmp
+Thumbs.db
+.DS_Store
+tempCodeRunnerFile.py

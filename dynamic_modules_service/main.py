@@ -72,6 +72,7 @@ app.add_middleware(
     allow_origins=config.cors_origins,
     allow_methods=["*"],
     allow_headers=["*"],
+    allow_credentials=False,
 )
 
 
@@ -158,6 +159,11 @@ def create_module(
     }
 
 
+@app.get("/")
+def root():
+    return {"service": "Voice Voyage Dynamic Modules Service", "status": "online", "provider": config.llm_provider, "model": config.llm_model}
+
+
 @app.get("/health")
 def health():
     return {"status": "ok", "service": "dynamic-modules",
@@ -165,8 +171,9 @@ def health():
 
 
 if __name__ == "__main__":
+    port = int(os.environ.get("PORT", config.port))
     uvicorn.run(
         app,
         host=config.host,
-        port=config.port,
+        port=port,
     )
