@@ -22,12 +22,14 @@ if not sys.flags.utf8_mode:
     sys.exit()
 
 import os
+import asyncio
 import uvicorn
 
 
-from fastapi import FastAPI, UploadFile, File, Form
+from fastapi import FastAPI, UploadFile, File, Form, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
+from contextlib import asynccontextmanager
 
 _PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 if _PROJECT_ROOT not in sys.path:
@@ -60,32 +62,60 @@ logger = logging.getLogger(__name__)
 # FastAPI app
 # ---------------------------------------------------------------------------
 
-app = FastAPI(title="Model-10 Pronunciation Assessment", version="2.0.0")
+# ---------------------------------------------------------------------------
+# Non-blocking warmup — prevents Railway probe timeout (model 1.4GB)
+# ---------------------------------------------------------------------------
+
+_model_ready = asyncio.Event()
+_model_status = "initializing"
+
+
+async def _background_warmup():
+    global _model_status
+    logger.info("[STARTUP] Background warmup started...")
+    try:
+        from audio.processor import get_denoiser
+        await asyncio.to_thread(lambda: get_denoiser()._lazy_load())
+        logger.info("DeepFilterNet denoiser pre-loaded.")
+    except Exception as exc:
+        logger.warning("DeepFilterNet startup warmup skipped: %s", exc)
+
+    try:
+        from model.forced_aligner import get_aligner
+        import torch
+
+        def _load_wav2vec():
+            a = get_aligner()
+            a._lazy_load()
+            t = torch.zeros(16000, dtype=torch.float32)
+            a._loader.get_logits(t)
+
+        await asyncio.to_thread(_load_wav2vec)
+        logger.info("Wav2Vec2 pre-loaded & quantized.")
+    except Exception as exc:
+        logger.warning("Wav2Vec2 background warmup skipped: %s", exc)
+
+    _model_status = "ready"
+    _model_ready.set()
+    logger.info("[STARTUP] Phoneme service ready.")
+
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    asyncio.create_task(_background_warmup())
+    yield
+
+
+app = FastAPI(title="Model-10 Pronunciation Assessment", version="2.0.0", lifespan=lifespan)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=config.server.cors_origins,
     allow_methods=["*"],
     allow_headers=["*"],
+    allow_credentials=False,
 )
 
 service = AssessmentService()
-
-# ---------------------------------------------------------------------------
-# Startup warmup
-# ---------------------------------------------------------------------------
-
-
-@app.on_event("startup")
-async def warmup():
-    """Pre-load DeepFilterNet denoiser so the first noisy recording
-    doesn't incur a ~5s lazy-load penalty."""
-    try:
-        from audio.processor import get_denoiser
-        denoiser = get_denoiser()
-        denoiser._lazy_load()
-        logger.info("DeepFilterNet denoiser pre-loaded on startup.")
-    except Exception as exc:
-        logger.warning("DeepFilterNet startup warmup skipped: %s", exc)
 
 
 # ---------------------------------------------------------------------------
@@ -115,6 +145,12 @@ async def assess_pronunciation(
     ``assessment`` (backward-compatible with Flutter app), plus
     ``pcc``, ``phoneme_header``, and ``age_applicable_processes``.
     """
+    if not _model_ready.is_set():
+        try:
+            await asyncio.wait_for(_model_ready.wait(), timeout=45.0)
+        except asyncio.TimeoutError:
+            raise HTTPException(status_code=503, detail="Model is still initializing. Please retry in 10 seconds.")
+
     try:
         raw_audio = await file.read()
         result = service.assess(word=word, age=age, audio_bytes=raw_audio)
@@ -150,9 +186,14 @@ async def assess_pronunciation(
 # Health check
 # ---------------------------------------------------------------------------
 
+@app.get("/")
+async def root():
+    return {"service": "Voice Voyage Phoneme Service", "status": "online", "model_status": _model_status, "model": config.model.wav2vec_model_id}
+
+
 @app.get("/health")
 async def health():
-    return {"status": "ok", "model": config.model.wav2vec_model_id}
+    return {"status": "ok", "model": config.model.wav2vec_model_id, "model_ready": _model_ready.is_set(), "model_status": _model_status}
 
 
 # ---------------------------------------------------------------------------
@@ -160,8 +201,10 @@ async def health():
 # ---------------------------------------------------------------------------
 
 if __name__ == "__main__":
+    # Railway injects PORT; respect it
+    port = int(os.environ.get("PORT", config.server.port))
     uvicorn.run(
         app,
         host=config.server.host,
-        port=config.server.port,
+        port=port,
     )
