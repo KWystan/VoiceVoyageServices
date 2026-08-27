@@ -9,17 +9,27 @@ ENV PYTHONUNBUFFERED=1 \
     PIP_NO_CACHE_DIR=1 \
     HF_HOME=/app/.cache/huggingface \
     TORCH_HOME=/app/.cache/torch \
-    PYTHONPYCACHEPREFIX=/app/.cache/pycache
+    PYTHONPYCACHEPREFIX=/app/.cache/pycache \
+    HF_HUB_DISABLE_TELEMETRY=1 \
+    HF_HUB_DISABLE_PROGRESS_BARS=1 \
+    TRANSFORMERS_VERBOSITY=error \
+    OMP_NUM_THREADS=1 \
+    MKL_NUM_THREADS=1 \
+    OPENBLAS_NUM_THREADS=1 \
+    NUMEXPR_NUM_THREADS=1 \
+    VV_FP16=1
 
 WORKDIR /app
 
 # System deps: ffmpeg (librosa/soundfile), libsndfile1 (soundfile), git (hf_hub)
+# git is kept for hf_transfer but `fatal: not a git repository` warning is silenced via ENV above
 RUN apt-get update && apt-get install -y --no-install-recommends \
     ffmpeg \
     libsndfile1 \
     git \
     && rm -rf /var/lib/apt/lists/* \
-    && mkdir -p /app/.cache/huggingface /app/.cache/torch /app/.cache/pycache
+    && mkdir -p /app/.cache/huggingface /app/.cache/torch /app/.cache/pycache \
+    && git config --global --add safe.directory /app
 
 # Python deps — CPU-only torch to cut image ~2 GB vs CUDA
 COPY requirements.txt .

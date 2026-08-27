@@ -38,7 +38,12 @@ class Wav2Vec2ModelLoader:
         self.device: str = config.model.resolve_device()
         import os
         import time
+        import gc
         hf_token = os.environ.get("HF_TOKEN") or None
+
+        # Free tier: use float16 + low_cpu_mem_usage to stay under ~700MB peak
+        # (was float32 ~1.2GB -> Killed on 512MB/1GB free tier at pytorch_model.bin)
+        _use_fp16 = self.device == "cpu" and os.environ.get("VV_FP16", "1") == "1"
 
         # Try loading from local cache first to avoid Hub chatter.
         # Fall back to regular download if not cached with 3-attempt retry.
@@ -50,20 +55,24 @@ class Wav2Vec2ModelLoader:
                 model_id, local_files_only=True, do_phonemize=False, token=hf_token
             )
             self.model = Wav2Vec2ForCTC.from_pretrained(
-                model_id, local_files_only=True, token=hf_token
+                model_id, local_files_only=True, token=hf_token,
+                torch_dtype=torch.float16 if _use_fp16 else None,
+                low_cpu_mem_usage=True,
             ).to(self.device)
         except EnvironmentError:
             last_err = None
             for attempt in range(1, 4):
                 try:
                     feature_extractor = Wav2Vec2FeatureExtractor.from_pretrained(
-                        model_id, token=hf_token
+                        model_id, token=hf_token, trust_remote_code=False
                     )
                     tokenizer = Wav2Vec2PhonemeCTCTokenizer.from_pretrained(
-                        model_id, do_phonemize=False, token=hf_token
+                        model_id, do_phonemize=False, token=hf_token, trust_remote_code=False
                     )
                     self.model = Wav2Vec2ForCTC.from_pretrained(
-                        model_id, token=hf_token
+                        model_id, token=hf_token, trust_remote_code=False,
+                        torch_dtype=torch.float16 if _use_fp16 else None,
+                        low_cpu_mem_usage=True,
                     ).to(self.device)
                     last_err = None
                     break
@@ -75,13 +84,21 @@ class Wav2Vec2ModelLoader:
                 raise last_err
 
         # Dynamic INT8 Quantization on CPU reduces RAM from 1.2GB -> 300MB and speeds up inference
-        if self.device == "cpu":
+        # Skip quant if already fp16 (int8 on fp16 not supported; fp16 already ~600MB peak)
+        if self.device == "cpu" and not _use_fp16:
             try:
                 self.model = torch.quantization.quantize_dynamic(
                     self.model, {torch.nn.Linear}, dtype=torch.qint8
                 )
             except Exception:
                 pass
+        # Hint GC after heavy load to drop temp buffers before health check
+        try:
+            gc.collect()
+            if torch.cuda.is_available():
+                torch.cuda.empty_cache()
+        except Exception:
+            pass
 
         self.processor: Wav2Vec2Processor = Wav2Vec2Processor(
             feature_extractor=feature_extractor, tokenizer=tokenizer
