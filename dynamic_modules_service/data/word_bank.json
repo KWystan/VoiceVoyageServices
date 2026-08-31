@@ -3,7 +3,7 @@
     {
       "text": "bla",
       "level": "syllable",
-      "phonemes": "b,l,ɑ",
+      "phonemes": "b,l,\u0251",
       "target_sound": "l",
       "position": "initial",
       "processes": [
@@ -35,8 +35,8 @@
     {
       "text": "cha",
       "level": "syllable",
-      "phonemes": "tʃ,ɑ",
-      "target_sound": "tʃ",
+      "phonemes": "t\u0283,\u0251",
+      "target_sound": "t\u0283",
       "position": "initial",
       "processes": [
         "Deaffrication"
@@ -51,8 +51,8 @@
     {
       "text": "chee",
       "level": "syllable",
-      "phonemes": "tʃ,i",
-      "target_sound": "tʃ",
+      "phonemes": "t\u0283,i",
+      "target_sound": "t\u0283",
       "position": "initial",
       "processes": [
         "Deaffrication"
@@ -67,8 +67,8 @@
     {
       "text": "cho",
       "level": "syllable",
-      "phonemes": "tʃ,oʊ",
-      "target_sound": "tʃ",
+      "phonemes": "t\u0283,o\u028a",
+      "target_sound": "t\u0283",
       "position": "initial",
       "processes": [
         "Deaffrication"
@@ -83,8 +83,8 @@
     {
       "text": "chu",
       "level": "syllable",
-      "phonemes": "tʃ,u",
-      "target_sound": "tʃ",
+      "phonemes": "t\u0283,u",
+      "target_sound": "t\u0283",
       "position": "initial",
       "processes": [
         "Deaffrication"
@@ -99,7 +99,7 @@
     {
       "text": "da",
       "level": "syllable",
-      "phonemes": "d,ɑ",
+      "phonemes": "d,\u0251",
       "target_sound": "d",
       "position": "initial",
       "processes": [
@@ -135,7 +135,7 @@
     {
       "text": "dra",
       "level": "syllable",
-      "phonemes": "d,r,æ",
+      "phonemes": "d,r,\u00e6",
       "target_sound": "r",
       "position": "initial",
       "processes": [
@@ -169,7 +169,7 @@
     {
       "text": "el",
       "level": "syllable",
-      "phonemes": "ɛ,l",
+      "phonemes": "\u025b,l",
       "target_sound": "l",
       "position": "final",
       "processes": [
@@ -186,7 +186,7 @@
     {
       "text": "fa",
       "level": "syllable",
-      "phonemes": "f,ɑ",
+      "phonemes": "f,\u0251",
       "target_sound": "f",
       "position": "initial",
       "processes": [
@@ -218,7 +218,7 @@
     {
       "text": "fla",
       "level": "syllable",
-      "phonemes": "f,l,æ",
+      "phonemes": "f,l,\u00e6",
       "target_sound": "l",
       "position": "initial",
       "processes": [
@@ -250,8 +250,8 @@
     {
       "text": "ga",
       "level": "syllable",
-      "phonemes": "ɡ,ɑ",
-      "target_sound": "ɡ",
+      "phonemes": "\u0261,\u0251",
+      "target_sound": "\u0261",
       "position": "initial",
       "processes": [
         "Fronting",
@@ -268,8 +268,8 @@
     {
       "text": "gee",
       "level": "syllable",
-      "phonemes": "ɡ,i",
-      "target_sound": "ɡ",
+      "phonemes": "\u0261,i",
+      "target_sound": "\u0261",
       "position": "initial",
       "processes": [
         "Fronting",
@@ -286,7 +286,7 @@
     {
       "text": "glu",
       "level": "syllable",
-      "phonemes": "ɡ,l,u",
+      "phonemes": "\u0261,l,u",
       "target_sound": "l",
       "position": "initial",
       "processes": [
@@ -302,7 +302,7 @@
     {
       "text": "gra",
       "level": "syllable",
-      "phonemes": "ɡ,r,æ",
+      "phonemes": "\u0261,r,\u00e6",
       "target_sound": "r",
       "position": "initial",
       "processes": [
@@ -319,7 +319,7 @@
     {
       "text": "gro",
       "level": "syllable",
-      "phonemes": "ɡ,r,oʊ",
+      "phonemes": "\u0261,r,o\u028a",
       "target_sound": "r",
       "position": "initial",
       "processes": [
@@ -336,8 +336,8 @@
     {
       "text": "ja",
       "level": "syllable",
-      "phonemes": "dʒ,ɑ",
-      "target_sound": "dʒ",
+      "phonemes": "d\u0292,\u0251",
+      "target_sound": "d\u0292",
       "position": "initial",
       "processes": [
         "Deaffrication"
@@ -352,8 +352,8 @@
     {
       "text": "jee",
       "level": "syllable",
-      "phonemes": "dʒ,i",
-      "target_sound": "dʒ",
+      "phonemes": "d\u0292,i",
+      "target_sound": "d\u0292",
       "position": "initial",
       "processes": [
         "Deaffrication"
@@ -368,8 +368,8 @@
     {
       "text": "jo",
       "level": "syllable",
-      "phonemes": "dʒ,oʊ",
-      "target_sound": "dʒ",
+      "phonemes": "d\u0292,o\u028a",
+      "target_sound": "d\u0292",
       "position": "initial",
       "processes": [
         "Deaffrication"
@@ -384,8 +384,8 @@
     {
       "text": "ju",
       "level": "syllable",
-      "phonemes": "dʒ,u",
-      "target_sound": "dʒ",
+      "phonemes": "d\u0292,u",
+      "target_sound": "d\u0292",
       "position": "initial",
       "processes": [
         "Deaffrication"
@@ -400,7 +400,7 @@
     {
       "text": "ka",
       "level": "syllable",
-      "phonemes": "k,ɑ",
+      "phonemes": "k,\u0251",
       "target_sound": "k",
       "position": "initial",
       "processes": [
@@ -454,7 +454,7 @@
     {
       "text": "ko",
       "level": "syllable",
-      "phonemes": "k,oʊ",
+      "phonemes": "k,o\u028a",
       "target_sound": "k",
       "position": "initial",
       "processes": [
@@ -472,7 +472,7 @@
     {
       "text": "kra",
       "level": "syllable",
-      "phonemes": "k,r,æ",
+      "phonemes": "k,r,\u00e6",
       "target_sound": "r",
       "position": "initial",
       "processes": [
@@ -524,7 +524,7 @@
     {
       "text": "la",
       "level": "syllable",
-      "phonemes": "l,ɑ",
+      "phonemes": "l,\u0251",
       "target_sound": "l",
       "position": "initial",
       "processes": [
@@ -572,7 +572,7 @@
     {
       "text": "lo",
       "level": "syllable",
-      "phonemes": "l,oʊ",
+      "phonemes": "l,o\u028a",
       "target_sound": "l",
       "position": "initial",
       "processes": [
@@ -604,7 +604,7 @@
     {
       "text": "ol",
       "level": "syllable",
-      "phonemes": "oʊ,l",
+      "phonemes": "o\u028a,l",
       "target_sound": "l",
       "position": "final",
       "processes": [
@@ -621,7 +621,7 @@
     {
       "text": "pla",
       "level": "syllable",
-      "phonemes": "p,l,ɑ",
+      "phonemes": "p,l,\u0251",
       "target_sound": "l",
       "position": "initial",
       "processes": [
@@ -637,7 +637,7 @@
     {
       "text": "ra",
       "level": "syllable",
-      "phonemes": "r,ɑ",
+      "phonemes": "r,\u0251",
       "target_sound": "r",
       "position": "initial",
       "processes": [
@@ -685,7 +685,7 @@
     {
       "text": "ro",
       "level": "syllable",
-      "phonemes": "r,oʊ",
+      "phonemes": "r,o\u028a",
       "target_sound": "r",
       "position": "initial",
       "processes": [
@@ -717,7 +717,7 @@
     {
       "text": "sa",
       "level": "syllable",
-      "phonemes": "s,ɑ",
+      "phonemes": "s,\u0251",
       "target_sound": "s",
       "position": "initial",
       "processes": [
@@ -753,8 +753,8 @@
     {
       "text": "sha",
       "level": "syllable",
-      "phonemes": "ʃ,ɑ",
-      "target_sound": "ʃ",
+      "phonemes": "\u0283,\u0251",
+      "target_sound": "\u0283",
       "position": "initial",
       "processes": [
         "Palatal Fronting",
@@ -770,8 +770,8 @@
     {
       "text": "shee",
       "level": "syllable",
-      "phonemes": "ʃ,i",
-      "target_sound": "ʃ",
+      "phonemes": "\u0283,i",
+      "target_sound": "\u0283",
       "position": "initial",
       "processes": [
         "Palatal Fronting",
@@ -839,7 +839,7 @@
     {
       "text": "so",
       "level": "syllable",
-      "phonemes": "s,oʊ",
+      "phonemes": "s,o\u028a",
       "target_sound": "s",
       "position": "initial",
       "processes": [
@@ -857,7 +857,7 @@
     {
       "text": "spa",
       "level": "syllable",
-      "phonemes": "s,p,ɑ",
+      "phonemes": "s,p,\u0251",
       "target_sound": "s",
       "position": "initial",
       "processes": [
@@ -874,7 +874,7 @@
     {
       "text": "spo",
       "level": "syllable",
-      "phonemes": "s,p,oʊ",
+      "phonemes": "s,p,o\u028a",
       "target_sound": "s",
       "position": "initial",
       "processes": [
@@ -891,7 +891,7 @@
     {
       "text": "sta",
       "level": "syllable",
-      "phonemes": "s,t,ɑ",
+      "phonemes": "s,t,\u0251",
       "target_sound": "s",
       "position": "initial",
       "processes": [
@@ -925,7 +925,7 @@
     {
       "text": "sto",
       "level": "syllable",
-      "phonemes": "s,t,oʊ",
+      "phonemes": "s,t,o\u028a",
       "target_sound": "s",
       "position": "initial",
       "processes": [
@@ -942,7 +942,7 @@
     {
       "text": "ta",
       "level": "syllable",
-      "phonemes": "t,ɑ",
+      "phonemes": "t,\u0251",
       "target_sound": "t",
       "position": "initial",
       "processes": [
@@ -978,8 +978,8 @@
     {
       "text": "tha",
       "level": "syllable",
-      "phonemes": "θ,ɑ",
-      "target_sound": "θ",
+      "phonemes": "\u03b8,\u0251",
+      "target_sound": "\u03b8",
       "position": "initial",
       "processes": [
         "Stopping",
@@ -995,8 +995,8 @@
     {
       "text": "the",
       "level": "syllable",
-      "phonemes": "ð,ə",
-      "target_sound": "ð",
+      "phonemes": "\u00f0,\u0259",
+      "target_sound": "\u00f0",
       "position": "initial",
       "processes": [
         "Stopping"
@@ -1011,8 +1011,8 @@
     {
       "text": "thee",
       "level": "syllable",
-      "phonemes": "θ,i",
-      "target_sound": "θ",
+      "phonemes": "\u03b8,i",
+      "target_sound": "\u03b8",
       "position": "initial",
       "processes": [
         "Stopping",
@@ -1028,8 +1028,8 @@
     {
       "text": "they-syl",
       "level": "syllable",
-      "phonemes": "ð,eɪ",
-      "target_sound": "ð",
+      "phonemes": "\u00f0,e\u026a",
+      "target_sound": "\u00f0",
       "position": "initial",
       "processes": [
         "Stopping"
@@ -1044,8 +1044,8 @@
     {
       "text": "tho",
       "level": "syllable",
-      "phonemes": "θ,oʊ",
-      "target_sound": "θ",
+      "phonemes": "\u03b8,o\u028a",
+      "target_sound": "\u03b8",
       "position": "initial",
       "processes": [
         "Stopping",
@@ -1061,7 +1061,7 @@
     {
       "text": "tra",
       "level": "syllable",
-      "phonemes": "t,r,æ",
+      "phonemes": "t,r,\u00e6",
       "target_sound": "r",
       "position": "initial",
       "processes": [
@@ -1095,7 +1095,7 @@
     {
       "text": "tro",
       "level": "syllable",
-      "phonemes": "t,r,oʊ",
+      "phonemes": "t,r,o\u028a",
       "target_sound": "r",
       "position": "initial",
       "processes": [
@@ -1112,7 +1112,7 @@
     {
       "text": "va",
       "level": "syllable",
-      "phonemes": "v,ɑ",
+      "phonemes": "v,\u0251",
       "target_sound": "v",
       "position": "initial",
       "processes": [
@@ -1144,7 +1144,7 @@
     {
       "text": "za",
       "level": "syllable",
-      "phonemes": "z,ɑ",
+      "phonemes": "z,\u0251",
       "target_sound": "z",
       "position": "initial",
       "processes": [
@@ -1180,7 +1180,7 @@
     {
       "text": "alligator",
       "level": "word",
-      "phonemes": "æ,l,ɪ,ɡ,eɪ,t,ə,r",
+      "phonemes": "\u00e6,l,\u026a,\u0261,e\u026a,t,\u0259,r",
       "target_sound": "l",
       "position": "initial",
       "processes": [
@@ -1199,7 +1199,7 @@
     {
       "text": "apple",
       "level": "word",
-      "phonemes": "æ,p,əl",
+      "phonemes": "\u00e6,p,\u0259l",
       "target_sound": "l",
       "position": "final",
       "processes": [
@@ -1216,7 +1216,7 @@
     {
       "text": "baby",
       "level": "word",
-      "phonemes": "b,eɪ,b,i",
+      "phonemes": "b,e\u026a,b,i",
       "target_sound": "b",
       "position": "initial",
       "processes": [
@@ -1232,7 +1232,7 @@
     {
       "text": "bag",
       "level": "word",
-      "phonemes": "b,æ,ɡ",
+      "phonemes": "b,\u00e6,\u0261",
       "target_sound": "b",
       "position": "initial",
       "processes": [
@@ -1248,7 +1248,7 @@
     {
       "text": "ball",
       "level": "word",
-      "phonemes": "b,ɔ,l",
+      "phonemes": "b,\u0254,l",
       "target_sound": "l",
       "position": "final",
       "processes": [
@@ -1265,7 +1265,7 @@
     {
       "text": "balloon",
       "level": "word",
-      "phonemes": "b,ə,l,u,n",
+      "phonemes": "b,\u0259,l,u,n",
       "target_sound": "l",
       "position": "medial",
       "processes": [
@@ -1283,7 +1283,7 @@
     {
       "text": "banana",
       "level": "word",
-      "phonemes": "b,ə,n,æ,n,ə",
+      "phonemes": "b,\u0259,n,\u00e6,n,\u0259",
       "target_sound": "n",
       "position": "medial",
       "processes": [
@@ -1301,8 +1301,8 @@
     {
       "text": "bath",
       "level": "word",
-      "phonemes": "b,æ,θ",
-      "target_sound": "θ",
+      "phonemes": "b,\u00e6,\u03b8",
+      "target_sound": "\u03b8",
       "position": "final",
       "processes": [
         "Stopping",
@@ -1317,7 +1317,7 @@
     {
       "text": "bed",
       "level": "word",
-      "phonemes": "b,ɛ,d",
+      "phonemes": "b,\u025b,d",
       "target_sound": "d",
       "position": "final",
       "processes": [
@@ -1334,7 +1334,7 @@
     {
       "text": "bell",
       "level": "word",
-      "phonemes": "b,ɛ,l",
+      "phonemes": "b,\u025b,l",
       "target_sound": "l",
       "position": "final",
       "processes": [
@@ -1351,7 +1351,7 @@
     {
       "text": "bike",
       "level": "word",
-      "phonemes": "b,aɪ,k",
+      "phonemes": "b,a\u026a,k",
       "target_sound": "k",
       "position": "final",
       "processes": [
@@ -1384,7 +1384,7 @@
     {
       "text": "boat",
       "level": "word",
-      "phonemes": "b,oʊ,t",
+      "phonemes": "b,o\u028a,t",
       "target_sound": "t",
       "position": "final",
       "processes": [
@@ -1401,7 +1401,7 @@
     {
       "text": "book",
       "level": "word",
-      "phonemes": "b,ʊ,k",
+      "phonemes": "b,\u028a,k",
       "target_sound": "b",
       "position": "initial",
       "processes": [
@@ -1417,8 +1417,8 @@
     {
       "text": "bridge",
       "level": "word",
-      "phonemes": "b,r,ɪ,dʒ",
-      "target_sound": "dʒ",
+      "phonemes": "b,r,\u026a,d\u0292",
+      "target_sound": "d\u0292",
       "position": "final",
       "processes": [
         "Deaffrication",
@@ -1434,7 +1434,7 @@
     {
       "text": "brother",
       "level": "word",
-      "phonemes": "b,r,ə,ð,ə,r",
+      "phonemes": "b,r,\u0259,\u00f0,\u0259,r",
       "target_sound": "r",
       "position": "initial",
       "processes": [
@@ -1453,7 +1453,7 @@
     {
       "text": "bubble",
       "level": "word",
-      "phonemes": "b,ə,b,əl",
+      "phonemes": "b,\u0259,b,\u0259l",
       "target_sound": "l",
       "position": "medial",
       "processes": [
@@ -1471,7 +1471,7 @@
     {
       "text": "bus",
       "level": "word",
-      "phonemes": "b,ə,s",
+      "phonemes": "b,\u0259,s",
       "target_sound": "s",
       "position": "final",
       "processes": [
@@ -1488,7 +1488,7 @@
     {
       "text": "butterfly",
       "level": "word",
-      "phonemes": "b,ə,t,ə,r,f,l,aɪ",
+      "phonemes": "b,\u0259,t,\u0259,r,f,l,a\u026a",
       "target_sound": "l",
       "position": "medial",
       "processes": [
@@ -1507,7 +1507,7 @@
     {
       "text": "carrot",
       "level": "word",
-      "phonemes": "k,æ,r,ə,t",
+      "phonemes": "k,\u00e6,r,\u0259,t",
       "target_sound": "r",
       "position": "medial",
       "processes": [
@@ -1525,7 +1525,7 @@
     {
       "text": "cat",
       "level": "word",
-      "phonemes": "k,æ,t",
+      "phonemes": "k,\u00e6,t",
       "target_sound": "k",
       "position": "initial",
       "processes": [
@@ -1542,8 +1542,8 @@
     {
       "text": "chair",
       "level": "word",
-      "phonemes": "tʃ,ɛ,r",
-      "target_sound": "tʃ",
+      "phonemes": "t\u0283,\u025b,r",
+      "target_sound": "t\u0283",
       "position": "initial",
       "processes": [
         "Deaffrication",
@@ -1559,8 +1559,8 @@
     {
       "text": "cheese",
       "level": "word",
-      "phonemes": "tʃ,i,z",
-      "target_sound": "tʃ",
+      "phonemes": "t\u0283,i,z",
+      "target_sound": "t\u0283",
       "position": "initial",
       "processes": [
         "Deaffrication",
@@ -1576,8 +1576,8 @@
     {
       "text": "chop",
       "level": "word",
-      "phonemes": "tʃ,ɑ,p",
-      "target_sound": "tʃ",
+      "phonemes": "t\u0283,\u0251,p",
+      "target_sound": "t\u0283",
       "position": "initial",
       "processes": [
         "Deaffrication",
@@ -1593,7 +1593,7 @@
     {
       "text": "cookie",
       "level": "word",
-      "phonemes": "k,ʊ,k,i",
+      "phonemes": "k,\u028a,k,i",
       "target_sound": "k",
       "position": "initial",
       "processes": [
@@ -1611,7 +1611,7 @@
     {
       "text": "coral",
       "level": "word",
-      "phonemes": "k,ɔ,r,əl",
+      "phonemes": "k,\u0254,r,\u0259l",
       "target_sound": "r",
       "position": "medial",
       "processes": [
@@ -1629,7 +1629,7 @@
     {
       "text": "crab",
       "level": "word",
-      "phonemes": "k,r,æ,b",
+      "phonemes": "k,r,\u00e6,b",
       "target_sound": "r",
       "position": "initial",
       "processes": [
@@ -1645,7 +1645,7 @@
     {
       "text": "cup",
       "level": "word",
-      "phonemes": "k,ə,p",
+      "phonemes": "k,\u0259,p",
       "target_sound": "k",
       "position": "initial",
       "processes": [
@@ -1662,7 +1662,7 @@
     {
       "text": "desk",
       "level": "word",
-      "phonemes": "d,ɛ,s,k",
+      "phonemes": "d,\u025b,s,k",
       "target_sound": "d",
       "position": "initial",
       "processes": [
@@ -1679,7 +1679,7 @@
     {
       "text": "dinosaur",
       "level": "word",
-      "phonemes": "d,aɪ,n,ə,s,ɔ,r",
+      "phonemes": "d,a\u026a,n,\u0259,s,\u0254,r",
       "target_sound": "s",
       "position": "medial",
       "processes": [
@@ -1697,7 +1697,7 @@
     {
       "text": "doctor",
       "level": "word",
-      "phonemes": "d,ɑ,k,t,ə,r",
+      "phonemes": "d,\u0251,k,t,\u0259,r",
       "target_sound": "t",
       "position": "medial",
       "processes": [
@@ -1715,8 +1715,8 @@
     {
       "text": "dog",
       "level": "word",
-      "phonemes": "d,ɔ,ɡ",
-      "target_sound": "ɡ",
+      "phonemes": "d,\u0254,\u0261",
+      "target_sound": "\u0261",
       "position": "final",
       "processes": [
         "Final Devoicing",
@@ -1732,7 +1732,7 @@
     {
       "text": "dolphin",
       "level": "word",
-      "phonemes": "d,ɑ,l,f,ə,n",
+      "phonemes": "d,\u0251,l,f,\u0259,n",
       "target_sound": "l",
       "position": "medial",
       "processes": [
@@ -1750,7 +1750,7 @@
     {
       "text": "drive",
       "level": "word",
-      "phonemes": "d,r,aɪ,v",
+      "phonemes": "d,r,a\u026a,v",
       "target_sound": "r",
       "position": "initial",
       "processes": [
@@ -1766,8 +1766,8 @@
     {
       "text": "earth",
       "level": "word",
-      "phonemes": "ɜ,θ",
-      "target_sound": "θ",
+      "phonemes": "\u025c,\u03b8",
+      "target_sound": "\u03b8",
       "position": "final",
       "processes": [
         "Stopping",
@@ -1783,7 +1783,7 @@
     {
       "text": "elephant",
       "level": "word",
-      "phonemes": "ɛ,l,ə,f,ə,n,t",
+      "phonemes": "\u025b,l,\u0259,f,\u0259,n,t",
       "target_sound": "l",
       "position": "medial",
       "processes": [
@@ -1801,8 +1801,8 @@
     {
       "text": "father",
       "level": "word",
-      "phonemes": "f,ɑ,ð,ə,r",
-      "target_sound": "ð",
+      "phonemes": "f,\u0251,\u00f0,\u0259,r",
+      "target_sound": "\u00f0",
       "position": "medial",
       "processes": [
         "Stopping",
@@ -1819,8 +1819,8 @@
     {
       "text": "feather",
       "level": "word",
-      "phonemes": "f,ɛ,ð,ə,r",
-      "target_sound": "ð",
+      "phonemes": "f,\u025b,\u00f0,\u0259,r",
+      "target_sound": "\u00f0",
       "position": "medial",
       "processes": [
         "Stopping",
@@ -1837,8 +1837,8 @@
     {
       "text": "fish",
       "level": "word",
-      "phonemes": "f,ɪ,ʃ",
-      "target_sound": "ʃ",
+      "phonemes": "f,\u026a,\u0283",
+      "target_sound": "\u0283",
       "position": "final",
       "processes": [
         "Palatal Fronting",
@@ -1854,7 +1854,7 @@
     {
       "text": "flag",
       "level": "word",
-      "phonemes": "f,l,æ,ɡ",
+      "phonemes": "f,l,\u00e6,\u0261",
       "target_sound": "l",
       "position": "initial",
       "processes": [
@@ -1870,7 +1870,7 @@
     {
       "text": "frog",
       "level": "word",
-      "phonemes": "f,r,ɑ,ɡ",
+      "phonemes": "f,r,\u0251,\u0261",
       "target_sound": "r",
       "position": "initial",
       "processes": [
@@ -1886,7 +1886,7 @@
     {
       "text": "give",
       "level": "word",
-      "phonemes": "ɡ,ɪ,v",
+      "phonemes": "\u0261,\u026a,v",
       "target_sound": "v",
       "position": "final",
       "processes": [
@@ -1903,7 +1903,7 @@
     {
       "text": "glass",
       "level": "word",
-      "phonemes": "ɡ,l,æ,s",
+      "phonemes": "\u0261,l,\u00e6,s",
       "target_sound": "l",
       "position": "initial",
       "processes": [
@@ -1919,7 +1919,7 @@
     {
       "text": "glove",
       "level": "word",
-      "phonemes": "ɡ,l,ə,v",
+      "phonemes": "\u0261,l,\u0259,v",
       "target_sound": "v",
       "position": "final",
       "processes": [
@@ -1936,8 +1936,8 @@
     {
       "text": "goat",
       "level": "word",
-      "phonemes": "ɡ,oʊ,t",
-      "target_sound": "ɡ",
+      "phonemes": "\u0261,o\u028a,t",
+      "target_sound": "\u0261",
       "position": "initial",
       "processes": [
         "Fronting",
@@ -1954,7 +1954,7 @@
     {
       "text": "green",
       "level": "word",
-      "phonemes": "ɡ,r,i,n",
+      "phonemes": "\u0261,r,i,n",
       "target_sound": "r",
       "position": "initial",
       "processes": [
@@ -1970,8 +1970,8 @@
     {
       "text": "guard",
       "level": "word",
-      "phonemes": "ɡ,ɑ,r,d",
-      "target_sound": "dʒ",
+      "phonemes": "\u0261,\u0251,r,d",
+      "target_sound": "d\u0292",
       "position": "initial",
       "processes": [
         "Deaffrication",
@@ -1987,7 +1987,7 @@
     {
       "text": "hat",
       "level": "word",
-      "phonemes": "h,æ,t",
+      "phonemes": "h,\u00e6,t",
       "target_sound": "t",
       "position": "final",
       "processes": [
@@ -2003,7 +2003,7 @@
     {
       "text": "helicopter",
       "level": "word",
-      "phonemes": "h,ɛ,l,ɪ,k,ɑ,p,t,ə,r",
+      "phonemes": "h,\u025b,l,\u026a,k,\u0251,p,t,\u0259,r",
       "target_sound": "l",
       "position": "medial",
       "processes": [
@@ -2019,7 +2019,7 @@
     {
       "text": "hill",
       "level": "word",
-      "phonemes": "h,ɪ,l",
+      "phonemes": "h,\u026a,l",
       "target_sound": "l",
       "position": "final",
       "processes": [
@@ -2036,8 +2036,8 @@
     {
       "text": "jam",
       "level": "word",
-      "phonemes": "dʒ,æ,m",
-      "target_sound": "dʒ",
+      "phonemes": "d\u0292,\u00e6,m",
+      "target_sound": "d\u0292",
       "position": "initial",
       "processes": [
         "Deaffrication",
@@ -2053,8 +2053,8 @@
     {
       "text": "jeep",
       "level": "word",
-      "phonemes": "dʒ,i,p",
-      "target_sound": "dʒ",
+      "phonemes": "d\u0292,i,p",
+      "target_sound": "d\u0292",
       "position": "initial",
       "processes": [
         "Deaffrication",
@@ -2070,8 +2070,8 @@
     {
       "text": "job",
       "level": "word",
-      "phonemes": "dʒ,ɑ,b",
-      "target_sound": "dʒ",
+      "phonemes": "d\u0292,\u0251,b",
+      "target_sound": "d\u0292",
       "position": "initial",
       "processes": [
         "Deaffrication",
@@ -2087,8 +2087,8 @@
     {
       "text": "judge",
       "level": "word",
-      "phonemes": "dʒ,ə,dʒ",
-      "target_sound": "dʒ",
+      "phonemes": "d\u0292,\u0259,d\u0292",
+      "target_sound": "d\u0292",
       "position": "initial",
       "processes": [
         "Deaffrication",
@@ -2104,8 +2104,8 @@
     {
       "text": "jump",
       "level": "word",
-      "phonemes": "dʒ,ə,m,p",
-      "target_sound": "dʒ",
+      "phonemes": "d\u0292,\u0259,m,p",
+      "target_sound": "d\u0292",
       "position": "initial",
       "processes": [
         "Deaffrication",
@@ -2121,7 +2121,7 @@
     {
       "text": "kangaroo",
       "level": "word",
-      "phonemes": "k,æ,ŋ,ɡ,ə,r,u",
+      "phonemes": "k,\u00e6,\u014b,\u0261,\u0259,r,u",
       "target_sound": "k",
       "position": "initial",
       "processes": [
@@ -2156,8 +2156,8 @@
     {
       "text": "kitchen",
       "level": "word",
-      "phonemes": "k,ɪ,tʃ,ə,n",
-      "target_sound": "tʃ",
+      "phonemes": "k,\u026a,t\u0283,\u0259,n",
+      "target_sound": "t\u0283",
       "position": "medial",
       "processes": [
         "Deaffrication",
@@ -2191,7 +2191,7 @@
     {
       "text": "like",
       "level": "word",
-      "phonemes": "l,aɪ,k",
+      "phonemes": "l,a\u026a,k",
       "target_sound": "l",
       "position": "initial",
       "processes": [
@@ -2208,7 +2208,7 @@
     {
       "text": "line",
       "level": "word",
-      "phonemes": "l,aɪ,n",
+      "phonemes": "l,a\u026a,n",
       "target_sound": "l",
       "position": "initial",
       "processes": [
@@ -2225,7 +2225,7 @@
     {
       "text": "lion",
       "level": "word",
-      "phonemes": "l,aɪ,ə,n",
+      "phonemes": "l,a\u026a,\u0259,n",
       "target_sound": "l",
       "position": "initial",
       "processes": [
@@ -2242,7 +2242,7 @@
     {
       "text": "love",
       "level": "word",
-      "phonemes": "l,ʌ,v",
+      "phonemes": "l,\u028c,v",
       "target_sound": "l",
       "position": "initial",
       "processes": [
@@ -2259,8 +2259,8 @@
     {
       "text": "math",
       "level": "word",
-      "phonemes": "m,æ,θ",
-      "target_sound": "θ",
+      "phonemes": "m,\u00e6,\u03b8",
+      "target_sound": "\u03b8",
       "position": "final",
       "processes": [
         "Stopping",
@@ -2275,8 +2275,8 @@
     {
       "text": "measure",
       "level": "word",
-      "phonemes": "m,ɛ,ʒ,ə,r",
-      "target_sound": "ʒ",
+      "phonemes": "m,\u025b,\u0292,\u0259,r",
+      "target_sound": "\u0292",
       "position": "medial",
       "processes": [
         "Stopping",
@@ -2292,7 +2292,7 @@
     {
       "text": "mirror",
       "level": "word",
-      "phonemes": "m,ɪ,r,ə,r",
+      "phonemes": "m,\u026a,r,\u0259,r",
       "target_sound": "r",
       "position": "medial",
       "processes": [
@@ -2310,7 +2310,7 @@
     {
       "text": "monkey",
       "level": "word",
-      "phonemes": "m,ʌ,ŋ,k,i",
+      "phonemes": "m,\u028c,\u014b,k,i",
       "target_sound": "k",
       "position": "medial",
       "processes": [
@@ -2328,8 +2328,8 @@
     {
       "text": "mother",
       "level": "word",
-      "phonemes": "m,ə,ð,ə,r",
-      "target_sound": "ð",
+      "phonemes": "m,\u0259,\u00f0,\u0259,r",
+      "target_sound": "\u00f0",
       "position": "medial",
       "processes": [
         "Stopping",
@@ -2346,8 +2346,8 @@
     {
       "text": "mouth",
       "level": "word",
-      "phonemes": "m,aʊ,θ",
-      "target_sound": "θ",
+      "phonemes": "m,a\u028a,\u03b8",
+      "target_sound": "\u03b8",
       "position": "final",
       "processes": [
         "Stopping",
@@ -2363,7 +2363,7 @@
     {
       "text": "nose",
       "level": "word",
-      "phonemes": "n,oʊ,z",
+      "phonemes": "n,o\u028a,z",
       "target_sound": "z",
       "position": "final",
       "processes": [
@@ -2381,7 +2381,7 @@
     {
       "text": "octopus",
       "level": "word",
-      "phonemes": "ɑ,k,t,ə,p,ʊ,s",
+      "phonemes": "\u0251,k,t,\u0259,p,\u028a,s",
       "target_sound": "p",
       "position": "medial",
       "processes": [
@@ -2399,8 +2399,8 @@
     {
       "text": "orange",
       "level": "word",
-      "phonemes": "ɔ,r,ɪ,n,dʒ",
-      "target_sound": "dʒ",
+      "phonemes": "\u0254,r,\u026a,n,d\u0292",
+      "target_sound": "d\u0292",
       "position": "medial",
       "processes": [
         "Deaffrication",
@@ -2417,7 +2417,7 @@
     {
       "text": "paper",
       "level": "word",
-      "phonemes": "p,eɪ,p,ə,r",
+      "phonemes": "p,e\u026a,p,\u0259,r",
       "target_sound": "p",
       "position": "initial",
       "processes": [
@@ -2433,8 +2433,8 @@
     {
       "text": "path",
       "level": "word",
-      "phonemes": "p,æ,θ",
-      "target_sound": "θ",
+      "phonemes": "p,\u00e6,\u03b8",
+      "target_sound": "\u03b8",
       "position": "final",
       "processes": [
         "Stopping",
@@ -2450,7 +2450,7 @@
     {
       "text": "pearl",
       "level": "word",
-      "phonemes": "p,ə,r,l",
+      "phonemes": "p,\u0259,r,l",
       "target_sound": "l",
       "position": "final",
       "processes": [
@@ -2467,7 +2467,7 @@
     {
       "text": "pencil",
       "level": "word",
-      "phonemes": "p,ɛ,n,s,əl",
+      "phonemes": "p,\u025b,n,s,\u0259l",
       "target_sound": "s",
       "position": "medial",
       "processes": [
@@ -2486,7 +2486,7 @@
     {
       "text": "pig",
       "level": "word",
-      "phonemes": "p,ɪ,ɡ",
+      "phonemes": "p,\u026a,\u0261",
       "target_sound": "p",
       "position": "initial",
       "processes": [
@@ -2503,7 +2503,7 @@
     {
       "text": "plane",
       "level": "word",
-      "phonemes": "p,l,eɪ,n",
+      "phonemes": "p,l,e\u026a,n",
       "target_sound": "l",
       "position": "initial",
       "processes": [
@@ -2519,7 +2519,7 @@
     {
       "text": "rabbit",
       "level": "word",
-      "phonemes": "r,æ,b,ɪ,t",
+      "phonemes": "r,\u00e6,b,\u026a,t",
       "target_sound": "r",
       "position": "initial",
       "processes": [
@@ -2536,7 +2536,7 @@
     {
       "text": "rain",
       "level": "word",
-      "phonemes": "r,eɪ,n",
+      "phonemes": "r,e\u026a,n",
       "target_sound": "r",
       "position": "initial",
       "processes": [
@@ -2570,7 +2570,7 @@
     {
       "text": "red",
       "level": "word",
-      "phonemes": "r,ɛ,d",
+      "phonemes": "r,\u025b,d",
       "target_sound": "r",
       "position": "initial",
       "processes": [
@@ -2587,7 +2587,7 @@
     {
       "text": "ring",
       "level": "word",
-      "phonemes": "r,ɪ,ŋ",
+      "phonemes": "r,\u026a,\u014b",
       "target_sound": "r",
       "position": "initial",
       "processes": [
@@ -2604,7 +2604,7 @@
     {
       "text": "rock",
       "level": "word",
-      "phonemes": "r,ɑ,k",
+      "phonemes": "r,\u0251,k",
       "target_sound": "r",
       "position": "initial",
       "processes": [
@@ -2621,7 +2621,7 @@
     {
       "text": "rose",
       "level": "word",
-      "phonemes": "r,oʊ,z",
+      "phonemes": "r,o\u028a,z",
       "target_sound": "z",
       "position": "final",
       "processes": [
@@ -2639,7 +2639,7 @@
     {
       "text": "ruler",
       "level": "word",
-      "phonemes": "r,u,l,ə,r",
+      "phonemes": "r,u,l,\u0259,r",
       "target_sound": "r",
       "position": "initial",
       "processes": [
@@ -2656,7 +2656,7 @@
     {
       "text": "sand",
       "level": "word",
-      "phonemes": "s,æ,n,d",
+      "phonemes": "s,\u00e6,n,d",
       "target_sound": "s",
       "position": "initial",
       "processes": [
@@ -2691,7 +2691,7 @@
     {
       "text": "seven",
       "level": "word",
-      "phonemes": "s,ɛ,v,ə,n",
+      "phonemes": "s,\u025b,v,\u0259,n",
       "target_sound": "v",
       "position": "medial",
       "processes": [
@@ -2709,7 +2709,7 @@
     {
       "text": "shark",
       "level": "word",
-      "phonemes": "ʃ,ɑ,r,k",
+      "phonemes": "\u0283,\u0251,r,k",
       "target_sound": "r",
       "position": "medial",
       "processes": [
@@ -2727,8 +2727,8 @@
     {
       "text": "shell",
       "level": "word",
-      "phonemes": "ʃ,ɛ,l",
-      "target_sound": "ʃ",
+      "phonemes": "\u0283,\u025b,l",
+      "target_sound": "\u0283",
       "position": "initial",
       "processes": [
         "Palatal Fronting",
@@ -2744,8 +2744,8 @@
     {
       "text": "ship",
       "level": "word",
-      "phonemes": "ʃ,ɪ,p",
-      "target_sound": "ʃ",
+      "phonemes": "\u0283,\u026a,p",
+      "target_sound": "\u0283",
       "position": "initial",
       "processes": [
         "Palatal Fronting",
@@ -2761,8 +2761,8 @@
     {
       "text": "shoe",
       "level": "word",
-      "phonemes": "ʃ,u",
-      "target_sound": "ʃ",
+      "phonemes": "\u0283,u",
+      "target_sound": "\u0283",
       "position": "initial",
       "processes": [
         "Palatal Fronting",
@@ -2778,7 +2778,7 @@
     {
       "text": "sister",
       "level": "word",
-      "phonemes": "s,ɪ,s,t,ə,r",
+      "phonemes": "s,\u026a,s,t,\u0259,r",
       "target_sound": "s",
       "position": "initial",
       "processes": [
@@ -2797,7 +2797,7 @@
     {
       "text": "sky",
       "level": "word",
-      "phonemes": "s,k,aɪ",
+      "phonemes": "s,k,a\u026a",
       "target_sound": "s",
       "position": "initial",
       "processes": [
@@ -2813,8 +2813,8 @@
     {
       "text": "smooth",
       "level": "word",
-      "phonemes": "s,m,u,ð",
-      "target_sound": "ð",
+      "phonemes": "s,m,u,\u00f0",
+      "target_sound": "\u00f0",
       "position": "final",
       "processes": [
         "Stopping",
@@ -2830,7 +2830,7 @@
     {
       "text": "soap",
       "level": "word",
-      "phonemes": "s,oʊ,p",
+      "phonemes": "s,o\u028a,p",
       "target_sound": "s",
       "position": "initial",
       "processes": [
@@ -2864,7 +2864,7 @@
     {
       "text": "spaghetti",
       "level": "word",
-      "phonemes": "s,p,ə,ɡ,ɛ,t,i",
+      "phonemes": "s,p,\u0259,\u0261,\u025b,t,i",
       "target_sound": "s",
       "position": "initial",
       "processes": [
@@ -2881,7 +2881,7 @@
     {
       "text": "spider",
       "level": "word",
-      "phonemes": "s,p,aɪ,d,ə,r",
+      "phonemes": "s,p,a\u026a,d,\u0259,r",
       "target_sound": "s",
       "position": "initial",
       "processes": [
@@ -2915,7 +2915,7 @@
     {
       "text": "star",
       "level": "word",
-      "phonemes": "s,t,ɑ,r",
+      "phonemes": "s,t,\u0251,r",
       "target_sound": "s",
       "position": "initial",
       "processes": [
@@ -2932,7 +2932,7 @@
     {
       "text": "starfish",
       "level": "word",
-      "phonemes": "s,t,ɑ,r,f,ɪ,ʃ",
+      "phonemes": "s,t,\u0251,r,f,\u026a,\u0283",
       "target_sound": "s",
       "position": "initial",
       "processes": [
@@ -2950,7 +2950,7 @@
     {
       "text": "stone",
       "level": "word",
-      "phonemes": "s,t,oʊ,n",
+      "phonemes": "s,t,o\u028a,n",
       "target_sound": "s",
       "position": "initial",
       "processes": [
@@ -2966,7 +2966,7 @@
     {
       "text": "strawberry",
       "level": "word",
-      "phonemes": "s,t,r,ɔ,b,ɛ,r,i",
+      "phonemes": "s,t,r,\u0254,b,\u025b,r,i",
       "target_sound": "r",
       "position": "initial",
       "processes": [
@@ -2985,7 +2985,7 @@
     {
       "text": "sun",
       "level": "word",
-      "phonemes": "s,ə,n",
+      "phonemes": "s,\u0259,n",
       "target_sound": "s",
       "position": "initial",
       "processes": [
@@ -3002,7 +3002,7 @@
     {
       "text": "swim",
       "level": "word",
-      "phonemes": "s,w,ɪ,m",
+      "phonemes": "s,w,\u026a,m",
       "target_sound": "s",
       "position": "initial",
       "processes": [
@@ -3020,7 +3020,7 @@
     {
       "text": "tall",
       "level": "word",
-      "phonemes": "t,ɔ,l",
+      "phonemes": "t,\u0254,l",
       "target_sound": "l",
       "position": "final",
       "processes": [
@@ -3037,8 +3037,8 @@
     {
       "text": "teacher",
       "level": "word",
-      "phonemes": "t,i,tʃ,ə,r",
-      "target_sound": "tʃ",
+      "phonemes": "t,i,t\u0283,\u0259,r",
+      "target_sound": "t\u0283",
       "position": "medial",
       "processes": [
         "Deaffrication",
@@ -3055,8 +3055,8 @@
     {
       "text": "teeth",
       "level": "word",
-      "phonemes": "t,i,θ",
-      "target_sound": "θ",
+      "phonemes": "t,i,\u03b8",
+      "target_sound": "\u03b8",
       "position": "final",
       "processes": [
         "Stopping",
@@ -3072,8 +3072,8 @@
     {
       "text": "television",
       "level": "word",
-      "phonemes": "t,ɛ,l,ə,v,ɪ,ʒ,ə,n",
-      "target_sound": "ʒ",
+      "phonemes": "t,\u025b,l,\u0259,v,\u026a,\u0292,\u0259,n",
+      "target_sound": "\u0292",
       "position": "medial",
       "processes": [
         "Stopping",
@@ -3089,7 +3089,7 @@
     {
       "text": "ten",
       "level": "word",
-      "phonemes": "t,ɛ,n",
+      "phonemes": "t,\u025b,n",
       "target_sound": "t",
       "position": "initial",
       "processes": [
@@ -3106,8 +3106,8 @@
     {
       "text": "that",
       "level": "word",
-      "phonemes": "ð,æ,t",
-      "target_sound": "ð",
+      "phonemes": "\u00f0,\u00e6,t",
+      "target_sound": "\u00f0",
       "position": "initial",
       "processes": [
         "Stopping",
@@ -3123,8 +3123,8 @@
     {
       "text": "they",
       "level": "word",
-      "phonemes": "ð,eɪ",
-      "target_sound": "ð",
+      "phonemes": "\u00f0,e\u026a",
+      "target_sound": "\u00f0",
       "position": "initial",
       "processes": [
         "Stopping",
@@ -3140,8 +3140,8 @@
     {
       "text": "think",
       "level": "word",
-      "phonemes": "θ,ɪ,ŋ,k",
-      "target_sound": "θ",
+      "phonemes": "\u03b8,\u026a,\u014b,k",
+      "target_sound": "\u03b8",
       "position": "initial",
       "processes": [
         "Stopping",
@@ -3157,8 +3157,8 @@
     {
       "text": "this",
       "level": "word",
-      "phonemes": "ð,ɪ,s",
-      "target_sound": "ð",
+      "phonemes": "\u00f0,\u026a,s",
+      "target_sound": "\u00f0",
       "position": "initial",
       "processes": [
         "Stopping",
@@ -3174,8 +3174,8 @@
     {
       "text": "three",
       "level": "word",
-      "phonemes": "θ,r,i",
-      "target_sound": "θ",
+      "phonemes": "\u03b8,r,i",
+      "target_sound": "\u03b8",
       "position": "initial",
       "processes": [
         "Stopping",
@@ -3191,8 +3191,8 @@
     {
       "text": "thumb",
       "level": "word",
-      "phonemes": "θ,ə,m",
-      "target_sound": "θ",
+      "phonemes": "\u03b8,\u0259,m",
+      "target_sound": "\u03b8",
       "position": "initial",
       "processes": [
         "Stopping",
@@ -3208,8 +3208,8 @@
     {
       "text": "toothbrush",
       "level": "word",
-      "phonemes": "t,u,θ,b,r,ə,ʃ",
-      "target_sound": "θ",
+      "phonemes": "t,u,\u03b8,b,r,\u0259,\u0283",
+      "target_sound": "\u03b8",
       "position": "medial",
       "processes": [
         "Stopping",
@@ -3225,7 +3225,7 @@
     {
       "text": "train",
       "level": "word",
-      "phonemes": "t,r,eɪ,n",
+      "phonemes": "t,r,e\u026a,n",
       "target_sound": "r",
       "position": "initial",
       "processes": [
@@ -3241,8 +3241,8 @@
     {
       "text": "treasure",
       "level": "word",
-      "phonemes": "t,r,ɛ,ʒ,ə,r",
-      "target_sound": "ʒ",
+      "phonemes": "t,r,\u025b,\u0292,\u0259,r",
+      "target_sound": "\u0292",
       "position": "medial",
       "processes": [
         "Stopping",
@@ -3258,7 +3258,7 @@
     {
       "text": "truck",
       "level": "word",
-      "phonemes": "t,r,ə,k",
+      "phonemes": "t,r,\u0259,k",
       "target_sound": "r",
       "position": "initial",
       "processes": [
@@ -3274,7 +3274,7 @@
     {
       "text": "van",
       "level": "word",
-      "phonemes": "v,æ,n",
+      "phonemes": "v,\u00e6,n",
       "target_sound": "v",
       "position": "initial",
       "processes": [
@@ -3291,8 +3291,8 @@
     {
       "text": "vegetable",
       "level": "word",
-      "phonemes": "v,ɛ,dʒ,t,ə,b,əl",
-      "target_sound": "dʒ",
+      "phonemes": "v,\u025b,d\u0292,t,\u0259,b,\u0259l",
+      "target_sound": "d\u0292",
       "position": "medial",
       "processes": [
         "Deaffrication",
@@ -3308,7 +3308,7 @@
     {
       "text": "very",
       "level": "word",
-      "phonemes": "v,ɛ,r,i",
+      "phonemes": "v,\u025b,r,i",
       "target_sound": "v",
       "position": "initial",
       "processes": [
@@ -3326,7 +3326,7 @@
     {
       "text": "vest",
       "level": "word",
-      "phonemes": "v,ɛ,s,t",
+      "phonemes": "v,\u025b,s,t",
       "target_sound": "v",
       "position": "initial",
       "processes": [
@@ -3344,8 +3344,8 @@
     {
       "text": "vision",
       "level": "word",
-      "phonemes": "v,ɪ,ʒ,ə,n",
-      "target_sound": "ʒ",
+      "phonemes": "v,\u026a,\u0292,\u0259,n",
+      "target_sound": "\u0292",
       "position": "medial",
       "processes": [
         "Stopping",
@@ -3361,7 +3361,7 @@
     {
       "text": "volcano",
       "level": "word",
-      "phonemes": "v,ɑ,l,k,eɪ,n,oʊ",
+      "phonemes": "v,\u0251,l,k,e\u026a,n,o\u028a",
       "target_sound": "v",
       "position": "initial",
       "processes": [
@@ -3379,8 +3379,8 @@
     {
       "text": "watch",
       "level": "word",
-      "phonemes": "w,ɔ,tʃ",
-      "target_sound": "tʃ",
+      "phonemes": "w,\u0254,t\u0283",
+      "target_sound": "t\u0283",
       "position": "final",
       "processes": [
         "Deaffrication",
@@ -3396,7 +3396,7 @@
     {
       "text": "wave",
       "level": "word",
-      "phonemes": "w,eɪ,v",
+      "phonemes": "w,e\u026a,v",
       "target_sound": "v",
       "position": "final",
       "processes": [
@@ -3413,7 +3413,7 @@
     {
       "text": "whale",
       "level": "word",
-      "phonemes": "w,eɪ,l",
+      "phonemes": "w,e\u026a,l",
       "target_sound": "l",
       "position": "final",
       "processes": [
@@ -3430,7 +3430,7 @@
     {
       "text": "write",
       "level": "word",
-      "phonemes": "r,aɪ,t",
+      "phonemes": "r,a\u026a,t",
       "target_sound": "r",
       "position": "initial",
       "processes": [
@@ -3447,7 +3447,7 @@
     {
       "text": "yarn",
       "level": "word",
-      "phonemes": "j,ɑ,r,n",
+      "phonemes": "j,\u0251,r,n",
       "target_sound": "j",
       "position": "initial",
       "processes": [
@@ -3464,7 +3464,7 @@
     {
       "text": "yellow",
       "level": "word",
-      "phonemes": "j,ɛ,l,oʊ",
+      "phonemes": "j,\u025b,l,o\u028a",
       "target_sound": "l",
       "position": "medial",
       "processes": [
@@ -3482,7 +3482,7 @@
     {
       "text": "yoyo",
       "level": "word",
-      "phonemes": "j,oʊ,j,oʊ",
+      "phonemes": "j,o\u028a,j,o\u028a",
       "target_sound": "j",
       "position": "initial",
       "processes": [
@@ -3517,8 +3517,8 @@
     {
       "text": "a big chair",
       "level": "phrase",
-      "phonemes": "ə,b,ɪ,ɡ,tʃ,ɛ,r",
-      "target_sound": "tʃ",
+      "phonemes": "\u0259,b,\u026a,\u0261,t\u0283,\u025b,r",
+      "target_sound": "t\u0283",
       "position": "initial",
       "processes": [
         "Deaffrication",
@@ -3534,7 +3534,7 @@
     {
       "text": "a big cup",
       "level": "phrase",
-      "phonemes": "ə,b,ɪ,ɡ,k,ə,p",
+      "phonemes": "\u0259,b,\u026a,\u0261,k,\u0259,p",
       "target_sound": "k",
       "position": "initial",
       "processes": [
@@ -3551,7 +3551,7 @@
     {
       "text": "a big sock",
       "level": "phrase",
-      "phonemes": "ə,b,ɪ,ɡ,s,ɑ,k",
+      "phonemes": "\u0259,b,\u026a,\u0261,s,\u0251,k",
       "target_sound": "s",
       "position": "initial",
       "processes": [
@@ -3568,7 +3568,7 @@
     {
       "text": "a big whale",
       "level": "phrase",
-      "phonemes": "ə,b,ɪ,ɡ,w,eɪ,l",
+      "phonemes": "\u0259,b,\u026a,\u0261,w,e\u026a,l",
       "target_sound": "l",
       "position": "final",
       "processes": [
@@ -3585,7 +3585,7 @@
     {
       "text": "a red ball",
       "level": "phrase",
-      "phonemes": "ə,r,ɛ,d,b,ɔ,l",
+      "phonemes": "\u0259,r,\u025b,d,b,\u0254,l",
       "target_sound": "l",
       "position": "final",
       "processes": [
@@ -3602,7 +3602,7 @@
     {
       "text": "a red car",
       "level": "phrase",
-      "phonemes": "ə,r,ɛ,d,k,ɑ,r",
+      "phonemes": "\u0259,r,\u025b,d,k,\u0251,r",
       "target_sound": "r",
       "position": "initial",
       "processes": [
@@ -3619,8 +3619,8 @@
     {
       "text": "a treasure map",
       "level": "phrase",
-      "phonemes": "ə,t,r,ɛ,ʒ,ə,r,m,æ,p",
-      "target_sound": "ʒ",
+      "phonemes": "\u0259,t,r,\u025b,\u0292,\u0259,r,m,\u00e6,p",
+      "target_sound": "\u0292",
       "position": "medial",
       "processes": [
         "Stopping",
@@ -3637,7 +3637,7 @@
     {
       "text": "drive the truck",
       "level": "phrase",
-      "phonemes": "d,r,aɪ,v,ð,ə,t,r,ə,k",
+      "phonemes": "d,r,a\u026a,v,\u00f0,\u0259,t,r,\u0259,k",
       "target_sound": "r",
       "position": "initial",
       "processes": [
@@ -3653,7 +3653,7 @@
     {
       "text": "my cookie",
       "level": "phrase",
-      "phonemes": "m,aɪ,k,ʊ,k,i",
+      "phonemes": "m,a\u026a,k,\u028a,k,i",
       "target_sound": "k",
       "position": "initial",
       "processes": [
@@ -3671,8 +3671,8 @@
     {
       "text": "my father",
       "level": "phrase",
-      "phonemes": "m,aɪ,f,ɑ,ð,ə,r",
-      "target_sound": "ð",
+      "phonemes": "m,a\u026a,f,\u0251,\u00f0,\u0259,r",
+      "target_sound": "\u00f0",
       "position": "medial",
       "processes": [
         "Stopping",
@@ -3689,8 +3689,8 @@
     {
       "text": "my mother",
       "level": "phrase",
-      "phonemes": "m,aɪ,m,ə,ð,ə,r",
-      "target_sound": "ð",
+      "phonemes": "m,a\u026a,m,\u0259,\u00f0,\u0259,r",
+      "target_sound": "\u00f0",
       "position": "medial",
       "processes": [
         "Stopping",
@@ -3707,7 +3707,7 @@
     {
       "text": "my red ruler",
       "level": "phrase",
-      "phonemes": "m,aɪ,r,ɛ,d,r,u,l,ə,r",
+      "phonemes": "m,a\u026a,r,\u025b,d,r,u,l,\u0259,r",
       "target_sound": "r",
       "position": "initial",
       "processes": [
@@ -3724,8 +3724,8 @@
     {
       "text": "my watch",
       "level": "phrase",
-      "phonemes": "m,aɪ,w,ɑ,tʃ",
-      "target_sound": "tʃ",
+      "phonemes": "m,a\u026a,w,\u0251,t\u0283",
+      "target_sound": "t\u0283",
       "position": "final",
       "processes": [
         "Deaffrication",
@@ -3741,7 +3741,7 @@
     {
       "text": "my yellow book",
       "level": "phrase",
-      "phonemes": "m,aɪ,j,ɛ,l,oʊ,b,ʊ,k",
+      "phonemes": "m,a\u026a,j,\u025b,l,o\u028a,b,\u028a,k",
       "target_sound": "l",
       "position": "medial",
       "processes": [
@@ -3759,7 +3759,7 @@
     {
       "text": "see the sea",
       "level": "phrase",
-      "phonemes": "s,i,ð,ə,s,i",
+      "phonemes": "s,i,\u00f0,\u0259,s,i",
       "target_sound": "s",
       "position": "initial",
       "processes": [
@@ -3776,7 +3776,7 @@
     {
       "text": "the bell",
       "level": "phrase",
-      "phonemes": "ð,ə,b,ɛ,l",
+      "phonemes": "\u00f0,\u0259,b,\u025b,l",
       "target_sound": "l",
       "position": "final",
       "processes": [
@@ -3793,7 +3793,7 @@
     {
       "text": "the big star",
       "level": "phrase",
-      "phonemes": "ð,ə,b,ɪ,ɡ,s,t,ɑ,r",
+      "phonemes": "\u00f0,\u0259,b,\u026a,\u0261,s,t,\u0251,r",
       "target_sound": "s",
       "position": "initial",
       "processes": [
@@ -3809,7 +3809,7 @@
     {
       "text": "the blue flag",
       "level": "phrase",
-      "phonemes": "ð,ə,b,l,u,f,l,æ,ɡ",
+      "phonemes": "\u00f0,\u0259,b,l,u,f,l,\u00e6,\u0261",
       "target_sound": "l",
       "position": "initial",
       "processes": [
@@ -3825,7 +3825,7 @@
     {
       "text": "the green truck",
       "level": "phrase",
-      "phonemes": "ð,ə,ɡ,r,i,n,t,r,ə,k",
+      "phonemes": "\u00f0,\u0259,\u0261,r,i,n,t,r,\u0259,k",
       "target_sound": "r",
       "position": "initial",
       "processes": [
@@ -3841,7 +3841,7 @@
     {
       "text": "the key",
       "level": "phrase",
-      "phonemes": "ð,ə,k,i",
+      "phonemes": "\u00f0,\u0259,k,i",
       "target_sound": "k",
       "position": "initial",
       "processes": [
@@ -3858,8 +3858,8 @@
     {
       "text": "the red bridge",
       "level": "phrase",
-      "phonemes": "ð,ə,r,ɛ,d,b,r,ɪ,dʒ",
-      "target_sound": "dʒ",
+      "phonemes": "\u00f0,\u0259,r,\u025b,d,b,r,\u026a,d\u0292",
+      "target_sound": "d\u0292",
       "position": "final",
       "processes": [
         "Deaffrication",
@@ -3876,8 +3876,8 @@
     {
       "text": "the smooth feather",
       "level": "phrase",
-      "phonemes": "ð,ə,s,m,u,ð,f,ɛ,ð,ə,r",
-      "target_sound": "ð",
+      "phonemes": "\u00f0,\u0259,s,m,u,\u00f0,f,\u025b,\u00f0,\u0259,r",
+      "target_sound": "\u00f0",
       "position": "medial",
       "processes": [
         "Stopping",
@@ -3893,7 +3893,7 @@
     {
       "text": "the sun",
       "level": "phrase",
-      "phonemes": "ð,ə,s,ə,n",
+      "phonemes": "\u00f0,\u0259,s,\u0259,n",
       "target_sound": "s",
       "position": "initial",
       "processes": [
@@ -3910,8 +3910,8 @@
     {
       "text": "this is that",
       "level": "phrase",
-      "phonemes": "ð,ɪ,s,ɪ,z,ð,æ,t",
-      "target_sound": "ð",
+      "phonemes": "\u00f0,\u026a,s,\u026a,z,\u00f0,\u00e6,t",
+      "target_sound": "\u00f0",
       "position": "initial",
       "processes": [
         "Stopping",
@@ -3927,7 +3927,7 @@
     {
       "text": "visit the clinic",
       "level": "phrase",
-      "phonemes": "v,ɪ,z,ɪ,t,ð,ə,k,l,ɪ,n,ɪ,k",
+      "phonemes": "v,\u026a,z,\u026a,t,\u00f0,\u0259,k,l,\u026a,n,\u026a,k",
       "target_sound": "v",
       "position": "initial",
       "processes": [
@@ -3946,7 +3946,7 @@
     {
       "text": "Drive the truck.",
       "level": "sentence",
-      "phonemes": "d,r,aɪ,v,ð,ə,t,r,ə,k",
+      "phonemes": "d,r,a\u026a,v,\u00f0,\u0259,t,r,\u0259,k",
       "target_sound": "r",
       "position": "initial",
       "processes": [
@@ -3962,8 +3962,8 @@
     {
       "text": "I brush my teeth.",
       "level": "sentence",
-      "phonemes": "aɪ,b,r,ə,ʃ,m,aɪ,t,i,θ",
-      "target_sound": "θ",
+      "phonemes": "a\u026a,b,r,\u0259,\u0283,m,a\u026a,t,i,\u03b8",
+      "target_sound": "\u03b8",
       "position": "final",
       "processes": [
         "Stopping",
@@ -3979,7 +3979,7 @@
     {
       "text": "I drink from a cup.",
       "level": "sentence",
-      "phonemes": "aɪ,d,r,ɪ,ŋ,k,f,r,ə,m,ə,k,ə,p",
+      "phonemes": "a\u026a,d,r,\u026a,\u014b,k,f,r,\u0259,m,\u0259,k,\u0259,p",
       "target_sound": "k",
       "position": "initial",
       "processes": [
@@ -3996,7 +3996,7 @@
     {
       "text": "I go to school.",
       "level": "sentence",
-      "phonemes": "aɪ,ɡ,oʊ,t,ə,s,k,u,l",
+      "phonemes": "a\u026a,\u0261,o\u028a,t,\u0259,s,k,u,l",
       "target_sound": "s",
       "position": "initial",
       "processes": [
@@ -4014,7 +4014,7 @@
     {
       "text": "I have a new book.",
       "level": "sentence",
-      "phonemes": "aɪ,h,æ,v,ə,n,u,b,ʊ,k",
+      "phonemes": "a\u026a,h,\u00e6,v,\u0259,n,u,b,\u028a,k",
       "target_sound": "v",
       "position": "initial",
       "processes": [
@@ -4031,8 +4031,8 @@
     {
       "text": "I like cheese.",
       "level": "sentence",
-      "phonemes": "aɪ,l,aɪ,k,tʃ,i,z",
-      "target_sound": "tʃ",
+      "phonemes": "a\u026a,l,a\u026a,k,t\u0283,i,z",
+      "target_sound": "t\u0283",
       "position": "initial",
       "processes": [
         "Deaffrication",
@@ -4048,7 +4048,7 @@
     {
       "text": "I like my home.",
       "level": "sentence",
-      "phonemes": "aɪ,l,aɪ,k,m,aɪ,h,oʊ,m",
+      "phonemes": "a\u026a,l,a\u026a,k,m,a\u026a,h,o\u028a,m",
       "target_sound": "l",
       "position": "initial",
       "processes": [
@@ -4065,7 +4065,7 @@
     {
       "text": "I like the ball.",
       "level": "sentence",
-      "phonemes": "aɪ,l,aɪ,k,ð,ə,b,ɔ,l",
+      "phonemes": "a\u026a,l,a\u026a,k,\u00f0,\u0259,b,\u0254,l",
       "target_sound": "l",
       "position": "final",
       "processes": [
@@ -4082,7 +4082,7 @@
     {
       "text": "I love my family.",
       "level": "sentence",
-      "phonemes": "aɪ,l,ʌ,v,m,aɪ,f,æ,m,ə,l,i",
+      "phonemes": "a\u026a,l,\u028c,v,m,a\u026a,f,\u00e6,m,\u0259,l,i",
       "target_sound": "l",
       "position": "initial",
       "processes": [
@@ -4102,8 +4102,8 @@
     {
       "text": "I protect the earth.",
       "level": "sentence",
-      "phonemes": "aɪ,p,r,ə,t,ɛ,k,t,ð,ə,ɜ,θ",
-      "target_sound": "θ",
+      "phonemes": "a\u026a,p,r,\u0259,t,\u025b,k,t,\u00f0,\u0259,\u025c,\u03b8",
+      "target_sound": "\u03b8",
       "position": "final",
       "processes": [
         "Stopping",
@@ -4120,7 +4120,7 @@
     {
       "text": "I read books.",
       "level": "sentence",
-      "phonemes": "aɪ,r,i,d,b,ʊ,k,s",
+      "phonemes": "a\u026a,r,i,d,b,\u028a,k,s",
       "target_sound": "r",
       "position": "initial",
       "processes": [
@@ -4137,7 +4137,7 @@
     {
       "text": "I ride my bicycle.",
       "level": "sentence",
-      "phonemes": "aɪ,r,aɪ,d,m,aɪ,b,aɪ,s,ɪ,k,əl",
+      "phonemes": "a\u026a,r,a\u026a,d,m,a\u026a,b,a\u026a,s,\u026a,k,\u0259l",
       "target_sound": "r",
       "position": "initial",
       "processes": [
@@ -4156,7 +4156,7 @@
     {
       "text": "I see a cookie.",
       "level": "sentence",
-      "phonemes": "aɪ,s,i,ə,k,ʊ,k,i",
+      "phonemes": "a\u026a,s,i,\u0259,k,\u028a,k,i",
       "target_sound": "k",
       "position": "initial",
       "processes": [
@@ -4174,7 +4174,7 @@
     {
       "text": "I see a sock.",
       "level": "sentence",
-      "phonemes": "aɪ,s,i,ə,s,ɑ,k",
+      "phonemes": "a\u026a,s,i,\u0259,s,\u0251,k",
       "target_sound": "s",
       "position": "initial",
       "processes": [
@@ -4191,8 +4191,8 @@
     {
       "text": "I sit on the chair.",
       "level": "sentence",
-      "phonemes": "aɪ,s,ɪ,t,ɔ,n,ð,ə,tʃ,ɛ,r",
-      "target_sound": "tʃ",
+      "phonemes": "a\u026a,s,\u026a,t,\u0254,n,\u00f0,\u0259,t\u0283,\u025b,r",
+      "target_sound": "t\u0283",
       "position": "initial",
       "processes": [
         "Deaffrication",
@@ -4208,7 +4208,7 @@
     {
       "text": "My brother drives the truck.",
       "level": "sentence",
-      "phonemes": "m,aɪ,b,r,ə,ð,ə,r,d,r,aɪ,v,z,ð,ə,t,r,ə,k",
+      "phonemes": "m,a\u026a,b,r,\u0259,\u00f0,\u0259,r,d,r,a\u026a,v,z,\u00f0,\u0259,t,r,\u0259,k",
       "target_sound": "r",
       "position": "initial",
       "processes": [
@@ -4227,7 +4227,7 @@
     {
       "text": "My key opens the door.",
       "level": "sentence",
-      "phonemes": "m,aɪ,k,i,oʊ,p,ə,n,z,ð,ə,d,ɔ,r",
+      "phonemes": "m,a\u026a,k,i,o\u028a,p,\u0259,n,z,\u00f0,\u0259,d,\u0254,r",
       "target_sound": "k",
       "position": "initial",
       "processes": [
@@ -4244,7 +4244,7 @@
     {
       "text": "My red ruler is here.",
       "level": "sentence",
-      "phonemes": "m,aɪ,r,ɛ,d,r,u,l,ə,r,ɪ,z,h,ɪ,r",
+      "phonemes": "m,a\u026a,r,\u025b,d,r,u,l,\u0259,r,\u026a,z,h,\u026a,r",
       "target_sound": "r",
       "position": "initial",
       "processes": [
@@ -4261,7 +4261,7 @@
     {
       "text": "My sister and brother play.",
       "level": "sentence",
-      "phonemes": "m,aɪ,s,ɪ,s,t,ə,r,æ,n,d,b,r,ə,ð,ə,r,p,l,eɪ",
+      "phonemes": "m,a\u026a,s,\u026a,s,t,\u0259,r,\u00e6,n,d,b,r,\u0259,\u00f0,\u0259,r,p,l,e\u026a",
       "target_sound": "r",
       "position": "initial",
       "processes": [
@@ -4280,7 +4280,7 @@
     {
       "text": "The baby is sleeping.",
       "level": "sentence",
-      "phonemes": "ð,ə,b,eɪ,b,i,ɪ,z,s,l,i,p,ɪ,ŋ",
+      "phonemes": "\u00f0,\u0259,b,e\u026a,b,i,\u026a,z,s,l,i,p,\u026a,\u014b",
       "target_sound": "b",
       "position": "initial",
       "processes": [
@@ -4296,7 +4296,7 @@
     {
       "text": "The bell rings.",
       "level": "sentence",
-      "phonemes": "ð,ə,b,ɛ,l,r,ɪ,ŋ,z",
+      "phonemes": "\u00f0,\u0259,b,\u025b,l,r,\u026a,\u014b,z",
       "target_sound": "l",
       "position": "final",
       "processes": [
@@ -4313,7 +4313,7 @@
     {
       "text": "The blue ribbon is red.",
       "level": "sentence",
-      "phonemes": "ð,ə,b,l,u,r,ɪ,b,ə,n,ɪ,z,r,ɛ,d",
+      "phonemes": "\u00f0,\u0259,b,l,u,r,\u026a,b,\u0259,n,\u026a,z,r,\u025b,d",
       "target_sound": "r",
       "position": "initial",
       "processes": [
@@ -4332,7 +4332,7 @@
     {
       "text": "The cat is on the mat.",
       "level": "sentence",
-      "phonemes": "ð,ə,k,æ,t,ɪ,z,ɔ,n,ð,ə,m,æ,t",
+      "phonemes": "\u00f0,\u0259,k,\u00e6,t,\u026a,z,\u0254,n,\u00f0,\u0259,m,\u00e6,t",
       "target_sound": "k",
       "position": "initial",
       "processes": [
@@ -4349,8 +4349,8 @@
     {
       "text": "The feather is smooth.",
       "level": "sentence",
-      "phonemes": "ð,ə,f,ɛ,ð,ə,r,ɪ,z,s,m,u,ð",
-      "target_sound": "ð",
+      "phonemes": "\u00f0,\u0259,f,\u025b,\u00f0,\u0259,r,\u026a,z,s,m,u,\u00f0",
+      "target_sound": "\u00f0",
       "position": "medial",
       "processes": [
         "Stopping",
@@ -4366,7 +4366,7 @@
     {
       "text": "The frog is green.",
       "level": "sentence",
-      "phonemes": "ð,ə,f,r,ɑ,ɡ,ɪ,z,ɡ,r,i,n",
+      "phonemes": "\u00f0,\u0259,f,r,\u0251,\u0261,\u026a,z,\u0261,r,i,n",
       "target_sound": "r",
       "position": "initial",
       "processes": [
@@ -4382,7 +4382,7 @@
     {
       "text": "The frog is near the tree.",
       "level": "sentence",
-      "phonemes": "ð,ə,f,r,ɑ,ɡ,ɪ,z,n,ɪ,r,ð,ə,t,r,i",
+      "phonemes": "\u00f0,\u0259,f,r,\u0251,\u0261,\u026a,z,n,\u026a,r,\u00f0,\u0259,t,r,i",
       "target_sound": "r",
       "position": "initial",
       "processes": [
@@ -4399,7 +4399,7 @@
     {
       "text": "The helicopter flies over the mountain.",
       "level": "sentence",
-      "phonemes": "ð,ə,h,ɛ,l,ɪ,k,ɑ,p,t,ə,r,f,l,aɪ,z,oʊ,v,ə,r,ð,ə,m,aʊ,n,t,ə,n",
+      "phonemes": "\u00f0,\u0259,h,\u025b,l,\u026a,k,\u0251,p,t,\u0259,r,f,l,a\u026a,z,o\u028a,v,\u0259,r,\u00f0,\u0259,m,a\u028a,n,t,\u0259,n",
       "target_sound": "l",
       "position": "medial",
       "processes": [
@@ -4416,8 +4416,8 @@
     {
       "text": "The judge has a job.",
       "level": "sentence",
-      "phonemes": "ð,ə,dʒ,ə,dʒ,h,æ,z,ə,dʒ,ɑ,b",
-      "target_sound": "dʒ",
+      "phonemes": "\u00f0,\u0259,d\u0292,\u0259,d\u0292,h,\u00e6,z,\u0259,d\u0292,\u0251,b",
+      "target_sound": "d\u0292",
       "position": "initial",
       "processes": [
         "Deaffrication",
@@ -4433,7 +4433,7 @@
     {
       "text": "The monkey eats a banana.",
       "level": "sentence",
-      "phonemes": "ð,ə,m,ʌ,ŋ,k,i,i,t,s,ə,b,ə,n,æ,n,ə",
+      "phonemes": "\u00f0,\u0259,m,\u028c,\u014b,k,i,i,t,s,\u0259,b,\u0259,n,\u00e6,n,\u0259",
       "target_sound": "k",
       "position": "medial",
       "processes": [
@@ -4451,8 +4451,8 @@
     {
       "text": "The orange is in the kitchen.",
       "level": "sentence",
-      "phonemes": "ð,ə,ɔ,r,ɪ,n,dʒ,ɪ,z,ɪ,n,ð,ə,k,ɪ,tʃ,ə,n",
-      "target_sound": "dʒ",
+      "phonemes": "\u00f0,\u0259,\u0254,r,\u026a,n,d\u0292,\u026a,z,\u026a,n,\u00f0,\u0259,k,\u026a,t\u0283,\u0259,n",
+      "target_sound": "d\u0292",
       "position": "medial",
       "processes": [
         "Deaffrication",
@@ -4469,7 +4469,7 @@
     {
       "text": "The starfish is on the sand.",
       "level": "sentence",
-      "phonemes": "ð,ə,s,t,ɑ,r,f,ɪ,ʃ,ɪ,z,ɔ,n,ð,ə,s,æ,n,d",
+      "phonemes": "\u00f0,\u0259,s,t,\u0251,r,f,\u026a,\u0283,\u026a,z,\u0254,n,\u00f0,\u0259,s,\u00e6,n,d",
       "target_sound": "s",
       "position": "initial",
       "processes": [
@@ -4487,7 +4487,7 @@
     {
       "text": "The sun is bright.",
       "level": "sentence",
-      "phonemes": "ð,ə,s,ə,n,ɪ,z,b,r,aɪ,t",
+      "phonemes": "\u00f0,\u0259,s,\u0259,n,\u026a,z,b,r,a\u026a,t",
       "target_sound": "s",
       "position": "initial",
       "processes": [
@@ -4506,7 +4506,7 @@
     {
       "text": "The sun is up.",
       "level": "sentence",
-      "phonemes": "ð,ə,s,ə,n,ɪ,z,ə,p",
+      "phonemes": "\u00f0,\u0259,s,\u0259,n,\u026a,z,\u0259,p",
       "target_sound": "s",
       "position": "initial",
       "processes": [
@@ -4523,8 +4523,8 @@
     {
       "text": "The teacher reads a book.",
       "level": "sentence",
-      "phonemes": "ð,ə,t,i,tʃ,ə,r,r,i,d,z,ə,b,ʊ,k",
-      "target_sound": "tʃ",
+      "phonemes": "\u00f0,\u0259,t,i,t\u0283,\u0259,r,r,i,d,z,\u0259,b,\u028a,k",
+      "target_sound": "t\u0283",
       "position": "medial",
       "processes": [
         "Deaffrication",
@@ -4542,8 +4542,8 @@
     {
       "text": "The treasure is in the cave.",
       "level": "sentence",
-      "phonemes": "ð,ə,t,r,ɛ,ʒ,ə,r,ɪ,z,ɪ,n,ð,ə,k,eɪ,v",
-      "target_sound": "ʒ",
+      "phonemes": "\u00f0,\u0259,t,r,\u025b,\u0292,\u0259,r,\u026a,z,\u026a,n,\u00f0,\u0259,k,e\u026a,v",
+      "target_sound": "\u0292",
       "position": "medial",
       "processes": [
         "Stopping",
@@ -4560,7 +4560,7 @@
     {
       "text": "The truck drives fast.",
       "level": "sentence",
-      "phonemes": "ð,ə,t,r,ə,k,d,r,aɪ,v,z,f,æ,s,t",
+      "phonemes": "\u00f0,\u0259,t,r,\u0259,k,d,r,a\u026a,v,z,f,\u00e6,s,t",
       "target_sound": "r",
       "position": "initial",
       "processes": [
@@ -4577,7 +4577,7 @@
     {
       "text": "The whale is big.",
       "level": "sentence",
-      "phonemes": "ð,ə,w,eɪ,l,ɪ,z,b,ɪ,ɡ",
+      "phonemes": "\u00f0,\u0259,w,e\u026a,l,\u026a,z,b,\u026a,\u0261",
       "target_sound": "l",
       "position": "final",
       "processes": [
@@ -4594,7 +4594,7 @@
     {
       "text": "We clean the glass.",
       "level": "sentence",
-      "phonemes": "w,i,k,l,i,n,ð,ə,ɡ,l,æ,s",
+      "phonemes": "w,i,k,l,i,n,\u00f0,\u0259,\u0261,l,\u00e6,s",
       "target_sound": "l",
       "position": "initial",
       "processes": [
@@ -4610,7 +4610,7 @@
     {
       "text": "We eat spaghetti and vegetables.",
       "level": "sentence",
-      "phonemes": "w,i,i,t,s,p,ə,ɡ,ɛ,t,i,æ,n,d,v,ɛ,dʒ,t,ə,b,əl,z",
+      "phonemes": "w,i,i,t,s,p,\u0259,\u0261,\u025b,t,i,\u00e6,n,d,v,\u025b,d\u0292,t,\u0259,b,\u0259l,z",
       "target_sound": "s",
       "position": "initial",
       "processes": [
@@ -4628,7 +4628,7 @@
     {
       "text": "We plant green trees.",
       "level": "sentence",
-      "phonemes": "w,i,p,l,æ,n,t,ɡ,r,i,n,t,r,i,z",
+      "phonemes": "w,i,p,l,\u00e6,n,t,\u0261,r,i,n,t,r,i,z",
       "target_sound": "l",
       "position": "initial",
       "processes": [
@@ -4645,7 +4645,7 @@
     {
       "text": "We ride the bus.",
       "level": "sentence",
-      "phonemes": "w,i,r,aɪ,d,ð,ə,b,ə,s",
+      "phonemes": "w,i,r,a\u026a,d,\u00f0,\u0259,b,\u0259,s",
       "target_sound": "s",
       "position": "final",
       "processes": [
@@ -4662,7 +4662,7 @@
     {
       "text": "We visit the clinic.",
       "level": "sentence",
-      "phonemes": "w,i,v,ɪ,z,ɪ,t,ð,ə,k,l,ɪ,n,ɪ,k",
+      "phonemes": "w,i,v,\u026a,z,\u026a,t,\u00f0,\u0259,k,l,\u026a,n,\u026a,k",
       "target_sound": "v",
       "position": "initial",
       "processes": [
@@ -4681,8 +4681,8 @@
     {
       "text": "We watch television.",
       "level": "sentence",
-      "phonemes": "w,i,w,ɑ,tʃ,t,ɛ,l,ə,v,ɪ,ʒ,ə,n",
-      "target_sound": "ʒ",
+      "phonemes": "w,i,w,\u0251,t\u0283,t,\u025b,l,\u0259,v,\u026a,\u0292,\u0259,n",
+      "target_sound": "\u0292",
       "position": "medial",
       "processes": [
         "Deaffrication",
@@ -4695,6 +4695,117 @@
       ],
       "gameplay_level": "Grade 3 Island 1.4 (Regional Story Quest)",
       "syllable_complexity": "3 words"
+    },
+    {
+      "text": "ba-na",
+      "level": "syllable",
+      "phonemes": "b,\u0259,n,\u00e6",
+      "target_sound": "b",
+      "position": "initial",
+      "syllable_complexity": "2 syllables (wS)",
+      "processes": [
+        "Weak Syllable Deletion",
+        "Syllable Reduction"
+      ],
+      "grades": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Kindergarten Island 1.1 (Name & Letter Station)"
+    },
+    {
+      "text": "el-e",
+      "level": "syllable",
+      "phonemes": "\u025b,l,\u0259",
+      "target_sound": "l",
+      "position": "medial",
+      "syllable_complexity": "2 syllables (Sw)",
+      "processes": [
+        "Weak Syllable Deletion",
+        "Syllable Reduction"
+      ],
+      "grades": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Kindergarten Island 1.1 (Name & Letter Station)"
+    },
+    {
+      "text": "to-ma",
+      "level": "syllable",
+      "phonemes": "t,\u0259,m,e\u026a",
+      "target_sound": "t",
+      "position": "initial",
+      "syllable_complexity": "2 syllables (wS)",
+      "processes": [
+        "Weak Syllable Deletion",
+        "Syllable Reduction"
+      ],
+      "grades": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Kindergarten Island 1.1 (Name & Letter Station)"
+    },
+    {
+      "text": "com-pu",
+      "level": "syllable",
+      "phonemes": "k,\u0259,m,p,j,u",
+      "target_sound": "k",
+      "position": "initial",
+      "syllable_complexity": "2 syllables (wS)",
+      "processes": [
+        "Weak Syllable Deletion",
+        "Syllable Reduction"
+      ],
+      "grades": [
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Grade 1 Island 1.1 (Sound Station)"
+    },
+    {
+      "text": "um-brel",
+      "level": "syllable",
+      "phonemes": "\u028c,m,b,\u0279,\u025b,l",
+      "target_sound": "b",
+      "position": "medial",
+      "syllable_complexity": "2 syllables (Sw)",
+      "processes": [
+        "Weak Syllable Deletion",
+        "Syllable Reduction"
+      ],
+      "grades": [
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Grade 1 Island 1.1 (Sound Station)"
+    },
+    {
+      "text": "cu-cum",
+      "level": "syllable",
+      "phonemes": "k,j,u,k,\u028c,m",
+      "target_sound": "k",
+      "position": "initial",
+      "syllable_complexity": "2 syllables (Sw)",
+      "processes": [
+        "Weak Syllable Deletion",
+        "Syllable Reduction"
+      ],
+      "grades": [
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Grade 1 Island 1.1 (Sound Station)"
     }
   ],
   "metadata": {

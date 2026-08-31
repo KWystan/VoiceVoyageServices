@@ -1,0 +1,307 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "VoiceVoyagePhonologicalMapping",
+  "description": "Clinical and educational mapping linking child age, DepEd grade, and phonological processes.",
+  "grades": [
+    {
+      "grade": "Kinder",
+      "grade_label": "Kindergarten",
+      "age_range": [
+        4,
+        5
+      ],
+      "deped_competencies": [
+        "MATATAG-Comp-7",
+        "MATATAG-Comp-8",
+        "MATATAG-Comp-15",
+        "MATATAG-Comp-23"
+      ],
+      "expected_processes": [
+        "Stopping_SZ",
+        "Stopping_Late",
+        "Fronting_Velar",
+        "Fronting_Palatal",
+        "Deaffrication",
+        "Gliding_L",
+        "Gliding_R",
+        "Cluster_Reduction_2",
+        "Cluster_Reduction_3",
+        "Weak_Syllable_Deletion",
+        "Devoicing"
+      ],
+      "delayed_processes": [
+        "Final_Consonant_Deletion",
+        "Prevocalic_Voicing",
+        "Reduplication",
+        "Consonant_Harmony",
+        "Stopping_F"
+      ],
+      "atypical_processes": [
+        "Initial_Consonant_Deletion",
+        "Medial_Consonant_Deletion",
+        "Backing",
+        "Liquidization",
+        "Frication",
+        "Denasalization"
+      ]
+    },
+    {
+      "grade": "Grade 1",
+      "grade_label": "Grade 1",
+      "age_range": [
+        5,
+        6
+      ],
+      "deped_competencies": [
+        "MATATAG-RL1PA-I-1",
+        "MATATAG-RL1PA-I-2",
+        "MATATAG-RL1PWS-I-1"
+      ],
+      "expected_processes": [
+        "Gliding_R",
+        "Stopping_V",
+        "Stopping_Late",
+        "Cluster_Reduction_3",
+        "Vowelization"
+      ],
+      "delayed_processes": [
+        "Stopping_F",
+        "Stopping_SZ",
+        "Fronting_Velar",
+        "Fronting_Palatal",
+        "Deaffrication",
+        "Gliding_L",
+        "Cluster_Reduction_2",
+        "Weak_Syllable_Deletion",
+        "Final_Consonant_Deletion",
+        "Devoicing",
+        "Prevocalic_Voicing"
+      ],
+      "atypical_processes": [
+        "Initial_Consonant_Deletion",
+        "Medial_Consonant_Deletion",
+        "Backing",
+        "Liquidization",
+        "Frication",
+        "Denasalization"
+      ]
+    },
+    {
+      "grade": "Grade 2",
+      "grade_label": "Grade 2",
+      "age_range": [
+        6,
+        7
+      ],
+      "deped_competencies": [
+        "MATATAG-EN2PA-II-1",
+        "MATATAG-EN2PWS-II-1",
+        "MATATAG-EN2PWS-II-2"
+      ],
+      "expected_processes": [
+        "Stopping_Late"
+      ],
+      "delayed_processes": [
+        "Gliding_L",
+        "Gliding_R",
+        "Stopping_F",
+        "Stopping_SZ",
+        "Stopping_V",
+        "Fronting_Velar",
+        "Fronting_Palatal",
+        "Deaffrication",
+        "Cluster_Reduction_2",
+        "Cluster_Reduction_3",
+        "Weak_Syllable_Deletion",
+        "Final_Consonant_Deletion",
+        "Vowelization",
+        "Devoicing",
+        "Prevocalic_Voicing"
+      ],
+      "atypical_processes": [
+        "Initial_Consonant_Deletion",
+        "Medial_Consonant_Deletion",
+        "Backing",
+        "Liquidization",
+        "Frication",
+        "Denasalization"
+      ]
+    },
+    {
+      "grade": "Grade 3",
+      "grade_label": "Grade 3",
+      "age_range": [
+        8,
+        9
+      ],
+      "deped_competencies": [
+        "MATATAG-EN3PWS-III-1",
+        "MATATAG-EN3PWS-III-2"
+      ],
+      "expected_processes": [],
+      "delayed_processes": [
+        "Gliding_L",
+        "Gliding_R",
+        "Stopping_All",
+        "Fronting_All",
+        "Deaffrication",
+        "Cluster_Reduction_All",
+        "Weak_Syllable_Deletion",
+        "Final_Consonant_Deletion",
+        "Vowelization",
+        "Devoicing",
+        "Prevocalic_Voicing"
+      ],
+      "atypical_processes": [
+        "Initial_Consonant_Deletion",
+        "Medial_Consonant_Deletion",
+        "Backing",
+        "Liquidization",
+        "Frication",
+        "Denasalization"
+      ]
+    }
+  ],
+  "processes": [
+    {
+      "name": "Weak Syllable Deletion",
+      "family": "Syllable Structure",
+      "suppression_age": 4.0,
+      "is_atypical": false,
+      "log_token_base": "WSD"
+    },
+    {
+      "name": "Cluster Reduction (2-Element)",
+      "family": "Syllable Structure",
+      "suppression_age": 4.0,
+      "is_atypical": false,
+      "log_token_base": "CR2"
+    },
+    {
+      "name": "Cluster Reduction (3-Element)",
+      "family": "Syllable Structure",
+      "suppression_age": 5.0,
+      "is_atypical": false,
+      "log_token_base": "CR3"
+    },
+    {
+      "name": "Final Consonant Deletion",
+      "family": "Syllable Structure",
+      "suppression_age": 3.25,
+      "is_atypical": false,
+      "log_token_base": "FCD"
+    },
+    {
+      "name": "Initial Consonant Deletion",
+      "family": "Syllable Structure",
+      "suppression_age": null,
+      "is_atypical": true,
+      "log_token_base": "ICD"
+    },
+    {
+      "name": "Medial Consonant Deletion",
+      "family": "Syllable Structure",
+      "suppression_age": null,
+      "is_atypical": true,
+      "log_token_base": "MCD"
+    },
+    {
+      "name": "Reduplication",
+      "family": "Assimilation",
+      "suppression_age": 2.75,
+      "is_atypical": false,
+      "log_token_base": "REDUPL"
+    },
+    {
+      "name": "Stopping",
+      "family": "Manner Substitution",
+      "suppression_age": 4.5,
+      "is_atypical": false,
+      "log_token_base": "STOP"
+    },
+    {
+      "name": "Deaffrication",
+      "family": "Manner Substitution",
+      "suppression_age": 4.5,
+      "is_atypical": false,
+      "log_token_base": "DEAFFRIC"
+    },
+    {
+      "name": "Fronting (Velar)",
+      "family": "Place Substitution",
+      "suppression_age": 3.75,
+      "is_atypical": false,
+      "log_token_base": "FRONT_VELAR"
+    },
+    {
+      "name": "Palatal Fronting",
+      "family": "Place Substitution",
+      "suppression_age": 4.75,
+      "is_atypical": false,
+      "log_token_base": "FRONT_PALATAL"
+    },
+    {
+      "name": "Backing",
+      "family": "Place Substitution",
+      "suppression_age": null,
+      "is_atypical": true,
+      "log_token_base": "BACKING"
+    },
+    {
+      "name": "Gliding (Liquid Gliding)",
+      "family": "Manner Substitution",
+      "suppression_age": 5.5,
+      "is_atypical": false,
+      "log_token_base": "GLIDE"
+    },
+    {
+      "name": "Liquidization",
+      "family": "Manner Substitution",
+      "suppression_age": null,
+      "is_atypical": true,
+      "log_token_base": "LIQUID"
+    },
+    {
+      "name": "Vowelization",
+      "family": "Manner Substitution",
+      "suppression_age": 5.5,
+      "is_atypical": false,
+      "log_token_base": "VOWELIZ"
+    },
+    {
+      "name": "Frication",
+      "family": "Manner Substitution",
+      "suppression_age": null,
+      "is_atypical": true,
+      "log_token_base": "FRICATION"
+    },
+    {
+      "name": "Denasalization",
+      "family": "Manner Substitution",
+      "suppression_age": 2.5,
+      "is_atypical": true,
+      "log_token_base": "DENASAL"
+    },
+    {
+      "name": "Prevocalic Voicing",
+      "family": "Voicing Assimilation",
+      "suppression_age": 3.0,
+      "is_atypical": false,
+      "log_token_base": "VOICING_PRE"
+    },
+    {
+      "name": "Devoicing",
+      "family": "Voicing Assimilation",
+      "suppression_age": 3.5,
+      "is_atypical": false,
+      "log_token_base": "DEVOICING"
+    },
+    {
+      "name": "Consonant Harmony",
+      "family": "Context Assimilation",
+      "suppression_age": 3.25,
+      "is_atypical": false,
+      "log_token_base": "HARMONY"
+    }
+  ]
+}

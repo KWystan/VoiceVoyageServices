@@ -10,6 +10,7 @@ old ASHA CSV word lists, which no code loads.
 
 import json
 from pathlib import Path
+from typing import Optional
 
 try:
     from dynamic_modules_service.config import config
@@ -25,31 +26,199 @@ from models import (
 class GradeDocuments:
     """The grade-level gameplay Markdown documents, keyed by grade.
 
-    These are full LLM context: islands, levels, MATATAG foci, ASHA targets,
-    UI templates and dynamic-content guidance per grade.  Grades follow the
-    app's age brackets: 1 = ages 5-6, 2 = ages 6-7, 3 = age 8.  Age 4
-    children use the Grade 1 document (the Kindergarten document is not
-    shipped with this service).
+    These provide full LLM curriculum context: islands, levels, MATATAG foci,
+    ASHA targets, 5-stage mechanics, and dynamic-content guidance.
+    0 = Kindergarten / 5-Stage foundation (Ages 4-5)
+    1 = Grade 1 (Ages 5-6)
+    2 = Grade 2 (Ages 6-7)
+    3 = Grade 3 (Age 8)
     """
 
     def __init__(self, docs=None):
         self._docs = dict(docs or config.grade_docs)
 
     def grade_for_age(self, age: int) -> int:
-        if age <= 5:
-            return 1
+        return self.grade_for_age_static(age)
+
+    @staticmethod
+    def grade_for_age_static(age: int) -> int:
+        if age <= 4:
+            return 0  # Kindergarten / 5-stage foundation
+        if age <= 6:
+            return 1  # Grade 1
         if age <= 7:
-            return 2
-        return 3
+            return 2  # Grade 2
+        return 3  # Grade 3
+
+    @staticmethod
+    def parse_grade(grade_str: Optional[str] = None, default_age: Optional[int] = None) -> int:
+        """Parses a grade string ("Kinder", "Grade 1", "Grade 2", "Grade 3", etc.)
+        into an integer grade index (0, 1, 2, 3). Falls back to default_age mapping."""
+        if grade_str is not None:
+            s = str(grade_str).strip().lower()
+            if any(k in s for k in ("kinder", "k", "grade 0", "grade0")) or s == "0":
+                return 0
+            if "1" in s or "one" in s or s in ("g1", "grade 1", "grade1", "first", "grade 1st"):
+                return 1
+            if "2" in s or "two" in s or s in ("g2", "grade 2", "grade2", "second", "grade 2nd"):
+                return 2
+            if "3" in s or "three" in s or s in ("g3", "grade 3", "grade3", "third", "grade 3rd"):
+                return 3
+        if default_age is not None:
+            return GradeDocuments.grade_for_age_static(default_age)
+        return 0
+
+    @staticmethod
+    def format_grade(grade_int: int) -> str:
+        """Returns standard grade text: 'Kinder', 'Grade 1', 'Grade 2', 'Grade 3'."""
+        if grade_int == 0:
+            return "Kinder"
+        return f"Grade {grade_int}"
 
     def document_for_grade(self, grade: int) -> str:
         path = self._docs.get(grade)
         if path is None:
+            # Fallback to Grade 1 or Kindergarten
+            path = self._docs.get(1) or self._docs.get(0)
+        if path is None:
             raise KeyError(f"No grade document for grade {grade}")
         return Path(path).read_text(encoding="utf-8")
 
-    def document_for_age(self, age: int) -> str:
-        return self.document_for_grade(self.grade_for_age(age))
+    def document_for_age(self, age: int, grade: Optional[str] = None) -> str:
+        return self.document_for_grade(self.parse_grade(grade, default_age=age))
+
+
+class ModuleCatalog:
+    """Discovers, maps, and loads specific error process markdown files.
+
+    Structure on disk:
+      modules/{process_slug}/age_{age}_{grade_slug}.md
+      e.g. modules/weak_syllable_deletion/age_4_kinder.md
+           modules/stopping_s_z/age_4_kinder.md
+           modules/stopping_th/age_6_grade_2.md
+           modules/backing/age_4_kinder.md
+    """
+
+    def __init__(self, modules_dir: Optional[Path] = None):
+        self._dir = Path(modules_dir or (Path(__file__).resolve().parent / "modules"))
+
+    def normalize_slug(self, process_name: str, target_sound: str = "") -> str:
+        p = (process_name or "").strip().lower()
+        t = (target_sound or "").strip().lower()
+
+        if "stop" in p:
+            if t in ("v", "/v/"):
+                return "stopping_v"
+            if t in ("sh", "zh", "ʃ", "ʒ", "/ʃ/", "/ʒ/"):
+                return "stopping_sh_zh"
+            if t in ("th", "θ", "ð", "/θ/", "/ð/"):
+                return "stopping_th"
+            return "stopping_s_z"
+
+        if "front" in p:
+            if "palatal" in p or t in ("sh", "ʃ", "/ʃ/"):
+                return "fronting_palatal"
+            return "fronting_velar"
+
+        if "back" in p:
+            return "backing"
+
+        if "deaffric" in p:
+            return "deaffrication"
+
+        if "glide" in p or "gliding" in p:
+            if t in ("l", "/l/"):
+                return "gliding_l"
+            return "gliding_r"
+
+        if "vowel" in p or "vocal" in p:
+            return "vowelization"
+
+        if "weak" in p or "syllable" in p:
+            return "weak_syllable_deletion"
+
+        if "cluster" in p:
+            if "3" in p or "three" in p or t in ("str", "spr", "skr"):
+                return "cluster_reduction_3el"
+            return "cluster_reduction_2el"
+
+        if "initial" in p and "consonant" in p:
+            return "initial_consonant_deletion"
+
+        if "medial" in p and "consonant" in p:
+            return "medial_consonant_deletion"
+
+        if "liquid" in p:
+            return "liquidization"
+
+        if "fricat" in p:
+            return "frication"
+
+        if "denasal" in p:
+            return "denasalization"
+
+        if "devoic" in p or "voic" in p:
+            return "devoicing"
+
+        return "general_articulation"
+
+    def get_document(self, process_name: str, target_sound: str = "", grade_int: int = 0, age: int = 4) -> tuple[str, Path, str]:
+        slug = self.normalize_slug(process_name, target_sound)
+        folder = self._dir / slug
+
+        if not folder.exists():
+            folder = self._dir / "general_articulation"
+
+        grade_slug = "kinder" if grade_int == 0 else f"grade_{grade_int}"
+        candidates = [f"age_{age}", grade_slug]
+        if grade_int == 3:
+            candidates.extend(["grade_2", "age_8", "age_7"])
+        elif grade_int == 2:
+            candidates.extend(["age_6", "age_7", "grade_1"])
+        elif grade_int == 1:
+            candidates.extend(["age_5", "kinder", "age_4"])
+        elif grade_int == 0:
+            candidates.extend(["age_4", "grade_1", "age_5"])
+
+        matched_file = None
+        for cand in candidates:
+            for f in folder.glob(f"*{cand}*.md"):
+                matched_file = f
+                break
+            if matched_file:
+                break
+
+        if not matched_file:
+            files = list(folder.glob("*.md"))
+            if files:
+                matched_file = files[0]
+            else:
+                matched_file = self._dir / "general_articulation" / "age_default.md"
+
+        return matched_file.read_text(encoding="utf-8"), matched_file, slug
+
+    def get_documents_for_findings(self, findings) -> list[dict]:
+        grade_int = GradeDocuments.parse_grade(getattr(findings, "grade", None), default_age=getattr(findings, "age", 4))
+        age = getattr(findings, "age", 4)
+        results = []
+        processes = getattr(findings, "processes", [])
+        for p in processes:
+            proc_name = getattr(p, "process", str(p))
+            detail = getattr(p, "detail", "")
+            target_sound = getattr(p, "target_sound", "")
+            if not target_sound and "/" in detail:
+                parts = detail.split("/")
+                if len(parts) >= 2:
+                    target_sound = parts[1]
+            doc_text, doc_path, slug = self.get_document(proc_name, target_sound, grade_int, age)
+            results.append({
+                "process": proc_name,
+                "target_sound": target_sound,
+                "slug": slug,
+                "path": str(doc_path),
+                "doc_text": doc_text,
+            })
+        return results
 
 
 class MockOutlines:
@@ -107,8 +276,13 @@ class MockOutlines:
             if not overlap:
                 continue
             process_match = o.focus_process in processes
-            scored.append(((2 if process_match else 0) + len(overlap), o))
-        scored.sort(key=lambda pair: -pair[0])
+            # Penalize broad catch-all outlines (ICD / FCD) unless that specific deletion process was detected
+            is_catch_all = o.id in ("initial-consonant-deletion", "final-consonant-deletion")
+            penalty = -5 if (is_catch_all and not process_match) else 0
+            score = (10 if process_match else 0) + len(overlap) + penalty
+            # Tie-break: higher score first, then tighter/more specific target sound sets
+            scored.append(((score, -len(o.target_sounds)), o))
+        scored.sort(key=lambda pair: pair[0], reverse=True)
         return [o for _, o in scored]
 
     def outlines_for_processes(self, process_names: list[str]) -> list[ModuleOutline]:
@@ -167,3 +341,8 @@ class MockWordBank:
 
     def get(self, text: str, level: PracticeLevel):
         return self._items.get((text, level))
+
+
+# Standard production aliases
+WordBank = MockWordBank
+ModuleOutlines = MockOutlines

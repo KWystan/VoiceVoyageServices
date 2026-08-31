@@ -12,15 +12,16 @@ class ModuleServiceConfig:
     port: int = 8002
     cors_origins: list = field(default_factory=lambda: ["*"])
 
-    # LLM provider: "none" (rule-based only) | "zen" (OpenCode Zen)
-    llm_provider: str = "zen"
-    # deepseek-v4-flash-free is currently throttled provider-side; hy3-free
-    # and laguna-s-2.1-free are working free-tier models.
-    llm_model: str = "hy3-free"
+    # LLM provider: "openrouter" (OpenRouter) | "zen" (OpenCode Zen) | "none" (rule-based only)
+    llm_provider: str = "openrouter"
+    # Nemotron-3 Ultra (Free) — 1 Million token context window
+    # OpenRouter: "nvidia/nemotron-3-ultra-550b-a55b:free" | Zen: "nemotron-3-ultra-free"
+    llm_model: str = "nvidia/nemotron-3-ultra-550b-a55b:free"
+    openrouter_base_url: str = "https://openrouter.ai/api/v1"
     zen_base_url: str = "https://opencode.ai/zen/v1"
-    api_key_env: str = "ZEN_API_KEY"
-    request_timeout_sec: float = 60.0
-    max_retries: int = 4  # free tier is rate-limited; retry patiently before falling back
+    api_key_env: str = "OPENROUTER_API_KEY"
+    request_timeout_sec: float = 20.0
+    max_retries: int = 2  # fast failover to rule-based fallback if LLM throttles
 
     # Module building
     items_per_level: int = 4
@@ -36,12 +37,13 @@ class ModuleServiceConfig:
     prompt_path: Path = field(
         default_factory=lambda: _SERVICE_ROOT / "data" / "prompt.md")
 
-    # Grade-level gameplay documents (LLM context, replacing the old CSVs).
-    # Each is the full Markdown of the grade's islands/levels/gameplay.
+    # Grade-level gameplay documents (modular curriculum context).
+    # 0 = Kindergarten (Ages 4-5), 1 = Grade 1 (Ages 5-6), 2 = Grade 2 (Ages 6-7), 3 = Grade 3 (Age 8).
     grade_docs: dict = field(default_factory=lambda: {
-        1: _SERVICE_ROOT / "data" / "Grade 1 Game Levels and Gameplay Mechanics.md",
-        2: _SERVICE_ROOT / "data" / "Grade_2_Age_6-7_Levels_and_Gameplay.md",
-        3: _SERVICE_ROOT / "data" / "Grade_3_Age_8_Levels_and_Gameplay.md",
+        0: _SERVICE_ROOT / "data" / "curriculum_kindergarten.md",
+        1: _SERVICE_ROOT / "data" / "curriculum_grade_1.md",
+        2: _SERVICE_ROOT / "data" / "curriculum_grade_2.md",
+        3: _SERVICE_ROOT / "data" / "curriculum_grade_3.md",
     })
 
 

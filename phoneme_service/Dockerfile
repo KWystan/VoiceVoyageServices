@@ -4,6 +4,10 @@
 
 FROM python:3.10-slim
 
+# Dedicated phoneme env vars — set in Railway Dashboard → Variables (not baked)
+# HF_TOKEN: Hugging Face read token (high rate-limits, required for reliable 1.4GB download) — MUST be runtime Variable, not ARG/ENV bake (hadolint SecretsUsedInArgOrEnv)
+# VV_FP16: 1 = float16 ~600MB peak (free tier), 0 = float32 + INT8 ~1.2GB peak
+# PHONEME_PRELOAD: 1 = background Wav2Vec2 preload (fast first request), 0 = lazy (saves RAM idle)
 ENV PYTHONUNBUFFERED=1 \
     PYTHONUTF8=1 \
     PIP_NO_CACHE_DIR=1 \
@@ -17,7 +21,8 @@ ENV PYTHONUNBUFFERED=1 \
     MKL_NUM_THREADS=1 \
     OPENBLAS_NUM_THREADS=1 \
     NUMEXPR_NUM_THREADS=1 \
-    VV_FP16=1
+    VV_FP16=0 \
+    PHONEME_PRELOAD=1
 
 WORKDIR /app
 
@@ -46,12 +51,13 @@ COPY . .
 RUN useradd -m app && chown -R app:app /app
 USER app
 
-# Railway injects PORT=8080; fallback 8001 for local `docker run`
+# Railway injects PORT=8080; Azure injects WEBSITES_PORT=8001; fallback 8001 for local `docker run`
 EXPOSE 8001
 
 # Health probe — start-period 120s tolerates cold Wav2Vec2 download + INT8 quant
+# Azure App Service ignores Docker HEALTHCHECK (uses its own Health check blade), but keep for local/Railway
 HEALTHCHECK --interval=30s --timeout=10s --start-period=120s --retries=3 \
-    CMD python -c "import os,urllib.request; urllib.request.urlopen('http://127.0.0.1:'+os.environ.get('PORT','8001')+'/health', timeout=5)"
+    CMD python -c "import os,urllib.request; urllib.request.urlopen('http://127.0.0.1:'+os.environ.get('PORT', os.environ.get('WEBSITES_PORT','8001'))+'/health', timeout=5)"
 
-# Exec-form via shell to expand ${PORT} while preserving SIGTERM
-CMD ["sh", "-c", "python -X utf8 -m uvicorn main:app --host 0.0.0.0 --port ${PORT:-8001}"]
+# Exec-form via shell to expand ${PORT} while preserving SIGTERM; handles both Railway (PORT) and Azure (WEBSITES_PORT)
+CMD ["sh", "-c", "python -X utf8 -m uvicorn main:app --host 0.0.0.0 --port ${PORT:-${WEBSITES_PORT:-8001}}"]

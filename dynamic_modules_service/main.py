@@ -19,6 +19,8 @@ import json
 import os
 import uvicorn
 
+from typing import Optional
+
 from fastapi import FastAPI, Form, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -94,8 +96,9 @@ def make_service() -> ModuleService:
 def create_module(
     age: int = Form(...),
     processes: str = Form(...),
+    grade: Optional[str] = Form(None),
 ):
-    """Build a personalized practice module from age + detected processes.
+    """Build a personalized practice module from age + grade + detected processes.
 
     Parameters
     ----------
@@ -106,10 +109,13 @@ def create_module(
         ``[{"process": "Fronting", "position": "Initial",
             "detail": "/k/ -> [t]"}]``
         (the target phoneme is derived from the detail string).
+    grade : Optional[str]
+        Child's grade level in text: "Kinder", "Grade 1", "Grade 2", "Grade 3".
+        If omitted, automatically inferred from age.
 
     Returns
     -------
-    dict with ``module_id``, ``focus_sounds``, ``focus_processes``,
+    dict with ``module_id``, ``grade``, ``focus_sounds``, ``focus_processes``,
     ``outline_id``, ``outline_title``, ``levels`` (syllable -> word ->
     phrase -> sentence items), ``rationale``, ``generated_by``.
     """
@@ -121,11 +127,13 @@ def create_module(
 
     findings = AssessmentFindings(
         age=age,
+        grade=grade,
         processes=tuple(
             DetectedProcess(
                 process=p.get("process", ""),
                 position=p.get("position", ""),
                 detail=p.get("detail", ""),
+                target_sound=p.get("target_sound"),
             )
             for p in processes_data
         ),
@@ -138,6 +146,7 @@ def create_module(
 
     return {
         "module_id": module.module_id,
+        "grade": module.grade,
         "focus_sounds": [s.sound for s in module.focus_sounds],
         "focus_processes": module.focus_processes,
         "outline_id": module.outline_id,
@@ -155,6 +164,7 @@ def create_module(
         ],
         "rationale": module.rationale,
         "generated_by": module.generated_by,
+        "atypical_flag": "CLINICAL ADVISORY" in (module.rationale or "") or getattr(module, "atypical_flag", False),
         "warning": module.warning,
     }
 

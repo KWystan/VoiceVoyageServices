@@ -21,7 +21,7 @@ This module is the SINGLE source of truth for translating between them:
 * ``canonicalize()``   — normalize_ipa() + clean() (the full translation)
 * ``same_phoneme()``   — identity comparison through the translation
 
-All correctness checks (``_compute_score``, PCC, SODA, substitution
+All correctness checks (``_compute_score``, PCC, and phonological process
 detection) compare via ``same_phoneme()``.
 """
 

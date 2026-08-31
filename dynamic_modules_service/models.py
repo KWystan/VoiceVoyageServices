@@ -40,6 +40,7 @@ class AssessmentFindings:
     """The child's assessment results — the input to module building."""
     age: int
     processes: tuple[DetectedProcess, ...] = ()
+    grade: Optional[str] = None
 
 
 @dataclass(frozen=True)
@@ -110,4 +111,5 @@ class LearningModule:
     levels: dict[PracticeLevel, list[PracticeItem]]
     rationale: str
     generated_by: str  # "llm" | "rule-based"
+    grade: str = "Kinder"
     warning: Optional[str] = None

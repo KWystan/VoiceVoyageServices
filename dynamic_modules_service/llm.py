@@ -22,35 +22,62 @@ class LLMError(Exception):
     """The LLM provider failed (network, auth, timeout, empty reply)."""
 
 
-class ZenLLMClient:
-    """OpenCode Zen chat-completions client (OpenAI-compatible SDK)."""
+class OpenAICompatibleLLMClient:
+    """Chat-completions client for OpenAI-compatible gateways (OpenRouter, OpenCode Zen)."""
 
     def __init__(self, *, model, base_url, api_key=None,
-                 api_key_env="ZEN_API_KEY", timeout=60.0, max_retries=2,
-                 http_client=None):
+                 api_key_env="OPENROUTER_API_KEY", timeout=20.0, max_retries=2,
+                 http_client=None, default_headers=None):
         from openai import OpenAI
 
+        # Support primary env var, fallback to ZEN_API_KEY if OPENROUTER_API_KEY is not set
         key = api_key or os.environ.get(api_key_env)
+        if not key and api_key_env == "OPENROUTER_API_KEY":
+            key = os.environ.get("ZEN_API_KEY")
+        elif not key and api_key_env == "ZEN_API_KEY":
+            key = os.environ.get("OPENROUTER_API_KEY")
+
         if not key:
-            raise LLMError(f"ZEN_API_KEY is not set (expected env var '{api_key_env}')")
+            raise LLMError(f"API key is not set (expected env var '{api_key_env}')")
+
+        headers = {
+            "HTTP-Referer": "https://voicevoyage.app",
+            "X-Title": "Voice Voyage Dynamic Modules",
+        }
+        if default_headers:
+            headers.update(default_headers)
+
         self._model = model
-        self._client = OpenAI(base_url=base_url, api_key=key, timeout=timeout,
-                              max_retries=max_retries, http_client=http_client)
+        self._client = OpenAI(
+            base_url=base_url,
+            api_key=key,
+            timeout=timeout,
+            max_retries=max_retries,
+            http_client=http_client,
+            default_headers=headers,
+        )
 
     def complete(self, *, system: str, user: str) -> str:
         try:
             resp = self._client.chat.completions.create(
                 model=self._model,
-                messages=[{"role": "system", "content": system},
-                          {"role": "user", "content": user}],
-                temperature=0.4,
+                messages=[
+                    {"role": "system", "content": system},
+                    {"role": "user", "content": user},
+                ],
+                temperature=0.3,
             )
         except Exception as exc:
-            raise LLMError(f"OpenCode Zen request failed: {exc}") from exc
+            raise LLMError(f"LLM request failed ({self._model}): {exc}") from exc
         content = resp.choices[0].message.content
         if not content:
-            raise LLMError("OpenCode Zen returned an empty response")
+            raise LLMError(f"LLM returned an empty response ({self._model})")
         return content
+
+
+# Backward-compatible alias
+ZenLLMClient = OpenAICompatibleLLMClient
+OpenRouterLLMClient = OpenAICompatibleLLMClient
 
 
 class PromptBuilder:
@@ -68,12 +95,27 @@ class PromptBuilder:
         with open(self._config.prompt_path, encoding="utf-8") as f:
             return f.read()
 
-    def build(self, *, findings, outlines, bank_items, grade_document=None):
+    def build(self, *, findings, outlines, bank_items, grade_document=None, process_documents=None):
+        from data import GradeDocuments
+        grade_int = GradeDocuments.parse_grade(findings.grade, default_age=findings.age)
+        grade_text = GradeDocuments.format_grade(grade_int)
         user_payload = {
-            "child": {"age": findings.age},
+            "child": {
+                "age": findings.age,
+                "grade": grade_text,
+            },
             "detected_processes": [
                 {"process": p.process, "position": p.position, "detail": p.detail}
                 for p in findings.processes
+            ],
+            "process_curriculum_modules": [
+                {
+                    "process": pd.get("process"),
+                    "target_sound": pd.get("target_sound"),
+                    "slug": pd.get("slug"),
+                    "content": pd.get("doc_text"),
+                }
+                for pd in (process_documents or [])
             ],
             "grade_document": grade_document or "",
             "candidate_outlines": [

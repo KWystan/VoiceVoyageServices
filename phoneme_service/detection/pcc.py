@@ -148,7 +148,7 @@ def compute_pcc(breakdown: list[dict]) -> dict:
 
     if total == 0:
         return {
-            "pcc": 0.0,
+            "pcc": 100.0,
             "total_consonants": 0,
             "correct_consonants": 0,
             "error_consonants": 0,
@@ -218,7 +218,7 @@ def compute_pcc_r(breakdown: list[dict]) -> dict:
 
     if total == 0:
         return {
-            "pcc_r": 0.0,
+            "pcc_r": 100.0,
             "total_consonants": 0,
             "correct_or_common_substitute": 0,
             "severe_errors": 0,
@@ -272,7 +272,7 @@ def compute_pvc(breakdown: list[dict]) -> dict:
 
     if total == 0:
         return {
-            "pvc": 0.0,
+            "pvc": 100.0,
             "total_vowels": 0,
             "correct_vowels": 0,
             "error_vowels": 0,

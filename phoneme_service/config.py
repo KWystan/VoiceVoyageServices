@@ -2,7 +2,13 @@
 
 All hardcoded values, thresholds, and model identifiers are defined here.
 Import and use these constants throughout the codebase.
+
+Dedicated env vars (Railway → Variables):
+  HF_TOKEN         — Hugging Face read token (high rate-limits, private cache)
+  VV_FP16          — 1/0 use float16 on CPU to halve RAM (default 1)
+  PHONEME_PRELOAD  — 1/0 preload Wav2Vec2 in background (default 1, 0 = lazy)
 """
+import os
 from dataclasses import dataclass, field
 
 
@@ -57,6 +63,11 @@ class ModelConfig:
     """ML model configuration."""
     wav2vec_model_id: str = "facebook/wav2vec2-lv-60-espeak-cv-ft"
     device: str = "auto"
+    # Dedicated HF token env name (read in loader.py, configurable for Railway)
+    hf_token_env: str = "HF_TOKEN"
+    # Memory toggles (read from env at import time) — B3 7GB safe with INT8 quant, fp16 causes Half/float mismatch on CPU
+    use_fp16: bool = field(default_factory=lambda: os.environ.get("VV_FP16", "0") in ("1", "true", "True"))
+    preload_in_background: bool = field(default_factory=lambda: os.environ.get("PHONEME_PRELOAD", "1") in ("1", "true", "True"))
 
     def resolve_device(self) -> str:
         """Resolve 'auto' to actual device string using lazy torch import."""
@@ -67,6 +78,9 @@ class ModelConfig:
             return "cuda" if torch.cuda.is_available() else "cpu"
         except ImportError:
             return "cpu"
+
+    def get_hf_token(self) -> str | None:
+        return os.environ.get(self.hf_token_env) or os.environ.get("HF_TOKEN") or None
 
 
 @dataclass

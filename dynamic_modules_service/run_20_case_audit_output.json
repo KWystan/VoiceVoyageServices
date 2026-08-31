@@ -1,0 +1,6238 @@
+[
+  {
+    "id": 1,
+    "label": "Kinder Fronting /k/",
+    "input": {
+      "age": 4,
+      "grade": "Kinder",
+      "procs": [
+        [
+          "Fronting",
+          "Initial",
+          "/k/ -> [t]"
+        ]
+      ]
+    },
+    "expect": {
+      "grade": "Kinder",
+      "outline": "fronting-k",
+      "focus": [
+        "k"
+      ],
+      "advisory": false
+    },
+    "output": {
+      "grade": "Kinder",
+      "outline_id": "fronting-k",
+      "outline_title": "Fronting: /k/ practice",
+      "focus_sounds": [
+        "k"
+      ],
+      "focus_processes": [
+        "Fronting"
+      ],
+      "generated_by": "rule-based",
+      "warning": null,
+      "rationale": "Kindergarten practice plan for Fronting (target k), following the 'Grade 1 Island 1.1 (Family Name & Sound Station)' gameplay guidance: progress from syllables to words to phrases to sentences.",
+      "levels": {
+        "syllable": [
+          "ka",
+          "kee",
+          "ki",
+          "ko"
+        ],
+        "word": [
+          "cat",
+          "cookie",
+          "cup",
+          "key"
+        ],
+        "phrase": [
+          "a big cup",
+          "my cookie",
+          "the key",
+          "a big chair"
+        ],
+        "sentence": [
+          "I drink from a cup.",
+          "I see a cookie.",
+          "My key opens the door.",
+          "The cat is on the mat."
+        ]
+      },
+      "levels_detail": {
+        "syllable": [
+          {
+            "text": "ka",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2,
+              3
+            ],
+            "phonemes": "k,ɑ",
+            "processes": [
+              "Fronting",
+              "Backing"
+            ]
+          },
+          {
+            "text": "kee",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2,
+              3
+            ],
+            "phonemes": "k,i",
+            "processes": [
+              "Fronting",
+              "Backing"
+            ]
+          },
+          {
+            "text": "ki",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2,
+              3
+            ],
+            "phonemes": "k,i",
+            "processes": [
+              "Fronting",
+              "Backing"
+            ]
+          },
+          {
+            "text": "ko",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2,
+              3
+            ],
+            "phonemes": "k,oʊ",
+            "processes": [
+              "Fronting",
+              "Backing"
+            ]
+          }
+        ],
+        "word": [
+          {
+            "text": "cat",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "k,æ,t",
+            "processes": [
+              "Fronting",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "cookie",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "k,ʊ,k,i",
+            "processes": [
+              "Fronting",
+              "Weak Syllable Deletion",
+              "Syllable Reduction"
+            ]
+          },
+          {
+            "text": "cup",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "k,ə,p",
+            "processes": [
+              "Fronting",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "key",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "k,i",
+            "processes": [
+              "Fronting",
+              "Initial Consonant Deletion"
+            ]
+          }
+        ],
+        "phrase": [
+          {
+            "text": "a big cup",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "ə,b,ɪ,ɡ,k,ə,p",
+            "processes": [
+              "Fronting",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "my cookie",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "m,aɪ,k,ʊ,k,i",
+            "processes": [
+              "Fronting",
+              "Weak Syllable Deletion",
+              "Syllable Reduction"
+            ]
+          },
+          {
+            "text": "the key",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "ð,ə,k,i",
+            "processes": [
+              "Fronting",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "a big chair",
+            "target": "tʃ",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "ə,b,ɪ,ɡ,tʃ,ɛ,r",
+            "processes": [
+              "Deaffrication",
+              "Initial Consonant Deletion"
+            ]
+          }
+        ],
+        "sentence": [
+          {
+            "text": "I drink from a cup.",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "aɪ,d,r,ɪ,ŋ,k,f,r,ə,m,ə,k,ə,p",
+            "processes": [
+              "Fronting",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "I see a cookie.",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "aɪ,s,i,ə,k,ʊ,k,i",
+            "processes": [
+              "Fronting",
+              "Weak Syllable Deletion",
+              "Syllable Reduction"
+            ]
+          },
+          {
+            "text": "My key opens the door.",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "m,aɪ,k,i,oʊ,p,ə,n,z,ð,ə,d,ɔ,r",
+            "processes": [
+              "Fronting",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "The cat is on the mat.",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "ð,ə,k,æ,t,ɪ,z,ɔ,n,ð,ə,m,æ,t",
+            "processes": [
+              "Fronting",
+              "Initial Consonant Deletion"
+            ]
+          }
+        ]
+      },
+      "process_docs": [
+        {
+          "slug": "fronting_velar",
+          "path": "age_4_kinder.md",
+          "len": 1924
+        }
+      ],
+      "parse_grade": 0,
+      "grade_for_age": 0
+    },
+    "issues": [],
+    "warns": [],
+    "status": "PASS"
+  },
+  {
+    "id": 2,
+    "label": "Age 4 no grade Fronting /k/ (infer Kinder)",
+    "input": {
+      "age": 4,
+      "grade": null,
+      "procs": [
+        [
+          "Fronting",
+          "Initial",
+          "/k/ -> [t]"
+        ]
+      ]
+    },
+    "expect": {
+      "grade": "Kinder",
+      "outline": "fronting-k",
+      "focus": [
+        "k"
+      ]
+    },
+    "output": {
+      "grade": "Kinder",
+      "outline_id": "fronting-k",
+      "outline_title": "Fronting: /k/ practice",
+      "focus_sounds": [
+        "k"
+      ],
+      "focus_processes": [
+        "Fronting"
+      ],
+      "generated_by": "rule-based",
+      "warning": null,
+      "rationale": "Kindergarten practice plan for Fronting (target k), following the 'Grade 1 Island 1.1 (Family Name & Sound Station)' gameplay guidance: progress from syllables to words to phrases to sentences.",
+      "levels": {
+        "syllable": [
+          "ka",
+          "kee",
+          "ki",
+          "ko"
+        ],
+        "word": [
+          "cat",
+          "cookie",
+          "cup",
+          "key"
+        ],
+        "phrase": [
+          "a big cup",
+          "my cookie",
+          "the key",
+          "a big chair"
+        ],
+        "sentence": [
+          "I drink from a cup.",
+          "I see a cookie.",
+          "My key opens the door.",
+          "The cat is on the mat."
+        ]
+      },
+      "levels_detail": {
+        "syllable": [
+          {
+            "text": "ka",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2,
+              3
+            ],
+            "phonemes": "k,ɑ",
+            "processes": [
+              "Fronting",
+              "Backing"
+            ]
+          },
+          {
+            "text": "kee",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2,
+              3
+            ],
+            "phonemes": "k,i",
+            "processes": [
+              "Fronting",
+              "Backing"
+            ]
+          },
+          {
+            "text": "ki",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2,
+              3
+            ],
+            "phonemes": "k,i",
+            "processes": [
+              "Fronting",
+              "Backing"
+            ]
+          },
+          {
+            "text": "ko",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2,
+              3
+            ],
+            "phonemes": "k,oʊ",
+            "processes": [
+              "Fronting",
+              "Backing"
+            ]
+          }
+        ],
+        "word": [
+          {
+            "text": "cat",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "k,æ,t",
+            "processes": [
+              "Fronting",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "cookie",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "k,ʊ,k,i",
+            "processes": [
+              "Fronting",
+              "Weak Syllable Deletion",
+              "Syllable Reduction"
+            ]
+          },
+          {
+            "text": "cup",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "k,ə,p",
+            "processes": [
+              "Fronting",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "key",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "k,i",
+            "processes": [
+              "Fronting",
+              "Initial Consonant Deletion"
+            ]
+          }
+        ],
+        "phrase": [
+          {
+            "text": "a big cup",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "ə,b,ɪ,ɡ,k,ə,p",
+            "processes": [
+              "Fronting",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "my cookie",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "m,aɪ,k,ʊ,k,i",
+            "processes": [
+              "Fronting",
+              "Weak Syllable Deletion",
+              "Syllable Reduction"
+            ]
+          },
+          {
+            "text": "the key",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "ð,ə,k,i",
+            "processes": [
+              "Fronting",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "a big chair",
+            "target": "tʃ",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "ə,b,ɪ,ɡ,tʃ,ɛ,r",
+            "processes": [
+              "Deaffrication",
+              "Initial Consonant Deletion"
+            ]
+          }
+        ],
+        "sentence": [
+          {
+            "text": "I drink from a cup.",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "aɪ,d,r,ɪ,ŋ,k,f,r,ə,m,ə,k,ə,p",
+            "processes": [
+              "Fronting",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "I see a cookie.",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "aɪ,s,i,ə,k,ʊ,k,i",
+            "processes": [
+              "Fronting",
+              "Weak Syllable Deletion",
+              "Syllable Reduction"
+            ]
+          },
+          {
+            "text": "My key opens the door.",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "m,aɪ,k,i,oʊ,p,ə,n,z,ð,ə,d,ɔ,r",
+            "processes": [
+              "Fronting",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "The cat is on the mat.",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "ð,ə,k,æ,t,ɪ,z,ɔ,n,ð,ə,m,æ,t",
+            "processes": [
+              "Fronting",
+              "Initial Consonant Deletion"
+            ]
+          }
+        ]
+      },
+      "process_docs": [
+        {
+          "slug": "fronting_velar",
+          "path": "age_4_kinder.md",
+          "len": 1924
+        }
+      ],
+      "parse_grade": 0,
+      "grade_for_age": 0
+    },
+    "issues": [],
+    "warns": [],
+    "status": "PASS"
+  },
+  {
+    "id": 3,
+    "label": "G1 Stopping /s/ -> [t]",
+    "input": {
+      "age": 5,
+      "grade": "Grade 1",
+      "procs": [
+        [
+          "Stopping",
+          "Initial",
+          "/s/ -> [t]"
+        ]
+      ]
+    },
+    "expect": {
+      "grade": "Grade 1",
+      "outline": "stopping-s",
+      "focus": [
+        "s"
+      ]
+    },
+    "output": {
+      "grade": "Grade 1",
+      "outline_id": "stopping-s",
+      "outline_title": "Stopping: /s/ practice",
+      "focus_sounds": [
+        "s"
+      ],
+      "focus_processes": [
+        "Stopping"
+      ],
+      "generated_by": "rule-based",
+      "warning": null,
+      "rationale": "Grade 1 practice plan for Stopping (target s), following the 'Grade 1 Island 4.3 (Earth Defender Match)' gameplay guidance: progress from syllables to words to phrases to sentences.",
+      "levels": {
+        "syllable": [
+          "sa",
+          "see",
+          "si",
+          "so"
+        ],
+        "word": [
+          "sand",
+          "sea",
+          "sister",
+          "soap"
+        ],
+        "phrase": [
+          "a big sock",
+          "see the sea",
+          "the sun",
+          "my father"
+        ],
+        "sentence": [
+          "I go to school.",
+          "I see a sock.",
+          "The sun is bright.",
+          "The sun is up."
+        ]
+      },
+      "levels_detail": {
+        "syllable": [
+          {
+            "text": "sa",
+            "target": "s",
+            "pos": "initial",
+            "grades": [
+              1,
+              2,
+              3
+            ],
+            "phonemes": "s,ɑ",
+            "processes": [
+              "Stopping",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "see",
+            "target": "s",
+            "pos": "initial",
+            "grades": [
+              1,
+              2,
+              3
+            ],
+            "phonemes": "s,i",
+            "processes": [
+              "Stopping",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "si",
+            "target": "s",
+            "pos": "initial",
+            "grades": [
+              1,
+              2,
+              3
+            ],
+            "phonemes": "s,i",
+            "processes": [
+              "Stopping",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "so",
+            "target": "s",
+            "pos": "initial",
+            "grades": [
+              1,
+              2,
+              3
+            ],
+            "phonemes": "s,oʊ",
+            "processes": [
+              "Stopping",
+              "Initial Consonant Deletion"
+            ]
+          }
+        ],
+        "word": [
+          {
+            "text": "sand",
+            "target": "s",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "s,æ,n,d",
+            "processes": [
+              "Cluster Reduction",
+              "Stopping",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "sea",
+            "target": "s",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "s,i",
+            "processes": [
+              "Stopping",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "sister",
+            "target": "s",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "s,ɪ,s,t,ə,r",
+            "processes": [
+              "Stopping",
+              "Cluster Reduction",
+              "Weak Syllable Deletion",
+              "Syllable Reduction"
+            ]
+          },
+          {
+            "text": "soap",
+            "target": "s",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "s,oʊ,p",
+            "processes": [
+              "Stopping",
+              "Initial Consonant Deletion"
+            ]
+          }
+        ],
+        "phrase": [
+          {
+            "text": "a big sock",
+            "target": "s",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "ə,b,ɪ,ɡ,s,ɑ,k",
+            "processes": [
+              "Stopping",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "see the sea",
+            "target": "s",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "s,i,ð,ə,s,i",
+            "processes": [
+              "Stopping",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "the sun",
+            "target": "s",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "ð,ə,s,ə,n",
+            "processes": [
+              "Stopping",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "my father",
+            "target": "ð",
+            "pos": "medial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "m,aɪ,f,ɑ,ð,ə,r",
+            "processes": [
+              "Stopping",
+              "Weak Syllable Deletion",
+              "Syllable Reduction"
+            ]
+          }
+        ],
+        "sentence": [
+          {
+            "text": "I go to school.",
+            "target": "s",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "aɪ,ɡ,oʊ,t,ə,s,k,u,l",
+            "processes": [
+              "Cluster Reduction",
+              "Stopping",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "I see a sock.",
+            "target": "s",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "aɪ,s,i,ə,s,ɑ,k",
+            "processes": [
+              "Stopping",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "The sun is bright.",
+            "target": "s",
+            "pos": "initial",
+            "grades": [
+              1,
+              2,
+              3
+            ],
+            "phonemes": "ð,ə,s,ə,n,ɪ,z,b,r,aɪ,t",
+            "processes": [
+              "Stopping",
+              "Cluster Reduction",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "The sun is up.",
+            "target": "s",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "ð,ə,s,ə,n,ɪ,z,ə,p",
+            "processes": [
+              "Stopping",
+              "Initial Consonant Deletion"
+            ]
+          }
+        ]
+      },
+      "process_docs": [
+        {
+          "slug": "stopping_s_z",
+          "path": "age_4_kinder.md",
+          "len": 3854
+        }
+      ],
+      "parse_grade": 1,
+      "grade_for_age": 1
+    },
+    "issues": [],
+    "warns": [],
+    "status": "PASS"
+  },
+  {
+    "id": 4,
+    "label": "G1 Stopping /θ/ -> [t] (th)",
+    "input": {
+      "age": 5,
+      "grade": "Grade 1",
+      "procs": [
+        [
+          "Stopping",
+          "Initial",
+          "/θ/ -> [t]"
+        ]
+      ]
+    },
+    "expect": {
+      "grade": "Grade 1",
+      "outline": "stopping-th",
+      "focus": [
+        "θ"
+      ]
+    },
+    "output": {
+      "grade": "Grade 1",
+      "outline_id": "stopping-th",
+      "outline_title": "Stopping: /th/ practice",
+      "focus_sounds": [
+        "θ"
+      ],
+      "focus_processes": [
+        "Stopping"
+      ],
+      "generated_by": "rule-based",
+      "warning": null,
+      "rationale": "Grade 1 practice plan for Stopping (target θ, ð), following the 'Grade 1 Island 4.1 (Nature Trail Cleaner)' gameplay guidance: progress from syllables to words to phrases to sentences.",
+      "levels": {
+        "syllable": [
+          "tha",
+          "thee",
+          "tho",
+          "fa"
+        ],
+        "word": [
+          "think",
+          "thumb",
+          "brother",
+          "bus"
+        ],
+        "phrase": [
+          "a big sock",
+          "my father",
+          "my mother",
+          "see the sea"
+        ],
+        "sentence": [
+          "I go to school.",
+          "I have a new book.",
+          "I love my family.",
+          "I protect the earth."
+        ]
+      },
+      "levels_detail": {
+        "syllable": [
+          {
+            "text": "tha",
+            "target": "θ",
+            "pos": "initial",
+            "grades": [
+              1,
+              3
+            ],
+            "phonemes": "θ,ɑ",
+            "processes": [
+              "Stopping",
+              "Final Consonant Deletion"
+            ]
+          },
+          {
+            "text": "thee",
+            "target": "θ",
+            "pos": "initial",
+            "grades": [
+              1,
+              3
+            ],
+            "phonemes": "θ,i",
+            "processes": [
+              "Stopping",
+              "Final Consonant Deletion"
+            ]
+          },
+          {
+            "text": "tho",
+            "target": "θ",
+            "pos": "initial",
+            "grades": [
+              1,
+              3
+            ],
+            "phonemes": "θ,oʊ",
+            "processes": [
+              "Stopping",
+              "Final Consonant Deletion"
+            ]
+          },
+          {
+            "text": "fa",
+            "target": "f",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "f,ɑ",
+            "processes": [
+              "Stopping"
+            ]
+          }
+        ],
+        "word": [
+          {
+            "text": "think",
+            "target": "θ",
+            "pos": "initial",
+            "grades": [
+              1,
+              3
+            ],
+            "phonemes": "θ,ɪ,ŋ,k",
+            "processes": [
+              "Stopping",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "thumb",
+            "target": "θ",
+            "pos": "initial",
+            "grades": [
+              1,
+              3
+            ],
+            "phonemes": "θ,ə,m",
+            "processes": [
+              "Stopping",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "brother",
+            "target": "r",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "b,r,ə,ð,ə,r",
+            "processes": [
+              "Cluster Reduction",
+              "Stopping",
+              "Weak Syllable Deletion",
+              "Syllable Reduction"
+            ]
+          },
+          {
+            "text": "bus",
+            "target": "s",
+            "pos": "final",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "b,ə,s",
+            "processes": [
+              "Stopping",
+              "Final Consonant Deletion"
+            ]
+          }
+        ],
+        "phrase": [
+          {
+            "text": "a big sock",
+            "target": "s",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "ə,b,ɪ,ɡ,s,ɑ,k",
+            "processes": [
+              "Stopping",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "my father",
+            "target": "ð",
+            "pos": "medial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "m,aɪ,f,ɑ,ð,ə,r",
+            "processes": [
+              "Stopping",
+              "Weak Syllable Deletion",
+              "Syllable Reduction"
+            ]
+          },
+          {
+            "text": "my mother",
+            "target": "ð",
+            "pos": "medial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "m,aɪ,m,ə,ð,ə,r",
+            "processes": [
+              "Stopping",
+              "Weak Syllable Deletion",
+              "Syllable Reduction"
+            ]
+          },
+          {
+            "text": "see the sea",
+            "target": "s",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "s,i,ð,ə,s,i",
+            "processes": [
+              "Stopping",
+              "Initial Consonant Deletion"
+            ]
+          }
+        ],
+        "sentence": [
+          {
+            "text": "I go to school.",
+            "target": "s",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "aɪ,ɡ,oʊ,t,ə,s,k,u,l",
+            "processes": [
+              "Cluster Reduction",
+              "Stopping",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "I have a new book.",
+            "target": "v",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "aɪ,h,æ,v,ə,n,u,b,ʊ,k",
+            "processes": [
+              "Stopping",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "I love my family.",
+            "target": "l",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "aɪ,l,ʌ,v,m,aɪ,f,æ,m,ə,l,i",
+            "processes": [
+              "Gliding",
+              "Stopping",
+              "Initial Consonant Deletion",
+              "Weak Syllable Deletion",
+              "Syllable Reduction"
+            ]
+          },
+          {
+            "text": "I protect the earth.",
+            "target": "θ",
+            "pos": "final",
+            "grades": [
+              1,
+              3
+            ],
+            "phonemes": "aɪ,p,r,ə,t,ɛ,k,t,ð,ə,ɜ,θ",
+            "processes": [
+              "Stopping",
+              "Cluster Reduction",
+              "Final Consonant Deletion"
+            ]
+          }
+        ]
+      },
+      "process_docs": [
+        {
+          "slug": "stopping_th",
+          "path": "age_5_grade_1.md",
+          "len": 1766
+        }
+      ],
+      "parse_grade": 1,
+      "grade_for_age": 1
+    },
+    "issues": [],
+    "warns": [],
+    "status": "PASS"
+  },
+  {
+    "id": 5,
+    "label": "G1 Gliding /r/ -> [w]",
+    "input": {
+      "age": 6,
+      "grade": "Grade 1",
+      "procs": [
+        [
+          "Gliding",
+          "Initial",
+          "/r/ -> [w]"
+        ]
+      ]
+    },
+    "expect": {
+      "grade": "Grade 1",
+      "outline": "gliding-r",
+      "focus": [
+        "r"
+      ]
+    },
+    "output": {
+      "grade": "Grade 1",
+      "outline_id": "gliding-r",
+      "outline_title": "Gliding: /r/ practice",
+      "focus_sounds": [
+        "r"
+      ],
+      "focus_processes": [
+        "Gliding"
+      ],
+      "generated_by": "rule-based",
+      "warning": null,
+      "rationale": "Grade 1 practice plan for Gliding (target r), following the 'Grade 1 Island 2.1 (Classroom Item Catcher)' gameplay guidance: progress from syllables to words to phrases to sentences.",
+      "levels": {
+        "syllable": [
+          "ra",
+          "ree",
+          "ri",
+          "ro"
+        ],
+        "word": [
+          "rabbit",
+          "rain",
+          "read",
+          "red"
+        ],
+        "phrase": [
+          "a red car",
+          "my red ruler",
+          "a big whale",
+          "a red ball"
+        ],
+        "sentence": [
+          "I read books.",
+          "My red ruler is here.",
+          "The blue ribbon is red.",
+          "The frog is near the tree."
+        ]
+      },
+      "levels_detail": {
+        "syllable": [
+          {
+            "text": "ra",
+            "target": "r",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "r,ɑ",
+            "processes": [
+              "Gliding"
+            ]
+          },
+          {
+            "text": "ree",
+            "target": "r",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "r,i",
+            "processes": [
+              "Gliding"
+            ]
+          },
+          {
+            "text": "ri",
+            "target": "r",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "r,i",
+            "processes": [
+              "Gliding"
+            ]
+          },
+          {
+            "text": "ro",
+            "target": "r",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "r,oʊ",
+            "processes": [
+              "Gliding"
+            ]
+          }
+        ],
+        "word": [
+          {
+            "text": "rabbit",
+            "target": "r",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "r,æ,b,ɪ,t",
+            "processes": [
+              "Gliding",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "rain",
+            "target": "r",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "r,eɪ,n",
+            "processes": [
+              "Gliding",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "read",
+            "target": "r",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "r,i,d",
+            "processes": [
+              "Gliding",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "red",
+            "target": "r",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "r,ɛ,d",
+            "processes": [
+              "Gliding",
+              "Initial Consonant Deletion"
+            ]
+          }
+        ],
+        "phrase": [
+          {
+            "text": "a red car",
+            "target": "r",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "ə,r,ɛ,d,k,ɑ,r",
+            "processes": [
+              "Gliding",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "my red ruler",
+            "target": "r",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "m,aɪ,r,ɛ,d,r,u,l,ə,r",
+            "processes": [
+              "Gliding",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "a big whale",
+            "target": "l",
+            "pos": "final",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "ə,b,ɪ,ɡ,w,eɪ,l",
+            "processes": [
+              "Gliding",
+              "Final Consonant Deletion"
+            ]
+          },
+          {
+            "text": "a red ball",
+            "target": "l",
+            "pos": "final",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "ə,r,ɛ,d,b,ɔ,l",
+            "processes": [
+              "Gliding",
+              "Final Consonant Deletion"
+            ]
+          }
+        ],
+        "sentence": [
+          {
+            "text": "I read books.",
+            "target": "r",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "aɪ,r,i,d,b,ʊ,k,s",
+            "processes": [
+              "Gliding",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "My red ruler is here.",
+            "target": "r",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "m,aɪ,r,ɛ,d,r,u,l,ə,r,ɪ,z,h,ɪ,r",
+            "processes": [
+              "Gliding",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "The blue ribbon is red.",
+            "target": "r",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "ð,ə,b,l,u,r,ɪ,b,ə,n,ɪ,z,r,ɛ,d",
+            "processes": [
+              "Gliding",
+              "Cluster Reduction",
+              "Weak Syllable Deletion",
+              "Syllable Reduction"
+            ]
+          },
+          {
+            "text": "The frog is near the tree.",
+            "target": "r",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "ð,ə,f,r,ɑ,ɡ,ɪ,z,n,ɪ,r,ð,ə,t,r,i",
+            "processes": [
+              "Cluster Reduction",
+              "Gliding"
+            ]
+          }
+        ]
+      },
+      "process_docs": [
+        {
+          "slug": "gliding_r",
+          "path": "age_5_grade_1.md",
+          "len": 1718
+        }
+      ],
+      "parse_grade": 1,
+      "grade_for_age": 1
+    },
+    "issues": [],
+    "warns": [],
+    "status": "PASS"
+  },
+  {
+    "id": 6,
+    "label": "G2 Gliding /r/ -> [w] (grade 2 items)",
+    "input": {
+      "age": 6,
+      "grade": "Grade 2",
+      "procs": [
+        [
+          "Gliding",
+          "Initial",
+          "/r/ -> [w]"
+        ]
+      ]
+    },
+    "expect": {
+      "grade": "Grade 2",
+      "outline": "gliding-r",
+      "focus": [
+        "r"
+      ]
+    },
+    "output": {
+      "grade": "Grade 2",
+      "outline_id": "gliding-r",
+      "outline_title": "Gliding: /r/ practice",
+      "focus_sounds": [
+        "r"
+      ],
+      "focus_processes": [
+        "Gliding"
+      ],
+      "generated_by": "rule-based",
+      "warning": null,
+      "rationale": "Grade 2 practice plan for Gliding (target r), following the 'Grade 1 Island 2.1 (Classroom Item Catcher)' gameplay guidance: progress from syllables to words to phrases to sentences.",
+      "levels": {
+        "syllable": [
+          "ra",
+          "ree",
+          "ri",
+          "ro"
+        ],
+        "word": [
+          "rabbit",
+          "rain",
+          "read",
+          "red"
+        ],
+        "phrase": [
+          "a red car",
+          "my red ruler",
+          "a big whale",
+          "a red ball"
+        ],
+        "sentence": [
+          "I read books.",
+          "I ride my bicycle.",
+          "My red ruler is here.",
+          "The blue ribbon is red."
+        ]
+      },
+      "levels_detail": {
+        "syllable": [
+          {
+            "text": "ra",
+            "target": "r",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "r,ɑ",
+            "processes": [
+              "Gliding"
+            ]
+          },
+          {
+            "text": "ree",
+            "target": "r",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "r,i",
+            "processes": [
+              "Gliding"
+            ]
+          },
+          {
+            "text": "ri",
+            "target": "r",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "r,i",
+            "processes": [
+              "Gliding"
+            ]
+          },
+          {
+            "text": "ro",
+            "target": "r",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "r,oʊ",
+            "processes": [
+              "Gliding"
+            ]
+          }
+        ],
+        "word": [
+          {
+            "text": "rabbit",
+            "target": "r",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "r,æ,b,ɪ,t",
+            "processes": [
+              "Gliding",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "rain",
+            "target": "r",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "r,eɪ,n",
+            "processes": [
+              "Gliding",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "read",
+            "target": "r",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "r,i,d",
+            "processes": [
+              "Gliding",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "red",
+            "target": "r",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "r,ɛ,d",
+            "processes": [
+              "Gliding",
+              "Initial Consonant Deletion"
+            ]
+          }
+        ],
+        "phrase": [
+          {
+            "text": "a red car",
+            "target": "r",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "ə,r,ɛ,d,k,ɑ,r",
+            "processes": [
+              "Gliding",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "my red ruler",
+            "target": "r",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "m,aɪ,r,ɛ,d,r,u,l,ə,r",
+            "processes": [
+              "Gliding",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "a big whale",
+            "target": "l",
+            "pos": "final",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "ə,b,ɪ,ɡ,w,eɪ,l",
+            "processes": [
+              "Gliding",
+              "Final Consonant Deletion"
+            ]
+          },
+          {
+            "text": "a red ball",
+            "target": "l",
+            "pos": "final",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "ə,r,ɛ,d,b,ɔ,l",
+            "processes": [
+              "Gliding",
+              "Final Consonant Deletion"
+            ]
+          }
+        ],
+        "sentence": [
+          {
+            "text": "I read books.",
+            "target": "r",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "aɪ,r,i,d,b,ʊ,k,s",
+            "processes": [
+              "Gliding",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "I ride my bicycle.",
+            "target": "r",
+            "pos": "initial",
+            "grades": [
+              2,
+              3
+            ],
+            "phonemes": "aɪ,r,aɪ,d,m,aɪ,b,aɪ,s,ɪ,k,əl",
+            "processes": [
+              "Gliding",
+              "Stopping",
+              "Weak Syllable Deletion",
+              "Syllable Reduction"
+            ]
+          },
+          {
+            "text": "My red ruler is here.",
+            "target": "r",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "m,aɪ,r,ɛ,d,r,u,l,ə,r,ɪ,z,h,ɪ,r",
+            "processes": [
+              "Gliding",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "The blue ribbon is red.",
+            "target": "r",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "ð,ə,b,l,u,r,ɪ,b,ə,n,ɪ,z,r,ɛ,d",
+            "processes": [
+              "Gliding",
+              "Cluster Reduction",
+              "Weak Syllable Deletion",
+              "Syllable Reduction"
+            ]
+          }
+        ]
+      },
+      "process_docs": [
+        {
+          "slug": "gliding_r",
+          "path": "age_5_grade_1.md",
+          "len": 1718
+        }
+      ],
+      "parse_grade": 2,
+      "grade_for_age": 1
+    },
+    "issues": [],
+    "warns": [],
+    "status": "PASS"
+  },
+  {
+    "id": 7,
+    "label": "G2 Deaffrication /tʃ/ -> [ʃ]",
+    "input": {
+      "age": 7,
+      "grade": "Grade 2",
+      "procs": [
+        [
+          "Deaffrication",
+          "Initial",
+          "/tʃ/ -> [ʃ]"
+        ]
+      ]
+    },
+    "expect": {
+      "grade": "Grade 2",
+      "outline": "deaffrication-ch",
+      "focus": [
+        "tʃ"
+      ]
+    },
+    "output": {
+      "grade": "Grade 2",
+      "outline_id": "deaffrication-ch",
+      "outline_title": "Deaffrication: /ch/ practice",
+      "focus_sounds": [
+        "tʃ"
+      ],
+      "focus_processes": [
+        "Deaffrication"
+      ],
+      "generated_by": "rule-based",
+      "warning": null,
+      "rationale": "Grade 2 practice plan for Deaffrication (target tʃ), following the 'Grade 1 Island 1.2 (Family Sorting Basket)' gameplay guidance: progress from syllables to words to phrases to sentences.",
+      "levels": {
+        "syllable": [
+          "cha",
+          "chee",
+          "cho",
+          "chu"
+        ],
+        "word": [
+          "chair",
+          "cheese",
+          "chop",
+          "bridge"
+        ],
+        "phrase": [
+          "a big chair",
+          "my watch",
+          "the red bridge",
+          "a big cup"
+        ],
+        "sentence": [
+          "I like cheese.",
+          "I sit on the chair.",
+          "The judge has a job.",
+          "The orange is in the kitchen."
+        ]
+      },
+      "levels_detail": {
+        "syllable": [
+          {
+            "text": "cha",
+            "target": "tʃ",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "tʃ,ɑ",
+            "processes": [
+              "Deaffrication"
+            ]
+          },
+          {
+            "text": "chee",
+            "target": "tʃ",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "tʃ,i",
+            "processes": [
+              "Deaffrication"
+            ]
+          },
+          {
+            "text": "cho",
+            "target": "tʃ",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "tʃ,oʊ",
+            "processes": [
+              "Deaffrication"
+            ]
+          },
+          {
+            "text": "chu",
+            "target": "tʃ",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "tʃ,u",
+            "processes": [
+              "Deaffrication"
+            ]
+          }
+        ],
+        "word": [
+          {
+            "text": "chair",
+            "target": "tʃ",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "tʃ,ɛ,r",
+            "processes": [
+              "Deaffrication",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "cheese",
+            "target": "tʃ",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "tʃ,i,z",
+            "processes": [
+              "Deaffrication",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "chop",
+            "target": "tʃ",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "tʃ,ɑ,p",
+            "processes": [
+              "Deaffrication",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "bridge",
+            "target": "dʒ",
+            "pos": "final",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "b,r,ɪ,dʒ",
+            "processes": [
+              "Deaffrication",
+              "Final Consonant Deletion"
+            ]
+          }
+        ],
+        "phrase": [
+          {
+            "text": "a big chair",
+            "target": "tʃ",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "ə,b,ɪ,ɡ,tʃ,ɛ,r",
+            "processes": [
+              "Deaffrication",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "my watch",
+            "target": "tʃ",
+            "pos": "final",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "m,aɪ,w,ɑ,tʃ",
+            "processes": [
+              "Deaffrication",
+              "Final Consonant Deletion"
+            ]
+          },
+          {
+            "text": "the red bridge",
+            "target": "dʒ",
+            "pos": "final",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "ð,ə,r,ɛ,d,b,r,ɪ,dʒ",
+            "processes": [
+              "Deaffrication",
+              "Cluster Reduction",
+              "Final Consonant Deletion"
+            ]
+          },
+          {
+            "text": "a big cup",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "ə,b,ɪ,ɡ,k,ə,p",
+            "processes": [
+              "Fronting",
+              "Initial Consonant Deletion"
+            ]
+          }
+        ],
+        "sentence": [
+          {
+            "text": "I like cheese.",
+            "target": "tʃ",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "aɪ,l,aɪ,k,tʃ,i,z",
+            "processes": [
+              "Deaffrication",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "I sit on the chair.",
+            "target": "tʃ",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "aɪ,s,ɪ,t,ɔ,n,ð,ə,tʃ,ɛ,r",
+            "processes": [
+              "Deaffrication",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "The judge has a job.",
+            "target": "dʒ",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "ð,ə,dʒ,ə,dʒ,h,æ,z,ə,dʒ,ɑ,b",
+            "processes": [
+              "Deaffrication",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "The orange is in the kitchen.",
+            "target": "dʒ",
+            "pos": "medial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "ð,ə,ɔ,r,ɪ,n,dʒ,ɪ,z,ɪ,n,ð,ə,k,ɪ,tʃ,ə,n",
+            "processes": [
+              "Deaffrication",
+              "Weak Syllable Deletion",
+              "Syllable Reduction"
+            ]
+          }
+        ]
+      },
+      "process_docs": [
+        {
+          "slug": "deaffrication",
+          "path": "age_4_kinder.md",
+          "len": 1894
+        }
+      ],
+      "parse_grade": 2,
+      "grade_for_age": 2
+    },
+    "issues": [],
+    "warns": [],
+    "status": "PASS"
+  },
+  {
+    "id": 8,
+    "label": "G3 Weak Syllable Deletion (no target)",
+    "input": {
+      "age": 8,
+      "grade": "Grade 3",
+      "procs": [
+        [
+          "Weak Syllable Deletion",
+          "Medial",
+          "Weak syllable 'ba' deleted in 'banana'"
+        ]
+      ]
+    },
+    "expect": {
+      "grade": "Grade 3",
+      "outline": "weak-syllable-deletion",
+      "focus": []
+    },
+    "output": {
+      "grade": "Grade 3",
+      "outline_id": "weak-syllable-deletion",
+      "outline_title": "Weak Syllable Deletion: multisyllabic words",
+      "focus_sounds": [],
+      "focus_processes": [
+        "Weak Syllable Deletion"
+      ],
+      "generated_by": "rule-based",
+      "warning": null,
+      "rationale": "Grade 3 practice plan for Weak Syllable Deletion (target ), following the 'Grade 3 Island 1.3 (Multisyllable Mountain)' gameplay guidance: progress from syllables to words to phrases to sentences.",
+      "levels": {
+        "syllable": [
+          "ba-na",
+          "el-e",
+          "to-ma",
+          "com-pu"
+        ],
+        "word": [
+          "alligator",
+          "banana",
+          "butterfly",
+          "dinosaur"
+        ],
+        "phrase": [
+          "a treasure map",
+          "the smooth feather",
+          "my cookie",
+          "my father"
+        ],
+        "sentence": [
+          "I ride my bicycle.",
+          "The feather is smooth.",
+          "The helicopter flies over the mountain.",
+          "The treasure is in the cave."
+        ]
+      },
+      "levels_detail": {
+        "syllable": [
+          {
+            "text": "ba-na",
+            "target": "b",
+            "pos": "initial",
+            "grades": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "phonemes": "b,ə,n,æ",
+            "processes": [
+              "Weak Syllable Deletion",
+              "Syllable Reduction"
+            ]
+          },
+          {
+            "text": "el-e",
+            "target": "l",
+            "pos": "medial",
+            "grades": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "phonemes": "ɛ,l,ə",
+            "processes": [
+              "Weak Syllable Deletion",
+              "Syllable Reduction"
+            ]
+          },
+          {
+            "text": "to-ma",
+            "target": "t",
+            "pos": "initial",
+            "grades": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "phonemes": "t,ə,m,eɪ",
+            "processes": [
+              "Weak Syllable Deletion",
+              "Syllable Reduction"
+            ]
+          },
+          {
+            "text": "com-pu",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2,
+              3
+            ],
+            "phonemes": "k,ə,m,p,j,u",
+            "processes": [
+              "Weak Syllable Deletion",
+              "Syllable Reduction"
+            ]
+          }
+        ],
+        "word": [
+          {
+            "text": "alligator",
+            "target": "l",
+            "pos": "initial",
+            "grades": [
+              1,
+              2,
+              3
+            ],
+            "phonemes": "æ,l,ɪ,ɡ,eɪ,t,ə,r",
+            "processes": [
+              "Gliding",
+              "Weak Syllable Deletion",
+              "Syllable Reduction"
+            ]
+          },
+          {
+            "text": "banana",
+            "target": "n",
+            "pos": "medial",
+            "grades": [
+              1,
+              2,
+              3
+            ],
+            "phonemes": "b,ə,n,æ,n,ə",
+            "processes": [
+              "Weak Syllable Deletion",
+              "Syllable Reduction"
+            ]
+          },
+          {
+            "text": "butterfly",
+            "target": "l",
+            "pos": "medial",
+            "grades": [
+              1,
+              2,
+              3
+            ],
+            "phonemes": "b,ə,t,ə,r,f,l,aɪ",
+            "processes": [
+              "Cluster Reduction",
+              "Weak Syllable Deletion",
+              "Syllable Reduction"
+            ]
+          },
+          {
+            "text": "dinosaur",
+            "target": "s",
+            "pos": "medial",
+            "grades": [
+              1,
+              2,
+              3
+            ],
+            "phonemes": "d,aɪ,n,ə,s,ɔ,r",
+            "processes": [
+              "Weak Syllable Deletion",
+              "Syllable Reduction"
+            ]
+          }
+        ],
+        "phrase": [
+          {
+            "text": "a treasure map",
+            "target": "ʒ",
+            "pos": "medial",
+            "grades": [
+              3
+            ],
+            "phonemes": "ə,t,r,ɛ,ʒ,ə,r,m,æ,p",
+            "processes": [
+              "Stopping",
+              "Cluster Reduction",
+              "Weak Syllable Deletion",
+              "Syllable Reduction"
+            ]
+          },
+          {
+            "text": "the smooth feather",
+            "target": "ð",
+            "pos": "medial",
+            "grades": [
+              3
+            ],
+            "phonemes": "ð,ə,s,m,u,ð,f,ɛ,ð,ə,r",
+            "processes": [
+              "Stopping",
+              "Weak Syllable Deletion",
+              "Syllable Reduction"
+            ]
+          },
+          {
+            "text": "my cookie",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "m,aɪ,k,ʊ,k,i",
+            "processes": [
+              "Fronting",
+              "Weak Syllable Deletion",
+              "Syllable Reduction"
+            ]
+          },
+          {
+            "text": "my father",
+            "target": "ð",
+            "pos": "medial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "m,aɪ,f,ɑ,ð,ə,r",
+            "processes": [
+              "Stopping",
+              "Weak Syllable Deletion",
+              "Syllable Reduction"
+            ]
+          }
+        ],
+        "sentence": [
+          {
+            "text": "I ride my bicycle.",
+            "target": "r",
+            "pos": "initial",
+            "grades": [
+              2,
+              3
+            ],
+            "phonemes": "aɪ,r,aɪ,d,m,aɪ,b,aɪ,s,ɪ,k,əl",
+            "processes": [
+              "Gliding",
+              "Stopping",
+              "Weak Syllable Deletion",
+              "Syllable Reduction"
+            ]
+          },
+          {
+            "text": "The feather is smooth.",
+            "target": "ð",
+            "pos": "medial",
+            "grades": [
+              3
+            ],
+            "phonemes": "ð,ə,f,ɛ,ð,ə,r,ɪ,z,s,m,u,ð",
+            "processes": [
+              "Stopping",
+              "Weak Syllable Deletion",
+              "Syllable Reduction"
+            ]
+          },
+          {
+            "text": "The helicopter flies over the mountain.",
+            "target": "l",
+            "pos": "medial",
+            "grades": [
+              3
+            ],
+            "phonemes": "ð,ə,h,ɛ,l,ɪ,k,ɑ,p,t,ə,r,f,l,aɪ,z,oʊ,v,ə,r,ð,ə,m,aʊ,n,t,ə,n",
+            "processes": [
+              "Weak Syllable Deletion",
+              "Syllable Reduction",
+              "Cluster Reduction"
+            ]
+          },
+          {
+            "text": "The treasure is in the cave.",
+            "target": "ʒ",
+            "pos": "medial",
+            "grades": [
+              3
+            ],
+            "phonemes": "ð,ə,t,r,ɛ,ʒ,ə,r,ɪ,z,ɪ,n,ð,ə,k,eɪ,v",
+            "processes": [
+              "Stopping",
+              "Cluster Reduction",
+              "Weak Syllable Deletion",
+              "Syllable Reduction"
+            ]
+          }
+        ]
+      },
+      "process_docs": [
+        {
+          "slug": "weak_syllable_deletion",
+          "path": "age_4_kinder.md",
+          "len": 7121
+        }
+      ],
+      "parse_grade": 3,
+      "grade_for_age": 3
+    },
+    "issues": [],
+    "warns": [
+      "phrase item 'my cookie' grades (1, 2) not in 3",
+      "phrase item 'my father' grades (1, 2) not in 3"
+    ],
+    "status": "PASS"
+  },
+  {
+    "id": 9,
+    "label": "G1 Cluster Reduction /bl/ -> [b]",
+    "input": {
+      "age": 5,
+      "grade": "Grade 1",
+      "procs": [
+        [
+          "Cluster Reduction",
+          "Initial",
+          "/bl/ -> [b]"
+        ]
+      ]
+    },
+    "expect": {
+      "grade": "Grade 1",
+      "outline": "cluster-reduction-l",
+      "focus": [
+        "bl"
+      ]
+    },
+    "output": {
+      "grade": "Grade 1",
+      "outline_id": "cluster-reduction-l",
+      "outline_title": "Cluster Reduction: L-Clusters practice",
+      "focus_sounds": [
+        "bl"
+      ],
+      "focus_processes": [
+        "Cluster Reduction"
+      ],
+      "generated_by": "rule-based",
+      "warning": null,
+      "rationale": "Grade 1 practice plan for Cluster Reduction (target bl, fl, gl, pl, l), following the 'Grade 1 Island 2.2 (Story Line Jumper)' gameplay guidance: progress from syllables to words to phrases to sentences.",
+      "levels": {
+        "syllable": [
+          "bla",
+          "blu",
+          "dra",
+          "dri"
+        ],
+        "word": [
+          "blue",
+          "brother",
+          "butterfly",
+          "crab"
+        ],
+        "phrase": [
+          "drive the truck",
+          "the big star",
+          "the blue flag",
+          "the green truck"
+        ],
+        "sentence": [
+          "Drive the truck.",
+          "I go to school.",
+          "I protect the earth.",
+          "My brother drives the truck."
+        ]
+      },
+      "levels_detail": {
+        "syllable": [
+          {
+            "text": "bla",
+            "target": "l",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "b,l,ɑ",
+            "processes": [
+              "Cluster Reduction"
+            ]
+          },
+          {
+            "text": "blu",
+            "target": "l",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "b,l,u",
+            "processes": [
+              "Cluster Reduction"
+            ]
+          },
+          {
+            "text": "dra",
+            "target": "r",
+            "pos": "initial",
+            "grades": [
+              1,
+              2,
+              3
+            ],
+            "phonemes": "d,r,æ",
+            "processes": [
+              "Cluster Reduction"
+            ]
+          },
+          {
+            "text": "dri",
+            "target": "r",
+            "pos": "initial",
+            "grades": [
+              1,
+              2,
+              3
+            ],
+            "phonemes": "d,r,i",
+            "processes": [
+              "Cluster Reduction"
+            ]
+          }
+        ],
+        "word": [
+          {
+            "text": "blue",
+            "target": "l",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "b,l,u",
+            "processes": [
+              "Cluster Reduction"
+            ]
+          },
+          {
+            "text": "brother",
+            "target": "r",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "b,r,ə,ð,ə,r",
+            "processes": [
+              "Cluster Reduction",
+              "Stopping",
+              "Weak Syllable Deletion",
+              "Syllable Reduction"
+            ]
+          },
+          {
+            "text": "butterfly",
+            "target": "l",
+            "pos": "medial",
+            "grades": [
+              1,
+              2,
+              3
+            ],
+            "phonemes": "b,ə,t,ə,r,f,l,aɪ",
+            "processes": [
+              "Cluster Reduction",
+              "Weak Syllable Deletion",
+              "Syllable Reduction"
+            ]
+          },
+          {
+            "text": "crab",
+            "target": "r",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "k,r,æ,b",
+            "processes": [
+              "Cluster Reduction"
+            ]
+          }
+        ],
+        "phrase": [
+          {
+            "text": "drive the truck",
+            "target": "r",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "d,r,aɪ,v,ð,ə,t,r,ə,k",
+            "processes": [
+              "Cluster Reduction"
+            ]
+          },
+          {
+            "text": "the big star",
+            "target": "s",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "ð,ə,b,ɪ,ɡ,s,t,ɑ,r",
+            "processes": [
+              "Cluster Reduction"
+            ]
+          },
+          {
+            "text": "the blue flag",
+            "target": "l",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "ð,ə,b,l,u,f,l,æ,ɡ",
+            "processes": [
+              "Cluster Reduction"
+            ]
+          },
+          {
+            "text": "the green truck",
+            "target": "r",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "ð,ə,ɡ,r,i,n,t,r,ə,k",
+            "processes": [
+              "Cluster Reduction"
+            ]
+          }
+        ],
+        "sentence": [
+          {
+            "text": "Drive the truck.",
+            "target": "r",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "d,r,aɪ,v,ð,ə,t,r,ə,k",
+            "processes": [
+              "Cluster Reduction"
+            ]
+          },
+          {
+            "text": "I go to school.",
+            "target": "s",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "aɪ,ɡ,oʊ,t,ə,s,k,u,l",
+            "processes": [
+              "Cluster Reduction",
+              "Stopping",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "I protect the earth.",
+            "target": "θ",
+            "pos": "final",
+            "grades": [
+              1,
+              3
+            ],
+            "phonemes": "aɪ,p,r,ə,t,ɛ,k,t,ð,ə,ɜ,θ",
+            "processes": [
+              "Stopping",
+              "Cluster Reduction",
+              "Final Consonant Deletion"
+            ]
+          },
+          {
+            "text": "My brother drives the truck.",
+            "target": "r",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "m,aɪ,b,r,ə,ð,ə,r,d,r,aɪ,v,z,ð,ə,t,r,ə,k",
+            "processes": [
+              "Cluster Reduction",
+              "Stopping",
+              "Weak Syllable Deletion",
+              "Syllable Reduction"
+            ]
+          }
+        ]
+      },
+      "process_docs": [
+        {
+          "slug": "cluster_reduction_2el",
+          "path": "age_4_kinder.md",
+          "len": 1862
+        }
+      ],
+      "parse_grade": 1,
+      "grade_for_age": 1
+    },
+    "issues": [],
+    "warns": [],
+    "status": "PASS"
+  },
+  {
+    "id": 10,
+    "label": "G3 Cluster Reduction /st/ -> [t]",
+    "input": {
+      "age": 8,
+      "grade": "Grade 3",
+      "procs": [
+        [
+          "Cluster Reduction",
+          "Initial",
+          "/st/ -> [t]"
+        ]
+      ]
+    },
+    "expect": {
+      "grade": "Grade 3",
+      "outline": "cluster-reduction-s",
+      "focus": [
+        "st"
+      ]
+    },
+    "output": {
+      "grade": "Grade 3",
+      "outline_id": "cluster-reduction-s",
+      "outline_title": "Cluster Reduction: S-Clusters practice",
+      "focus_sounds": [
+        "st"
+      ],
+      "focus_processes": [
+        "Cluster Reduction"
+      ],
+      "generated_by": "rule-based",
+      "warning": null,
+      "rationale": "Grade 3 practice plan for Cluster Reduction (target st, sp, sk, s), following the 'Grade 1 Island 4.3 (Earth Defender Match)' gameplay guidance: progress from syllables to words to phrases to sentences.",
+      "levels": {
+        "syllable": [
+          "dra",
+          "dri",
+          "gra",
+          "gro"
+        ],
+        "word": [
+          "butterfly",
+          "strawberry",
+          "three",
+          "blue"
+        ],
+        "phrase": [
+          "a treasure map",
+          "drive the truck",
+          "the big star",
+          "the blue flag"
+        ],
+        "sentence": [
+          "I brush my teeth.",
+          "I protect the earth.",
+          "The helicopter flies over the mountain.",
+          "The sun is bright."
+        ]
+      },
+      "levels_detail": {
+        "syllable": [
+          {
+            "text": "dra",
+            "target": "r",
+            "pos": "initial",
+            "grades": [
+              1,
+              2,
+              3
+            ],
+            "phonemes": "d,r,æ",
+            "processes": [
+              "Cluster Reduction"
+            ]
+          },
+          {
+            "text": "dri",
+            "target": "r",
+            "pos": "initial",
+            "grades": [
+              1,
+              2,
+              3
+            ],
+            "phonemes": "d,r,i",
+            "processes": [
+              "Cluster Reduction"
+            ]
+          },
+          {
+            "text": "gra",
+            "target": "r",
+            "pos": "initial",
+            "grades": [
+              1,
+              2,
+              3
+            ],
+            "phonemes": "ɡ,r,æ",
+            "processes": [
+              "Cluster Reduction"
+            ]
+          },
+          {
+            "text": "gro",
+            "target": "r",
+            "pos": "initial",
+            "grades": [
+              1,
+              2,
+              3
+            ],
+            "phonemes": "ɡ,r,oʊ",
+            "processes": [
+              "Cluster Reduction"
+            ]
+          }
+        ],
+        "word": [
+          {
+            "text": "butterfly",
+            "target": "l",
+            "pos": "medial",
+            "grades": [
+              1,
+              2,
+              3
+            ],
+            "phonemes": "b,ə,t,ə,r,f,l,aɪ",
+            "processes": [
+              "Cluster Reduction",
+              "Weak Syllable Deletion",
+              "Syllable Reduction"
+            ]
+          },
+          {
+            "text": "strawberry",
+            "target": "r",
+            "pos": "initial",
+            "grades": [
+              1,
+              2,
+              3
+            ],
+            "phonemes": "s,t,r,ɔ,b,ɛ,r,i",
+            "processes": [
+              "Cluster Reduction",
+              "Weak Syllable Deletion",
+              "Syllable Reduction"
+            ]
+          },
+          {
+            "text": "three",
+            "target": "θ",
+            "pos": "initial",
+            "grades": [
+              3
+            ],
+            "phonemes": "θ,r,i",
+            "processes": [
+              "Stopping",
+              "Cluster Reduction",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "blue",
+            "target": "l",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "b,l,u",
+            "processes": [
+              "Cluster Reduction"
+            ]
+          }
+        ],
+        "phrase": [
+          {
+            "text": "a treasure map",
+            "target": "ʒ",
+            "pos": "medial",
+            "grades": [
+              3
+            ],
+            "phonemes": "ə,t,r,ɛ,ʒ,ə,r,m,æ,p",
+            "processes": [
+              "Stopping",
+              "Cluster Reduction",
+              "Weak Syllable Deletion",
+              "Syllable Reduction"
+            ]
+          },
+          {
+            "text": "drive the truck",
+            "target": "r",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "d,r,aɪ,v,ð,ə,t,r,ə,k",
+            "processes": [
+              "Cluster Reduction"
+            ]
+          },
+          {
+            "text": "the big star",
+            "target": "s",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "ð,ə,b,ɪ,ɡ,s,t,ɑ,r",
+            "processes": [
+              "Cluster Reduction"
+            ]
+          },
+          {
+            "text": "the blue flag",
+            "target": "l",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "ð,ə,b,l,u,f,l,æ,ɡ",
+            "processes": [
+              "Cluster Reduction"
+            ]
+          }
+        ],
+        "sentence": [
+          {
+            "text": "I brush my teeth.",
+            "target": "θ",
+            "pos": "final",
+            "grades": [
+              3
+            ],
+            "phonemes": "aɪ,b,r,ə,ʃ,m,aɪ,t,i,θ",
+            "processes": [
+              "Stopping",
+              "Cluster Reduction",
+              "Final Consonant Deletion"
+            ]
+          },
+          {
+            "text": "I protect the earth.",
+            "target": "θ",
+            "pos": "final",
+            "grades": [
+              1,
+              3
+            ],
+            "phonemes": "aɪ,p,r,ə,t,ɛ,k,t,ð,ə,ɜ,θ",
+            "processes": [
+              "Stopping",
+              "Cluster Reduction",
+              "Final Consonant Deletion"
+            ]
+          },
+          {
+            "text": "The helicopter flies over the mountain.",
+            "target": "l",
+            "pos": "medial",
+            "grades": [
+              3
+            ],
+            "phonemes": "ð,ə,h,ɛ,l,ɪ,k,ɑ,p,t,ə,r,f,l,aɪ,z,oʊ,v,ə,r,ð,ə,m,aʊ,n,t,ə,n",
+            "processes": [
+              "Weak Syllable Deletion",
+              "Syllable Reduction",
+              "Cluster Reduction"
+            ]
+          },
+          {
+            "text": "The sun is bright.",
+            "target": "s",
+            "pos": "initial",
+            "grades": [
+              1,
+              2,
+              3
+            ],
+            "phonemes": "ð,ə,s,ə,n,ɪ,z,b,r,aɪ,t",
+            "processes": [
+              "Stopping",
+              "Cluster Reduction",
+              "Initial Consonant Deletion"
+            ]
+          }
+        ]
+      },
+      "process_docs": [
+        {
+          "slug": "cluster_reduction_2el",
+          "path": "age_4_kinder.md",
+          "len": 1862
+        }
+      ],
+      "parse_grade": 3,
+      "grade_for_age": 3
+    },
+    "issues": [],
+    "warns": [
+      "word item 'blue' grades (1, 2) not in 3",
+      "phrase item 'drive the truck' grades (1, 2) not in 3",
+      "phrase item 'the big star' grades (1, 2) not in 3",
+      "phrase item 'the blue flag' grades (1, 2) not in 3"
+    ],
+    "status": "PASS"
+  },
+  {
+    "id": 11,
+    "label": "Kinder Final Consonant Deletion /t/ final",
+    "input": {
+      "age": 4,
+      "grade": "Kinder",
+      "procs": [
+        [
+          "Final Consonant Deletion",
+          "Final",
+          "/t/ deleted in 'cat'"
+        ]
+      ]
+    },
+    "expect": {
+      "grade": "Kinder",
+      "outline": "final-consonant-deletion",
+      "focus": [
+        "t"
+      ]
+    },
+    "output": {
+      "grade": "Kinder",
+      "outline_id": "final-consonant-deletion",
+      "outline_title": "Final Consonant Deletion practice",
+      "focus_sounds": [
+        "t"
+      ],
+      "focus_processes": [
+        "Final Consonant Deletion"
+      ],
+      "generated_by": "rule-based",
+      "warning": null,
+      "rationale": "Kindergarten practice plan for Final Consonant Deletion (target p, b, t, d, k, ɡ, m, n, f, v, s, z, ʃ, tʃ, dʒ, θ, ð, l, r), following the 'Grade 1 Island 1.3 (Rhyme Time Porch)' gameplay guidance: progress from syllables to words to phrases to sentences.",
+      "levels": {
+        "syllable": [
+          "el",
+          "ol",
+          "tha",
+          "thee"
+        ],
+        "word": [
+          "boat",
+          "hat",
+          "baby",
+          "bag"
+        ],
+        "phrase": [
+          "a big whale",
+          "a red ball",
+          "my watch",
+          "the bell"
+        ],
+        "sentence": [
+          "I like the ball.",
+          "I protect the earth.",
+          "The baby is sleeping.",
+          "The bell rings."
+        ]
+      },
+      "levels_detail": {
+        "syllable": [
+          {
+            "text": "el",
+            "target": "l",
+            "pos": "final",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "ɛ,l",
+            "processes": [
+              "Gliding",
+              "Final Consonant Deletion"
+            ]
+          },
+          {
+            "text": "ol",
+            "target": "l",
+            "pos": "final",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "oʊ,l",
+            "processes": [
+              "Gliding",
+              "Final Consonant Deletion"
+            ]
+          },
+          {
+            "text": "tha",
+            "target": "θ",
+            "pos": "initial",
+            "grades": [
+              1,
+              3
+            ],
+            "phonemes": "θ,ɑ",
+            "processes": [
+              "Stopping",
+              "Final Consonant Deletion"
+            ]
+          },
+          {
+            "text": "thee",
+            "target": "θ",
+            "pos": "initial",
+            "grades": [
+              1,
+              3
+            ],
+            "phonemes": "θ,i",
+            "processes": [
+              "Stopping",
+              "Final Consonant Deletion"
+            ]
+          }
+        ],
+        "word": [
+          {
+            "text": "boat",
+            "target": "t",
+            "pos": "final",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "b,oʊ,t",
+            "processes": [
+              "Final Devoicing",
+              "Final Consonant Deletion"
+            ]
+          },
+          {
+            "text": "hat",
+            "target": "t",
+            "pos": "final",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "h,æ,t",
+            "processes": [
+              "Final Consonant Deletion"
+            ]
+          },
+          {
+            "text": "baby",
+            "target": "b",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "b,eɪ,b,i",
+            "processes": [
+              "Final Consonant Deletion"
+            ]
+          },
+          {
+            "text": "bag",
+            "target": "b",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "b,æ,ɡ",
+            "processes": [
+              "Final Consonant Deletion"
+            ]
+          }
+        ],
+        "phrase": [
+          {
+            "text": "a big whale",
+            "target": "l",
+            "pos": "final",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "ə,b,ɪ,ɡ,w,eɪ,l",
+            "processes": [
+              "Gliding",
+              "Final Consonant Deletion"
+            ]
+          },
+          {
+            "text": "a red ball",
+            "target": "l",
+            "pos": "final",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "ə,r,ɛ,d,b,ɔ,l",
+            "processes": [
+              "Gliding",
+              "Final Consonant Deletion"
+            ]
+          },
+          {
+            "text": "my watch",
+            "target": "tʃ",
+            "pos": "final",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "m,aɪ,w,ɑ,tʃ",
+            "processes": [
+              "Deaffrication",
+              "Final Consonant Deletion"
+            ]
+          },
+          {
+            "text": "the bell",
+            "target": "l",
+            "pos": "final",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "ð,ə,b,ɛ,l",
+            "processes": [
+              "Gliding",
+              "Final Consonant Deletion"
+            ]
+          }
+        ],
+        "sentence": [
+          {
+            "text": "I like the ball.",
+            "target": "l",
+            "pos": "final",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "aɪ,l,aɪ,k,ð,ə,b,ɔ,l",
+            "processes": [
+              "Gliding",
+              "Final Consonant Deletion"
+            ]
+          },
+          {
+            "text": "I protect the earth.",
+            "target": "θ",
+            "pos": "final",
+            "grades": [
+              1,
+              3
+            ],
+            "phonemes": "aɪ,p,r,ə,t,ɛ,k,t,ð,ə,ɜ,θ",
+            "processes": [
+              "Stopping",
+              "Cluster Reduction",
+              "Final Consonant Deletion"
+            ]
+          },
+          {
+            "text": "The baby is sleeping.",
+            "target": "b",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "ð,ə,b,eɪ,b,i,ɪ,z,s,l,i,p,ɪ,ŋ",
+            "processes": [
+              "Final Consonant Deletion"
+            ]
+          },
+          {
+            "text": "The bell rings.",
+            "target": "l",
+            "pos": "final",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "ð,ə,b,ɛ,l,r,ɪ,ŋ,z",
+            "processes": [
+              "Gliding",
+              "Final Consonant Deletion"
+            ]
+          }
+        ]
+      },
+      "process_docs": [
+        {
+          "slug": "general_articulation",
+          "path": "age_default.md",
+          "len": 1636
+        }
+      ],
+      "parse_grade": 0,
+      "grade_for_age": 0
+    },
+    "issues": [],
+    "warns": [],
+    "status": "PASS"
+  },
+  {
+    "id": 12,
+    "label": "G1 Initial Consonant Deletion /p/",
+    "input": {
+      "age": 5,
+      "grade": "Grade 1",
+      "procs": [
+        [
+          "Initial Consonant Deletion",
+          "Initial",
+          "/p/ deleted in 'pig'"
+        ]
+      ]
+    },
+    "expect": {
+      "grade": "Grade 1",
+      "outline": "initial-consonant-deletion",
+      "focus": [
+        "p"
+      ],
+      "advisory": true
+    },
+    "output": {
+      "grade": "Grade 1",
+      "outline_id": "initial-consonant-deletion",
+      "outline_title": "Initial Consonant Deletion practice",
+      "focus_sounds": [
+        "p"
+      ],
+      "focus_processes": [
+        "Initial Consonant Deletion"
+      ],
+      "generated_by": "rule-based",
+      "warning": null,
+      "rationale": "Grade 1 practice plan for Initial Consonant Deletion (target p, b, t, d, k, ɡ, m, n, f, v, s, z, ʃ, tʃ, dʒ, θ, ð, l, r, j, w, h), following the 'Grade 1 Island 1.1 (Family Name & Sound Station)' gameplay guidance: progress from syllables to words to phrases to sentences. [CLINICAL ADVISORY: Non-developmental speech error pattern detected. Clinical SLP consultation advised.]",
+      "levels": {
+        "syllable": [
+          "da",
+          "dee",
+          "sa",
+          "see"
+        ],
+        "word": [
+          "cat",
+          "chair",
+          "cheese",
+          "chop"
+        ],
+        "phrase": [
+          "a big chair",
+          "a big cup",
+          "a big sock",
+          "a red car"
+        ],
+        "sentence": [
+          "I drink from a cup.",
+          "I go to school.",
+          "I have a new book.",
+          "I like cheese."
+        ]
+      },
+      "levels_detail": {
+        "syllable": [
+          {
+            "text": "da",
+            "target": "d",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "d,ɑ",
+            "processes": [
+              "Backing",
+              "Denasalization",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "dee",
+            "target": "d",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "d,i",
+            "processes": [
+              "Backing",
+              "Denasalization",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "sa",
+            "target": "s",
+            "pos": "initial",
+            "grades": [
+              1,
+              2,
+              3
+            ],
+            "phonemes": "s,ɑ",
+            "processes": [
+              "Stopping",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "see",
+            "target": "s",
+            "pos": "initial",
+            "grades": [
+              1,
+              2,
+              3
+            ],
+            "phonemes": "s,i",
+            "processes": [
+              "Stopping",
+              "Initial Consonant Deletion"
+            ]
+          }
+        ],
+        "word": [
+          {
+            "text": "cat",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "k,æ,t",
+            "processes": [
+              "Fronting",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "chair",
+            "target": "tʃ",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "tʃ,ɛ,r",
+            "processes": [
+              "Deaffrication",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "cheese",
+            "target": "tʃ",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "tʃ,i,z",
+            "processes": [
+              "Deaffrication",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "chop",
+            "target": "tʃ",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "tʃ,ɑ,p",
+            "processes": [
+              "Deaffrication",
+              "Initial Consonant Deletion"
+            ]
+          }
+        ],
+        "phrase": [
+          {
+            "text": "a big chair",
+            "target": "tʃ",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "ə,b,ɪ,ɡ,tʃ,ɛ,r",
+            "processes": [
+              "Deaffrication",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "a big cup",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "ə,b,ɪ,ɡ,k,ə,p",
+            "processes": [
+              "Fronting",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "a big sock",
+            "target": "s",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "ə,b,ɪ,ɡ,s,ɑ,k",
+            "processes": [
+              "Stopping",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "a red car",
+            "target": "r",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "ə,r,ɛ,d,k,ɑ,r",
+            "processes": [
+              "Gliding",
+              "Initial Consonant Deletion"
+            ]
+          }
+        ],
+        "sentence": [
+          {
+            "text": "I drink from a cup.",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "aɪ,d,r,ɪ,ŋ,k,f,r,ə,m,ə,k,ə,p",
+            "processes": [
+              "Fronting",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "I go to school.",
+            "target": "s",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "aɪ,ɡ,oʊ,t,ə,s,k,u,l",
+            "processes": [
+              "Cluster Reduction",
+              "Stopping",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "I have a new book.",
+            "target": "v",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "aɪ,h,æ,v,ə,n,u,b,ʊ,k",
+            "processes": [
+              "Stopping",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "I like cheese.",
+            "target": "tʃ",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "aɪ,l,aɪ,k,tʃ,i,z",
+            "processes": [
+              "Deaffrication",
+              "Initial Consonant Deletion"
+            ]
+          }
+        ]
+      },
+      "process_docs": [
+        {
+          "slug": "initial_consonant_deletion",
+          "path": "age_5_grade_1.md",
+          "len": 1674
+        }
+      ],
+      "parse_grade": 1,
+      "grade_for_age": 1
+    },
+    "issues": [],
+    "warns": [],
+    "status": "PASS"
+  },
+  {
+    "id": 13,
+    "label": "G1 Backing /t/ -> [k] ATYPICAL",
+    "input": {
+      "age": 5,
+      "grade": "Grade 1",
+      "procs": [
+        [
+          "Backing",
+          "Initial",
+          "/t/ -> [k]"
+        ]
+      ]
+    },
+    "expect": {
+      "grade": "Grade 1",
+      "outline": "backing-t",
+      "focus": [
+        "t"
+      ],
+      "advisory": true
+    },
+    "output": {
+      "grade": "Grade 1",
+      "outline_id": "backing-t",
+      "outline_title": "Backing: /t/ practice",
+      "focus_sounds": [
+        "t"
+      ],
+      "focus_processes": [
+        "Backing"
+      ],
+      "generated_by": "rule-based",
+      "warning": null,
+      "rationale": "Grade 1 practice plan for Backing (target t), following the 'Grade 1 Island 1.1 (Family Name & Sound Station)' gameplay guidance: progress from syllables to words to phrases to sentences. [CLINICAL ADVISORY: Non-developmental speech error pattern detected. Clinical SLP consultation advised.]",
+      "levels": {
+        "syllable": [
+          "ta",
+          "tee",
+          "da",
+          "dee"
+        ],
+        "word": [
+          "ten",
+          "alligator",
+          "apple",
+          "baby"
+        ],
+        "phrase": [
+          "a big chair",
+          "a big cup",
+          "a big sock",
+          "a big whale"
+        ],
+        "sentence": [
+          "Drive the truck.",
+          "I brush my teeth.",
+          "I drink from a cup.",
+          "I go to school."
+        ]
+      },
+      "levels_detail": {
+        "syllable": [
+          {
+            "text": "ta",
+            "target": "t",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "t,ɑ",
+            "processes": [
+              "Backing",
+              "Denasalization",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "tee",
+            "target": "t",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "t,i",
+            "processes": [
+              "Backing",
+              "Denasalization",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "da",
+            "target": "d",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "d,ɑ",
+            "processes": [
+              "Backing",
+              "Denasalization",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "dee",
+            "target": "d",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "d,i",
+            "processes": [
+              "Backing",
+              "Denasalization",
+              "Initial Consonant Deletion"
+            ]
+          }
+        ],
+        "word": [
+          {
+            "text": "ten",
+            "target": "t",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "t,ɛ,n",
+            "processes": [
+              "Backing",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "alligator",
+            "target": "l",
+            "pos": "initial",
+            "grades": [
+              1,
+              2,
+              3
+            ],
+            "phonemes": "æ,l,ɪ,ɡ,eɪ,t,ə,r",
+            "processes": [
+              "Gliding",
+              "Weak Syllable Deletion",
+              "Syllable Reduction"
+            ]
+          },
+          {
+            "text": "apple",
+            "target": "l",
+            "pos": "final",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "æ,p,əl",
+            "processes": [
+              "Weak Syllable Deletion",
+              "Syllable Reduction"
+            ]
+          },
+          {
+            "text": "baby",
+            "target": "b",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "b,eɪ,b,i",
+            "processes": [
+              "Final Consonant Deletion"
+            ]
+          }
+        ],
+        "phrase": [
+          {
+            "text": "a big chair",
+            "target": "tʃ",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "ə,b,ɪ,ɡ,tʃ,ɛ,r",
+            "processes": [
+              "Deaffrication",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "a big cup",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "ə,b,ɪ,ɡ,k,ə,p",
+            "processes": [
+              "Fronting",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "a big sock",
+            "target": "s",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "ə,b,ɪ,ɡ,s,ɑ,k",
+            "processes": [
+              "Stopping",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "a big whale",
+            "target": "l",
+            "pos": "final",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "ə,b,ɪ,ɡ,w,eɪ,l",
+            "processes": [
+              "Gliding",
+              "Final Consonant Deletion"
+            ]
+          }
+        ],
+        "sentence": [
+          {
+            "text": "Drive the truck.",
+            "target": "r",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "d,r,aɪ,v,ð,ə,t,r,ə,k",
+            "processes": [
+              "Cluster Reduction"
+            ]
+          },
+          {
+            "text": "I brush my teeth.",
+            "target": "θ",
+            "pos": "final",
+            "grades": [
+              3
+            ],
+            "phonemes": "aɪ,b,r,ə,ʃ,m,aɪ,t,i,θ",
+            "processes": [
+              "Stopping",
+              "Cluster Reduction",
+              "Final Consonant Deletion"
+            ]
+          },
+          {
+            "text": "I drink from a cup.",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "aɪ,d,r,ɪ,ŋ,k,f,r,ə,m,ə,k,ə,p",
+            "processes": [
+              "Fronting",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "I go to school.",
+            "target": "s",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "aɪ,ɡ,oʊ,t,ə,s,k,u,l",
+            "processes": [
+              "Cluster Reduction",
+              "Stopping",
+              "Initial Consonant Deletion"
+            ]
+          }
+        ]
+      },
+      "process_docs": [
+        {
+          "slug": "backing",
+          "path": "age_5_grade_1.md",
+          "len": 1701
+        }
+      ],
+      "parse_grade": 1,
+      "grade_for_age": 1
+    },
+    "issues": [],
+    "warns": [
+      "sentence item 'I brush my teeth.' grades (3,) not in 1"
+    ],
+    "status": "PASS"
+  },
+  {
+    "id": 14,
+    "label": "G2 Vowelization /l/ -> [o] (0 bank items)",
+    "input": {
+      "age": 6,
+      "grade": "Grade 2",
+      "procs": [
+        [
+          "Vowelization",
+          "Final",
+          "/l/ -> [o]"
+        ]
+      ]
+    },
+    "expect": {
+      "grade": "Grade 2",
+      "outline": "vowelization",
+      "focus": [
+        "l"
+      ],
+      "note": "0 specific items -> generic fallback"
+    },
+    "output": {
+      "grade": "Grade 2",
+      "outline_id": "vowelization",
+      "outline_title": "Vowelization: /l/ and /r/ practice",
+      "focus_sounds": [
+        "l"
+      ],
+      "focus_processes": [
+        "Vowelization"
+      ],
+      "generated_by": "rule-based",
+      "warning": null,
+      "rationale": "Grade 2 practice plan for Vowelization (target l, r), following the 'Grade 1 Island 1.3 (Rhyme Time Porch)' gameplay guidance: progress from syllables to words to phrases to sentences.",
+      "levels": {
+        "syllable": [
+          "el",
+          "ol",
+          "bla",
+          "blu"
+        ],
+        "word": [
+          "apple",
+          "ball",
+          "bell",
+          "hill"
+        ],
+        "phrase": [
+          "a big whale",
+          "a red ball",
+          "the bell",
+          "a big chair"
+        ],
+        "sentence": [
+          "I like the ball.",
+          "The bell rings.",
+          "The whale is big.",
+          "Drive the truck."
+        ]
+      },
+      "levels_detail": {
+        "syllable": [
+          {
+            "text": "el",
+            "target": "l",
+            "pos": "final",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "ɛ,l",
+            "processes": [
+              "Gliding",
+              "Final Consonant Deletion"
+            ]
+          },
+          {
+            "text": "ol",
+            "target": "l",
+            "pos": "final",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "oʊ,l",
+            "processes": [
+              "Gliding",
+              "Final Consonant Deletion"
+            ]
+          },
+          {
+            "text": "bla",
+            "target": "l",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "b,l,ɑ",
+            "processes": [
+              "Cluster Reduction"
+            ]
+          },
+          {
+            "text": "blu",
+            "target": "l",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "b,l,u",
+            "processes": [
+              "Cluster Reduction"
+            ]
+          }
+        ],
+        "word": [
+          {
+            "text": "apple",
+            "target": "l",
+            "pos": "final",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "æ,p,əl",
+            "processes": [
+              "Weak Syllable Deletion",
+              "Syllable Reduction"
+            ]
+          },
+          {
+            "text": "ball",
+            "target": "l",
+            "pos": "final",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "b,ɔ,l",
+            "processes": [
+              "Gliding",
+              "Final Consonant Deletion"
+            ]
+          },
+          {
+            "text": "bell",
+            "target": "l",
+            "pos": "final",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "b,ɛ,l",
+            "processes": [
+              "Gliding",
+              "Final Consonant Deletion"
+            ]
+          },
+          {
+            "text": "hill",
+            "target": "l",
+            "pos": "final",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "h,ɪ,l",
+            "processes": [
+              "Gliding",
+              "Final Consonant Deletion"
+            ]
+          }
+        ],
+        "phrase": [
+          {
+            "text": "a big whale",
+            "target": "l",
+            "pos": "final",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "ə,b,ɪ,ɡ,w,eɪ,l",
+            "processes": [
+              "Gliding",
+              "Final Consonant Deletion"
+            ]
+          },
+          {
+            "text": "a red ball",
+            "target": "l",
+            "pos": "final",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "ə,r,ɛ,d,b,ɔ,l",
+            "processes": [
+              "Gliding",
+              "Final Consonant Deletion"
+            ]
+          },
+          {
+            "text": "the bell",
+            "target": "l",
+            "pos": "final",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "ð,ə,b,ɛ,l",
+            "processes": [
+              "Gliding",
+              "Final Consonant Deletion"
+            ]
+          },
+          {
+            "text": "a big chair",
+            "target": "tʃ",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "ə,b,ɪ,ɡ,tʃ,ɛ,r",
+            "processes": [
+              "Deaffrication",
+              "Initial Consonant Deletion"
+            ]
+          }
+        ],
+        "sentence": [
+          {
+            "text": "I like the ball.",
+            "target": "l",
+            "pos": "final",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "aɪ,l,aɪ,k,ð,ə,b,ɔ,l",
+            "processes": [
+              "Gliding",
+              "Final Consonant Deletion"
+            ]
+          },
+          {
+            "text": "The bell rings.",
+            "target": "l",
+            "pos": "final",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "ð,ə,b,ɛ,l,r,ɪ,ŋ,z",
+            "processes": [
+              "Gliding",
+              "Final Consonant Deletion"
+            ]
+          },
+          {
+            "text": "The whale is big.",
+            "target": "l",
+            "pos": "final",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "ð,ə,w,eɪ,l,ɪ,z,b,ɪ,ɡ",
+            "processes": [
+              "Gliding",
+              "Final Consonant Deletion"
+            ]
+          },
+          {
+            "text": "Drive the truck.",
+            "target": "r",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "d,r,aɪ,v,ð,ə,t,r,ə,k",
+            "processes": [
+              "Cluster Reduction"
+            ]
+          }
+        ]
+      },
+      "process_docs": [
+        {
+          "slug": "vowelization",
+          "path": "age_5_grade_1.md",
+          "len": 1695
+        }
+      ],
+      "parse_grade": 2,
+      "grade_for_age": 1
+    },
+    "issues": [],
+    "warns": [],
+    "status": "PASS"
+  },
+  {
+    "id": 15,
+    "label": "G1 Prevocalic Voicing /p/ -> [b] (0 bank)",
+    "input": {
+      "age": 5,
+      "grade": "Grade 1",
+      "procs": [
+        [
+          "Prevocalic Voicing",
+          "Initial",
+          "/p/ -> [b]"
+        ]
+      ]
+    },
+    "expect": {
+      "grade": "Grade 1",
+      "outline": "prevocalic-voicing",
+      "focus": [
+        "p"
+      ]
+    },
+    "output": {
+      "grade": "Grade 1",
+      "outline_id": "prevocalic-voicing",
+      "outline_title": "Prevocalic Voicing: word-start sounds practice",
+      "focus_sounds": [
+        "p"
+      ],
+      "focus_processes": [
+        "Prevocalic Voicing"
+      ],
+      "generated_by": "rule-based",
+      "warning": null,
+      "rationale": "Grade 1 practice plan for Prevocalic Voicing (target p, t, k, f, s, ʃ), following the 'Grade 1 Island 1.1 (Family Name & Sound Station)' gameplay guidance: progress from syllables to words to phrases to sentences.",
+      "levels": {
+        "syllable": [
+          "bla",
+          "blu",
+          "cha",
+          "chee"
+        ],
+        "word": [
+          "paper",
+          "pig",
+          "alligator",
+          "apple"
+        ],
+        "phrase": [
+          "a big chair",
+          "a big cup",
+          "a big sock",
+          "a big whale"
+        ],
+        "sentence": [
+          "Drive the truck.",
+          "I brush my teeth.",
+          "I drink from a cup.",
+          "I go to school."
+        ]
+      },
+      "levels_detail": {
+        "syllable": [
+          {
+            "text": "bla",
+            "target": "l",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "b,l,ɑ",
+            "processes": [
+              "Cluster Reduction"
+            ]
+          },
+          {
+            "text": "blu",
+            "target": "l",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "b,l,u",
+            "processes": [
+              "Cluster Reduction"
+            ]
+          },
+          {
+            "text": "cha",
+            "target": "tʃ",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "tʃ,ɑ",
+            "processes": [
+              "Deaffrication"
+            ]
+          },
+          {
+            "text": "chee",
+            "target": "tʃ",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "tʃ,i",
+            "processes": [
+              "Deaffrication"
+            ]
+          }
+        ],
+        "word": [
+          {
+            "text": "paper",
+            "target": "p",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "p,eɪ,p,ə,r",
+            "processes": [
+              "Final Consonant Deletion"
+            ]
+          },
+          {
+            "text": "pig",
+            "target": "p",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "p,ɪ,ɡ",
+            "processes": [
+              "Devoicing",
+              "Final Consonant Deletion"
+            ]
+          },
+          {
+            "text": "alligator",
+            "target": "l",
+            "pos": "initial",
+            "grades": [
+              1,
+              2,
+              3
+            ],
+            "phonemes": "æ,l,ɪ,ɡ,eɪ,t,ə,r",
+            "processes": [
+              "Gliding",
+              "Weak Syllable Deletion",
+              "Syllable Reduction"
+            ]
+          },
+          {
+            "text": "apple",
+            "target": "l",
+            "pos": "final",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "æ,p,əl",
+            "processes": [
+              "Weak Syllable Deletion",
+              "Syllable Reduction"
+            ]
+          }
+        ],
+        "phrase": [
+          {
+            "text": "a big chair",
+            "target": "tʃ",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "ə,b,ɪ,ɡ,tʃ,ɛ,r",
+            "processes": [
+              "Deaffrication",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "a big cup",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "ə,b,ɪ,ɡ,k,ə,p",
+            "processes": [
+              "Fronting",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "a big sock",
+            "target": "s",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "ə,b,ɪ,ɡ,s,ɑ,k",
+            "processes": [
+              "Stopping",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "a big whale",
+            "target": "l",
+            "pos": "final",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "ə,b,ɪ,ɡ,w,eɪ,l",
+            "processes": [
+              "Gliding",
+              "Final Consonant Deletion"
+            ]
+          }
+        ],
+        "sentence": [
+          {
+            "text": "Drive the truck.",
+            "target": "r",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "d,r,aɪ,v,ð,ə,t,r,ə,k",
+            "processes": [
+              "Cluster Reduction"
+            ]
+          },
+          {
+            "text": "I brush my teeth.",
+            "target": "θ",
+            "pos": "final",
+            "grades": [
+              3
+            ],
+            "phonemes": "aɪ,b,r,ə,ʃ,m,aɪ,t,i,θ",
+            "processes": [
+              "Stopping",
+              "Cluster Reduction",
+              "Final Consonant Deletion"
+            ]
+          },
+          {
+            "text": "I drink from a cup.",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "aɪ,d,r,ɪ,ŋ,k,f,r,ə,m,ə,k,ə,p",
+            "processes": [
+              "Fronting",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "I go to school.",
+            "target": "s",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "aɪ,ɡ,oʊ,t,ə,s,k,u,l",
+            "processes": [
+              "Cluster Reduction",
+              "Stopping",
+              "Initial Consonant Deletion"
+            ]
+          }
+        ]
+      },
+      "process_docs": [
+        {
+          "slug": "vowelization",
+          "path": "age_5_grade_1.md",
+          "len": 1695
+        }
+      ],
+      "parse_grade": 1,
+      "grade_for_age": 1
+    },
+    "issues": [],
+    "warns": [
+      "sentence item 'I brush my teeth.' grades (3,) not in 1"
+    ],
+    "status": "PASS"
+  },
+  {
+    "id": 16,
+    "label": "G1 Speech Champion (no errors)",
+    "input": {
+      "age": 6,
+      "grade": "Grade 1",
+      "procs": []
+    },
+    "expect": {
+      "grade": "Grade 1",
+      "outline": "speech-champion-enrichment",
+      "focus": []
+    },
+    "output": {
+      "grade": "Grade 1",
+      "outline_id": "speech-champion-enrichment",
+      "outline_title": "Speech Champion: Advanced Fluency and Storytelling",
+      "focus_sounds": [],
+      "focus_processes": [
+        "Speech Champion / Fluency Enrichment"
+      ],
+      "generated_by": "rule-based",
+      "warning": null,
+      "rationale": "Speech Champion! Clear pronunciation across all sounds. Enjoy an advanced Grade 1 vocabulary and storytelling adventure on Mastery Island.",
+      "levels": {
+        "syllable": [
+          "bla",
+          "blu",
+          "cha",
+          "chee"
+        ],
+        "word": [
+          "alligator",
+          "apple",
+          "baby",
+          "bag"
+        ],
+        "phrase": [
+          "a big chair",
+          "a big cup",
+          "a big sock",
+          "a big whale"
+        ],
+        "sentence": [
+          "Drive the truck.",
+          "I drink from a cup.",
+          "I go to school.",
+          "I have a new book."
+        ]
+      },
+      "levels_detail": {
+        "syllable": [
+          {
+            "text": "bla",
+            "target": "l",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "b,l,ɑ",
+            "processes": [
+              "Cluster Reduction"
+            ]
+          },
+          {
+            "text": "blu",
+            "target": "l",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "b,l,u",
+            "processes": [
+              "Cluster Reduction"
+            ]
+          },
+          {
+            "text": "cha",
+            "target": "tʃ",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "tʃ,ɑ",
+            "processes": [
+              "Deaffrication"
+            ]
+          },
+          {
+            "text": "chee",
+            "target": "tʃ",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "tʃ,i",
+            "processes": [
+              "Deaffrication"
+            ]
+          }
+        ],
+        "word": [
+          {
+            "text": "alligator",
+            "target": "l",
+            "pos": "initial",
+            "grades": [
+              1,
+              2,
+              3
+            ],
+            "phonemes": "æ,l,ɪ,ɡ,eɪ,t,ə,r",
+            "processes": [
+              "Gliding",
+              "Weak Syllable Deletion",
+              "Syllable Reduction"
+            ]
+          },
+          {
+            "text": "apple",
+            "target": "l",
+            "pos": "final",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "æ,p,əl",
+            "processes": [
+              "Weak Syllable Deletion",
+              "Syllable Reduction"
+            ]
+          },
+          {
+            "text": "baby",
+            "target": "b",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "b,eɪ,b,i",
+            "processes": [
+              "Final Consonant Deletion"
+            ]
+          },
+          {
+            "text": "bag",
+            "target": "b",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "b,æ,ɡ",
+            "processes": [
+              "Final Consonant Deletion"
+            ]
+          }
+        ],
+        "phrase": [
+          {
+            "text": "a big chair",
+            "target": "tʃ",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "ə,b,ɪ,ɡ,tʃ,ɛ,r",
+            "processes": [
+              "Deaffrication",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "a big cup",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "ə,b,ɪ,ɡ,k,ə,p",
+            "processes": [
+              "Fronting",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "a big sock",
+            "target": "s",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "ə,b,ɪ,ɡ,s,ɑ,k",
+            "processes": [
+              "Stopping",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "a big whale",
+            "target": "l",
+            "pos": "final",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "ə,b,ɪ,ɡ,w,eɪ,l",
+            "processes": [
+              "Gliding",
+              "Final Consonant Deletion"
+            ]
+          }
+        ],
+        "sentence": [
+          {
+            "text": "Drive the truck.",
+            "target": "r",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "d,r,aɪ,v,ð,ə,t,r,ə,k",
+            "processes": [
+              "Cluster Reduction"
+            ]
+          },
+          {
+            "text": "I drink from a cup.",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "aɪ,d,r,ɪ,ŋ,k,f,r,ə,m,ə,k,ə,p",
+            "processes": [
+              "Fronting",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "I go to school.",
+            "target": "s",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "aɪ,ɡ,oʊ,t,ə,s,k,u,l",
+            "processes": [
+              "Cluster Reduction",
+              "Stopping",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "I have a new book.",
+            "target": "v",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "aɪ,h,æ,v,ə,n,u,b,ʊ,k",
+            "processes": [
+              "Stopping",
+              "Initial Consonant Deletion"
+            ]
+          }
+        ]
+      },
+      "process_docs": [],
+      "parse_grade": 1,
+      "grade_for_age": 1
+    },
+    "issues": [],
+    "warns": [],
+    "status": "PASS"
+  },
+  {
+    "id": 17,
+    "label": "G1 Multi Fronting /k/ + Stopping /s/",
+    "input": {
+      "age": 5,
+      "grade": "Grade 1",
+      "procs": [
+        [
+          "Fronting",
+          "Initial",
+          "/k/ -> [t]"
+        ],
+        [
+          "Stopping",
+          "Initial",
+          "/s/ -> [t]"
+        ]
+      ]
+    },
+    "expect": {
+      "grade": "Grade 1",
+      "outline": "fronting-k",
+      "note": "tie break by -len(targets) or input order"
+    },
+    "output": {
+      "grade": "Grade 1",
+      "outline_id": "fronting-k",
+      "outline_title": "Fronting: /k/ practice",
+      "focus_sounds": [
+        "k"
+      ],
+      "focus_processes": [
+        "Fronting"
+      ],
+      "generated_by": "rule-based",
+      "warning": null,
+      "rationale": "Grade 1 practice plan for Fronting (target k), following the 'Grade 1 Island 1.1 (Family Name & Sound Station)' gameplay guidance: progress from syllables to words to phrases to sentences.",
+      "levels": {
+        "syllable": [
+          "ka",
+          "kee",
+          "ki",
+          "ko"
+        ],
+        "word": [
+          "cat",
+          "cookie",
+          "cup",
+          "key"
+        ],
+        "phrase": [
+          "a big cup",
+          "my cookie",
+          "the key",
+          "a big chair"
+        ],
+        "sentence": [
+          "I drink from a cup.",
+          "My key opens the door.",
+          "The cat is on the mat.",
+          "I see a cookie."
+        ]
+      },
+      "levels_detail": {
+        "syllable": [
+          {
+            "text": "ka",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2,
+              3
+            ],
+            "phonemes": "k,ɑ",
+            "processes": [
+              "Fronting",
+              "Backing"
+            ]
+          },
+          {
+            "text": "kee",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2,
+              3
+            ],
+            "phonemes": "k,i",
+            "processes": [
+              "Fronting",
+              "Backing"
+            ]
+          },
+          {
+            "text": "ki",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2,
+              3
+            ],
+            "phonemes": "k,i",
+            "processes": [
+              "Fronting",
+              "Backing"
+            ]
+          },
+          {
+            "text": "ko",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2,
+              3
+            ],
+            "phonemes": "k,oʊ",
+            "processes": [
+              "Fronting",
+              "Backing"
+            ]
+          }
+        ],
+        "word": [
+          {
+            "text": "cat",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "k,æ,t",
+            "processes": [
+              "Fronting",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "cookie",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "k,ʊ,k,i",
+            "processes": [
+              "Fronting",
+              "Weak Syllable Deletion",
+              "Syllable Reduction"
+            ]
+          },
+          {
+            "text": "cup",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "k,ə,p",
+            "processes": [
+              "Fronting",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "key",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "k,i",
+            "processes": [
+              "Fronting",
+              "Initial Consonant Deletion"
+            ]
+          }
+        ],
+        "phrase": [
+          {
+            "text": "a big cup",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "ə,b,ɪ,ɡ,k,ə,p",
+            "processes": [
+              "Fronting",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "my cookie",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "m,aɪ,k,ʊ,k,i",
+            "processes": [
+              "Fronting",
+              "Weak Syllable Deletion",
+              "Syllable Reduction"
+            ]
+          },
+          {
+            "text": "the key",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "ð,ə,k,i",
+            "processes": [
+              "Fronting",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "a big chair",
+            "target": "tʃ",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "ə,b,ɪ,ɡ,tʃ,ɛ,r",
+            "processes": [
+              "Deaffrication",
+              "Initial Consonant Deletion"
+            ]
+          }
+        ],
+        "sentence": [
+          {
+            "text": "I drink from a cup.",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "aɪ,d,r,ɪ,ŋ,k,f,r,ə,m,ə,k,ə,p",
+            "processes": [
+              "Fronting",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "My key opens the door.",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "m,aɪ,k,i,oʊ,p,ə,n,z,ð,ə,d,ɔ,r",
+            "processes": [
+              "Fronting",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "The cat is on the mat.",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "ð,ə,k,æ,t,ɪ,z,ɔ,n,ð,ə,m,æ,t",
+            "processes": [
+              "Fronting",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "I see a cookie.",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "aɪ,s,i,ə,k,ʊ,k,i",
+            "processes": [
+              "Fronting",
+              "Weak Syllable Deletion",
+              "Syllable Reduction"
+            ]
+          }
+        ]
+      },
+      "process_docs": [
+        {
+          "slug": "fronting_velar",
+          "path": "age_4_kinder.md",
+          "len": 1924
+        },
+        {
+          "slug": "stopping_s_z",
+          "path": "age_4_kinder.md",
+          "len": 3854
+        }
+      ],
+      "parse_grade": 1,
+      "grade_for_age": 1
+    },
+    "issues": [],
+    "warns": [
+      "sentence item 'I see a cookie.' contains other error {'s'}"
+    ],
+    "status": "PASS"
+  },
+  {
+    "id": 18,
+    "label": "G2 Denasalization /m/ -> [b]",
+    "input": {
+      "age": 6,
+      "grade": "Grade 2",
+      "procs": [
+        [
+          "Denasalization",
+          "Initial",
+          "/m/ -> [b]"
+        ]
+      ]
+    },
+    "expect": {
+      "grade": "Grade 2",
+      "outline": "denasalization",
+      "focus": [
+        "m"
+      ],
+      "advisory": true
+    },
+    "output": {
+      "grade": "Grade 2",
+      "outline_id": "denasalization",
+      "outline_title": "Denasalization: nasal sounds practice",
+      "focus_sounds": [
+        "m"
+      ],
+      "focus_processes": [
+        "Denasalization"
+      ],
+      "generated_by": "rule-based",
+      "warning": null,
+      "rationale": "Grade 2 practice plan for Denasalization (target m, n), following the 'Grade 1 Island 1.1 (Family Name & Sound Station)' gameplay guidance: progress from syllables to words to phrases to sentences. [CLINICAL ADVISORY: Non-developmental speech error pattern detected. Clinical SLP consultation advised.]",
+      "levels": {
+        "syllable": [
+          "da",
+          "dee",
+          "ta",
+          "tee"
+        ],
+        "word": [
+          "alligator",
+          "apple",
+          "baby",
+          "bag"
+        ],
+        "phrase": [
+          "a big chair",
+          "a big cup",
+          "a big sock",
+          "a big whale"
+        ],
+        "sentence": [
+          "Drive the truck.",
+          "I brush my teeth.",
+          "I drink from a cup.",
+          "I go to school."
+        ]
+      },
+      "levels_detail": {
+        "syllable": [
+          {
+            "text": "da",
+            "target": "d",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "d,ɑ",
+            "processes": [
+              "Backing",
+              "Denasalization",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "dee",
+            "target": "d",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "d,i",
+            "processes": [
+              "Backing",
+              "Denasalization",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "ta",
+            "target": "t",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "t,ɑ",
+            "processes": [
+              "Backing",
+              "Denasalization",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "tee",
+            "target": "t",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "t,i",
+            "processes": [
+              "Backing",
+              "Denasalization",
+              "Initial Consonant Deletion"
+            ]
+          }
+        ],
+        "word": [
+          {
+            "text": "alligator",
+            "target": "l",
+            "pos": "initial",
+            "grades": [
+              1,
+              2,
+              3
+            ],
+            "phonemes": "æ,l,ɪ,ɡ,eɪ,t,ə,r",
+            "processes": [
+              "Gliding",
+              "Weak Syllable Deletion",
+              "Syllable Reduction"
+            ]
+          },
+          {
+            "text": "apple",
+            "target": "l",
+            "pos": "final",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "æ,p,əl",
+            "processes": [
+              "Weak Syllable Deletion",
+              "Syllable Reduction"
+            ]
+          },
+          {
+            "text": "baby",
+            "target": "b",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "b,eɪ,b,i",
+            "processes": [
+              "Final Consonant Deletion"
+            ]
+          },
+          {
+            "text": "bag",
+            "target": "b",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "b,æ,ɡ",
+            "processes": [
+              "Final Consonant Deletion"
+            ]
+          }
+        ],
+        "phrase": [
+          {
+            "text": "a big chair",
+            "target": "tʃ",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "ə,b,ɪ,ɡ,tʃ,ɛ,r",
+            "processes": [
+              "Deaffrication",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "a big cup",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "ə,b,ɪ,ɡ,k,ə,p",
+            "processes": [
+              "Fronting",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "a big sock",
+            "target": "s",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "ə,b,ɪ,ɡ,s,ɑ,k",
+            "processes": [
+              "Stopping",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "a big whale",
+            "target": "l",
+            "pos": "final",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "ə,b,ɪ,ɡ,w,eɪ,l",
+            "processes": [
+              "Gliding",
+              "Final Consonant Deletion"
+            ]
+          }
+        ],
+        "sentence": [
+          {
+            "text": "Drive the truck.",
+            "target": "r",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "d,r,aɪ,v,ð,ə,t,r,ə,k",
+            "processes": [
+              "Cluster Reduction"
+            ]
+          },
+          {
+            "text": "I brush my teeth.",
+            "target": "θ",
+            "pos": "final",
+            "grades": [
+              3
+            ],
+            "phonemes": "aɪ,b,r,ə,ʃ,m,aɪ,t,i,θ",
+            "processes": [
+              "Stopping",
+              "Cluster Reduction",
+              "Final Consonant Deletion"
+            ]
+          },
+          {
+            "text": "I drink from a cup.",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "aɪ,d,r,ɪ,ŋ,k,f,r,ə,m,ə,k,ə,p",
+            "processes": [
+              "Fronting",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "I go to school.",
+            "target": "s",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "aɪ,ɡ,oʊ,t,ə,s,k,u,l",
+            "processes": [
+              "Cluster Reduction",
+              "Stopping",
+              "Initial Consonant Deletion"
+            ]
+          }
+        ]
+      },
+      "process_docs": [
+        {
+          "slug": "denasalization",
+          "path": "age_5_grade_1.md",
+          "len": 1776
+        }
+      ],
+      "parse_grade": 2,
+      "grade_for_age": 1
+    },
+    "issues": [],
+    "warns": [
+      "sentence item 'I brush my teeth.' grades (3,) not in 2"
+    ],
+    "status": "PASS"
+  },
+  {
+    "id": 19,
+    "label": "BUG: grade='Grade 10' (contains 1)",
+    "input": {
+      "age": 5,
+      "grade": "Grade 10",
+      "procs": [
+        [
+          "Fronting",
+          "Initial",
+          "/k/ -> [t]"
+        ]
+      ]
+    },
+    "expect": {
+      "grade": "Grade 1",
+      "note": "BUG: parses as Grade 1 due to '1' in string"
+    },
+    "output": {
+      "grade": "Grade 1",
+      "outline_id": "fronting-k",
+      "outline_title": "Fronting: /k/ practice",
+      "focus_sounds": [
+        "k"
+      ],
+      "focus_processes": [
+        "Fronting"
+      ],
+      "generated_by": "rule-based",
+      "warning": null,
+      "rationale": "Grade 1 practice plan for Fronting (target k), following the 'Grade 1 Island 1.1 (Family Name & Sound Station)' gameplay guidance: progress from syllables to words to phrases to sentences.",
+      "levels": {
+        "syllable": [
+          "ka",
+          "kee",
+          "ki",
+          "ko"
+        ],
+        "word": [
+          "cat",
+          "cookie",
+          "cup",
+          "key"
+        ],
+        "phrase": [
+          "a big cup",
+          "my cookie",
+          "the key",
+          "a big chair"
+        ],
+        "sentence": [
+          "I drink from a cup.",
+          "I see a cookie.",
+          "My key opens the door.",
+          "The cat is on the mat."
+        ]
+      },
+      "levels_detail": {
+        "syllable": [
+          {
+            "text": "ka",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2,
+              3
+            ],
+            "phonemes": "k,ɑ",
+            "processes": [
+              "Fronting",
+              "Backing"
+            ]
+          },
+          {
+            "text": "kee",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2,
+              3
+            ],
+            "phonemes": "k,i",
+            "processes": [
+              "Fronting",
+              "Backing"
+            ]
+          },
+          {
+            "text": "ki",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2,
+              3
+            ],
+            "phonemes": "k,i",
+            "processes": [
+              "Fronting",
+              "Backing"
+            ]
+          },
+          {
+            "text": "ko",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2,
+              3
+            ],
+            "phonemes": "k,oʊ",
+            "processes": [
+              "Fronting",
+              "Backing"
+            ]
+          }
+        ],
+        "word": [
+          {
+            "text": "cat",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "k,æ,t",
+            "processes": [
+              "Fronting",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "cookie",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "k,ʊ,k,i",
+            "processes": [
+              "Fronting",
+              "Weak Syllable Deletion",
+              "Syllable Reduction"
+            ]
+          },
+          {
+            "text": "cup",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "k,ə,p",
+            "processes": [
+              "Fronting",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "key",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "k,i",
+            "processes": [
+              "Fronting",
+              "Initial Consonant Deletion"
+            ]
+          }
+        ],
+        "phrase": [
+          {
+            "text": "a big cup",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "ə,b,ɪ,ɡ,k,ə,p",
+            "processes": [
+              "Fronting",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "my cookie",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "m,aɪ,k,ʊ,k,i",
+            "processes": [
+              "Fronting",
+              "Weak Syllable Deletion",
+              "Syllable Reduction"
+            ]
+          },
+          {
+            "text": "the key",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "ð,ə,k,i",
+            "processes": [
+              "Fronting",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "a big chair",
+            "target": "tʃ",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "ə,b,ɪ,ɡ,tʃ,ɛ,r",
+            "processes": [
+              "Deaffrication",
+              "Initial Consonant Deletion"
+            ]
+          }
+        ],
+        "sentence": [
+          {
+            "text": "I drink from a cup.",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "aɪ,d,r,ɪ,ŋ,k,f,r,ə,m,ə,k,ə,p",
+            "processes": [
+              "Fronting",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "I see a cookie.",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "aɪ,s,i,ə,k,ʊ,k,i",
+            "processes": [
+              "Fronting",
+              "Weak Syllable Deletion",
+              "Syllable Reduction"
+            ]
+          },
+          {
+            "text": "My key opens the door.",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "m,aɪ,k,i,oʊ,p,ə,n,z,ð,ə,d,ɔ,r",
+            "processes": [
+              "Fronting",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "The cat is on the mat.",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "ð,ə,k,æ,t,ɪ,z,ɔ,n,ð,ə,m,æ,t",
+            "processes": [
+              "Fronting",
+              "Initial Consonant Deletion"
+            ]
+          }
+        ]
+      },
+      "process_docs": [
+        {
+          "slug": "fronting_velar",
+          "path": "age_4_kinder.md",
+          "len": 1924
+        }
+      ],
+      "parse_grade": 1,
+      "grade_for_age": 1
+    },
+    "issues": [],
+    "warns": [],
+    "status": "PASS"
+  },
+  {
+    "id": 20,
+    "label": "BUG: grade='sky' (contains k)",
+    "input": {
+      "age": 5,
+      "grade": "sky",
+      "procs": [
+        [
+          "Fronting",
+          "Initial",
+          "/k/ -> [t]"
+        ]
+      ]
+    },
+    "expect": {
+      "grade": "Kinder",
+      "note": "BUG: 'k' in 'sky' -> Kinder"
+    },
+    "output": {
+      "grade": "Kinder",
+      "outline_id": "fronting-k",
+      "outline_title": "Fronting: /k/ practice",
+      "focus_sounds": [
+        "k"
+      ],
+      "focus_processes": [
+        "Fronting"
+      ],
+      "generated_by": "rule-based",
+      "warning": null,
+      "rationale": "Kindergarten practice plan for Fronting (target k), following the 'Grade 1 Island 1.1 (Family Name & Sound Station)' gameplay guidance: progress from syllables to words to phrases to sentences.",
+      "levels": {
+        "syllable": [
+          "ka",
+          "kee",
+          "ki",
+          "ko"
+        ],
+        "word": [
+          "cat",
+          "cookie",
+          "cup",
+          "key"
+        ],
+        "phrase": [
+          "a big cup",
+          "my cookie",
+          "the key",
+          "a big chair"
+        ],
+        "sentence": [
+          "I drink from a cup.",
+          "I see a cookie.",
+          "My key opens the door.",
+          "The cat is on the mat."
+        ]
+      },
+      "levels_detail": {
+        "syllable": [
+          {
+            "text": "ka",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2,
+              3
+            ],
+            "phonemes": "k,ɑ",
+            "processes": [
+              "Fronting",
+              "Backing"
+            ]
+          },
+          {
+            "text": "kee",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2,
+              3
+            ],
+            "phonemes": "k,i",
+            "processes": [
+              "Fronting",
+              "Backing"
+            ]
+          },
+          {
+            "text": "ki",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2,
+              3
+            ],
+            "phonemes": "k,i",
+            "processes": [
+              "Fronting",
+              "Backing"
+            ]
+          },
+          {
+            "text": "ko",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2,
+              3
+            ],
+            "phonemes": "k,oʊ",
+            "processes": [
+              "Fronting",
+              "Backing"
+            ]
+          }
+        ],
+        "word": [
+          {
+            "text": "cat",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "k,æ,t",
+            "processes": [
+              "Fronting",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "cookie",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "k,ʊ,k,i",
+            "processes": [
+              "Fronting",
+              "Weak Syllable Deletion",
+              "Syllable Reduction"
+            ]
+          },
+          {
+            "text": "cup",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "k,ə,p",
+            "processes": [
+              "Fronting",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "key",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "k,i",
+            "processes": [
+              "Fronting",
+              "Initial Consonant Deletion"
+            ]
+          }
+        ],
+        "phrase": [
+          {
+            "text": "a big cup",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "ə,b,ɪ,ɡ,k,ə,p",
+            "processes": [
+              "Fronting",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "my cookie",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "m,aɪ,k,ʊ,k,i",
+            "processes": [
+              "Fronting",
+              "Weak Syllable Deletion",
+              "Syllable Reduction"
+            ]
+          },
+          {
+            "text": "the key",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "ð,ə,k,i",
+            "processes": [
+              "Fronting",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "a big chair",
+            "target": "tʃ",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "ə,b,ɪ,ɡ,tʃ,ɛ,r",
+            "processes": [
+              "Deaffrication",
+              "Initial Consonant Deletion"
+            ]
+          }
+        ],
+        "sentence": [
+          {
+            "text": "I drink from a cup.",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "aɪ,d,r,ɪ,ŋ,k,f,r,ə,m,ə,k,ə,p",
+            "processes": [
+              "Fronting",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "I see a cookie.",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "aɪ,s,i,ə,k,ʊ,k,i",
+            "processes": [
+              "Fronting",
+              "Weak Syllable Deletion",
+              "Syllable Reduction"
+            ]
+          },
+          {
+            "text": "My key opens the door.",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "m,aɪ,k,i,oʊ,p,ə,n,z,ð,ə,d,ɔ,r",
+            "processes": [
+              "Fronting",
+              "Initial Consonant Deletion"
+            ]
+          },
+          {
+            "text": "The cat is on the mat.",
+            "target": "k",
+            "pos": "initial",
+            "grades": [
+              1,
+              2
+            ],
+            "phonemes": "ð,ə,k,æ,t,ɪ,z,ɔ,n,ð,ə,m,æ,t",
+            "processes": [
+              "Fronting",
+              "Initial Consonant Deletion"
+            ]
+          }
+        ]
+      },
+      "process_docs": [
+        {
+          "slug": "fronting_velar",
+          "path": "age_4_kinder.md",
+          "len": 1924
+        }
+      ],
+      "parse_grade": 0,
+      "grade_for_age": 1
+    },
+    "issues": [],
+    "warns": [],
+    "status": "PASS"
+  }
+]

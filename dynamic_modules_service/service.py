@@ -18,7 +18,7 @@ try:
     from dynamic_modules_service.config import config as default_config
 except ImportError:
     from config import config as default_config
-from data import GradeDocuments
+from data import GradeDocuments, ModuleCatalog
 from models import (
     AssessmentFindings,
     FocusSound,
@@ -59,8 +59,17 @@ class FindingsAnalyzer:
 
     @staticmethod
     def _parse_target_sound(detail: str) -> Optional[str]:
-        match = _DETAIL_TARGET_RE.search(detail or "")
-        return match.group(1) if match else None
+        if not detail:
+            return None
+        match = _DETAIL_TARGET_RE.search(detail)
+        if match:
+            raw = match.group(1).replace(",", "").replace(" ", "").strip()
+            return raw or None
+        # Fallback: parse "of X -> Y" or "X -> Y"
+        match2 = re.search(r'(?:of\s+)?([a-zA-Zʃʒθðŋɡ]+)\s*->', detail)
+        if match2:
+            return match2.group(1).strip()
+        return None
 
 
 class OutlineSelector:
@@ -70,8 +79,8 @@ class OutlineSelector:
              focus_sounds: list[FocusSound]) -> Optional[ModuleOutline]:
         if not outlines:
             return None
-        focus = {s.sound for s in focus_sounds}
-        return max(outlines, key=lambda o: len(focus & set(o.target_sounds)))
+        # MockOutlines.outlines_for already clinically ranks and scores the outlines
+        return outlines[0]
 
 
 class RuleBasedModuleBuilder:
@@ -84,11 +93,12 @@ class RuleBasedModuleBuilder:
         self._config = config
 
     def build(self, *, findings, outlines, bank,
-              grade_document=None) -> LearningModule:
+              grade_document=None, process_documents=None) -> LearningModule:
         if not outlines:
             raise NoOutlineError("No outline matches the detected processes")
         outline = outlines[0]
-        grade = GradeDocuments().grade_for_age(findings.age)
+        grade = GradeDocuments.parse_grade(findings.grade, default_age=findings.age)
+        grade_text = GradeDocuments.format_grade(grade)
         child_focus = FindingsAnalyzer().focus_sounds(findings)
         focus_sounds = [fs for fs in child_focus
                         if fs.sound in outline.target_sounds] or [
@@ -101,11 +111,25 @@ class RuleBasedModuleBuilder:
 
         levels = {}
         for level in self._config.levels_order:
-            pool = [it for it in outline.levels.get(
-                PracticeLevel.from_value(level), ())
-                if grade in it.grades]
-            levels[PracticeLevel.from_value(level)] = self._pick(
-                pool, error_sounds, child_focus)
+            lvl_enum = PracticeLevel.from_value(level)
+            lvl_pool = outline.levels.get(lvl_enum, ())
+            pool = [it for it in lvl_pool if grade in it.grades or (grade == 0 and 1 in it.grades)]
+            if len(pool) < self._config.items_per_level and lvl_pool:
+                for it in lvl_pool:
+                    if it not in pool:
+                        pool.append(it)
+            if len(pool) < self._config.items_per_level and bank:
+                bank_pool = bank.items_for(lvl_enum)
+                for it in bank_pool:
+                    if it not in pool:
+                        pool.append(it)
+
+            levels[lvl_enum] = self._pick(pool, error_sounds, child_focus)
+
+        grade_label = "Kindergarten" if grade == 0 else f"Grade {grade}"
+        atypical_procs = {"Initial Consonant Deletion", "Medial Consonant Deletion", "Backing", "Liquidization", "Frication", "Denasalization"}
+        is_atypical = any(p.process in atypical_procs for p in findings.processes)
+        clinical_note = " [CLINICAL ADVISORY: Non-developmental speech error pattern detected. Clinical SLP consultation advised.]" if is_atypical else ""
 
         return LearningModule(
             module_id=f"mod-{uuid.uuid4().hex[:8]}",
@@ -115,13 +139,14 @@ class RuleBasedModuleBuilder:
             outline_title=outline.title,
             levels=levels,
             rationale=(
-                f"Grade {grade} practice plan for {outline.focus_process} "
+                f"{grade_label} practice plan for {outline.focus_process} "
                 f"(target {', '.join(outline.target_sounds)}), following the "
                 f"'{outline.gameplay_level or outline.title}' gameplay "
                 f"guidance: progress from syllables to words to phrases to "
-                f"sentences."
+                f"sentences.{clinical_note}"
             ),
             generated_by="rule-based",
+            grade=grade_text,
         )
 
     def _pick(self, pool: list[PracticeItem], error_sounds: set[str],
@@ -129,30 +154,38 @@ class RuleBasedModuleBuilder:
         """Pick up to items_per_level, preferring items that match the
         child's error pattern (target sound AND position), then excluding
         items containing the child's other error sounds."""
-        wanted = {(fs.sound, fs.position.lower()) for fs in focus_sounds}
-        wanted_sounds = {fs.sound for fs in focus_sounds}
-        wanted_positions = {fs.position.lower() for fs in focus_sounds}
+        if not pool:
+            return []
 
-        def rank(it: PracticeItem) -> int:
-            if (it.target_sound, it.position.lower()) in wanted:
-                return 2
-            if it.target_sound in wanted_sounds or it.position.lower() in wanted_positions:
-                return 1
-            return 0
+        # Tier 1: matches child's specific sound + position error, no other errors
+        # Tier 2: general outline item, no other error sounds
+        # Tier 3: any outline item (even with other error sounds, if pool is tiny)
+        t1, t2, t3 = [], [], []
+        target_positions = {(fs.sound, fs.position.lower()) for fs in focus_sounds}
 
-        ordered = sorted(pool, key=lambda it: (-rank(it), it.text))
-        items = []
-        for item in ordered:
-            if len(items) >= self._config.items_per_level:
-                break
-            if self._contains_other_error_sound(item, error_sounds):
-                continue
-            items.append(item)
-        return items
+        for it in pool:
+            has_error = self._has_error_sound(it, error_sounds)
+            matches_pattern = (
+                (it.target_sound, it.position.lower()) in target_positions
+                if it.position else False
+            )
+            if matches_pattern and not has_error:
+                t1.append(it)
+            elif not has_error:
+                t2.append(it)
+            else:
+                t3.append(it)
 
-    @staticmethod
-    def _contains_other_error_sound(item: PracticeItem,
-                                    error_sounds: set[str]) -> bool:
+        picked: list[PracticeItem] = []
+        for tier in (t1, t2, t3):
+            for it in tier:
+                if it not in picked:
+                    picked.append(it)
+                if len(picked) >= self._config.items_per_level:
+                    return picked
+        return picked
+
+    def _has_error_sound(self, item: PracticeItem, error_sounds: set[str]) -> bool:
         if not item.phonemes or not error_sounds:
             return False
         sounds = {p.strip() for p in item.phonemes.split(",") if p.strip()}
@@ -168,7 +201,7 @@ class LLMModuleBuilder:
         self._parser = parser
         self._config = config
 
-    def build(self, *, findings, outlines, bank, grade_document) -> LearningModule:
+    def build(self, *, findings, outlines, bank, grade_document, process_documents=None) -> LearningModule:
         if not outlines:
             raise NoOutlineError("No outline matches the detected processes")
         outline = outlines[0]
@@ -186,7 +219,7 @@ class LLMModuleBuilder:
         }
         system, user = self._prompt_builder.build(
             findings=findings, outlines=outlines, bank_items=bank_items,
-            grade_document=grade_document)
+            grade_document=grade_document, process_documents=process_documents)
         raw = self._client.complete(system=system, user=user)
 
         selection = self._parser.parse(
@@ -196,16 +229,24 @@ class LLMModuleBuilder:
         )
         chosen = next(o for o in outlines if o.id == selection["outline_id"])
 
+        child_focus = FindingsAnalyzer().focus_sounds(findings)
+        focus_sounds = [fs for fs in child_focus
+                        if fs.sound in chosen.target_sounds] or [
+            FocusSound(s, "Initial", chosen.focus_process)
+            for s in chosen.target_sounds]
+
+        grade = GradeDocuments.parse_grade(findings.grade, default_age=findings.age)
+        grade_text = GradeDocuments.format_grade(grade)
         return LearningModule(
             module_id=f"mod-{uuid.uuid4().hex[:8]}",
-            focus_sounds=[FocusSound(s, "Initial", chosen.focus_process)
-                          for s in chosen.target_sounds],
+            focus_sounds=focus_sounds,
             focus_processes=[chosen.focus_process],
             outline_id=chosen.id,
             outline_title=chosen.title,
             levels=selection["levels"],
             rationale=selection["rationale"],
             generated_by="llm",
+            grade=grade_text,
         )
 
 
@@ -214,25 +255,37 @@ class ModuleService:
 
     def __init__(self, *, outlines=None, bank=None,
                  primary_builder=None, fallback_builder=None,
-                 grade_documents=None, config=default_config):
+                 grade_documents=None, module_catalog=None, config=default_config):
         self._outlines = outlines
         self._bank = bank
         self._config = config
         self._grade_documents = grade_documents or GradeDocuments()
+        self._module_catalog = module_catalog or ModuleCatalog()
         self._fallback_builder = fallback_builder or RuleBasedModuleBuilder(config)
         self._llm_fallback_reason: Optional[str] = None
         self._primary_builder = primary_builder if primary_builder is not None \
             else self._make_primary_builder()
 
     def _make_primary_builder(self):
-        if self._config.llm_provider == "zen":
+        provider = self._config.llm_provider
+        if provider in ("openrouter", "zen"):
             try:
-                from llm import LLMResponseParser, PromptBuilder, ZenLLMClient
+                from llm import LLMResponseParser, PromptBuilder, OpenAICompatibleLLMClient
+                base_url = (
+                    self._config.openrouter_base_url
+                    if provider == "openrouter"
+                    else self._config.zen_base_url
+                )
+                api_key_env = (
+                    "OPENROUTER_API_KEY"
+                    if provider == "openrouter"
+                    else self._config.api_key_env
+                )
                 return LLMModuleBuilder(
-                    client=ZenLLMClient(
+                    client=OpenAICompatibleLLMClient(
                         model=self._config.llm_model,
-                        base_url=self._config.zen_base_url,
-                        api_key_env=self._config.api_key_env,
+                        base_url=base_url,
+                        api_key_env=api_key_env,
                         timeout=self._config.request_timeout_sec,
                         max_retries=self._config.max_retries,
                     ),
@@ -249,35 +302,72 @@ class ModuleService:
 
     def build_module(self, findings: AssessmentFindings) -> LearningModule:
         focus_sounds = FindingsAnalyzer().focus_sounds(findings)
-        grade = self._grade_documents.grade_for_age(findings.age)
+        grade = self._grade_documents.parse_grade(findings.grade, default_age=findings.age)
+        outline = None
+        outlines = []
+
         if focus_sounds:
             outlines = self._outlines.outlines_for(focus_sounds)
             outline = OutlineSelector().best(outlines, focus_sounds)
-        else:
-            if not findings.processes:
-                raise NoFindingsError(
-                    "No focus sounds could be extracted from the detected processes")
-            # e.g. Weak Syllable Deletion: no phoneme in the detail string —
-            # match by process name, preferring grade-appropriate outlines.
-            outlines = self._outlines.outlines_for_processes(
+
+        # Smooth fallback: if sound matching didn't yield an outline, match by detected process names
+        if outline is None and findings.processes:
+            proc_outlines = self._outlines.outlines_for_processes(
                 {p.process for p in findings.processes})
-            outlines.sort(key=lambda o: (grade not in o.grades,
-                                         -len(o.target_sounds)))
-            outline = outlines[0] if outlines else None
+            proc_outlines.sort(key=lambda o: (grade not in o.grades,
+                                             -len(o.target_sounds)))
+            if proc_outlines:
+                outline = proc_outlines[0]
+                outlines = proc_outlines
+
+        if outline is None and findings.processes:
+            all_outlines = self._outlines.all()
+            if all_outlines:
+                outline = all_outlines[0]
+                outlines = [outline]
+
         if outline is None:
+            if not findings.processes:
+                grade_text = GradeDocuments.format_grade(grade)
+                levels = {}
+                if self._bank:
+                    for lvl in PracticeLevel:
+                        items = [it for it in self._bank.items_for(lvl) if grade in it.grades or (grade == 0 and 1 in it.grades)]
+                        if len(items) < 4:
+                            for it in self._bank.items_for(lvl):
+                                if it not in items:
+                                    items.append(it)
+                        levels[lvl] = items[:4]
+                return LearningModule(
+                    module_id=f"mod-{uuid.uuid4().hex[:8]}",
+                    focus_sounds=[],
+                    focus_processes=["Speech Champion / Fluency Enrichment"],
+                    outline_id="speech-champion-enrichment",
+                    outline_title="Speech Champion: Advanced Fluency and Storytelling",
+                    levels=levels,
+                    rationale=(
+                        f"Speech Champion! Clear pronunciation across all sounds. "
+                        f"Enjoy an advanced {grade_text} vocabulary and storytelling "
+                        f"adventure on Mastery Island."
+                    ),
+                    generated_by="rule-based",
+                    grade=grade_text,
+                )
             raise NoOutlineError(
                 "No professional outline matches the detected processes")
-        matched = [outline]
 
-        grade_document = self._grade_documents.document_for_age(findings.age)
+        matched = outlines if outlines else [outline]
+        grade_document = self._grade_documents.document_for_grade(grade)
+        process_documents = self._module_catalog.get_documents_for_findings(findings)
 
         try:
             module = self._primary_builder.build(
                 findings=findings, outlines=matched, bank=self._bank,
-                grade_document=grade_document)
+                grade_document=grade_document, process_documents=process_documents)
         except Exception as exc:
             module = self._fallback_builder.build(
-                findings=findings, outlines=matched, bank=self._bank)
+                findings=findings, outlines=matched, bank=self._bank,
+                grade_document=grade_document, process_documents=process_documents)
             module.warning = (
                 f"LLM builder unavailable ({exc.__class__.__name__}); "
                 f"generated with the rule-based builder instead."

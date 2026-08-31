@@ -39,11 +39,12 @@ class Wav2Vec2ModelLoader:
         import os
         import time
         import gc
-        hf_token = os.environ.get("HF_TOKEN") or None
+        # Dedicated env var (config-driven, defaults to HF_TOKEN)
+        hf_token = config.model.get_hf_token()
 
         # Free tier: use float16 + low_cpu_mem_usage to stay under ~700MB peak
         # (was float32 ~1.2GB -> Killed on 512MB/1GB free tier at pytorch_model.bin)
-        _use_fp16 = self.device == "cpu" and os.environ.get("VV_FP16", "1") == "1"
+        _use_fp16 = self.device == "cpu" and config.model.use_fp16
 
         # Try loading from local cache first to avoid Hub chatter.
         # Fall back to regular download if not cached with 3-attempt retry.
@@ -116,6 +117,14 @@ class Wav2Vec2ModelLoader:
             padding=True,
         )
         inputs = {k: v.to(self.device) for k, v in inputs.items()}
+        # If model is fp16, cast inputs to half to avoid float/Half mismatch
+        try:
+            # Check first param dtype (handles quantized wrapper)
+            p = next(self.model.parameters(), None)
+            if p is not None and p.dtype == torch.float16:
+                inputs = {k: (v.half() if v.is_floating_point() else v) for k, v in inputs.items()}
+        except Exception:
+            pass
         with torch.no_grad():
             logits: torch.Tensor = self.model(**inputs).logits
         return logits
