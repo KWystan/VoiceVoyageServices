@@ -44,7 +44,10 @@ class ResponseBuilder:
             "pcc": round(pcc.get("pcc", 0.0), 2),
             "pcc_r": round(pcc_data.get("pcc_r", {}).get("pcc_r", 0.0), 2),
             "pvc": round(pcc_data.get("pvc", {}).get("pvc", 0.0), 2),
-            "pcc_severity": pcc.get("severity", "N/A"),
+            # Retain the legacy key but do not expose clinical severity
+            # cut-offs from a single automated word attempt.
+            "pcc_severity": "Not interpreted",
+            "score_scope": "single educational app activity; not diagnostic",
             "phoneme_header": {
                 "expected_sequence": expected_ipa,
                 "detected_sequence": detected_ipa,

@@ -129,12 +129,13 @@ class AssessmentService:
         # 6. Detect phonological processes
         processes = self._detector.detect(breakdown)
 
-        # 7. Age-applicable curriculum summary
+        # 7. Educational observation summary. Age is retained for content
+        # selection, not used as a diagnostic cut-off.
         applicable_processes = self._curriculum.get_curriculum_summary(
             processes, age
         )
 
-        # 8. Clinical metrics + overall score + pass/fail
+        # 8. Acoustic/phoneme metrics + app practice result
         pcc_data = self._pcc.compute_all(breakdown)
         pcc_score = pcc_data.get("pcc", {}).get("pcc", 0.0)
         overall_score = self._pcc.compute_overall_score(

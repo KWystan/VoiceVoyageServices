@@ -13,20 +13,22 @@ All pipeline logic lives in ``services.service``.
 """
 
 import sys
-import subprocess
 import logging
-
-# Windows UTF-8 workaround for panphon IPA parsing
-if not sys.flags.utf8_mode:
-    subprocess.call([sys.executable, "-X", "utf8"] + sys.argv)
-    sys.exit()
 
 import os
 import asyncio
 import uvicorn
 
 
-from fastapi import FastAPI, UploadFile, File, Form, HTTPException
+from fastapi import (
+    Depends,
+    FastAPI,
+    File,
+    Form,
+    HTTPException,
+    Request,
+    UploadFile,
+)
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from contextlib import asynccontextmanager
@@ -55,6 +57,7 @@ try:
     from phoneme_service.config import config
 except ImportError:
     from config import config
+from security import require_authenticated_user
 from assessment.service import AssessmentService
 from assessment.errors import (
     AlignmentError,
@@ -63,6 +66,8 @@ from assessment.errors import (
     OutOfVocabularyError,
 )
 from model.forced_aligner import ForcedAlignmentError
+
+config.server.validate_runtime()
 
 # ---------------------------------------------------------------------------
 # Logging
@@ -131,11 +136,43 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(title="Model-10 Pronunciation Assessment", version="2.0.0", lifespan=lifespan)
+
+
+@app.middleware("http")
+async def enforce_assessment_request_limit(request: Request, call_next):
+    """Reject oversized or chunked assessment requests before multipart parsing."""
+
+    if request.method == "POST" and request.url.path == "/assess":
+        content_length = request.headers.get("content-length")
+        if content_length is None:
+            return JSONResponse(
+                status_code=411,
+                content={"detail": "Content-Length is required for audio uploads."},
+            )
+        try:
+            request_bytes = int(content_length)
+        except ValueError:
+            return JSONResponse(
+                status_code=400,
+                content={"detail": "Invalid Content-Length header."},
+            )
+        # Multipart metadata and form fields are bounded separately; this
+        # margin prevents rejecting valid uploads while keeping the request
+        # body bounded before Starlette parses it.
+        max_request_bytes = config.audio.max_upload_bytes + 64 * 1024
+        if request_bytes > max_request_bytes:
+            return JSONResponse(
+                status_code=413,
+                content={"detail": "Audio upload is too large."},
+            )
+    return await call_next(request)
+
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=config.server.cors_origins,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_methods=["GET", "POST"],
+    allow_headers=["Authorization", "Content-Type"],
     allow_credentials=False,
 )
 
@@ -148,9 +185,10 @@ service = AssessmentService()
 
 @app.post("/assess")
 async def assess_pronunciation(
-    word: str = Form(...),
+    word: str = Form(..., min_length=1, max_length=120),
     file: UploadFile = File(...),
     age: int = Form(..., ge=2, le=12),
+    _user_id: str | None = Depends(require_authenticated_user),
 ):
     """Assess pronunciation of a target word from an audio recording.
 
@@ -176,10 +214,27 @@ async def assess_pronunciation(
             raise HTTPException(status_code=503, detail="Model is still initializing. Please retry in 10 seconds.")
 
     try:
-        raw_audio = await file.read()
+        allowed_types = {
+            "application/octet-stream",
+            "audio/mpeg",
+            "audio/mp3",
+            "audio/ogg",
+            "audio/wav",
+            "audio/x-wav",
+            "audio/webm",
+        }
+        if file.content_type and file.content_type.lower() not in allowed_types:
+            raise HTTPException(status_code=415, detail="Unsupported audio content type.")
+        raw_audio = await file.read(config.audio.max_upload_bytes + 1)
+        if len(raw_audio) > config.audio.max_upload_bytes:
+            raise HTTPException(status_code=413, detail="Audio upload is too large.")
+        if not raw_audio:
+            raise HTTPException(status_code=400, detail="Audio upload is empty.")
         result = service.assess(word=word, age=age, audio_bytes=raw_audio)
         return JSONResponse(content=result)
 
+    except HTTPException:
+        raise
     except OutOfVocabularyError as exc:
         logger.error("OOV word error: %s", exc)
         return JSONResponse(status_code=400, content=exc.payload)
@@ -196,13 +251,13 @@ async def assess_pronunciation(
         logger.error("ForcedAlignmentError: %s", exc)
         return JSONResponse(
             status_code=400,
-            content={"error": "Alignment Error", "details": str(exc)},
+            content={"error": "Alignment Error", "details": "The recording could not be aligned."},
         )
     except Exception as exc:
         logger.exception("Unhandled error in /assess")
         return JSONResponse(
             status_code=500,
-            content={"error": "Internal Server Error", "details": str(exc)},
+            content={"error": "Internal Server Error", "details": "Assessment failed unexpectedly."},
         )
 
 

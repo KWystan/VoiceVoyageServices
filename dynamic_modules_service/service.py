@@ -1,14 +1,4 @@
-"""ModuleService — the use case: findings -> personalized practice module.
-
-Orchestrates: analyze findings -> match outlines -> build via the primary
-builder (LLM when configured, rule-based otherwise) -> graceful fallback
-to rule-based on any LLM failure.
-
-The LLM path feeds the child's age bracket + detected processes + the
-grade-level gameplay Markdown documents + the metadata-rich word bank, and
-follows the grade progression guidance in those documents.  All module
-content is text-only (the Flutter client has no per-word assets yet).
-"""
+"""Findings-to-module use case with one closed candidate-pool seam."""
 
 import re
 import uuid
@@ -36,26 +26,43 @@ class NoFindingsError(Exception):
 
 
 class NoOutlineError(Exception):
-    """No professional outline exists for the child's focus sounds."""
+    """No professional outline matches the findings."""
+
+
+class NoContentError(Exception):
+    """A matching outline exists but has no valid catalog content."""
 
 
 class FindingsAnalyzer:
-    """Turns detected processes into practice focus sounds (deduplicated)."""
+    """Turn detected processes into normalized, deduplicated focus sounds."""
 
     def focus_sounds(self, findings: AssessmentFindings) -> list[FocusSound]:
         seen: set[tuple[str, str]] = set()
         result: list[FocusSound] = []
-        for proc in findings.processes:
-            sound = proc.target_sound or self._parse_target_sound(proc.detail)
+        for process in findings.processes:
+            sound = self._normalize_sound(
+                process.target_sound or self._parse_target_sound(process.detail)
+            )
             if not sound:
                 continue
-            key = (sound, proc.position or "")
+            position = (process.position or "").strip()
+            key = (sound, position.lower())
             if key in seen:
                 continue
             seen.add(key)
-            result.append(FocusSound(sound=sound, position=proc.position or "",
-                                     source_process=proc.process))
+            result.append(
+                FocusSound(
+                    sound=sound,
+                    position=position,
+                    source_process=process.process,
+                )
+            )
         return result
+
+    @staticmethod
+    def _normalize_sound(sound: Optional[str]) -> Optional[str]:
+        normalized = (sound or "").strip().strip("/[]").replace(" ", "")
+        return normalized or None
 
     @staticmethod
     def _parse_target_sound(detail: str) -> Optional[str]:
@@ -63,74 +70,127 @@ class FindingsAnalyzer:
             return None
         match = _DETAIL_TARGET_RE.search(detail)
         if match:
-            raw = match.group(1).replace(",", "").replace(" ", "").strip()
-            return raw or None
-        # Fallback: parse "of X -> Y" or "X -> Y"
-        match2 = re.search(r'(?:of\s+)?([a-zA-Zʃʒθðŋɡ]+)\s*->', detail)
-        if match2:
-            return match2.group(1).strip()
-        return None
+            return match.group(1).replace(",", "").replace(" ", "").strip()
+        fallback = re.search(
+            r"(?:of\s+)?([a-zA-Zʃʒθðŋɡ]+)\s*->", detail
+        )
+        return fallback.group(1).strip() if fallback else None
 
 
-class OutlineSelector:
-    """Picks the most relevant outline for the child's focus sounds."""
+class CandidatePoolBuilder:
+    """Build grade-, outline-, and target-constrained item pools.
 
-    def best(self, outlines: list[ModuleOutline],
-             focus_sounds: list[FocusSound]) -> Optional[ModuleOutline]:
-        if not outlines:
-            return None
-        # MockOutlines.outlines_for already clinically ranks and scores the outlines
-        return outlines[0]
+    This interface is shared by deterministic and LLM builders. An item that
+    cannot enter this pool cannot enter a returned learning module.
+    """
+
+    def build(
+        self,
+        *,
+        findings: AssessmentFindings,
+        outlines: list[ModuleOutline],
+    ) -> dict[str, dict[PracticeLevel, list[PracticeItem]]]:
+        grade = GradeDocuments.parse_grade(
+            findings.grade, default_age=findings.age
+        )
+        child_focus = FindingsAnalyzer().focus_sounds(findings)
+        child_sounds = {focus.sound for focus in child_focus}
+        candidates: dict[str, dict[PracticeLevel, list[PracticeItem]]] = {}
+
+        for outline in outlines:
+            other_error_sounds = child_sounds - set(outline.target_sounds)
+            levels: dict[PracticeLevel, list[PracticeItem]] = {}
+            for level in PracticeLevel:
+                eligible = [
+                    item
+                    for item in outline.levels.get(level, ())
+                    if grade in item.grades or (grade == 0 and 1 in item.grades)
+                ]
+                without_competing_errors = [
+                    item
+                    for item in eligible
+                    if not self._has_error_sound(item, other_error_sounds)
+                ]
+                levels[level] = without_competing_errors or eligible
+            candidates[outline.id] = levels
+        return candidates
+
+    @staticmethod
+    def _has_error_sound(item: PracticeItem, sounds: set[str]) -> bool:
+        if not item.phonemes or not sounds:
+            return False
+        item_sounds = {
+            phoneme.strip()
+            for phoneme in item.phonemes.split(",")
+            if phoneme.strip()
+        }
+        return bool(item_sounds & sounds)
 
 
 class RuleBasedModuleBuilder:
-    """Deterministic builder: fills each level from the outline pools,
-    filtered to the child's grade and free of the child's OTHER error
-    sounds.  Items carry their bank metadata (target sound, position,
-    gameplay level)."""
+    """Deterministically select from the same closed pools used by the LLM."""
 
     def __init__(self, config=default_config):
         self._config = config
 
-    def build(self, *, findings, outlines, bank,
-              grade_document=None, process_documents=None) -> LearningModule:
+    def build(
+        self,
+        *,
+        findings,
+        outlines,
+        bank,
+        grade_document=None,
+        process_documents=None,
+        candidate_items=None,
+    ) -> LearningModule:
         if not outlines:
             raise NoOutlineError("No outline matches the detected processes")
+        candidate_items = candidate_items or CandidatePoolBuilder().build(
+            findings=findings, outlines=outlines
+        )
         outline = outlines[0]
-        grade = GradeDocuments.parse_grade(findings.grade, default_age=findings.age)
-        grade_text = GradeDocuments.format_grade(grade)
         child_focus = FindingsAnalyzer().focus_sounds(findings)
-        focus_sounds = [fs for fs in child_focus
-                        if fs.sound in outline.target_sounds] or [
-            FocusSound(s, "Initial", outline.focus_process)
-            for s in outline.target_sounds]
-        # only the child's OTHER error sounds are excluded from items —
-        # the outline's own target sounds are expected inside the items
-        child_sounds = {s.sound for s in child_focus}
-        error_sounds = child_sounds - set(outline.target_sounds)
+        focus_sounds = [
+            focus
+            for focus in child_focus
+            if focus.sound in outline.target_sounds
+        ] or [
+            FocusSound(sound, "Initial", outline.focus_process)
+            for sound in outline.target_sounds
+        ]
 
-        levels = {}
-        for level in self._config.levels_order:
-            lvl_enum = PracticeLevel.from_value(level)
-            lvl_pool = outline.levels.get(lvl_enum, ())
-            pool = [it for it in lvl_pool if grade in it.grades or (grade == 0 and 1 in it.grades)]
-            if len(pool) < self._config.items_per_level and lvl_pool:
-                for it in lvl_pool:
-                    if it not in pool:
-                        pool.append(it)
-            if len(pool) < self._config.items_per_level and bank:
-                bank_pool = bank.items_for(lvl_enum)
-                for it in bank_pool:
-                    if it not in pool:
-                        pool.append(it)
+        levels = {
+            level: self._pick(
+                list(candidate_items[outline.id][level]), child_focus
+            )
+            for level in PracticeLevel
+        }
+        if not any(levels.values()):
+            raise NoContentError(
+                f"Outline '{outline.id}' has no valid practice items"
+            )
 
-            levels[lvl_enum] = self._pick(pool, error_sounds, child_focus)
-
-        grade_label = "Kindergarten" if grade == 0 else f"Grade {grade}"
-        atypical_procs = {"Initial Consonant Deletion", "Medial Consonant Deletion", "Backing", "Liquidization", "Frication", "Denasalization"}
-        is_atypical = any(p.process in atypical_procs for p in findings.processes)
-        clinical_note = " [CLINICAL ADVISORY: Non-developmental speech error pattern detected. Clinical SLP consultation advised.]" if is_atypical else ""
-
+        grade = GradeDocuments.parse_grade(
+            findings.grade, default_age=findings.age
+        )
+        grade_text = GradeDocuments.format_grade(grade)
+        atypical_processes = {
+            "Initial Consonant Deletion",
+            "Medial Consonant Deletion",
+            "Backing",
+            "Liquidization",
+            "Frication",
+            "Denasalization",
+        }
+        needs_follow_up = any(
+            process.process in atypical_processes for process in findings.processes
+        )
+        follow_up = (
+            " This educational pattern may warrant review by a qualified "
+            "speech-language pathologist; the app does not diagnose."
+            if needs_follow_up
+            else ""
+        )
         return LearningModule(
             module_id=f"mod-{uuid.uuid4().hex[:8]}",
             focus_sounds=focus_sounds,
@@ -139,61 +199,36 @@ class RuleBasedModuleBuilder:
             outline_title=outline.title,
             levels=levels,
             rationale=(
-                f"{grade_label} practice plan for {outline.focus_process} "
-                f"(target {', '.join(outline.target_sounds)}), following the "
-                f"'{outline.gameplay_level or outline.title}' gameplay "
-                f"guidance: progress from syllables to words to phrases to "
-                f"sentences.{clinical_note}"
+                f"{grade_text} educational practice for "
+                f"{outline.focus_process}, progressing from syllables to "
+                f"connected text using familiar closed-catalog items.{follow_up}"
             ),
             generated_by="rule-based",
             grade=grade_text,
         )
 
-    def _pick(self, pool: list[PracticeItem], error_sounds: set[str],
-              focus_sounds: list[FocusSound]) -> list[PracticeItem]:
-        """Pick up to items_per_level, preferring items that match the
-        child's error pattern (target sound AND position), then excluding
-        items containing the child's other error sounds."""
-        if not pool:
-            return []
-
-        # Tier 1: matches child's specific sound + position error, no other errors
-        # Tier 2: general outline item, no other error sounds
-        # Tier 3: any outline item (even with other error sounds, if pool is tiny)
-        t1, t2, t3 = [], [], []
-        target_positions = {(fs.sound, fs.position.lower()) for fs in focus_sounds}
-
-        for it in pool:
-            has_error = self._has_error_sound(it, error_sounds)
-            matches_pattern = (
-                (it.target_sound, it.position.lower()) in target_positions
-                if it.position else False
-            )
-            if matches_pattern and not has_error:
-                t1.append(it)
-            elif not has_error:
-                t2.append(it)
-            else:
-                t3.append(it)
-
-        picked: list[PracticeItem] = []
-        for tier in (t1, t2, t3):
-            for it in tier:
-                if it not in picked:
-                    picked.append(it)
-                if len(picked) >= self._config.items_per_level:
-                    return picked
-        return picked
-
-    def _has_error_sound(self, item: PracticeItem, error_sounds: set[str]) -> bool:
-        if not item.phonemes or not error_sounds:
-            return False
-        sounds = {p.strip() for p in item.phonemes.split(",") if p.strip()}
-        return bool(sounds & error_sounds)
+    def _pick(
+        self,
+        pool: list[PracticeItem],
+        focus_sounds: list[FocusSound],
+    ) -> list[PracticeItem]:
+        target_positions = {
+            (focus.sound, focus.position.lower())
+            for focus in focus_sounds
+            if focus.position
+        }
+        exact = [
+            item
+            for item in pool
+            if item.position
+            and (item.target_sound, item.position.lower()) in target_positions
+        ]
+        remaining = [item for item in pool if item not in exact]
+        return (exact + remaining)[: self._config.items_per_level]
 
 
 class LLMModuleBuilder:
-    """Builds the module from the LLM's humanlike selection."""
+    """Ask the LLM to choose only among prevalidated candidate items."""
 
     def __init__(self, *, client, prompt_builder, parser, config=default_config):
         self._client = client
@@ -201,42 +236,59 @@ class LLMModuleBuilder:
         self._parser = parser
         self._config = config
 
-    def build(self, *, findings, outlines, bank, grade_document, process_documents=None) -> LearningModule:
+    def build(
+        self,
+        *,
+        findings,
+        outlines,
+        bank,
+        grade_document,
+        process_documents=None,
+        candidate_items=None,
+    ) -> LearningModule:
         if not outlines:
             raise NoOutlineError("No outline matches the detected processes")
-        outline = outlines[0]
-
-        bank_items = {
-            PracticeLevel.from_value(level): [
-                {"text": it.text, "phonemes": it.phonemes,
-                 "syllable_complexity": it.syllable_complexity,
-                 "target_sound": it.target_sound, "position": it.position,
-                 "processes": list(it.processes), "grades": list(it.grades),
-                 "gameplay_level": it.gameplay_level}
-                for it in bank.items_for(PracticeLevel.from_value(level))
-            ]
-            for level in self._config.levels_order
-        }
+        candidate_items = candidate_items or CandidatePoolBuilder().build(
+            findings=findings, outlines=outlines
+        )
         system, user = self._prompt_builder.build(
-            findings=findings, outlines=outlines, bank_items=bank_items,
-            grade_document=grade_document, process_documents=process_documents)
+            findings=findings,
+            outlines=outlines,
+            candidate_items=candidate_items,
+            curriculum_constraints=GradeDocuments.constraints_for(
+                findings.age, findings.grade
+            ),
+            process_documents=process_documents,
+        )
         raw = self._client.complete(system=system, user=user)
-
         selection = self._parser.parse(
             raw,
-            allowed_outline_ids={o.id for o in outlines},
+            allowed_items_by_outline={
+                outline_id: {
+                    level: {item.text for item in items}
+                    for level, items in levels.items()
+                }
+                for outline_id, levels in candidate_items.items()
+            },
             bank_lookup=bank.get,
         )
-        chosen = next(o for o in outlines if o.id == selection["outline_id"])
-
+        chosen = next(
+            outline
+            for outline in outlines
+            if outline.id == selection["outline_id"]
+        )
         child_focus = FindingsAnalyzer().focus_sounds(findings)
-        focus_sounds = [fs for fs in child_focus
-                        if fs.sound in chosen.target_sounds] or [
-            FocusSound(s, "Initial", chosen.focus_process)
-            for s in chosen.target_sounds]
-
-        grade = GradeDocuments.parse_grade(findings.grade, default_age=findings.age)
-        grade_text = GradeDocuments.format_grade(grade)
+        focus_sounds = [
+            focus
+            for focus in child_focus
+            if focus.sound in chosen.target_sounds
+        ] or [
+            FocusSound(sound, "Initial", chosen.focus_process)
+            for sound in chosen.target_sounds
+        ]
+        grade = GradeDocuments.parse_grade(
+            findings.grade, default_age=findings.age
+        )
         return LearningModule(
             module_id=f"mod-{uuid.uuid4().hex[:8]}",
             focus_sounds=focus_sounds,
@@ -246,46 +298,53 @@ class LLMModuleBuilder:
             levels=selection["levels"],
             rationale=selection["rationale"],
             generated_by="llm",
-            grade=grade_text,
+            grade=GradeDocuments.format_grade(grade),
         )
 
 
 class ModuleService:
-    """Builds personalized practice modules from assessment findings."""
+    """Build personalized modules from assessment findings."""
 
-    def __init__(self, *, outlines=None, bank=None,
-                 primary_builder=None, fallback_builder=None,
-                 grade_documents=None, module_catalog=None, config=default_config):
+    def __init__(
+        self,
+        *,
+        outlines=None,
+        bank=None,
+        primary_builder=None,
+        fallback_builder=None,
+        grade_documents=None,
+        module_catalog=None,
+        config=default_config,
+    ):
         self._outlines = outlines
         self._bank = bank
         self._config = config
         self._grade_documents = grade_documents or GradeDocuments()
         self._module_catalog = module_catalog or ModuleCatalog()
         self._fallback_builder = fallback_builder or RuleBasedModuleBuilder(config)
+        self._candidate_pool_builder = CandidatePoolBuilder()
         self._llm_fallback_reason: Optional[str] = None
-        self._primary_builder = primary_builder if primary_builder is not None \
+        self._primary_builder = (
+            primary_builder
+            if primary_builder is not None
             else self._make_primary_builder()
+        )
 
     def _make_primary_builder(self):
         provider = self._config.llm_provider
-        if provider in ("openrouter", "zen"):
+        if provider in {"openrouter", "zen"}:
             try:
-                from llm import LLMResponseParser, PromptBuilder, OpenAICompatibleLLMClient
-                base_url = (
-                    self._config.openrouter_base_url
-                    if provider == "openrouter"
-                    else self._config.zen_base_url
+                from llm import (
+                    LLMResponseParser,
+                    OpenAICompatibleLLMClient,
+                    PromptBuilder,
                 )
-                api_key_env = (
-                    "OPENROUTER_API_KEY"
-                    if provider == "openrouter"
-                    else self._config.api_key_env
-                )
+
                 return LLMModuleBuilder(
                     client=OpenAICompatibleLLMClient(
                         model=self._config.llm_model,
-                        base_url=base_url,
-                        api_key_env=api_key_env,
+                        base_url=self._config.llm_base_url,
+                        api_key_env=self._config.llm_api_key_env,
                         timeout=self._config.request_timeout_sec,
                         max_retries=self._config.max_retries,
                     ),
@@ -294,89 +353,109 @@ class ModuleService:
                     config=self._config,
                 )
             except Exception as exc:
-                # Missing API key or provider error -> rule-based fallback,
-                # but remember WHY so the response can surface a warning.
-                self._llm_fallback_reason = f"{exc.__class__.__name__}: {exc}"
-                return self._fallback_builder
+                self._llm_fallback_reason = (
+                    f"{exc.__class__.__name__}: {exc}"
+                )
         return self._fallback_builder
 
     def build_module(self, findings: AssessmentFindings) -> LearningModule:
+        if self._outlines is None or self._bank is None:
+            raise RuntimeError("ModuleService requires outlines and a word bank")
+
         focus_sounds = FindingsAnalyzer().focus_sounds(findings)
-        grade = self._grade_documents.parse_grade(findings.grade, default_age=findings.age)
-        outline = None
-        outlines = []
-
+        grade = self._grade_documents.parse_grade(
+            findings.grade, default_age=findings.age
+        )
+        matched: list[ModuleOutline] = []
         if focus_sounds:
-            outlines = self._outlines.outlines_for(focus_sounds)
-            outline = OutlineSelector().best(outlines, focus_sounds)
+            matched = self._outlines.outlines_for(focus_sounds)
+        if not matched and findings.processes:
+            matched = self._outlines.outlines_for_processes(
+                [process.process for process in findings.processes]
+            )
 
-        # Smooth fallback: if sound matching didn't yield an outline, match by detected process names
-        if outline is None and findings.processes:
-            proc_outlines = self._outlines.outlines_for_processes(
-                {p.process for p in findings.processes})
-            proc_outlines.sort(key=lambda o: (grade not in o.grades,
-                                             -len(o.target_sounds)))
-            if proc_outlines:
-                outline = proc_outlines[0]
-                outlines = proc_outlines
-
-        if outline is None and findings.processes:
-            all_outlines = self._outlines.all()
-            if all_outlines:
-                outline = all_outlines[0]
-                outlines = [outline]
-
-        if outline is None:
-            if not findings.processes:
-                grade_text = GradeDocuments.format_grade(grade)
-                levels = {}
-                if self._bank:
-                    for lvl in PracticeLevel:
-                        items = [it for it in self._bank.items_for(lvl) if grade in it.grades or (grade == 0 and 1 in it.grades)]
-                        if len(items) < 4:
-                            for it in self._bank.items_for(lvl):
-                                if it not in items:
-                                    items.append(it)
-                        levels[lvl] = items[:4]
-                return LearningModule(
-                    module_id=f"mod-{uuid.uuid4().hex[:8]}",
-                    focus_sounds=[],
-                    focus_processes=["Speech Champion / Fluency Enrichment"],
-                    outline_id="speech-champion-enrichment",
-                    outline_title="Speech Champion: Advanced Fluency and Storytelling",
-                    levels=levels,
-                    rationale=(
-                        f"Speech Champion! Clear pronunciation across all sounds. "
-                        f"Enjoy an advanced {grade_text} vocabulary and storytelling "
-                        f"adventure on Mastery Island."
-                    ),
-                    generated_by="rule-based",
-                    grade=grade_text,
-                )
+        if not findings.processes:
+            return self._build_enrichment_module(grade)
+        if not matched:
             raise NoOutlineError(
-                "No professional outline matches the detected processes")
+                "No professional outline matches the detected processes"
+            )
 
-        matched = outlines if outlines else [outline]
+        matched = [
+            outline
+            for outline in matched
+            if grade in outline.grades or (grade == 0 and 1 in outline.grades)
+        ][: self._config.max_candidate_outlines]
+        candidate_items = self._candidate_pool_builder.build(
+            findings=findings, outlines=matched
+        )
+        matched = [
+            outline
+            for outline in matched
+            if any(
+                candidate_items[outline.id][level]
+                for level in PracticeLevel
+            )
+        ]
+        candidate_items = {
+            outline.id: candidate_items[outline.id] for outline in matched
+        }
+        if not matched:
+            raise NoContentError(
+                "No grade- and target-compatible practice items are available "
+                "for the detected process"
+            )
+
         grade_document = self._grade_documents.document_for_grade(grade)
-        process_documents = self._module_catalog.get_documents_for_findings(findings)
-
+        process_documents = self._module_catalog.get_documents_for_findings(
+            findings
+        )
+        build_args = {
+            "findings": findings,
+            "outlines": matched,
+            "bank": self._bank,
+            "grade_document": grade_document,
+            "process_documents": process_documents,
+            "candidate_items": candidate_items,
+        }
         try:
-            module = self._primary_builder.build(
-                findings=findings, outlines=matched, bank=self._bank,
-                grade_document=grade_document, process_documents=process_documents)
+            module = self._primary_builder.build(**build_args)
         except Exception as exc:
-            module = self._fallback_builder.build(
-                findings=findings, outlines=matched, bank=self._bank,
-                grade_document=grade_document, process_documents=process_documents)
+            module = self._fallback_builder.build(**build_args)
             module.warning = (
-                f"LLM builder unavailable ({exc.__class__.__name__}); "
-                f"generated with the rule-based builder instead."
+                f"LLM selection was unavailable ({exc.__class__.__name__}); "
+                "the same validated pool was selected deterministically."
             )
             return module
 
         if self._llm_fallback_reason and not module.warning:
             module.warning = (
-                f"LLM builder unavailable ({self._llm_fallback_reason}); "
-                f"generated with the rule-based builder instead."
+                "LLM selection is not configured; the validated pool was "
+                "selected deterministically."
             )
         return module
+
+    def _build_enrichment_module(self, grade: int) -> LearningModule:
+        grade_text = GradeDocuments.format_grade(grade)
+        levels = {}
+        for level in PracticeLevel:
+            eligible = [
+                item
+                for item in self._bank.items_for(level)
+                if grade in item.grades or (grade == 0 and 1 in item.grades)
+            ]
+            levels[level] = eligible[: self._config.items_per_level]
+        return LearningModule(
+            module_id=f"mod-{uuid.uuid4().hex[:8]}",
+            focus_sounds=[],
+            focus_processes=["Speech Intelligibility & Enrichment"],
+            outline_id="speech-champion-enrichment",
+            outline_title="Speech Champion: Fluency and Storytelling",
+            levels=levels,
+            rationale=(
+                f"{grade_text} educational enrichment using familiar "
+                "closed-catalog text."
+            ),
+            generated_by="rule-based",
+            grade=grade_text,
+        )

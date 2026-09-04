@@ -14,7 +14,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 2.2 (Story Line Jumper)",
-      "syllable_complexity": "CCV"
+      "syllable_complexity": "CCV",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "blu",
@@ -30,7 +32,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 2.2 (Story Line Jumper)",
-      "syllable_complexity": "CCV"
+      "syllable_complexity": "CCV",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "cha",
@@ -46,7 +50,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 1.2 (Family Sorting Basket)",
-      "syllable_complexity": "CV"
+      "syllable_complexity": "CV",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "chee",
@@ -62,7 +68,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 1.2 (Family Sorting Basket)",
-      "syllable_complexity": "CV"
+      "syllable_complexity": "CV",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "cho",
@@ -78,7 +86,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 1.2 (Family Sorting Basket)",
-      "syllable_complexity": "CV"
+      "syllable_complexity": "CV",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "chu",
@@ -94,7 +104,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 1.2 (Family Sorting Basket)",
-      "syllable_complexity": "CV"
+      "syllable_complexity": "CV",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "da",
@@ -112,7 +124,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)",
-      "syllable_complexity": "CV"
+      "syllable_complexity": "CV",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "dee",
@@ -130,12 +144,14 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)",
-      "syllable_complexity": "CV"
+      "syllable_complexity": "CV",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "dra",
       "level": "syllable",
-      "phonemes": "d,r,\u00e6",
+      "phonemes": "d,r,\u0251",
       "target_sound": "r",
       "position": "initial",
       "processes": [
@@ -147,7 +163,9 @@
         3
       ],
       "gameplay_level": "Grade 1 Island 3.2 (Helper's Task Trail)",
-      "syllable_complexity": "CCV"
+      "syllable_complexity": "CCV",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "dri",
@@ -164,7 +182,9 @@
         3
       ],
       "gameplay_level": "Grade 1 Island 3.2 (Helper's Task Trail)",
-      "syllable_complexity": "CCV"
+      "syllable_complexity": "CCV",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "el",
@@ -181,7 +201,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 1.3 (Rhyme Time Porch)",
-      "syllable_complexity": "VC"
+      "syllable_complexity": "VC",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "fa",
@@ -197,7 +219,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 3.3 (Problem-Solver Market)",
-      "syllable_complexity": "CV"
+      "syllable_complexity": "CV",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "fee",
@@ -213,7 +237,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 3.3 (Problem-Solver Market)",
-      "syllable_complexity": "CV"
+      "syllable_complexity": "CV",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "fla",
@@ -229,7 +255,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 2.2 (Story Line Jumper)",
-      "syllable_complexity": "CCV"
+      "syllable_complexity": "CCV",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "flu",
@@ -245,7 +273,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 2.2 (Story Line Jumper)",
-      "syllable_complexity": "CCV"
+      "syllable_complexity": "CCV",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "ga",
@@ -263,7 +293,9 @@
         3
       ],
       "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)",
-      "syllable_complexity": "CV"
+      "syllable_complexity": "CV",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "gee",
@@ -281,7 +313,9 @@
         3
       ],
       "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)",
-      "syllable_complexity": "CV"
+      "syllable_complexity": "CV",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "glu",
@@ -297,7 +331,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 2.2 (Story Line Jumper)",
-      "syllable_complexity": "CCV"
+      "syllable_complexity": "CCV",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "gra",
@@ -314,7 +350,9 @@
         3
       ],
       "gameplay_level": "Grade 1 Island 3.2 (Helper's Task Trail)",
-      "syllable_complexity": "CCV"
+      "syllable_complexity": "CCV",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "gro",
@@ -331,7 +369,9 @@
         3
       ],
       "gameplay_level": "Grade 1 Island 3.2 (Helper's Task Trail)",
-      "syllable_complexity": "CCV"
+      "syllable_complexity": "CCV",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "ja",
@@ -347,7 +387,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 3.1 (Community Map Navigator)",
-      "syllable_complexity": "CV"
+      "syllable_complexity": "CV",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "jee",
@@ -363,7 +405,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 3.1 (Community Map Navigator)",
-      "syllable_complexity": "CV"
+      "syllable_complexity": "CV",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "jo",
@@ -379,7 +423,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 3.1 (Community Map Navigator)",
-      "syllable_complexity": "CV"
+      "syllable_complexity": "CV",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "ju",
@@ -395,7 +441,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 3.1 (Community Map Navigator)",
-      "syllable_complexity": "CV"
+      "syllable_complexity": "CV",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "ka",
@@ -413,7 +461,9 @@
         3
       ],
       "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)",
-      "syllable_complexity": "CV"
+      "syllable_complexity": "CV",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "kee",
@@ -431,7 +481,9 @@
         3
       ],
       "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)",
-      "syllable_complexity": "CV"
+      "syllable_complexity": "CV",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "ki",
@@ -449,7 +501,9 @@
         3
       ],
       "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)",
-      "syllable_complexity": "CV"
+      "syllable_complexity": "CV",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "ko",
@@ -467,7 +521,9 @@
         3
       ],
       "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)",
-      "syllable_complexity": "CV"
+      "syllable_complexity": "CV",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "kra",
@@ -484,7 +540,9 @@
         3
       ],
       "gameplay_level": "Grade 1 Island 3.2 (Helper's Task Trail)",
-      "syllable_complexity": "CCV"
+      "syllable_complexity": "CCV",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "kri",
@@ -501,7 +559,9 @@
         3
       ],
       "gameplay_level": "Grade 1 Island 3.2 (Helper's Task Trail)",
-      "syllable_complexity": "CCV"
+      "syllable_complexity": "CCV",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "ku",
@@ -519,7 +579,9 @@
         3
       ],
       "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)",
-      "syllable_complexity": "CV"
+      "syllable_complexity": "CV",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "la",
@@ -535,7 +597,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)",
-      "syllable_complexity": "CV"
+      "syllable_complexity": "CV",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "lee",
@@ -551,7 +615,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)",
-      "syllable_complexity": "CV"
+      "syllable_complexity": "CV",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "li",
@@ -567,7 +633,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)",
-      "syllable_complexity": "CV"
+      "syllable_complexity": "CV",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "lo",
@@ -583,7 +651,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)",
-      "syllable_complexity": "CV"
+      "syllable_complexity": "CV",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "lu",
@@ -599,7 +669,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)",
-      "syllable_complexity": "CV"
+      "syllable_complexity": "CV",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "ol",
@@ -616,7 +688,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 1.3 (Rhyme Time Porch)",
-      "syllable_complexity": "VC"
+      "syllable_complexity": "VC",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "pla",
@@ -632,7 +706,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 2.2 (Story Line Jumper)",
-      "syllable_complexity": "CCV"
+      "syllable_complexity": "CCV",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "ra",
@@ -648,7 +724,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 2.1 (Classroom Item Catcher)",
-      "syllable_complexity": "CV"
+      "syllable_complexity": "CV",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "ree",
@@ -664,7 +742,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 2.1 (Classroom Item Catcher)",
-      "syllable_complexity": "CV"
+      "syllable_complexity": "CV",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "ri",
@@ -680,7 +760,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 2.1 (Classroom Item Catcher)",
-      "syllable_complexity": "CV"
+      "syllable_complexity": "CV",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "ro",
@@ -696,7 +778,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 2.1 (Classroom Item Catcher)",
-      "syllable_complexity": "CV"
+      "syllable_complexity": "CV",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "ru",
@@ -712,7 +796,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 2.1 (Classroom Item Catcher)",
-      "syllable_complexity": "CV"
+      "syllable_complexity": "CV",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "sa",
@@ -730,7 +816,9 @@
         3
       ],
       "gameplay_level": "Grade 1 Island 3.3 (Problem-Solver Market)",
-      "syllable_complexity": "CV"
+      "syllable_complexity": "CV",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "see",
@@ -748,7 +836,9 @@
         3
       ],
       "gameplay_level": "Grade 1 Island 3.3 (Problem-Solver Market)",
-      "syllable_complexity": "CV"
+      "syllable_complexity": "CV",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "sha",
@@ -765,7 +855,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 3.3 (Problem-Solver Market)",
-      "syllable_complexity": "CV"
+      "syllable_complexity": "CV",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "shee",
@@ -782,7 +874,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 3.3 (Problem-Solver Market)",
-      "syllable_complexity": "CV"
+      "syllable_complexity": "CV",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "si",
@@ -800,7 +894,9 @@
         3
       ],
       "gameplay_level": "Grade 1 Island 3.3 (Problem-Solver Market)",
-      "syllable_complexity": "CV"
+      "syllable_complexity": "CV",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "ski",
@@ -817,7 +913,9 @@
         3
       ],
       "gameplay_level": "Grade 1 Island 4.3 (Earth Defender Match)",
-      "syllable_complexity": "CCV"
+      "syllable_complexity": "CCV",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "sku",
@@ -834,7 +932,9 @@
         3
       ],
       "gameplay_level": "Grade 1 Island 4.3 (Earth Defender Match)",
-      "syllable_complexity": "CCV"
+      "syllable_complexity": "CCV",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "so",
@@ -852,7 +952,9 @@
         3
       ],
       "gameplay_level": "Grade 1 Island 3.3 (Problem-Solver Market)",
-      "syllable_complexity": "CV"
+      "syllable_complexity": "CV",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "spa",
@@ -869,7 +971,9 @@
         3
       ],
       "gameplay_level": "Grade 1 Island 4.3 (Earth Defender Match)",
-      "syllable_complexity": "CCV"
+      "syllable_complexity": "CCV",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "spo",
@@ -886,7 +990,9 @@
         3
       ],
       "gameplay_level": "Grade 1 Island 4.3 (Earth Defender Match)",
-      "syllable_complexity": "CCV"
+      "syllable_complexity": "CCV",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "sta",
@@ -903,7 +1009,9 @@
         3
       ],
       "gameplay_level": "Grade 1 Island 4.3 (Earth Defender Match)",
-      "syllable_complexity": "CCV"
+      "syllable_complexity": "CCV",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "sti",
@@ -920,7 +1028,9 @@
         3
       ],
       "gameplay_level": "Grade 1 Island 4.3 (Earth Defender Match)",
-      "syllable_complexity": "CCV"
+      "syllable_complexity": "CCV",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "sto",
@@ -937,7 +1047,9 @@
         3
       ],
       "gameplay_level": "Grade 1 Island 4.3 (Earth Defender Match)",
-      "syllable_complexity": "CCV"
+      "syllable_complexity": "CCV",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "ta",
@@ -955,7 +1067,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)",
-      "syllable_complexity": "CV"
+      "syllable_complexity": "CV",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "tee",
@@ -973,7 +1087,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)",
-      "syllable_complexity": "CV"
+      "syllable_complexity": "CV",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "tha",
@@ -990,7 +1106,9 @@
         3
       ],
       "gameplay_level": "Grade 1 Island 4.1 (Nature Trail Cleaner)",
-      "syllable_complexity": "CV"
+      "syllable_complexity": "CV",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "the",
@@ -1006,7 +1124,9 @@
         3
       ],
       "gameplay_level": "Grade 1 Island 4.2 (Ecosystem Sequence Jump)",
-      "syllable_complexity": "CV"
+      "syllable_complexity": "CV",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "thee",
@@ -1023,7 +1143,9 @@
         3
       ],
       "gameplay_level": "Grade 1 Island 4.1 (Nature Trail Cleaner)",
-      "syllable_complexity": "CV"
+      "syllable_complexity": "CV",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "they-syl",
@@ -1039,7 +1161,9 @@
         3
       ],
       "gameplay_level": "Grade 1 Island 4.2 (Ecosystem Sequence Jump)",
-      "syllable_complexity": "CV"
+      "syllable_complexity": "CV",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "tho",
@@ -1056,7 +1180,9 @@
         3
       ],
       "gameplay_level": "Grade 1 Island 4.1 (Nature Trail Cleaner)",
-      "syllable_complexity": "CV"
+      "syllable_complexity": "CV",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "tra",
@@ -1073,7 +1199,9 @@
         3
       ],
       "gameplay_level": "Grade 1 Island 3.2 (Helper's Task Trail)",
-      "syllable_complexity": "CCV"
+      "syllable_complexity": "CCV",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "tri",
@@ -1090,7 +1218,9 @@
         3
       ],
       "gameplay_level": "Grade 1 Island 3.2 (Helper's Task Trail)",
-      "syllable_complexity": "CCV"
+      "syllable_complexity": "CCV",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "tro",
@@ -1107,7 +1237,9 @@
         3
       ],
       "gameplay_level": "Grade 1 Island 3.2 (Helper's Task Trail)",
-      "syllable_complexity": "CCV"
+      "syllable_complexity": "CCV",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "va",
@@ -1123,7 +1255,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 2.3 (Cause & Effect Lab)",
-      "syllable_complexity": "CV"
+      "syllable_complexity": "CV",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "vee",
@@ -1139,7 +1273,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 2.3 (Cause & Effect Lab)",
-      "syllable_complexity": "CV"
+      "syllable_complexity": "CV",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "za",
@@ -1157,7 +1293,9 @@
         3
       ],
       "gameplay_level": "Grade 1 Island 3.3 (Problem-Solver Market)",
-      "syllable_complexity": "CV"
+      "syllable_complexity": "CV",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "zee",
@@ -1175,7 +1313,9 @@
         3
       ],
       "gameplay_level": "Grade 1 Island 3.3 (Problem-Solver Market)",
-      "syllable_complexity": "CV"
+      "syllable_complexity": "CV",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "alligator",
@@ -1194,7 +1334,9 @@
         3
       ],
       "gameplay_level": "Grade 3 Island 1.3 (Multisyllable Mountain)",
-      "syllable_complexity": "4 syllables"
+      "syllable_complexity": "4 syllables",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "apple",
@@ -1211,7 +1353,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)",
-      "syllable_complexity": "2 syllables"
+      "syllable_complexity": "2 syllables",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "baby",
@@ -1227,7 +1371,9 @@
         2
       ],
       "gameplay_level": "Grade 2 Island 1.1 (Family Portrait Gallery)",
-      "syllable_complexity": "2 syllables"
+      "syllable_complexity": "2 syllables",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "bag",
@@ -1243,7 +1389,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 2.1 (Classroom Item Catcher)",
-      "syllable_complexity": "CVC"
+      "syllable_complexity": "CVC",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "ball",
@@ -1260,7 +1408,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 1.3 (Rhyme Time Porch)",
-      "syllable_complexity": "CVCC"
+      "syllable_complexity": "CVCC",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "balloon",
@@ -1278,12 +1428,14 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 1.3 (Rhyme Time Porch)",
-      "syllable_complexity": "2 syllables"
+      "syllable_complexity": "2 syllables",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "banana",
       "level": "word",
-      "phonemes": "b,\u0259,n,\u00e6,n,\u0259",
+      "phonemes": "b,\u0259,n,\u0251,n,\u0259",
       "target_sound": "n",
       "position": "medial",
       "processes": [
@@ -1296,7 +1448,9 @@
         3
       ],
       "gameplay_level": "Grade 3 Island 1.3 (Multisyllable Mountain)",
-      "syllable_complexity": "3 syllables"
+      "syllable_complexity": "3 syllables",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "bath",
@@ -1312,7 +1466,9 @@
         3
       ],
       "gameplay_level": "Grade 3 Island 1.1 (Regional Word Explorer)",
-      "syllable_complexity": "CVC"
+      "syllable_complexity": "CVC",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "bed",
@@ -1329,7 +1485,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)",
-      "syllable_complexity": "CVC"
+      "syllable_complexity": "CVC",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "bell",
@@ -1346,7 +1504,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 1.3 (Rhyme Time Porch)",
-      "syllable_complexity": "CVCC"
+      "syllable_complexity": "CVCC",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "bike",
@@ -1363,7 +1523,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)",
-      "syllable_complexity": "CVCe"
+      "syllable_complexity": "CVCe",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "blue",
@@ -1379,7 +1541,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 2.2 (Story Line Jumper)",
-      "syllable_complexity": "CCV"
+      "syllable_complexity": "CCV",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "boat",
@@ -1396,7 +1560,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)",
-      "syllable_complexity": "CVVC"
+      "syllable_complexity": "CVVC",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "book",
@@ -1412,7 +1578,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 2.1 (Classroom Item Catcher)",
-      "syllable_complexity": "CVC"
+      "syllable_complexity": "CVC",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "bridge",
@@ -1429,7 +1597,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 3.1 (Community Map Navigator)",
-      "syllable_complexity": "CCVC"
+      "syllable_complexity": "CCVC",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "brother",
@@ -1448,7 +1618,9 @@
         2
       ],
       "gameplay_level": "Grade 2 Island 1.1 (Family Portrait Gallery)",
-      "syllable_complexity": "2 syllables"
+      "syllable_complexity": "2 syllables",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "bubble",
@@ -1466,7 +1638,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 1.3 (Rhyme Time Porch)",
-      "syllable_complexity": "2 syllables"
+      "syllable_complexity": "2 syllables",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "bus",
@@ -1483,12 +1657,14 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 3.3 (Problem-Solver Market)",
-      "syllable_complexity": "CVC"
+      "syllable_complexity": "CVC",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "butterfly",
       "level": "word",
-      "phonemes": "b,\u0259,t,\u0259,r,f,l,a\u026a",
+      "phonemes": "b,\u028c,t,\u0259,r,f,l,a\u026a",
       "target_sound": "l",
       "position": "medial",
       "processes": [
@@ -1502,7 +1678,9 @@
         3
       ],
       "gameplay_level": "Grade 3 Island 1.3 (Multisyllable Mountain)",
-      "syllable_complexity": "3 syllables"
+      "syllable_complexity": "3 syllables",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "carrot",
@@ -1520,7 +1698,9 @@
         2
       ],
       "gameplay_level": "Grade 3 Island 1.3 (Multisyllable Mountain)",
-      "syllable_complexity": "2 syllables"
+      "syllable_complexity": "2 syllables",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "cat",
@@ -1537,7 +1717,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)",
-      "syllable_complexity": "CVC"
+      "syllable_complexity": "CVC",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "chair",
@@ -1554,7 +1736,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 1.2 (Family Sorting Basket)",
-      "syllable_complexity": "CVC"
+      "syllable_complexity": "CVC",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "cheese",
@@ -1571,7 +1755,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 1.2 (Family Sorting Basket)",
-      "syllable_complexity": "CVVC"
+      "syllable_complexity": "CVVC",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "chop",
@@ -1588,7 +1774,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 1.2 (Family Sorting Basket)",
-      "syllable_complexity": "CVC"
+      "syllable_complexity": "CVC",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "cookie",
@@ -1606,7 +1794,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)",
-      "syllable_complexity": "2 syllables"
+      "syllable_complexity": "2 syllables",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "coral",
@@ -1624,7 +1814,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 4.4 (Explorer's Echo Cave)",
-      "syllable_complexity": "2 syllables"
+      "syllable_complexity": "2 syllables",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "crab",
@@ -1640,7 +1832,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 3.2 (Helper's Task Trail)",
-      "syllable_complexity": "CCVC"
+      "syllable_complexity": "CCVC",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "cup",
@@ -1657,7 +1851,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)",
-      "syllable_complexity": "CVC"
+      "syllable_complexity": "CVC",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "desk",
@@ -1674,7 +1870,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 2.1 (Classroom Item Catcher)",
-      "syllable_complexity": "CVCC"
+      "syllable_complexity": "CVCC",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "dinosaur",
@@ -1692,7 +1890,9 @@
         3
       ],
       "gameplay_level": "Grade 3 Island 1.3 (Multisyllable Mountain)",
-      "syllable_complexity": "3 syllables"
+      "syllable_complexity": "3 syllables",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "doctor",
@@ -1710,7 +1910,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 3.3 (Problem-Solver Market)",
-      "syllable_complexity": "2 syllables"
+      "syllable_complexity": "2 syllables",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "dog",
@@ -1727,7 +1929,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)",
-      "syllable_complexity": "CVC"
+      "syllable_complexity": "CVC",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "dolphin",
@@ -1745,7 +1949,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 4.4 (Explorer's Echo Cave)",
-      "syllable_complexity": "2 syllables"
+      "syllable_complexity": "2 syllables",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "drive",
@@ -1761,7 +1967,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 3.2 (Helper's Task Trail)",
-      "syllable_complexity": "CCVCe"
+      "syllable_complexity": "CCVCe",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "earth",
@@ -1778,7 +1986,9 @@
         3
       ],
       "gameplay_level": "Grade 1 Island 4.1 (Nature Trail Cleaner)",
-      "syllable_complexity": "CVC"
+      "syllable_complexity": "CVC",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "elephant",
@@ -1796,7 +2006,9 @@
         3
       ],
       "gameplay_level": "Grade 3 Island 1.3 (Multisyllable Mountain)",
-      "syllable_complexity": "3 syllables"
+      "syllable_complexity": "3 syllables",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "father",
@@ -1814,7 +2026,9 @@
         2
       ],
       "gameplay_level": "Grade 2 Island 1.1 (Family Portrait Gallery)",
-      "syllable_complexity": "2 syllables"
+      "syllable_complexity": "2 syllables",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "feather",
@@ -1832,7 +2046,9 @@
         3
       ],
       "gameplay_level": "Grade 1 Island 4.2 (Ecosystem Sequence Jump)",
-      "syllable_complexity": "2 syllables"
+      "syllable_complexity": "2 syllables",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "fish",
@@ -1849,7 +2065,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 3.3 (Problem-Solver Market)",
-      "syllable_complexity": "CVC"
+      "syllable_complexity": "CVC",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "flag",
@@ -1865,7 +2083,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 2.2 (Story Line Jumper)",
-      "syllable_complexity": "CCVC"
+      "syllable_complexity": "CCVC",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "frog",
@@ -1881,7 +2101,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 3.2 (Helper's Task Trail)",
-      "syllable_complexity": "CCVC"
+      "syllable_complexity": "CCVC",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "give",
@@ -1898,7 +2120,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 3.3 (Problem-Solver Market)",
-      "syllable_complexity": "CVC"
+      "syllable_complexity": "CVC",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "glass",
@@ -1914,7 +2138,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 2.2 (Story Line Jumper)",
-      "syllable_complexity": "CCVC"
+      "syllable_complexity": "CCVC",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "glove",
@@ -1931,7 +2157,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 3.3 (Problem-Solver Market)",
-      "syllable_complexity": "CCVC"
+      "syllable_complexity": "CCVC",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "goat",
@@ -1949,7 +2177,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)",
-      "syllable_complexity": "CVVC"
+      "syllable_complexity": "CVVC",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "green",
@@ -1965,7 +2195,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 3.2 (Helper's Task Trail)",
-      "syllable_complexity": "CCVC"
+      "syllable_complexity": "CCVC",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "guard",
@@ -1982,7 +2214,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 3.1 (Community Map Navigator)",
-      "syllable_complexity": "CVCC"
+      "syllable_complexity": "CVCC",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "hat",
@@ -1998,7 +2232,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)",
-      "syllable_complexity": "CVC"
+      "syllable_complexity": "CVC",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "helicopter",
@@ -2014,7 +2250,9 @@
         3
       ],
       "gameplay_level": "Grade 3 Island 1.3 (Multisyllable Mountain)",
-      "syllable_complexity": "4 syllables"
+      "syllable_complexity": "4 syllables",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "hill",
@@ -2031,7 +2269,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 1.3 (Rhyme Time Porch)",
-      "syllable_complexity": "CVCC"
+      "syllable_complexity": "CVCC",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "jam",
@@ -2048,7 +2288,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 3.1 (Community Map Navigator)",
-      "syllable_complexity": "CVC"
+      "syllable_complexity": "CVC",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "jeep",
@@ -2065,7 +2307,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 3.1 (Community Map Navigator)",
-      "syllable_complexity": "CVVC"
+      "syllable_complexity": "CVVC",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "job",
@@ -2082,12 +2326,14 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 3.1 (Community Map Navigator)",
-      "syllable_complexity": "CVC"
+      "syllable_complexity": "CVC",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "judge",
       "level": "word",
-      "phonemes": "d\u0292,\u0259,d\u0292",
+      "phonemes": "d\u0292,\u028c,d\u0292",
       "target_sound": "d\u0292",
       "position": "initial",
       "processes": [
@@ -2099,12 +2345,14 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 3.1 (Community Map Navigator)",
-      "syllable_complexity": "CVC"
+      "syllable_complexity": "CVC",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "jump",
       "level": "word",
-      "phonemes": "d\u0292,\u0259,m,p",
+      "phonemes": "d\u0292,\u028c,m,p",
       "target_sound": "d\u0292",
       "position": "initial",
       "processes": [
@@ -2116,7 +2364,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 3.1 (Community Map Navigator)",
-      "syllable_complexity": "CVCC"
+      "syllable_complexity": "CVCC",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "kangaroo",
@@ -2134,7 +2384,9 @@
         3
       ],
       "gameplay_level": "Grade 3 Island 1.3 (Multisyllable Mountain)",
-      "syllable_complexity": "3 syllables"
+      "syllable_complexity": "3 syllables",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "key",
@@ -2151,7 +2403,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)",
-      "syllable_complexity": "CV"
+      "syllable_complexity": "CV",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "kitchen",
@@ -2169,7 +2423,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 1.2 (Family Sorting Basket)",
-      "syllable_complexity": "2 syllables"
+      "syllable_complexity": "2 syllables",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "leaf",
@@ -2186,7 +2442,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)",
-      "syllable_complexity": "CVVC"
+      "syllable_complexity": "CVVC",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "like",
@@ -2203,7 +2461,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)",
-      "syllable_complexity": "CVC"
+      "syllable_complexity": "CVC",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "line",
@@ -2220,7 +2480,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)",
-      "syllable_complexity": "CVC"
+      "syllable_complexity": "CVC",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "lion",
@@ -2237,7 +2499,9 @@
         2
       ],
       "gameplay_level": "Grade 2 Island 1.1 (Family Portrait Gallery)",
-      "syllable_complexity": "2 syllables"
+      "syllable_complexity": "2 syllables",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "love",
@@ -2254,7 +2518,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)",
-      "syllable_complexity": "CVC"
+      "syllable_complexity": "CVC",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "math",
@@ -2270,7 +2536,9 @@
         3
       ],
       "gameplay_level": "Grade 3 Island 1.1 (Regional Word Explorer)",
-      "syllable_complexity": "CVC"
+      "syllable_complexity": "CVC",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "measure",
@@ -2287,7 +2555,9 @@
         3
       ],
       "gameplay_level": "Grade 3 Island 1.1 (Regional Word Explorer)",
-      "syllable_complexity": "2 syllables"
+      "syllable_complexity": "2 syllables",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "mirror",
@@ -2305,7 +2575,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 2.1 (Classroom Item Catcher)",
-      "syllable_complexity": "2 syllables"
+      "syllable_complexity": "2 syllables",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "monkey",
@@ -2323,12 +2595,14 @@
         2
       ],
       "gameplay_level": "Grade 3 Island 1.3 (Multisyllable Mountain)",
-      "syllable_complexity": "2 syllables"
+      "syllable_complexity": "2 syllables",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "mother",
       "level": "word",
-      "phonemes": "m,\u0259,\u00f0,\u0259,r",
+      "phonemes": "m,\u028c,\u00f0,\u0259,r",
       "target_sound": "\u00f0",
       "position": "medial",
       "processes": [
@@ -2341,7 +2615,9 @@
         2
       ],
       "gameplay_level": "Grade 2 Island 1.1 (Family Portrait Gallery)",
-      "syllable_complexity": "2 syllables"
+      "syllable_complexity": "2 syllables",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "mouth",
@@ -2358,7 +2634,9 @@
         3
       ],
       "gameplay_level": "Grade 1 Island 4.1 (Nature Trail Cleaner)",
-      "syllable_complexity": "CVC"
+      "syllable_complexity": "CVC",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "nose",
@@ -2376,7 +2654,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 3.3 (Problem-Solver Market)",
-      "syllable_complexity": "CVCe"
+      "syllable_complexity": "CVCe",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "octopus",
@@ -2394,7 +2674,9 @@
         3
       ],
       "gameplay_level": "Grade 3 Island 1.3 (Multisyllable Mountain)",
-      "syllable_complexity": "3 syllables"
+      "syllable_complexity": "3 syllables",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "orange",
@@ -2412,7 +2694,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 3.1 (Community Map Navigator)",
-      "syllable_complexity": "2 syllables"
+      "syllable_complexity": "2 syllables",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "paper",
@@ -2428,7 +2712,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 2.1 (Classroom Item Catcher)",
-      "syllable_complexity": "2 syllables"
+      "syllable_complexity": "2 syllables",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "path",
@@ -2445,7 +2731,9 @@
         3
       ],
       "gameplay_level": "Grade 1 Island 4.1 (Nature Trail Cleaner)",
-      "syllable_complexity": "CVC"
+      "syllable_complexity": "CVC",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "pearl",
@@ -2462,7 +2750,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 4.4 (Explorer's Echo Cave)",
-      "syllable_complexity": "CVCC"
+      "syllable_complexity": "CVCC",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "pencil",
@@ -2481,7 +2771,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 2.1 (Classroom Item Catcher)",
-      "syllable_complexity": "2 syllables"
+      "syllable_complexity": "2 syllables",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "pig",
@@ -2498,7 +2790,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)",
-      "syllable_complexity": "CVC"
+      "syllable_complexity": "CVC",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "plane",
@@ -2514,7 +2808,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 2.2 (Story Line Jumper)",
-      "syllable_complexity": "CCVCe"
+      "syllable_complexity": "CCVCe",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "rabbit",
@@ -2531,7 +2827,9 @@
         2
       ],
       "gameplay_level": "Grade 3 Island 1.3 (Multisyllable Mountain)",
-      "syllable_complexity": "2 syllables"
+      "syllable_complexity": "2 syllables",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "rain",
@@ -2548,7 +2846,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 2.3 (Cause & Effect Lab)",
-      "syllable_complexity": "CVVC"
+      "syllable_complexity": "CVVC",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "read",
@@ -2565,7 +2865,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 2.3 (Cause & Effect Lab)",
-      "syllable_complexity": "CVVC"
+      "syllable_complexity": "CVVC",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "red",
@@ -2582,7 +2884,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 2.1 (Classroom Item Catcher)",
-      "syllable_complexity": "CVC"
+      "syllable_complexity": "CVC",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "ring",
@@ -2599,7 +2903,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 2.1 (Classroom Item Catcher)",
-      "syllable_complexity": "CVC"
+      "syllable_complexity": "CVC",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "rock",
@@ -2616,7 +2922,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 2.1 (Classroom Item Catcher)",
-      "syllable_complexity": "CVCC"
+      "syllable_complexity": "CVCC",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "rose",
@@ -2634,7 +2942,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 3.3 (Problem-Solver Market)",
-      "syllable_complexity": "CVCe"
+      "syllable_complexity": "CVCe",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "ruler",
@@ -2651,7 +2961,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 2.1 (Classroom Item Catcher)",
-      "syllable_complexity": "2 syllables"
+      "syllable_complexity": "2 syllables",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "sand",
@@ -2669,7 +2981,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 4.3 (Earth Defender Match)",
-      "syllable_complexity": "CVCC"
+      "syllable_complexity": "CVCC",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "sea",
@@ -2686,7 +3000,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 4.3 (Earth Defender Match)",
-      "syllable_complexity": "CV"
+      "syllable_complexity": "CV",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "seven",
@@ -2704,7 +3020,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 3.3 (Problem-Solver Market)",
-      "syllable_complexity": "2 syllables"
+      "syllable_complexity": "2 syllables",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "shark",
@@ -2722,7 +3040,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 4.4 (Explorer's Echo Cave)",
-      "syllable_complexity": "CVCC"
+      "syllable_complexity": "CVCC",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "shell",
@@ -2739,7 +3059,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 3.3 (Problem-Solver Market)",
-      "syllable_complexity": "CVCC"
+      "syllable_complexity": "CVCC",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "ship",
@@ -2756,7 +3078,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 3.3 (Problem-Solver Market)",
-      "syllable_complexity": "CVC"
+      "syllable_complexity": "CVC",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "shoe",
@@ -2773,7 +3097,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 3.3 (Problem-Solver Market)",
-      "syllable_complexity": "CV"
+      "syllable_complexity": "CV",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "sister",
@@ -2792,7 +3118,9 @@
         2
       ],
       "gameplay_level": "Grade 2 Island 1.1 (Family Portrait Gallery)",
-      "syllable_complexity": "2 syllables"
+      "syllable_complexity": "2 syllables",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "sky",
@@ -2808,7 +3136,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 4.3 (Earth Defender Match)",
-      "syllable_complexity": "CCV"
+      "syllable_complexity": "CCV",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "smooth",
@@ -2825,7 +3155,9 @@
         3
       ],
       "gameplay_level": "Grade 1 Island 4.2 (Ecosystem Sequence Jump)",
-      "syllable_complexity": "CCVC"
+      "syllable_complexity": "CCVC",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "soap",
@@ -2842,7 +3174,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 3.3 (Problem-Solver Market)",
-      "syllable_complexity": "CVVC"
+      "syllable_complexity": "CVVC",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "soup",
@@ -2859,7 +3193,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 3.3 (Problem-Solver Market)",
-      "syllable_complexity": "CVVC"
+      "syllable_complexity": "CVVC",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "spaghetti",
@@ -2876,7 +3212,9 @@
         3
       ],
       "gameplay_level": "Grade 3 Island 1.3 (Multisyllable Mountain)",
-      "syllable_complexity": "3 syllables"
+      "syllable_complexity": "3 syllables",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "spider",
@@ -2894,7 +3232,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 4.3 (Earth Defender Match)",
-      "syllable_complexity": "2 syllables"
+      "syllable_complexity": "2 syllables",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "spoon",
@@ -2910,7 +3250,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 4.3 (Earth Defender Match)",
-      "syllable_complexity": "CCVC"
+      "syllable_complexity": "CCVC",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "star",
@@ -2927,7 +3269,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 4.3 (Earth Defender Match)",
-      "syllable_complexity": "CCVC"
+      "syllable_complexity": "CCVC",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "starfish",
@@ -2945,7 +3289,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 4.3 (Earth Defender Match)",
-      "syllable_complexity": "2 syllables"
+      "syllable_complexity": "2 syllables",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "stone",
@@ -2961,7 +3307,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 4.3 (Earth Defender Match)",
-      "syllable_complexity": "CCVCe"
+      "syllable_complexity": "CCVCe",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "strawberry",
@@ -2980,7 +3328,9 @@
         3
       ],
       "gameplay_level": "Grade 3 Island 1.3 (Multisyllable Mountain)",
-      "syllable_complexity": "3 syllables"
+      "syllable_complexity": "3 syllables",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "sun",
@@ -2997,7 +3347,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 4.3 (Earth Defender Match)",
-      "syllable_complexity": "CVC"
+      "syllable_complexity": "CVC",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "swim",
@@ -3015,7 +3367,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 4.3 (Earth Defender Match)",
-      "syllable_complexity": "CCVC"
+      "syllable_complexity": "CCVC",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "tall",
@@ -3032,7 +3386,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 1.3 (Rhyme Time Porch)",
-      "syllable_complexity": "CVCC"
+      "syllable_complexity": "CVCC",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "teacher",
@@ -3050,7 +3406,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 2.1 (Classroom Item Catcher)",
-      "syllable_complexity": "2 syllables"
+      "syllable_complexity": "2 syllables",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "teeth",
@@ -3067,7 +3425,9 @@
         3
       ],
       "gameplay_level": "Grade 1 Island 4.1 (Nature Trail Cleaner)",
-      "syllable_complexity": "CVVC"
+      "syllable_complexity": "CVVC",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "television",
@@ -3084,7 +3444,9 @@
         3
       ],
       "gameplay_level": "Grade 3 Island 1.1 (Regional Word Explorer)",
-      "syllable_complexity": "4 syllables"
+      "syllable_complexity": "4 syllables",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "ten",
@@ -3101,7 +3463,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)",
-      "syllable_complexity": "CVC"
+      "syllable_complexity": "CVC",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "that",
@@ -3118,7 +3482,9 @@
         3
       ],
       "gameplay_level": "Grade 1 Island 4.2 (Ecosystem Sequence Jump)",
-      "syllable_complexity": "CVC"
+      "syllable_complexity": "CVC",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "they",
@@ -3135,7 +3501,9 @@
         3
       ],
       "gameplay_level": "Grade 1 Island 4.2 (Ecosystem Sequence Jump)",
-      "syllable_complexity": "CV"
+      "syllable_complexity": "CV",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "think",
@@ -3152,7 +3520,9 @@
         3
       ],
       "gameplay_level": "Grade 1 Island 4.1 (Nature Trail Cleaner)",
-      "syllable_complexity": "CVCC"
+      "syllable_complexity": "CVCC",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "this",
@@ -3169,7 +3539,9 @@
         3
       ],
       "gameplay_level": "Grade 1 Island 4.2 (Ecosystem Sequence Jump)",
-      "syllable_complexity": "CVC"
+      "syllable_complexity": "CVC",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "three",
@@ -3186,7 +3558,9 @@
         3
       ],
       "gameplay_level": "Grade 3 Island 1.1 (Regional Word Explorer)",
-      "syllable_complexity": "CCV"
+      "syllable_complexity": "CCV",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "thumb",
@@ -3203,7 +3577,9 @@
         3
       ],
       "gameplay_level": "Grade 1 Island 4.1 (Nature Trail Cleaner)",
-      "syllable_complexity": "CVC"
+      "syllable_complexity": "CVC",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "toothbrush",
@@ -3220,7 +3596,9 @@
         3
       ],
       "gameplay_level": "Grade 3 Island 1.1 (Regional Word Explorer)",
-      "syllable_complexity": "2 syllables"
+      "syllable_complexity": "2 syllables",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "train",
@@ -3236,7 +3614,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 3.2 (Helper's Task Trail)",
-      "syllable_complexity": "CCVC"
+      "syllable_complexity": "CCVC",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "treasure",
@@ -3253,7 +3633,9 @@
         3
       ],
       "gameplay_level": "Grade 3 Island 1.1 (Regional Word Explorer)",
-      "syllable_complexity": "2 syllables"
+      "syllable_complexity": "2 syllables",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "truck",
@@ -3269,7 +3651,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 3.2 (Helper's Task Trail)",
-      "syllable_complexity": "CCVC"
+      "syllable_complexity": "CCVC",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "van",
@@ -3286,7 +3670,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 3.3 (Problem-Solver Market)",
-      "syllable_complexity": "CVC"
+      "syllable_complexity": "CVC",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "vegetable",
@@ -3303,7 +3689,9 @@
         3
       ],
       "gameplay_level": "Grade 3 Island 1.3 (Multisyllable Mountain)",
-      "syllable_complexity": "4 syllables"
+      "syllable_complexity": "4 syllables",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "very",
@@ -3321,7 +3709,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 3.3 (Problem-Solver Market)",
-      "syllable_complexity": "2 syllables"
+      "syllable_complexity": "2 syllables",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "vest",
@@ -3339,7 +3729,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 3.3 (Problem-Solver Market)",
-      "syllable_complexity": "CVCC"
+      "syllable_complexity": "CVCC",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "vision",
@@ -3356,7 +3748,9 @@
         3
       ],
       "gameplay_level": "Grade 3 Island 1.1 (Regional Word Explorer)",
-      "syllable_complexity": "2 syllables"
+      "syllable_complexity": "2 syllables",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "volcano",
@@ -3374,7 +3768,9 @@
         2
       ],
       "gameplay_level": "Grade 2 Island 1.3 (Family Word Hunt)",
-      "syllable_complexity": "3 syllables"
+      "syllable_complexity": "3 syllables",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "watch",
@@ -3391,7 +3787,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 1.2 (Family Sorting Basket)",
-      "syllable_complexity": "CVCC"
+      "syllable_complexity": "CVCC",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "wave",
@@ -3408,7 +3806,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 3.3 (Problem-Solver Market)",
-      "syllable_complexity": "CVCe"
+      "syllable_complexity": "CVCe",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "whale",
@@ -3425,7 +3825,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 1.3 (Rhyme Time Porch)",
-      "syllable_complexity": "CVCe"
+      "syllable_complexity": "CVCe",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "write",
@@ -3442,7 +3844,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 2.3 (Cause & Effect Lab)",
-      "syllable_complexity": "CVCe"
+      "syllable_complexity": "CVCe",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "yarn",
@@ -3459,7 +3863,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)",
-      "syllable_complexity": "CVCC"
+      "syllable_complexity": "CVCC",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "yellow",
@@ -3477,7 +3883,9 @@
         2
       ],
       "gameplay_level": "Grade 2 Island 1.1 (Family Portrait Gallery)",
-      "syllable_complexity": "2 syllables"
+      "syllable_complexity": "2 syllables",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "yoyo",
@@ -3494,7 +3902,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)",
-      "syllable_complexity": "2 syllables"
+      "syllable_complexity": "2 syllables",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "zoo",
@@ -3512,7 +3922,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 3.3 (Problem-Solver Market)",
-      "syllable_complexity": "CV"
+      "syllable_complexity": "CV",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "a big chair",
@@ -3529,7 +3941,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 1.2 (Family Sorting Basket)",
-      "syllable_complexity": "3 words"
+      "syllable_complexity": "3 words",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "a big cup",
@@ -3546,7 +3960,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)",
-      "syllable_complexity": "3 words"
+      "syllable_complexity": "3 words",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "a big sock",
@@ -3563,7 +3979,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 4.3 (Earth Defender Match)",
-      "syllable_complexity": "3 words"
+      "syllable_complexity": "3 words",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "a big whale",
@@ -3580,7 +3998,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 1.3 (Rhyme Time Porch)",
-      "syllable_complexity": "3 words"
+      "syllable_complexity": "3 words",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "a red ball",
@@ -3597,7 +4017,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 1.3 (Rhyme Time Porch)",
-      "syllable_complexity": "3 words"
+      "syllable_complexity": "3 words",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "a red car",
@@ -3614,7 +4036,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 2.1 (Classroom Item Catcher)",
-      "syllable_complexity": "3 words"
+      "syllable_complexity": "3 words",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "a treasure map",
@@ -3632,7 +4056,9 @@
         3
       ],
       "gameplay_level": "Grade 3 Island 1.1 (Regional Word Explorer)",
-      "syllable_complexity": "3 words"
+      "syllable_complexity": "3 words",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "drive the truck",
@@ -3648,7 +4074,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 3.2 (Helper's Task Trail)",
-      "syllable_complexity": "3 words"
+      "syllable_complexity": "3 words",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "my cookie",
@@ -3666,7 +4094,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)",
-      "syllable_complexity": "2 words"
+      "syllable_complexity": "2 words",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "my father",
@@ -3684,7 +4114,9 @@
         2
       ],
       "gameplay_level": "Grade 2 Island 1.1 (Family Portrait Gallery)",
-      "syllable_complexity": "2 words"
+      "syllable_complexity": "2 words",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "my mother",
@@ -3702,7 +4134,9 @@
         2
       ],
       "gameplay_level": "Grade 2 Island 1.1 (Family Portrait Gallery)",
-      "syllable_complexity": "2 words"
+      "syllable_complexity": "2 words",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "my red ruler",
@@ -3719,7 +4153,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 2.1 (Classroom Item Catcher)",
-      "syllable_complexity": "3 words"
+      "syllable_complexity": "3 words",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "my watch",
@@ -3736,7 +4172,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 1.2 (Family Sorting Basket)",
-      "syllable_complexity": "2 words"
+      "syllable_complexity": "2 words",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "my yellow book",
@@ -3754,7 +4192,9 @@
         2
       ],
       "gameplay_level": "Grade 2 Island 1.1 (Family Portrait Gallery)",
-      "syllable_complexity": "3 words"
+      "syllable_complexity": "3 words",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "see the sea",
@@ -3771,7 +4211,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 4.3 (Earth Defender Match)",
-      "syllable_complexity": "3 words"
+      "syllable_complexity": "3 words",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "the bell",
@@ -3788,7 +4230,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 1.3 (Rhyme Time Porch)",
-      "syllable_complexity": "2 words"
+      "syllable_complexity": "2 words",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "the big star",
@@ -3804,7 +4248,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 4.3 (Earth Defender Match)",
-      "syllable_complexity": "3 words"
+      "syllable_complexity": "3 words",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "the blue flag",
@@ -3820,7 +4266,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 2.2 (Story Line Jumper)",
-      "syllable_complexity": "3 words"
+      "syllable_complexity": "3 words",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "the green truck",
@@ -3836,7 +4284,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 3.2 (Helper's Task Trail)",
-      "syllable_complexity": "3 words"
+      "syllable_complexity": "3 words",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "the key",
@@ -3853,7 +4303,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 1.1 (Family Name & Sound Station)",
-      "syllable_complexity": "2 words"
+      "syllable_complexity": "2 words",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "the red bridge",
@@ -3871,7 +4323,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 3.1 (Community Map Navigator)",
-      "syllable_complexity": "3 words"
+      "syllable_complexity": "3 words",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "the smooth feather",
@@ -3888,7 +4342,9 @@
         3
       ],
       "gameplay_level": "Grade 3 Island 1.1 (Regional Word Explorer)",
-      "syllable_complexity": "3 words"
+      "syllable_complexity": "3 words",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "the sun",
@@ -3905,7 +4361,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 4.3 (Earth Defender Match)",
-      "syllable_complexity": "2 words"
+      "syllable_complexity": "2 words",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "this is that",
@@ -3922,7 +4380,9 @@
         3
       ],
       "gameplay_level": "Grade 1 Island 4.2 (Ecosystem Sequence Jump)",
-      "syllable_complexity": "3 words"
+      "syllable_complexity": "3 words",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "visit the clinic",
@@ -3941,7 +4401,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 3.3 (Problem-Solver Market)",
-      "syllable_complexity": "3 words"
+      "syllable_complexity": "3 words",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "Drive the truck.",
@@ -3957,7 +4419,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 3.4 (Radio Station Echo)",
-      "syllable_complexity": "3 words"
+      "syllable_complexity": "3 words",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "I brush my teeth.",
@@ -3974,7 +4438,9 @@
         3
       ],
       "gameplay_level": "Grade 3 Island 1.4 (Regional Story Quest)",
-      "syllable_complexity": "4 words"
+      "syllable_complexity": "4 words",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "I drink from a cup.",
@@ -3991,7 +4457,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 1.4 (Echo Family Studio)",
-      "syllable_complexity": "5 words"
+      "syllable_complexity": "5 words",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "I go to school.",
@@ -4009,7 +4477,9 @@
         2
       ],
       "gameplay_level": "Grade 2 Island 2.3 (Speak & Build)",
-      "syllable_complexity": "4 words"
+      "syllable_complexity": "4 words",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "I have a new book.",
@@ -4026,7 +4496,9 @@
         2
       ],
       "gameplay_level": "Grade 2 Island 2.3 (Speak & Build)",
-      "syllable_complexity": "5 words"
+      "syllable_complexity": "5 words",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "I like cheese.",
@@ -4043,7 +4515,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 1.4 (Echo Family Studio)",
-      "syllable_complexity": "3 words"
+      "syllable_complexity": "3 words",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "I like my home.",
@@ -4060,7 +4534,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 1.4 (Echo Family Studio)",
-      "syllable_complexity": "4 words"
+      "syllable_complexity": "4 words",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "I like the ball.",
@@ -4077,7 +4553,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 1.4 (Echo Family Studio)",
-      "syllable_complexity": "4 words"
+      "syllable_complexity": "4 words",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "I love my family.",
@@ -4097,7 +4575,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 1.4 (Echo Family Studio)",
-      "syllable_complexity": "4 words"
+      "syllable_complexity": "4 words",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "I protect the earth.",
@@ -4115,7 +4595,9 @@
         3
       ],
       "gameplay_level": "Grade 1 Island 4.4 (Explorer's Echo Cave)",
-      "syllable_complexity": "4 words"
+      "syllable_complexity": "4 words",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "I read books.",
@@ -4132,7 +4614,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 2.4 (Echo Classroom Express)",
-      "syllable_complexity": "3 words"
+      "syllable_complexity": "3 words",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "I ride my bicycle.",
@@ -4151,7 +4635,9 @@
         3
       ],
       "gameplay_level": "Grade 2 Island 2.4 (School Story Challenge)",
-      "syllable_complexity": "4 words"
+      "syllable_complexity": "4 words",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "I see a cookie.",
@@ -4169,7 +4655,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 1.4 (Echo Family Studio)",
-      "syllable_complexity": "4 words"
+      "syllable_complexity": "4 words",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "I see a sock.",
@@ -4186,7 +4674,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 1.4 (Echo Family Studio)",
-      "syllable_complexity": "4 words"
+      "syllable_complexity": "4 words",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "I sit on the chair.",
@@ -4203,7 +4693,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 1.4 (Echo Family Studio)",
-      "syllable_complexity": "5 words"
+      "syllable_complexity": "5 words",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "My brother drives the truck.",
@@ -4222,7 +4714,9 @@
         2
       ],
       "gameplay_level": "Grade 2 Island 4.4 (Grand Explorer Challenge)",
-      "syllable_complexity": "5 words"
+      "syllable_complexity": "5 words",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "My key opens the door.",
@@ -4239,7 +4733,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 1.4 (Echo Family Studio)",
-      "syllable_complexity": "5 words"
+      "syllable_complexity": "5 words",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "My red ruler is here.",
@@ -4256,7 +4752,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 2.4 (Echo Classroom Express)",
-      "syllable_complexity": "5 words"
+      "syllable_complexity": "5 words",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "My sister and brother play.",
@@ -4275,7 +4773,9 @@
         2
       ],
       "gameplay_level": "Grade 2 Island 1.4 (Family Story Path)",
-      "syllable_complexity": "5 words"
+      "syllable_complexity": "5 words",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "The baby is sleeping.",
@@ -4291,7 +4791,9 @@
         2
       ],
       "gameplay_level": "Grade 2 Island 1.4 (Family Story Path)",
-      "syllable_complexity": "4 words"
+      "syllable_complexity": "4 words",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "The bell rings.",
@@ -4308,7 +4810,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 1.4 (Echo Family Studio)",
-      "syllable_complexity": "3 words"
+      "syllable_complexity": "3 words",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "The blue ribbon is red.",
@@ -4327,7 +4831,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 2.4 (Echo Classroom Express)",
-      "syllable_complexity": "5 words"
+      "syllable_complexity": "5 words",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "The cat is on the mat.",
@@ -4344,7 +4850,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 1.4 (Echo Family Studio)",
-      "syllable_complexity": "6 words"
+      "syllable_complexity": "6 words",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "The feather is smooth.",
@@ -4361,7 +4869,9 @@
         3
       ],
       "gameplay_level": "Grade 3 Island 1.4 (Regional Story Quest)",
-      "syllable_complexity": "4 words"
+      "syllable_complexity": "4 words",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "The frog is green.",
@@ -4377,7 +4887,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 3.4 (Radio Station Echo)",
-      "syllable_complexity": "4 words"
+      "syllable_complexity": "4 words",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "The frog is near the tree.",
@@ -4394,7 +4906,9 @@
         2
       ],
       "gameplay_level": "Grade 2 Island 4.3 (Environment Builder)",
-      "syllable_complexity": "6 words"
+      "syllable_complexity": "6 words",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "The helicopter flies over the mountain.",
@@ -4411,7 +4925,9 @@
         3
       ],
       "gameplay_level": "Grade 3 Island 3.4 (National Story Studio)",
-      "syllable_complexity": "6 words"
+      "syllable_complexity": "6 words",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "The judge has a job.",
@@ -4428,7 +4944,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 3.4 (Radio Station Echo)",
-      "syllable_complexity": "5 words"
+      "syllable_complexity": "5 words",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "The monkey eats a banana.",
@@ -4446,7 +4964,9 @@
         2
       ],
       "gameplay_level": "Grade 3 Island 1.3 (Multisyllable Mountain)",
-      "syllable_complexity": "5 words"
+      "syllable_complexity": "5 words",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "The orange is in the kitchen.",
@@ -4464,7 +4984,9 @@
         2
       ],
       "gameplay_level": "Grade 2 Island 3.4 (Community Story Road)",
-      "syllable_complexity": "6 words"
+      "syllable_complexity": "6 words",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "The starfish is on the sand.",
@@ -4482,7 +5004,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 4.4 (Explorer's Echo Cave)",
-      "syllable_complexity": "6 words"
+      "syllable_complexity": "6 words",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "The sun is bright.",
@@ -4501,7 +5025,9 @@
         3
       ],
       "gameplay_level": "Grade 1 Island 4.4 (Explorer's Echo Cave)",
-      "syllable_complexity": "4 words"
+      "syllable_complexity": "4 words",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "The sun is up.",
@@ -4518,7 +5044,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 1.4 (Echo Family Studio)",
-      "syllable_complexity": "4 words"
+      "syllable_complexity": "4 words",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "The teacher reads a book.",
@@ -4537,7 +5065,9 @@
         2
       ],
       "gameplay_level": "Grade 2 Island 2.4 (School Story Challenge)",
-      "syllable_complexity": "5 words"
+      "syllable_complexity": "5 words",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "The treasure is in the cave.",
@@ -4555,7 +5085,9 @@
         3
       ],
       "gameplay_level": "Grade 3 Island 2.4 (Compound Sentence Bridge)",
-      "syllable_complexity": "6 words"
+      "syllable_complexity": "6 words",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "The truck drives fast.",
@@ -4572,7 +5104,9 @@
         3
       ],
       "gameplay_level": "Grade 2 Island 2.4 (School Story Challenge)",
-      "syllable_complexity": "4 words"
+      "syllable_complexity": "4 words",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "The whale is big.",
@@ -4589,7 +5123,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 1.4 (Echo Family Studio)",
-      "syllable_complexity": "4 words"
+      "syllable_complexity": "4 words",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "We clean the glass.",
@@ -4605,7 +5141,9 @@
         2
       ],
       "gameplay_level": "Grade 2 Island 2.4 (School Story Challenge)",
-      "syllable_complexity": "4 words"
+      "syllable_complexity": "4 words",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "We eat spaghetti and vegetables.",
@@ -4623,7 +5161,9 @@
         3
       ],
       "gameplay_level": "Grade 3 Island 3.4 (National Story Studio)",
-      "syllable_complexity": "4 words"
+      "syllable_complexity": "4 words",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "We plant green trees.",
@@ -4640,7 +5180,9 @@
         3
       ],
       "gameplay_level": "Grade 1 Island 4.4 (Explorer's Echo Cave)",
-      "syllable_complexity": "4 words"
+      "syllable_complexity": "4 words",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "We ride the bus.",
@@ -4657,7 +5199,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 1.4 (Echo Family Studio)",
-      "syllable_complexity": "4 words"
+      "syllable_complexity": "4 words",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "We visit the clinic.",
@@ -4676,7 +5220,9 @@
         2
       ],
       "gameplay_level": "Grade 1 Island 3.4 (Radio Station Echo)",
-      "syllable_complexity": "4 words"
+      "syllable_complexity": "4 words",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "We watch television.",
@@ -4694,7 +5240,9 @@
         3
       ],
       "gameplay_level": "Grade 3 Island 1.4 (Regional Story Quest)",
-      "syllable_complexity": "3 words"
+      "syllable_complexity": "3 words",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "ba-na",
@@ -4713,7 +5261,9 @@
         2,
         3
       ],
-      "gameplay_level": "Kindergarten Island 1.1 (Name & Letter Station)"
+      "gameplay_level": "Kindergarten Island 1.1 (Name & Letter Station)",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "el-e",
@@ -4732,7 +5282,9 @@
         2,
         3
       ],
-      "gameplay_level": "Kindergarten Island 1.1 (Name & Letter Station)"
+      "gameplay_level": "Kindergarten Island 1.1 (Name & Letter Station)",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "to-ma",
@@ -4751,7 +5303,9 @@
         2,
         3
       ],
-      "gameplay_level": "Kindergarten Island 1.1 (Name & Letter Station)"
+      "gameplay_level": "Kindergarten Island 1.1 (Name & Letter Station)",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "com-pu",
@@ -4769,7 +5323,9 @@
         2,
         3
       ],
-      "gameplay_level": "Grade 1 Island 1.1 (Sound Station)"
+      "gameplay_level": "Grade 1 Island 1.1 (Sound Station)",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "um-brel",
@@ -4787,7 +5343,9 @@
         2,
         3
       ],
-      "gameplay_level": "Grade 1 Island 1.1 (Sound Station)"
+      "gameplay_level": "Grade 1 Island 1.1 (Sound Station)",
+      "language": "en",
+      "language_variety": "project-english-reference"
     },
     {
       "text": "cu-cum",
@@ -4805,7 +5363,1167 @@
         2,
         3
       ],
-      "gameplay_level": "Grade 1 Island 1.1 (Sound Station)"
+      "gameplay_level": "Grade 1 Island 1.1 (Sound Station)",
+      "language": "en",
+      "language_variety": "project-english-reference"
+    },
+    {
+      "text": "a big sun",
+      "level": "phrase",
+      "target_sound": "s",
+      "position": "initial",
+      "phonemes": "\u0259,b,\u026a,\u0261,s,\u0259,n",
+      "syllable_complexity": "3 syllables",
+      "processes": [
+        "Stopping",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Kindergarten Island 2.1 (Emotion Mirror Lagoon)",
+      "language": "en",
+      "language_variety": "project-english-reference"
+    },
+    {
+      "text": "clean with soap",
+      "level": "phrase",
+      "target_sound": "s",
+      "position": "initial",
+      "phonemes": "k,l,i,n,w,\u026a,\u00f0,s,o\u028a,p",
+      "syllable_complexity": "4 syllables",
+      "processes": [
+        "Stopping",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Kindergarten Island 2.1 (Emotion Mirror Lagoon)",
+      "language": "en",
+      "language_variety": "project-english-reference"
+    },
+    {
+      "text": "I wash with soap.",
+      "level": "sentence",
+      "target_sound": "s",
+      "position": "initial",
+      "phonemes": "a\u026a,w,\u0251,\u0283,w,\u026a,\u00f0,s,o\u028a,p",
+      "syllable_complexity": "5 words",
+      "processes": [
+        "Stopping"
+      ],
+      "grades": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Kindergarten Island 2.1 (Emotion Mirror Lagoon)",
+      "language": "en",
+      "language_variety": "project-english-reference"
+    },
+    {
+      "text": "The zebra runs.",
+      "level": "sentence",
+      "target_sound": "z",
+      "position": "initial",
+      "phonemes": "\u00f0,\u0259,z,i,b,\u0279,\u0259,\u0279,\u028c,n,z",
+      "syllable_complexity": "4 words",
+      "processes": [
+        "Stopping"
+      ],
+      "grades": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Kindergarten Island 2.1 (Emotion Mirror Lagoon)",
+      "language": "en",
+      "language_variety": "project-english-reference"
+    },
+    {
+      "text": "zipper",
+      "level": "word",
+      "target_sound": "z",
+      "position": "initial",
+      "phonemes": "z,\u026a,p,\u025a",
+      "syllable_complexity": "2 syllables",
+      "processes": [
+        "Stopping",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Kindergarten Island 2.1 (Emotion Mirror Lagoon)",
+      "language": "en",
+      "language_variety": "project-english-reference"
+    },
+    {
+      "text": "zero",
+      "level": "word",
+      "target_sound": "z",
+      "position": "initial",
+      "phonemes": "z,\u026a,\u0279,o\u028a",
+      "syllable_complexity": "2 syllables",
+      "processes": [
+        "Stopping",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Kindergarten Island 2.1 (Emotion Mirror Lagoon)",
+      "language": "en",
+      "language_variety": "project-english-reference"
+    },
+    {
+      "text": "at the zoo",
+      "level": "phrase",
+      "target_sound": "z",
+      "position": "initial",
+      "phonemes": "\u00e6t,\u00f0,\u0259,z,u",
+      "syllable_complexity": "3 words",
+      "processes": [
+        "Stopping"
+      ],
+      "grades": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Kindergarten Island 2.1 (Emotion Mirror Lagoon)",
+      "language": "en",
+      "language_variety": "project-english-reference"
+    },
+    {
+      "text": "a fast zipper",
+      "level": "phrase",
+      "target_sound": "z",
+      "position": "initial",
+      "phonemes": "\u0259,f,\u00e6,s,t,z,\u026a,p,\u025a",
+      "syllable_complexity": "3 words",
+      "processes": [
+        "Stopping"
+      ],
+      "grades": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Kindergarten Island 2.1 (Emotion Mirror Lagoon)",
+      "language": "en",
+      "language_variety": "project-english-reference"
+    },
+    {
+      "text": "the yellow zebra",
+      "level": "phrase",
+      "target_sound": "z",
+      "position": "initial",
+      "phonemes": "\u00f0,\u0259,j,\u025b,l,o\u028a,z,i,b,r,\u0259",
+      "syllable_complexity": "3 words",
+      "processes": [
+        "Stopping",
+        "Weak Syllable Deletion"
+      ],
+      "grades": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Kindergarten Island 2.1 (Emotion Mirror Lagoon)",
+      "language": "en",
+      "language_variety": "project-english-reference"
+    },
+    {
+      "text": "count to zero",
+      "level": "phrase",
+      "target_sound": "z",
+      "position": "initial",
+      "phonemes": "k,a\u028a,n,t,t,u,z,\u026a,\u0279,o\u028a",
+      "syllable_complexity": "3 words",
+      "processes": [
+        "Stopping"
+      ],
+      "grades": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Kindergarten Island 2.1 (Emotion Mirror Lagoon)",
+      "language": "en",
+      "language_variety": "project-english-reference"
+    },
+    {
+      "text": "We go to the zoo.",
+      "level": "sentence",
+      "target_sound": "z",
+      "position": "initial",
+      "phonemes": "w,i,\u0261,o\u028a,t,u,\u00f0,\u0259,z,u",
+      "syllable_complexity": "5 words",
+      "processes": [
+        "Stopping"
+      ],
+      "grades": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Kindergarten Island 2.1 (Emotion Mirror Lagoon)",
+      "language": "en",
+      "language_variety": "project-english-reference"
+    },
+    {
+      "text": "Pull the zipper up.",
+      "level": "sentence",
+      "target_sound": "z",
+      "position": "initial",
+      "phonemes": "p,\u028a,l,\u00f0,\u0259,z,\u026a,p,\u025a,\u028c,p",
+      "syllable_complexity": "4 words",
+      "processes": [
+        "Stopping"
+      ],
+      "grades": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Kindergarten Island 2.1 (Emotion Mirror Lagoon)",
+      "language": "en",
+      "language_variety": "project-english-reference"
+    },
+    {
+      "text": "fan",
+      "level": "word",
+      "target_sound": "f",
+      "position": "initial",
+      "phonemes": "f,\u00e6,n",
+      "syllable_complexity": "CVC",
+      "processes": [
+        "Stopping",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Kindergarten Island 3.1 (Market Stand)",
+      "language": "en",
+      "language_variety": "project-english-reference"
+    },
+    {
+      "text": "foot",
+      "level": "word",
+      "target_sound": "f",
+      "position": "initial",
+      "phonemes": "f,\u028a,t",
+      "syllable_complexity": "CVC",
+      "processes": [
+        "Stopping",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Kindergarten Island 3.1 (Market Stand)",
+      "language": "en",
+      "language_variety": "project-english-reference"
+    },
+    {
+      "text": "fox",
+      "level": "word",
+      "target_sound": "f",
+      "position": "initial",
+      "phonemes": "f,\u0251,k,s",
+      "syllable_complexity": "CVC",
+      "processes": [
+        "Stopping",
+        "Initial Consonant Deletion"
+      ],
+      "grades": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Kindergarten Island 3.1 (Market Stand)",
+      "language": "en",
+      "language_variety": "project-english-reference"
+    },
+    {
+      "text": "a little fish",
+      "level": "phrase",
+      "target_sound": "f",
+      "position": "initial",
+      "phonemes": "\u0259,l,\u026a,t,\u0259l,f,\u026a,\u0283",
+      "syllable_complexity": "3 words",
+      "processes": [
+        "Stopping"
+      ],
+      "grades": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Kindergarten Island 3.1 (Market Stand)",
+      "language": "en",
+      "language_variety": "project-english-reference"
+    },
+    {
+      "text": "the red fan",
+      "level": "phrase",
+      "target_sound": "f",
+      "position": "initial",
+      "phonemes": "\u00f0,\u0259,r,\u025b,d,f,\u00e6,n",
+      "syllable_complexity": "3 words",
+      "processes": [
+        "Stopping"
+      ],
+      "grades": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Kindergarten Island 3.1 (Market Stand)",
+      "language": "en",
+      "language_variety": "project-english-reference"
+    },
+    {
+      "text": "my right foot",
+      "level": "phrase",
+      "target_sound": "f",
+      "position": "initial",
+      "phonemes": "m,a\u026a,\u0279,a\u026a,t,f,\u028a,t",
+      "syllable_complexity": "3 words",
+      "processes": [
+        "Stopping"
+      ],
+      "grades": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Kindergarten Island 3.1 (Market Stand)",
+      "language": "en",
+      "language_variety": "project-english-reference"
+    },
+    {
+      "text": "the orange fox",
+      "level": "phrase",
+      "target_sound": "f",
+      "position": "initial",
+      "phonemes": "\u00f0,\u0259,\u0254,r,\u026a,n,d\u0292,f,\u0251,k,s",
+      "syllable_complexity": "3 words",
+      "processes": [
+        "Stopping"
+      ],
+      "grades": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Kindergarten Island 3.1 (Market Stand)",
+      "language": "en",
+      "language_variety": "project-english-reference"
+    },
+    {
+      "text": "The fish can swim.",
+      "level": "sentence",
+      "target_sound": "f",
+      "position": "initial",
+      "phonemes": "\u00f0,\u0259,f,\u026a,\u0283,k,\u00e6,n,s,w,\u026a,m",
+      "syllable_complexity": "4 words",
+      "processes": [
+        "Stopping"
+      ],
+      "grades": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Kindergarten Island 3.1 (Market Stand)",
+      "language": "en",
+      "language_variety": "project-english-reference"
+    },
+    {
+      "text": "Turn on the fan.",
+      "level": "sentence",
+      "target_sound": "f",
+      "position": "initial",
+      "phonemes": "t,\u025d,n,\u0251,n,\u00f0,\u0259,f,\u00e6,n",
+      "syllable_complexity": "4 words",
+      "processes": [
+        "Stopping"
+      ],
+      "grades": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Kindergarten Island 3.1 (Market Stand)",
+      "language": "en",
+      "language_variety": "project-english-reference"
+    },
+    {
+      "text": "I see a little fox.",
+      "level": "sentence",
+      "target_sound": "f",
+      "position": "initial",
+      "phonemes": "a\u026a,s,i,\u0259,l,\u026a,t,\u0259l,f,\u0251,k,s",
+      "syllable_complexity": "5 words",
+      "processes": [
+        "Stopping"
+      ],
+      "grades": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Kindergarten Island 3.1 (Market Stand)",
+      "language": "en",
+      "language_variety": "project-english-reference"
+    },
+    {
+      "text": "I tap my foot.",
+      "level": "sentence",
+      "target_sound": "f",
+      "position": "initial",
+      "phonemes": "a\u026a,t,\u00e6,p,m,a\u026a,f,\u028a,t",
+      "syllable_complexity": "4 words",
+      "processes": [
+        "Stopping"
+      ],
+      "grades": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Kindergarten Island 3.1 (Market Stand)",
+      "language": "en",
+      "language_variety": "project-english-reference"
+    },
+    {
+      "text": "a blue van",
+      "level": "phrase",
+      "target_sound": "v",
+      "position": "initial",
+      "phonemes": "\u0259,b,l,u,v,\u00e6,n",
+      "syllable_complexity": "3 words",
+      "processes": [
+        "Stopping"
+      ],
+      "grades": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Kindergarten Island 3.1 (Market Stand)",
+      "language": "en",
+      "language_variety": "project-english-reference"
+    },
+    {
+      "text": "a yellow vest",
+      "level": "phrase",
+      "target_sound": "v",
+      "position": "initial",
+      "phonemes": "\u0259,j,\u025b,l,o\u028a,v,\u025b,s,t",
+      "syllable_complexity": "3 words",
+      "processes": [
+        "Stopping"
+      ],
+      "grades": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Kindergarten Island 3.1 (Market Stand)",
+      "language": "en",
+      "language_variety": "project-english-reference"
+    },
+    {
+      "text": "in the vase",
+      "level": "phrase",
+      "target_sound": "v",
+      "position": "initial",
+      "phonemes": "\u026a,n,\u00f0,\u0259,v,e\u026a,s",
+      "syllable_complexity": "3 words",
+      "processes": [
+        "Stopping"
+      ],
+      "grades": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Kindergarten Island 3.1 (Market Stand)",
+      "language": "en",
+      "language_variety": "project-english-reference"
+    },
+    {
+      "text": "I ride the van.",
+      "level": "sentence",
+      "target_sound": "v",
+      "position": "initial",
+      "phonemes": "a\u026a,\u0279,a\u026a,d,\u00f0,\u0259,v,\u00e6,n",
+      "syllable_complexity": "4 words",
+      "processes": [
+        "Stopping"
+      ],
+      "grades": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Kindergarten Island 3.1 (Market Stand)",
+      "language": "en",
+      "language_variety": "project-english-reference"
+    },
+    {
+      "text": "The flower is in the vase.",
+      "level": "sentence",
+      "target_sound": "v",
+      "position": "initial",
+      "phonemes": "\u00f0,\u0259,f,l,a\u028a,\u0259,r,\u026a,z,\u026a,n,\u00f0,\u0259,v,e\u026a,s",
+      "syllable_complexity": "6 words",
+      "processes": [
+        "Stopping"
+      ],
+      "grades": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Kindergarten Island 3.1 (Market Stand)",
+      "language": "en",
+      "language_variety": "project-english-reference"
+    },
+    {
+      "text": "sheep",
+      "level": "word",
+      "target_sound": "\u0283",
+      "position": "initial",
+      "phonemes": "\u0283,i,p",
+      "syllable_complexity": "CVC",
+      "processes": [
+        "Stopping",
+        "Fronting"
+      ],
+      "grades": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Kindergarten Island 4.1 (Lagoon)",
+      "language": "en",
+      "language_variety": "project-english-reference"
+    },
+    {
+      "text": "a red shoe",
+      "level": "phrase",
+      "target_sound": "\u0283",
+      "position": "initial",
+      "phonemes": "\u0259,r,\u025b,d,\u0283,u",
+      "syllable_complexity": "3 words",
+      "processes": [
+        "Stopping",
+        "Fronting"
+      ],
+      "grades": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Kindergarten Island 4.1 (Lagoon)",
+      "language": "en",
+      "language_variety": "project-english-reference"
+    },
+    {
+      "text": "a big ship",
+      "level": "phrase",
+      "target_sound": "\u0283",
+      "position": "initial",
+      "phonemes": "\u0259,b,\u026a,\u0261,\u0283,\u026a,p",
+      "syllable_complexity": "3 words",
+      "processes": [
+        "Stopping",
+        "Fronting"
+      ],
+      "grades": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Kindergarten Island 4.1 (Lagoon)",
+      "language": "en",
+      "language_variety": "project-english-reference"
+    },
+    {
+      "text": "the white sheep",
+      "level": "phrase",
+      "target_sound": "\u0283",
+      "position": "initial",
+      "phonemes": "\u00f0,\u0259,w,a\u026a,t,\u0283,i,p",
+      "syllable_complexity": "3 words",
+      "processes": [
+        "Stopping",
+        "Fronting"
+      ],
+      "grades": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Kindergarten Island 4.1 (Lagoon)",
+      "language": "en",
+      "language_variety": "project-english-reference"
+    },
+    {
+      "text": "on the shore",
+      "level": "phrase",
+      "target_sound": "\u0283",
+      "position": "initial",
+      "phonemes": "\u0251,n,\u00f0,\u0259,\u0283,\u0254,\u0279",
+      "syllable_complexity": "3 words",
+      "processes": [
+        "Stopping",
+        "Fronting"
+      ],
+      "grades": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Kindergarten Island 4.1 (Lagoon)",
+      "language": "en",
+      "language_variety": "project-english-reference"
+    },
+    {
+      "text": "I tie my shoe.",
+      "level": "sentence",
+      "target_sound": "\u0283",
+      "position": "initial",
+      "phonemes": "a\u026a,t,a\u026a,m,a\u026a,\u0283,u",
+      "syllable_complexity": "4 words",
+      "processes": [
+        "Stopping",
+        "Fronting"
+      ],
+      "grades": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Kindergarten Island 4.1 (Lagoon)",
+      "language": "en",
+      "language_variety": "project-english-reference"
+    },
+    {
+      "text": "The ship sails fast.",
+      "level": "sentence",
+      "target_sound": "\u0283",
+      "position": "initial",
+      "phonemes": "\u00f0,\u0259,\u0283,\u026a,p,s,e\u026a,l,z,f,\u00e6,s,t",
+      "syllable_complexity": "4 words",
+      "processes": [
+        "Stopping",
+        "Fronting"
+      ],
+      "grades": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Kindergarten Island 4.1 (Lagoon)",
+      "language": "en",
+      "language_variety": "project-english-reference"
+    },
+    {
+      "text": "The sheep eats grass.",
+      "level": "sentence",
+      "target_sound": "\u0283",
+      "position": "initial",
+      "phonemes": "\u00f0,\u0259,\u0283,i,p,i,t,s,\u0261,\u0279,\u00e6,s",
+      "syllable_complexity": "4 words",
+      "processes": [
+        "Stopping",
+        "Fronting"
+      ],
+      "grades": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Kindergarten Island 4.1 (Lagoon)",
+      "language": "en",
+      "language_variety": "project-english-reference"
+    },
+    {
+      "text": "my thumb",
+      "level": "phrase",
+      "target_sound": "\u03b8",
+      "position": "initial",
+      "phonemes": "m,a\u026a,\u03b8,\u028c,m",
+      "syllable_complexity": "2 words",
+      "processes": [
+        "Stopping"
+      ],
+      "grades": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Kindergarten Island 1.1 (Sound Station)",
+      "language": "en",
+      "language_variety": "project-english-reference"
+    },
+    {
+      "text": "three green trees",
+      "level": "phrase",
+      "target_sound": "\u03b8",
+      "position": "initial",
+      "phonemes": "\u03b8,\u0279,i,\u0261,\u0279,i,n,t,\u0279,i,z",
+      "syllable_complexity": "3 words",
+      "processes": [
+        "Stopping",
+        "Cluster Reduction"
+      ],
+      "grades": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Kindergarten Island 1.1 (Sound Station)",
+      "language": "en",
+      "language_variety": "project-english-reference"
+    },
+    {
+      "text": "a thick book",
+      "level": "phrase",
+      "target_sound": "\u03b8",
+      "position": "initial",
+      "phonemes": "\u0259,\u03b8,\u026a,k,b,\u028a,k",
+      "syllable_complexity": "3 words",
+      "processes": [
+        "Stopping"
+      ],
+      "grades": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Kindergarten Island 1.1 (Sound Station)",
+      "language": "en",
+      "language_variety": "project-english-reference"
+    },
+    {
+      "text": "I show my thumb.",
+      "level": "sentence",
+      "target_sound": "\u03b8",
+      "position": "initial",
+      "phonemes": "a\u026a,\u0283,o\u028a,m,a\u026a,\u03b8,\u028c,m",
+      "syllable_complexity": "4 words",
+      "processes": [
+        "Stopping"
+      ],
+      "grades": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Kindergarten Island 1.1 (Sound Station)",
+      "language": "en",
+      "language_variety": "project-english-reference"
+    },
+    {
+      "text": "I count three stars.",
+      "level": "sentence",
+      "target_sound": "\u03b8",
+      "position": "initial",
+      "phonemes": "a\u026a,k,a\u028a,n,t,\u03b8,\u0279,i,s,t,\u0251,\u0279,z",
+      "syllable_complexity": "4 words",
+      "processes": [
+        "Stopping"
+      ],
+      "grades": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Kindergarten Island 1.1 (Sound Station)",
+      "language": "en",
+      "language_variety": "project-english-reference"
+    },
+    {
+      "text": "a big table",
+      "level": "phrase",
+      "target_sound": "t",
+      "position": "initial",
+      "phonemes": "\u0259,b,\u026a,\u0261,t,e\u026a,b,\u0259l",
+      "syllable_complexity": "3 words",
+      "processes": [
+        "Backing"
+      ],
+      "grades": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Kindergarten Island 1.1 (Sound Station)",
+      "language": "en",
+      "language_variety": "project-english-reference"
+    },
+    {
+      "text": "the red tomato",
+      "level": "phrase",
+      "target_sound": "t",
+      "position": "initial",
+      "phonemes": "\u00f0,\u0259,\u0279,\u025b,d,t,\u0259,m,e\u026a,t,o\u028a",
+      "syllable_complexity": "3 words",
+      "processes": [
+        "Backing",
+        "Weak Syllable Deletion"
+      ],
+      "grades": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Kindergarten Island 1.1 (Sound Station)",
+      "language": "en",
+      "language_variety": "project-english-reference"
+    },
+    {
+      "text": "touch your toe",
+      "level": "phrase",
+      "target_sound": "t",
+      "position": "initial",
+      "phonemes": "t,\u028c,t\u0283,j,\u0254,\u0279,t,o\u028a",
+      "syllable_complexity": "3 words",
+      "processes": [
+        "Backing"
+      ],
+      "grades": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Kindergarten Island 1.1 (Sound Station)",
+      "language": "en",
+      "language_variety": "project-english-reference"
+    },
+    {
+      "text": "tap the top",
+      "level": "phrase",
+      "target_sound": "t",
+      "position": "initial",
+      "phonemes": "t,\u00e6,p,\u00f0,\u0259,t,\u0251,p",
+      "syllable_complexity": "3 words",
+      "processes": [
+        "Backing"
+      ],
+      "grades": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Kindergarten Island 1.1 (Sound Station)",
+      "language": "en",
+      "language_variety": "project-english-reference"
+    },
+    {
+      "text": "I tap on the table.",
+      "level": "sentence",
+      "target_sound": "t",
+      "position": "initial",
+      "phonemes": "a\u026a,t,\u00e6,p,\u0251,n,\u00f0,\u0259,t,e\u026a,b,\u0259l",
+      "syllable_complexity": "5 words",
+      "processes": [
+        "Backing"
+      ],
+      "grades": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Kindergarten Island 1.1 (Sound Station)",
+      "language": "en",
+      "language_variety": "project-english-reference"
+    },
+    {
+      "text": "I eat a red tomato.",
+      "level": "sentence",
+      "target_sound": "t",
+      "position": "initial",
+      "phonemes": "a\u026a,i,t,\u0259,\u0279,\u025b,d,t,\u0259,m,e\u026a,t,o\u028a",
+      "syllable_complexity": "5 words",
+      "processes": [
+        "Backing"
+      ],
+      "grades": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Kindergarten Island 1.1 (Sound Station)",
+      "language": "en",
+      "language_variety": "project-english-reference"
+    },
+    {
+      "text": "a little dog",
+      "level": "phrase",
+      "target_sound": "d",
+      "position": "initial",
+      "phonemes": "\u0259,l,\u026a,t,\u0259l,d,\u0254,\u0261",
+      "syllable_complexity": "3 words",
+      "processes": [
+        "Backing"
+      ],
+      "grades": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Kindergarten Island 1.1 (Sound Station)",
+      "language": "en",
+      "language_variety": "project-english-reference"
+    },
+    {
+      "text": "open the door",
+      "level": "phrase",
+      "target_sound": "d",
+      "position": "initial",
+      "phonemes": "o\u028a,p,\u0259n,\u00f0,\u0259,d,\u0254,\u0279",
+      "syllable_complexity": "3 words",
+      "processes": [
+        "Backing"
+      ],
+      "grades": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Kindergarten Island 1.1 (Sound Station)",
+      "language": "en",
+      "language_variety": "project-english-reference"
+    },
+    {
+      "text": "the happy duck",
+      "level": "phrase",
+      "target_sound": "d",
+      "position": "initial",
+      "phonemes": "\u00f0,\u0259,h,\u00e6,p,i,d,\u028c,k",
+      "syllable_complexity": "3 words",
+      "processes": [
+        "Backing"
+      ],
+      "grades": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Kindergarten Island 1.1 (Sound Station)",
+      "language": "en",
+      "language_variety": "project-english-reference"
+    },
+    {
+      "text": "The dog barks loud.",
+      "level": "sentence",
+      "target_sound": "d",
+      "position": "initial",
+      "phonemes": "\u00f0,\u0259,d,\u0254,\u0261,b,\u0251,\u0279,k,s,l,a\u028a,d",
+      "syllable_complexity": "4 words",
+      "processes": [
+        "Backing"
+      ],
+      "grades": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Kindergarten Island 1.1 (Sound Station)",
+      "language": "en",
+      "language_variety": "project-english-reference"
+    },
+    {
+      "text": "The duck swims fast.",
+      "level": "sentence",
+      "target_sound": "d",
+      "position": "initial",
+      "phonemes": "\u00f0,\u0259,d,\u028c,k,s,w,\u026a,m,z,f,\u00e6,s,t",
+      "syllable_complexity": "4 words",
+      "processes": [
+        "Backing"
+      ],
+      "grades": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Kindergarten Island 1.1 (Sound Station)",
+      "language": "en",
+      "language_variety": "project-english-reference"
+    },
+    {
+      "text": "go",
+      "level": "word",
+      "target_sound": "\u0261",
+      "position": "initial",
+      "phonemes": "\u0261,o\u028a",
+      "syllable_complexity": "CV",
+      "processes": [
+        "Fronting"
+      ],
+      "grades": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Kindergarten Island 1.1 (Sound Station)",
+      "language": "en",
+      "language_variety": "project-english-reference"
+    },
+    {
+      "text": "gate",
+      "level": "word",
+      "target_sound": "\u0261",
+      "position": "initial",
+      "phonemes": "\u0261,e\u026a,t",
+      "syllable_complexity": "CVC",
+      "processes": [
+        "Fronting"
+      ],
+      "grades": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Kindergarten Island 1.1 (Sound Station)",
+      "language": "en",
+      "language_variety": "project-english-reference"
+    },
+    {
+      "text": "a green gate",
+      "level": "phrase",
+      "target_sound": "\u0261",
+      "position": "initial",
+      "phonemes": "\u0259,\u0261,r,i,n,\u0261,e\u026a,t",
+      "syllable_complexity": "3 words",
+      "processes": [
+        "Fronting"
+      ],
+      "grades": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Kindergarten Island 1.1 (Sound Station)",
+      "language": "en",
+      "language_variety": "project-english-reference"
+    },
+    {
+      "text": "a big girl",
+      "level": "phrase",
+      "target_sound": "\u0261",
+      "position": "initial",
+      "phonemes": "\u0259,b,\u026a,\u0261,\u0261,\u025d,l",
+      "syllable_complexity": "3 words",
+      "processes": [
+        "Fronting"
+      ],
+      "grades": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Kindergarten Island 1.1 (Sound Station)",
+      "language": "en",
+      "language_variety": "project-english-reference"
+    },
+    {
+      "text": "The girl opens the gate.",
+      "level": "sentence",
+      "target_sound": "\u0261",
+      "position": "initial",
+      "phonemes": "\u00f0,\u0259,\u0261,\u025d,l,o\u028a,p,\u0259n,z,\u00f0,\u0259,\u0261,e\u026a,t",
+      "syllable_complexity": "5 words",
+      "processes": [
+        "Fronting"
+      ],
+      "grades": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Kindergarten Island 1.1 (Sound Station)",
+      "language": "en",
+      "language_variety": "project-english-reference"
     }
   ],
   "metadata": {

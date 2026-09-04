@@ -1,58 +1,42 @@
-"""Dynamic Modules Service — FastAPI app (port 8002).
+"""FastAPI adapter for validated, text-only dynamic learning modules."""
 
-POST /module — builds a personalized practice module from the child's
-AGE and the DETECTED PHONEME PROCESSES (multiple) returned by the
-phoneme service.  OpenCode Zen (DeepSeek V4 Flash Free) makes the
-humanlike decision; rule-based fallback when the LLM is unavailable.
-"""
-
-import sys
-import subprocess
 import logging
-
-# Windows UTF-8 workaround (IPA/JSON payloads break without it)
-if not sys.flags.utf8_mode:
-    subprocess.call([sys.executable, "-X", "utf8"] + sys.argv)
-    sys.exit()
-
-import json
 import os
+import sys
+from functools import lru_cache
+from typing import Annotated
+
 import uvicorn
-
-from typing import Optional
-
-from fastapi import FastAPI, Form, HTTPException
+from fastapi import Depends, FastAPI, Form, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from pydantic import BaseModel, ConfigDict, Field, TypeAdapter, ValidationError
 
-_PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-if _PROJECT_ROOT not in sys.path:
-    sys.path.insert(0, _PROJECT_ROOT)
+_SERVICE_ROOT = os.path.dirname(os.path.abspath(__file__))
+if _SERVICE_ROOT not in sys.path:
+    sys.path.insert(0, _SERVICE_ROOT)
 
 
 def _load_dotenv(path=None) -> None:
-    """Minimal .env loader — mirrors docker-compose ``env_file`` behavior
-    so local runs see ZEN_API_KEY exactly like the container does.
-
-    Checks the service directory first, then the repo root (where
-    docker-compose reads ``env_file: .env`` from)."""
-    service_root = os.path.dirname(os.path.abspath(__file__))
-    candidates = [path, os.path.join(service_root, ".env"),
-                  os.path.join(os.path.dirname(service_root), ".env")]
-    for candidate in candidates:
-        if candidate and os.path.exists(candidate):
-            path = candidate
-            break
-    else:
+    candidates = [
+        path,
+        os.path.join(_SERVICE_ROOT, ".env"),
+        os.path.join(os.path.dirname(_SERVICE_ROOT), ".env"),
+    ]
+    selected = next(
+        (candidate for candidate in candidates if candidate and os.path.exists(candidate)),
+        None,
+    )
+    if selected is None:
         return
-    with open(path, encoding="utf-8") as f:
-        for line in f:
-            line = line.strip()
+    with open(selected, encoding="utf-8") as env_file:
+        for raw_line in env_file:
+            line = raw_line.strip()
             if not line or line.startswith("#") or "=" not in line:
                 continue
             key, _, value = line.partition("=")
             key = key.strip()
             value = value.strip().strip('"').strip("'")
-            if key and not os.environ.get(key):
+            if key and key not in os.environ:
                 os.environ[key] = value
 
 
@@ -63,91 +47,115 @@ try:
 except ImportError:
     from config import config
 from models import AssessmentFindings, DetectedProcess
-from service import ModuleService, NoFindingsError, NoOutlineError
+from security import require_authenticated_user
+from service import ModuleService, NoContentError, NoFindingsError, NoOutlineError
 
-logging.basicConfig(level=logging.INFO,
-                    format="%(asctime)s [%(levelname)s] %(name)s: %(message)s")
+config.validate_runtime()
 
-app = FastAPI(title="Dynamic Modules Service", version="1.0.0")
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
+)
+
+
+class DetectedProcessPayload(BaseModel):
+    """Strict form-JSON shape accepted from the phoneme client."""
+
+    model_config = ConfigDict(extra="forbid", str_strip_whitespace=True)
+
+    process: str = Field(min_length=1, max_length=80)
+    position: str = Field(default="", max_length=40)
+    detail: str = Field(default="", max_length=300)
+    target_sound: str | None = Field(default=None, max_length=24)
+
+
+_processes_adapter = TypeAdapter(list[DetectedProcessPayload])
+
+app = FastAPI(title="Dynamic Modules Service", version="1.1.0")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=config.cors_origins,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_methods=["GET", "POST"],
+    allow_headers=["Authorization", "Content-Type"],
     allow_credentials=False,
 )
 
 
+@lru_cache(maxsize=1)
 def make_service() -> ModuleService:
-    from data import GradeDocuments, MockOutlines, MockWordBank
+    """Load and validate immutable content once per process."""
+
+    from data import GradeDocuments, MockOutlines, MockWordBank, ModuleCatalog
+
     bank = MockWordBank()
+    module_catalog = ModuleCatalog()
+    module_catalog.validate_layout()
     return ModuleService(
         outlines=MockOutlines(bank),
         bank=bank,
         grade_documents=GradeDocuments(),
+        module_catalog=module_catalog,
     )
 
 
-# ---------------------------------------------------------------------------
-# API endpoint
-# ---------------------------------------------------------------------------
-
 @app.post("/module")
 def create_module(
-    age: int = Form(...),
-    processes: str = Form(...),
-    grade: Optional[str] = Form(None),
+    age: Annotated[int, Form(ge=4, le=8)],
+    processes: Annotated[str, Form(min_length=2)],
+    grade: Annotated[str | None, Form(max_length=32)] = None,
+    _user_id: Annotated[
+        str | None, Depends(require_authenticated_user)
+    ] = None,
 ):
-    """Build a personalized practice module from age + grade + detected processes.
+    """Build a module from age, grade, and detected-process JSON."""
 
-    Parameters
-    ----------
-    age : int
-        Child's age in years.
-    processes : str
-        JSON array of detected processes, e.g.
-        ``[{"process": "Fronting", "position": "Initial",
-            "detail": "/k/ -> [t]"}]``
-        (the target phoneme is derived from the detail string).
-    grade : Optional[str]
-        Child's grade level in text: "Kinder", "Grade 1", "Grade 2", "Grade 3".
-        If omitted, automatically inferred from age.
-
-    Returns
-    -------
-    dict with ``module_id``, ``grade``, ``focus_sounds``, ``focus_processes``,
-    ``outline_id``, ``outline_title``, ``levels`` (syllable -> word ->
-    phrase -> sentence items), ``rationale``, ``generated_by``.
-    """
+    if len(processes.encode("utf-8")) > config.max_processes_json_bytes:
+        raise HTTPException(status_code=413, detail="Detected-process payload is too large.")
     try:
-        processes_data = json.loads(processes)
-    except json.JSONDecodeError as exc:
-        raise HTTPException(status_code=400,
-                            detail=f"processes is not valid JSON: {exc}") from exc
+        process_payloads = _processes_adapter.validate_json(processes)
+    except ValidationError as exc:
+        raise HTTPException(
+            status_code=400,
+            detail="processes must be a JSON array of valid detected-process objects.",
+        ) from exc
+    if len(process_payloads) > config.max_detected_processes:
+        raise HTTPException(
+            status_code=400,
+            detail=f"At most {config.max_detected_processes} detected processes are allowed.",
+        )
 
     findings = AssessmentFindings(
         age=age,
         grade=grade,
         processes=tuple(
             DetectedProcess(
-                process=p.get("process", ""),
-                position=p.get("position", ""),
-                detail=p.get("detail", ""),
-                target_sound=p.get("target_sound"),
+                process=payload.process,
+                position=payload.position,
+                detail=payload.detail,
+                target_sound=payload.target_sound,
             )
-            for p in processes_data
+            for payload in process_payloads
         ),
     )
-
     try:
         module = make_service().build_module(findings)
     except (NoFindingsError, NoOutlineError) as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
+    except NoContentError as exc:
+        raise HTTPException(status_code=422, detail=str(exc)) from exc
 
+    atypical_processes = {
+        "Initial Consonant Deletion",
+        "Medial Consonant Deletion",
+        "Backing",
+        "Liquidization",
+        "Frication",
+        "Denasalization",
+    }
     return {
         "module_id": module.module_id,
         "grade": module.grade,
-        "focus_sounds": [s.sound for s in module.focus_sounds],
+        "focus_sounds": [sound.sound for sound in module.focus_sounds],
         "focus_processes": module.focus_processes,
         "outline_id": module.outline_id,
         "outline_title": module.outline_title,
@@ -155,8 +163,14 @@ def create_module(
             {
                 "level": level.value,
                 "items": [
-                    {"text": item.text, "target_sound": item.target_sound,
-                     "position": item.position}
+                    {
+                        "text": item.text,
+                        "assessment_text": item.text,
+                        "target_sound": item.target_sound,
+                        "position": item.position,
+                        "language": item.language,
+                        "language_variety": item.language_variety,
+                    }
                     for item in items
                 ],
             }
@@ -164,26 +178,38 @@ def create_module(
         ],
         "rationale": module.rationale,
         "generated_by": module.generated_by,
-        "atypical_flag": "CLINICAL ADVISORY" in (module.rationale or "") or getattr(module, "atypical_flag", False),
+        "review_recommended": any(
+            process in atypical_processes for process in module.focus_processes
+        ),
+        # Backward-compatible internal routing alias; not a diagnosis.
+        "atypical_flag": any(
+            process in atypical_processes for process in module.focus_processes
+        ),
         "warning": module.warning,
     }
 
 
 @app.get("/")
 def root():
-    return {"service": "Voice Voyage Dynamic Modules Service", "status": "online", "provider": config.llm_provider, "model": config.llm_model}
+    return {
+        "service": "Voice Voyage Dynamic Modules Service",
+        "status": "online",
+    }
 
 
 @app.get("/health")
 def health():
-    return {"status": "ok", "service": "dynamic-modules",
-            "provider": config.llm_provider, "model": config.llm_model}
+    return {
+        "status": "ok",
+        "service": "dynamic-modules",
+        "provider": config.llm_provider,
+        "model": config.llm_model,
+    }
 
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", config.port))
     uvicorn.run(
         app,
         host=config.host,
-        port=port,
+        port=int(os.environ.get("PORT", config.port)),
     )

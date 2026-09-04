@@ -8,6 +8,7 @@
         "k"
       ],
       "grades": [
+        0,
         1,
         2,
         3
@@ -22,6 +23,7 @@
         "\u0261"
       ],
       "grades": [
+        0,
         1,
         2,
         3
@@ -36,6 +38,7 @@
         "t"
       ],
       "grades": [
+        0,
         1,
         2
       ],
@@ -49,6 +52,7 @@
         "d"
       ],
       "grades": [
+        0,
         1,
         2
       ],
@@ -62,6 +66,7 @@
         "s"
       ],
       "grades": [
+        0,
         1,
         2,
         3
@@ -76,6 +81,7 @@
         "z"
       ],
       "grades": [
+        0,
         1,
         2,
         3
@@ -90,6 +96,7 @@
         "f"
       ],
       "grades": [
+        0,
         1,
         2
       ],
@@ -103,6 +110,7 @@
         "v"
       ],
       "grades": [
+        0,
         1,
         2
       ],
@@ -116,6 +124,7 @@
         "\u0283"
       ],
       "grades": [
+        0,
         1,
         2
       ],
@@ -129,6 +138,7 @@
         "\u0292"
       ],
       "grades": [
+        0,
         3
       ],
       "gameplay_level": "Grade 3 Island 1.1 (Regional Word Explorer)"
@@ -142,6 +152,7 @@
         "\u00f0"
       ],
       "grades": [
+        0,
         1,
         3
       ],
@@ -155,6 +166,7 @@
         "l"
       ],
       "grades": [
+        0,
         1,
         2
       ],
@@ -168,6 +180,7 @@
         "r"
       ],
       "grades": [
+        0,
         1,
         2
       ],
@@ -181,6 +194,7 @@
         "t\u0283"
       ],
       "grades": [
+        0,
         1,
         2
       ],
@@ -194,6 +208,7 @@
         "d\u0292"
       ],
       "grades": [
+        0,
         1,
         2
       ],
@@ -207,6 +222,7 @@
         "\u0283"
       ],
       "grades": [
+        0,
         1,
         2
       ],
@@ -223,6 +239,7 @@
         "s"
       ],
       "grades": [
+        0,
         1,
         2,
         3
@@ -241,6 +258,7 @@
         "l"
       ],
       "grades": [
+        0,
         1,
         2
       ],
@@ -261,6 +279,7 @@
         "r"
       ],
       "grades": [
+        0,
         1,
         2,
         3
@@ -296,6 +315,7 @@
         "h"
       ],
       "grades": [
+        0,
         1,
         2,
         3
@@ -328,6 +348,7 @@
         "r"
       ],
       "grades": [
+        0,
         1,
         2,
         3
@@ -353,6 +374,7 @@
       "focus_process": "Syllable Reduction",
       "target_sounds": [],
       "grades": [
+        0,
         1,
         2,
         3
@@ -372,6 +394,7 @@
         "d\u0292"
       ],
       "grades": [
+        0,
         1,
         2
       ],
@@ -389,6 +412,7 @@
         "z"
       ],
       "grades": [
+        0,
         1,
         2
       ],
@@ -407,6 +431,7 @@
         "\u0283"
       ],
       "grades": [
+        0,
         1,
         2
       ],
@@ -421,6 +446,7 @@
         "n"
       ],
       "grades": [
+        0,
         1,
         2
       ],
@@ -435,10 +461,153 @@
         "r"
       ],
       "grades": [
+        0,
         1,
         2
       ],
       "gameplay_level": "Grade 1 Island 1.3 (Rhyme Time Porch)"
+    },
+    {
+      "id": "affrication",
+      "title": "Affrication: /\u0283, s/ practice",
+      "focus_process": "Affrication",
+      "target_sounds": [
+        "\u0283",
+        "s"
+      ],
+      "grades": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Kindergarten Island 1.1 (Name & Letter Station)"
+    },
+    {
+      "id": "reduplication",
+      "title": "Reduplication: Multisyllabic Sequence practice",
+      "focus_process": "Reduplication",
+      "target_sounds": [
+        "w",
+        "b",
+        "d",
+        "p"
+      ],
+      "grades": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Kindergarten Island 1.4 (Syllable Bridge Crossing)"
+    },
+    {
+      "id": "consonant-harmony",
+      "title": "Consonant Harmony: Assimilation contrast practice",
+      "focus_process": "Consonant Harmony",
+      "target_sounds": [
+        "d",
+        "t",
+        "k",
+        "\u0261",
+        "b"
+      ],
+      "grades": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Kindergarten Island 1.1 (Name & Letter Station)"
+    },
+    {
+      "id": "medial-consonant-deletion",
+      "title": "Medial Consonant Deletion: Intervocalic consonant practice",
+      "focus_process": "Medial Consonant Deletion",
+      "target_sounds": [
+        "p",
+        "b",
+        "t",
+        "d",
+        "k",
+        "\u0261",
+        "m",
+        "n",
+        "f",
+        "v",
+        "s",
+        "z",
+        "l",
+        "r"
+      ],
+      "grades": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Kindergarten Island 2.2 (Body Parts Puzzle)"
+    },
+    {
+      "id": "frication",
+      "title": "Frication: Stop and nasal contrast practice",
+      "focus_process": "Frication",
+      "target_sounds": [
+        "p",
+        "b",
+        "t",
+        "d",
+        "k",
+        "\u0261",
+        "m",
+        "n"
+      ],
+      "grades": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Kindergarten Island 1.1 (Name & Letter Station)"
+    },
+    {
+      "id": "liquidization",
+      "title": "Liquidization: Stop and fricative contrast practice",
+      "focus_process": "Liquidization",
+      "target_sounds": [
+        "s",
+        "z",
+        "f",
+        "v",
+        "t",
+        "d"
+      ],
+      "grades": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Kindergarten Island 2.1 (Emotion Mirror Lagoon)"
+    },
+    {
+      "id": "general-articulation",
+      "title": "General Articulation: Speech Champion Baseline",
+      "focus_process": "Speech Intelligibility & Enrichment",
+      "target_sounds": [
+        "s",
+        "r",
+        "l",
+        "t",
+        "k"
+      ],
+      "grades": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "gameplay_level": "Kindergarten Island 5.4 (Grand Story Ceremony)"
     }
   ]
 }

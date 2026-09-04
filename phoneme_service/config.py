@@ -12,6 +12,14 @@ import os
 from dataclasses import dataclass, field
 
 
+def _csv_env(name: str, default: str = "") -> list[str]:
+    return [
+        value.strip()
+        for value in os.environ.get(name, default).split(",")
+        if value.strip()
+    ]
+
+
 @dataclass
 class AudioConfig:
     """Audio processing configuration."""
@@ -24,6 +32,12 @@ class AudioConfig:
     min_rms: float = 0.01           # Minimum RMS (float32) for speech-level volume
     max_clipping_ratio: float = 0.10  # Max proportion of samples at ±1.0
     min_duration_sec: float = 0.3    # Minimum recording length in seconds (lowered for quick CV syllables like "PA", "BA")
+    max_duration_sec: float = field(
+        default_factory=lambda: float(os.environ.get("MAX_AUDIO_DURATION_SEC", "12"))
+    )
+    max_upload_bytes: int = field(
+        default_factory=lambda: int(os.environ.get("MAX_AUDIO_UPLOAD_BYTES", "10485760"))
+    )
     min_speech_ratio: float = 0.05   # Min proportion of audio that should be speech
 
 
@@ -55,7 +69,42 @@ class ServerConfig:
     """FastAPI server configuration."""
     host: str = "0.0.0.0"
     port: int = 8001
-    cors_origins: list = field(default_factory=lambda: ["*"])
+    environment: str = field(
+        default_factory=lambda: os.environ.get("APP_ENV", "development").strip().lower()
+    )
+    cors_origins: list[str] = field(
+        default_factory=lambda: _csv_env(
+            "CORS_ORIGINS", "http://127.0.0.1,http://localhost"
+        )
+    )
+    auth_mode: str = field(
+        default_factory=lambda: os.environ.get("VV_AUTH_MODE", "off").strip().lower()
+    )
+    api_token_env: str = "VV_API_TOKEN"
+
+    @property
+    def is_production(self) -> bool:
+        return self.environment in {"production", "prod"}
+
+    def validate_runtime(self) -> None:
+        if self.auth_mode not in {"off", "firebase", "token"}:
+            raise RuntimeError(
+                "VV_AUTH_MODE must be one of: off, firebase, token"
+            )
+        if "*" in self.cors_origins:
+            raise RuntimeError("Wildcard CORS origins are not permitted")
+        if self.is_production and any(
+            not origin.startswith("https://") for origin in self.cors_origins
+        ):
+            raise RuntimeError("Production CORS origins must use HTTPS")
+        if self.is_production and self.auth_mode not in {"firebase", "token"}:
+            raise RuntimeError(
+                "Production requires VV_AUTH_MODE=firebase or VV_AUTH_MODE=token"
+            )
+        if self.auth_mode == "token" and not os.environ.get(self.api_token_env):
+            raise RuntimeError(
+                f"{self.api_token_env} must be set when VV_AUTH_MODE=token"
+            )
 
 
 @dataclass

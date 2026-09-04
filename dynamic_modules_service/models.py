@@ -9,7 +9,7 @@ from typing import Optional
 
 
 class PracticeLevel(str, Enum):
-    """The four practice levels of a module, in clinical progression order."""
+    """The four text-complexity levels of an educational practice module."""
     SYLLABLE = "syllable"
     WORD = "word"
     PHRASE = "phrase"
@@ -79,6 +79,8 @@ class PracticeItem:
     grades: tuple[int, ...] = (1,)
     # Gameplay island/level reference from the grade-level docs.
     gameplay_level: str = ""
+    language: str = "en"
+    language_variety: str = "project-english-reference"
 
 
 @dataclass(frozen=True)

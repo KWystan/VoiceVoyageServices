@@ -28,7 +28,10 @@ __pycache__/
 archive/
 
 # ---- Dev scripts (not part of the flow) ----
-scripts/
+scripts/*
+!scripts/
+!scripts/sync_word_bank_catalog.py
+tools/
 
 # ---- Test suite (kept local by request; not shipped) ----
 tests/
@@ -36,20 +39,10 @@ tests/
 # ---- Simulation records & runs (local only) ----
 records/
 
-# ---- Design docs & generated data dumps (regenerable, not runtime) ----
-docs/
-
-# ---- Large local model artifacts ----
-models/
-
-# ---- Temp / junk ----
+# ---- Temp / junk & logs ----
 main.py.tmp
 *.tmp
-
-# ---- Package marker files (untracked by request) ----
-# WARNING: a fresh clone is missing __init__.py by design; all imports are
-# submodule-style so the services still boot (namespace packages).
-__init__.py
+*.log
 
 # ---- OS noise ----
 Thumbs.db

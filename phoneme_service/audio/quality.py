@@ -63,16 +63,26 @@ def check_duration(samples: int, sr: int) -> dict:
     child's attempt.
     """
     min_sec = config.audio.min_duration_sec
+    max_sec = config.audio.max_duration_sec
     duration_sec = samples / sr
-    passed = duration_sec >= min_sec
-    return {
-        "check": "duration",
-        "passed": bool(passed),
-        "message": (
+    passed = min_sec <= duration_sec <= max_sec
+    if duration_sec < min_sec:
+        message = (
             f"Recording too short — {duration_sec:.1f}s, "
             f"minimum {min_sec:.1f}s required. "
             "Wait for the recording to finish before stopping."
-        ) if not passed else f"Duration is adequate ({duration_sec:.1f}s).",
+        )
+    elif duration_sec > max_sec:
+        message = (
+            f"Recording too long — {duration_sec:.1f}s, "
+            f"maximum {max_sec:.1f}s allowed."
+        )
+    else:
+        message = f"Duration is adequate ({duration_sec:.1f}s)."
+    return {
+        "check": "duration",
+        "passed": bool(passed),
+        "message": message,
         "value": round(duration_sec, 1),
     }
 
